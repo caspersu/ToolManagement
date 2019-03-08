@@ -1,0 +1,29 @@
+ERROR 2019-02-28 20:41:02,772 [logerror] [InsertPRD3_Status]  10.120.90.39 Fail :
+System.Data.SqlClient.SqlException (0x80131904): ¦b±µ¦¬¨Ó¦Û¦øªA¾¹ªº­n¨D®Éµo¥Í¶Ç¿é¼h¯Åªº¿ù»~¡C (provider: Session Provider, error: 19 - ¹êÅé³s±µ¤£¥i¥Î)
+   ©ó CNC_Transfer.Readfile.SqlBulkCopyByDatatable(String connectionString, String TableName, DataTable dt) ©ó D:\project\Src\¥¨Ä_\CNC_Transfer\CNC_Transfer\Readfile.cs: ¦æ 537
+   ©ó CNC_Transfer.Readfile.InsertPRD3_Status(String ip, String filename, String Create_DT) ©ó D:\project\Src\¥¨Ä_\CNC_Transfer\CNC_Transfer\Readfile.cs: ¦æ 274
+ClientConnectionId:9b0601da-ac56-4816-98c7-78f00c85fb28
+Error Number:-1,State:0,Class:20
+ERROR 2019-02-28 20:41:10,907 [logerror] [CalcTime][1][2019/02/25 ~ [2019/02/26]] Fail !
+System.Data.SqlClient.SqlException (0x80131904): ?¤Jªºªí®æ®æ¦¡?Õu¬y(TDS)?µ{?µ{?¥Î(RPC)??¬y¤£¥¿ÚÌ¡C?? 3 ("´sÖrÃk????Õë·ï´s?Îà?´s??????@ip”£?D??¡@???¡@??¡@????@type”£?D???@startdate”£?D??¡@???¡@?????@enddate”£?D??¡@???¡@???"): ?Õu?«¬ 0x36 ¥¼ª¾¡C
+   ©ó System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   ©ó System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   ©ó System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   ©ó System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   ©ó System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   ©ó System.Data.SqlClient.SqlDataReader.get_MetaData()
+   ©ó System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   ©ó System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   ©ó System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   ©ó System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   ©ó System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   ©ó System.Data.SqlClient.SqlCommand.ExecuteReader()
+   ©ó CNC_Transfer.Program.CalcTime(String Create_DT, String type, String ip, String startdate, String enddate) ©ó D:\project\Src\¥¨Ä_\CNC_Transfer\CNC_Transfer\Program.cs: ¦æ 176
+ClientConnectionId:48cd2f2b-6b8e-41fe-87d7-cbe7bac0642d
+Error Number:8009,State:1,Class:16
+ERROR 2019-02-28 20:41:25,319 [logerror] [InsertLOG]  10.120.90.39 Fail :
+System.Data.SqlClient.SqlException (0x80131904): ? bcp «È?ºÝ¦¬¨ì¤@?? colid 2 ?®Äªº¦C?«×¡C
+   ©ó CNC_Transfer.Readfile.SqlBulkCopyByDatatable(String connectionString, String TableName, DataTable dt) ©ó D:\project\Src\¥¨Ä_\CNC_Transfer\CNC_Transfer\Readfile.cs: ¦æ 537
+   ©ó CNC_Transfer.Readfile.InsertLOG(String ip, String filename, String Create_DT) ©ó D:\project\Src\¥¨Ä_\CNC_Transfer\CNC_Transfer\Readfile.cs: ¦æ 501
+ClientConnectionId:30882eac-aeba-4373-a6d1-1f6795bae433
+Error Number:4815,State:1,Class:17

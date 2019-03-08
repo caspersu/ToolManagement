@@ -1,0 +1,17 @@
+D:\project\Src\巨寶\Tool_Management\Tool_Management.Service\obj\Debug\Tool_Management.Service.csprojResolveAssemblyReference.cache
+D:\project\Src\巨寶\Tool_Management\Tool_Management.Service\bin\Debug\Tool_Management.Service.dll
+D:\project\Src\巨寶\Tool_Management\Tool_Management.Service\bin\Debug\Tool_Management.Service.pdb
+D:\project\Src\巨寶\Tool_Management\Tool_Management.Service\bin\Debug\Kendo.Mvc.dll
+D:\project\Src\巨寶\Tool_Management\Tool_Management.Service\bin\Debug\System.Web.Mvc.dll
+D:\project\Src\巨寶\Tool_Management\Tool_Management.Service\bin\Debug\System.Web.WebPages.dll
+D:\project\Src\巨寶\Tool_Management\Tool_Management.Service\bin\Debug\System.Web.WebPages.Razor.dll
+D:\project\Src\巨寶\Tool_Management\Tool_Management.Service\bin\Debug\System.Web.Razor.dll
+D:\project\Src\巨寶\Tool_Management\Tool_Management.Service\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\project\Src\巨寶\Tool_Management\Tool_Management.Service\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\project\Src\巨寶\Tool_Management\Tool_Management.Service\bin\Debug\System.Web.Mvc.xml
+D:\project\Src\巨寶\Tool_Management\Tool_Management.Service\bin\Debug\System.Web.WebPages.xml
+D:\project\Src\巨寶\Tool_Management\Tool_Management.Service\bin\Debug\System.Web.WebPages.Razor.xml
+D:\project\Src\巨寶\Tool_Management\Tool_Management.Service\bin\Debug\System.Web.Razor.xml
+D:\project\Src\巨寶\Tool_Management\Tool_Management.Service\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\project\Src\巨寶\Tool_Management\Tool_Management.Service\obj\Debug\Tool_Management.Service.dll
+D:\project\Src\巨寶\Tool_Management\Tool_Management.Service\obj\Debug\Tool_Management.Service.pdb

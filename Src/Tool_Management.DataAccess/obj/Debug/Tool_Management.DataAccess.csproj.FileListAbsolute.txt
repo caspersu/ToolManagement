@@ -1,0 +1,10 @@
+D:\project\Src\巨寶\Tool_Management\Tool_Management.DataAccess\bin\Debug\Tool_Management.DataAccess.dll.config
+D:\project\Src\巨寶\Tool_Management\Tool_Management.DataAccess\bin\Debug\Tool_Management.DataAccess.dll
+D:\project\Src\巨寶\Tool_Management\Tool_Management.DataAccess\bin\Debug\Tool_Management.DataAccess.pdb
+D:\project\Src\巨寶\Tool_Management\Tool_Management.DataAccess\bin\Debug\EntityFramework.dll
+D:\project\Src\巨寶\Tool_Management\Tool_Management.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+D:\project\Src\巨寶\Tool_Management\Tool_Management.DataAccess\bin\Debug\EntityFramework.xml
+D:\project\Src\巨寶\Tool_Management\Tool_Management.DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+D:\project\Src\巨寶\Tool_Management\Tool_Management.DataAccess\bin\Debug\zh-Hant\EntityFramework.resources.dll
+D:\project\Src\巨寶\Tool_Management\Tool_Management.DataAccess\obj\Debug\Tool_Management.DataAccess.dll
+D:\project\Src\巨寶\Tool_Management\Tool_Management.DataAccess\obj\Debug\Tool_Management.DataAccess.pdb

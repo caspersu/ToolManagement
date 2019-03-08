@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d195033810ed47e3b6c9db28d2156ab1" Name="Diagram1">
+        <EntityTypeShape EntityType="ToolManagementModel.Cabin" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.CNC_Alarm_Code_Mapping" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.CNC_ALARM_Log" Width="1.5" PointX="18" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.CNC_ATCTL_Log" Width="1.5" PointX="21" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.CNC_PRD3_Log" Width="1.5" PointX="18" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.CNC_PRDC2_Log" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.CNC_StatusHistory" Width="1.5" PointX="10.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.CNC_Ver_Log" Width="1.5" PointX="18" PointY="33.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.CNC_WKCNTR_Log" Width="1.5" PointX="18" PointY="36" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.CNCDetail" Width="1.5" PointX="8.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.CNCKnifeList" Width="1.5" PointX="10.5" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.CNCMaster" Width="1.5" PointX="6" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.CNCMonitor" Width="1.5" PointX="15.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.Collet1Detail" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.Collet1Master" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.Collet2Detail" Width="1.5" PointX="3" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.Collet2Master" Width="1.5" PointX="0.75" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.Employe" Width="1.5" PointX="13.5" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.ExtRodDetail" Width="1.5" PointX="15" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.ExtRodMaster" Width="1.5" PointX="12.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.Good" Width="1.5" PointX="8.25" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.HiltDetail" Width="1.5" PointX="3" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.HiltMaster" Width="1.5" PointX="0.75" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.Inform" Width="1.5" PointX="13.5" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.KnifeChangeFrom" Width="1.5" PointX="10.5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.KnifeDetail" Width="1.5" PointX="3" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.KnifeList" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.KnifeMaster" Width="1.5" PointX="0.75" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.KnifeUseLog" Width="1.5" PointX="5.25" PointY="23" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.MeasureDetail" Width="1.5" PointX="3" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.MeasureMaster" Width="1.5" PointX="0.75" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.Model" Width="1.5" PointX="3" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.NailDetail" Width="1.5" PointX="3" PointY="33.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.NailMaster" Width="1.5" PointX="0.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.NutDetail" Width="1.5" PointX="3" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.NutMaster" Width="1.5" PointX="0.75" PointY="37.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.OutFrom" Width="1.5" PointX="13.5" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.ProductionPlan" Width="1.5" PointX="15.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.Stock" Width="1.5" PointX="6" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.StockDetail" Width="1.5" PointX="8.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.vCNC_Alarm_Log" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToolManagementModel.vCNC_Monitor" Width="1.5" PointX="15.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="ToolManagementModel.FK_CNC_ALARM_Log_CNCMonitor" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_CNC_ATCTL_Log_CNCMonitor" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_CNC_ATCTL_Log_KnifeDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_CNC_PRD3_Log_CNCMonitor" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_CNC_Ver_Log_CNCMonitor" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_CNC_WKCNTR_Log_CNCMonitor" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_CNCDetail_CNCMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_CNCList_CNCDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_CNCKnifeList_KnifeList" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_CNCList_Good" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_ProductionPlan_CNCKnifeList" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_Collet1Detail_Collet1Master" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_KnifeList_Collet1Detail" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_StockDetail_Collet1Detail" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_Collet2Detail_Collet2Master" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_KnifeList_Collet2Detail" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_StockDetail_Collet2Detail" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_Inform_Employe" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_KnifeChangeFrom_Employe1" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_OutFrom_Employe" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_ProductionPlan_Employe" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_ExtensionRodDetail_ExtensionRodMaster1" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_HiltDetail_HiltMaster1" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_StockDetail_HiltDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_WorkStationKnifeList_HiltDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_Inform_StockDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_KnifeChangeFrom_StockDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_KnifeDetail_KnifeMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_KnifeUseLog_KnifeDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_StockDetail_KnifeDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_WorkStationKnifeList_KnifeDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_KnifeList_MeasureDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_KnifeList_NailDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_KnifeList_NutDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_WorkStationKnifeList_Model" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_MeasureDetail_MeasureMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_StockDetail_MeasureDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_NailDetail_NailMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_StockDetail_NailDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_NutDetail_NutMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_OutFrom_StockDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="ToolManagementModel.FK_StockDetail_Stock1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

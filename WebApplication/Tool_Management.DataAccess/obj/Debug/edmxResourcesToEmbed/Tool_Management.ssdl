@@ -1,0 +1,1395 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ToolManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cabin">
+    <Key>
+      <PropertyRef Name="Cabin_ID" />
+    </Key>
+    <Property Name="Cabin_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cabin_Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cabin_Location" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Cabin_Create_DT" Type="datetime" Nullable="false" />
+    <Property Name="Cabin_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cabin_Modify_DT" Type="datetime" />
+    <Property Name="Cabin_Modify_ID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CNC_Alarm_Code_Mapping">
+    <Key>
+      <PropertyRef Name="ALARM_CODE" />
+    </Key>
+    <Property Name="ALARM_CODE" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ALARM_MSG" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Create_DT" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CNC_ALARM_Log">
+    <Key>
+      <PropertyRef Name="Sno" />
+    </Key>
+    <Property Name="Sno" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CNC_IP" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Create_DT" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNC_ALARM_CODE" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNC_ALARM_MSG" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_Lang" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_ALARM_DT" Type="datetime" Nullable="false" />
+    <Property Name="CNC_ModeType" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_OperationNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_EditNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_Screen" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC__Coordinate_X" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_Distance_X" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_Coordinate_Y" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_Distance_Y" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_Coordinate_Z" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_Distance_Z" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_KnifeCabin" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_RunProgramBank" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_Compensate_H" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_Compensate_X" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_Compensate_Y" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_Compensate_Z" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_ATCTL_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_Return_Speed" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_Fast_Feed" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_Cutting_Feed" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_Spindle_Feed" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_Feed_Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_Door_Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_Door_Interlock" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CNC_ATCTL_Log">
+    <Key>
+      <PropertyRef Name="Sno" />
+    </Key>
+    <Property Name="Sno" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CNC_IP" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Create_DT" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ATCTL_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ATCTL_NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="ATCTL_DATA" Type="nvarchar" MaxLength="50" />
+    <Property Name="ATCTL_GRP" Type="nvarchar" MaxLength="50" />
+    <Property Name="ATCTL_TIME" Type="bigint" />
+    <Property Name="ATCTL_TYPE" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ATCTL_COLOR" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="KnifeDetail_ID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CNC_PRD3_Log">
+    <Key>
+      <PropertyRef Name="Sno" />
+    </Key>
+    <Property Name="Sno" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Create_DT" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNC_IP" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNC_Current_Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_Current_StatusDT" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_StatusDT" Type="datetime" />
+    <Property Name="CNC_ProgramNo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CNC_PRDC2_Log">
+    <Key>
+      <PropertyRef Name="Create_DT" />
+    </Key>
+    <Property Name="Create_DT" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNC_IP" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_ProductionTime" Type="bigint" Nullable="false" />
+    <Property Name="CNC_StayTime" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CNC_StatusHistory">
+    <Key>
+      <PropertyRef Name="Sno" />
+    </Key>
+    <Property Name="Sno" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CNC_IP" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Create_DT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNC_RunTime" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNC_StayTime" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNC_CloseTime" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNC_ErrTime" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNC_StopTime" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNC_CalcDT" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CNC_Ver_Log">
+    <Key>
+      <PropertyRef Name="Sno" />
+    </Key>
+    <Property Name="Sno" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CNC_IP" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Create_DT" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNC_Model" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNC_Ver" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CNC_WKCNTR_Log">
+    <Key>
+      <PropertyRef Name="Sno" />
+    </Key>
+    <Property Name="Sno" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Create_DT" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNC_IP" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNC_Current_ProductionAmount" Type="bigint" Nullable="false" />
+    <Property Name="CNC_End_ProductionAmount" Type="bigint" />
+    <Property Name="CNC_Alert_ProductionAmount" Type="bigint" />
+  </EntityType>
+  <EntityType Name="CNCDetail">
+    <Key>
+      <PropertyRef Name="CNCDetail_ID" />
+    </Key>
+    <Property Name="CNCDetail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNCMaster_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNCDetail_IP" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNCDetail_Version" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNCDetail_Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNCDetail_Create_DT" Type="datetime" Nullable="false" />
+    <Property Name="CNCDetail_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNCDetail_Modify_DT" Type="datetime" />
+    <Property Name="CNCDetail_Modify_ID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CNCKnifeList">
+    <Key>
+      <PropertyRef Name="CNCKnifeList_ID" />
+    </Key>
+    <Property Name="CNCKnifeList_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CNCDetail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Car_No" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Good_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Line_No" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="WorkStation_No" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="KnifeList_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNCList_Create_DT" Type="datetime" Nullable="false" />
+    <Property Name="CNCList_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNCList_Modify_DT" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNCList_Modify_ID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CNCMaster">
+    <Key>
+      <PropertyRef Name="CNCMaster_ID" />
+    </Key>
+    <Property Name="CNCMaster_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNC_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNC_Brand" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNC_Quality" Type="bigint" Nullable="false" />
+    <Property Name="CNCMaster_Create_DT" Type="datetime" Nullable="false" />
+    <Property Name="CNCMaster_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNCMaster_Modify_DT" Type="datetime" />
+    <Property Name="CNCMaster_Modify_ID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CNCMonitor">
+    <Key>
+      <PropertyRef Name="CNC_IP" />
+    </Key>
+    <Property Name="CNC_IP" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Create_DT" Type="varchar" MaxLength="50" />
+    <Property Name="CNCDetail_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_Current_ProductionAmount" Type="bigint" />
+    <Property Name="CNC_RunTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_StayTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_CloseTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_ErrTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_StopTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_Ver" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_Model" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNC_Alert_ProductionAmount" Type="bigint" />
+    <Property Name="CNC_End_ProductionAmount" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Collet1Detail">
+    <Key>
+      <PropertyRef Name="Collet1Detail_ID" />
+    </Key>
+    <Property Name="Collet1Detail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Collet1Master_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Collet1Detail_Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Collet1Detail_Create_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Collet1Detail_Create_DT" Type="datetime" />
+    <Property Name="Collet1Detail_Modify_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Collet1Detail_Modify_DT" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Collet1Master">
+    <Key>
+      <PropertyRef Name="Collet1Master_ID" />
+    </Key>
+    <Property Name="Collet1Master_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Collet1_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Collet1_Brand" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Collet1_Spec" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Collet1_CabinID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Collet1_Quality" Type="bigint" Nullable="false" />
+    <Property Name="Collet1Master_Create_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Collet1Master_Create_DT" Type="datetime" />
+    <Property Name="Collet1Master_Modify_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Collet1Master_Modify_DT" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Collet2Detail">
+    <Key>
+      <PropertyRef Name="Collet2Detail_ID" />
+    </Key>
+    <Property Name="Collet2Detail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Collet2Master_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Collet2Detail_Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Collet2Detail_Create_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Collet2Detail_Create_DT" Type="datetime" />
+    <Property Name="Collet2Detail_Modify_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Collet2Detail_Modify_DT" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Collet2Master">
+    <Key>
+      <PropertyRef Name="Collet2Master_ID" />
+    </Key>
+    <Property Name="Collet2Master_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Collet2_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Collet2_Brand" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Collet2_Spec" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Collet2_CabinID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Collet2_Quality" Type="bigint" Nullable="false" />
+    <Property Name="Collet2Master_Create_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Collet2Master_Create_DT" Type="datetime" />
+    <Property Name="Collet2Master_Modify_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Collet2Master_Modify_DT" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Employe">
+    <Key>
+      <PropertyRef Name="Emp_ID" />
+    </Key>
+    <Property Name="Emp_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Emp_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Emp_Status" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="Emp_Create_DT" Type="datetime" Nullable="false" />
+    <Property Name="Emp_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Emp_Modify_DT" Type="datetime" />
+    <Property Name="Emp_Modify_ID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ExtRodDetail">
+    <Key>
+      <PropertyRef Name="ExtensionRodDetail_ID" />
+    </Key>
+    <Property Name="ExtensionRodDetail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ExtensionRodMaster_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ExtensionRodDetail_Status" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="ExtensionRodDetail_Create_DT" Type="datetime" Nullable="false" />
+    <Property Name="ExtensionRodDetail_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ExtensionRodDetail_Modify_DT" Type="datetime" Nullable="false" />
+    <Property Name="ExtensionRodDetail_Modify_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ExtRodMaster">
+    <Key>
+      <PropertyRef Name="ExtensionRodMaster_ID" />
+    </Key>
+    <Property Name="ExtensionRodMaster_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ExtensionRod_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ExtensionRod_Brand" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ExtensionRod_Spec" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ExtensionRod_Quality" Type="bigint" Nullable="false" />
+    <Property Name="ExtensionRod_CabinID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ExtensionRodMaster_Create_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="ExtensionRodMaster_Create_DT" Type="datetime" />
+    <Property Name="ExtensionRodMaster_Modify_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="ExtensionRodMaster_Modify_DT" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Good">
+    <Key>
+      <PropertyRef Name="Good_ID" />
+    </Key>
+    <Property Name="Good_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Good_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Good_Create_DT" Type="datetime" Nullable="false" />
+    <Property Name="Good_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Good_Modify_DT" Type="datetime" />
+    <Property Name="Good_Modify_ID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="HiltDetail">
+    <Key>
+      <PropertyRef Name="HiltDetail_ID" />
+    </Key>
+    <Property Name="HiltDetail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="HiltMaster_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="HiltDetail_Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="HiltCabine_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="HiltDetail_Create_DT" Type="datetime" Nullable="false" />
+    <Property Name="HiltDetail_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="HiltDetail_Modify_DT" Type="datetime" />
+    <Property Name="HiltDetail_Modify_ID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="HiltMaster">
+    <Key>
+      <PropertyRef Name="HiltMaster_ID" />
+    </Key>
+    <Property Name="HiltMaster_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Hilt_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Hilt_Brand" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Hilt_Spec" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Hilt_CabineID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Hilt_Quality" Type="bigint" Nullable="false" />
+    <Property Name="HiltMaster_Create_DT" Type="datetime" Nullable="false" />
+    <Property Name="HiltMaster_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="HiltMaster_Modify_DT" Type="datetime" />
+    <Property Name="HiltMaster_Modify_ID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Inform">
+    <Key>
+      <PropertyRef Name="Inform_ID" />
+      <PropertyRef Name="Detail_ID" />
+      <PropertyRef Name="In_DT" />
+    </Key>
+    <Property Name="Inform_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Detail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Detail_Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="Inform_Create_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Inform_Create_DT" Type="datetime" Nullable="false" />
+    <Property Name="Inform_Modify_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Inform_Modify_DT" Type="datetime" Nullable="false" />
+    <Property Name="DetailID_Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="In_DT" Type="datetime" Nullable="false" />
+    <Property Name="In_EmpID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="KnifeChangeFrom">
+    <Key>
+      <PropertyRef Name="KnifeChangeForm_ID" />
+    </Key>
+    <Property Name="KnifeChangeForm_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OrgKnifeDetail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="KnifeChange_DT" Type="datetime" Nullable="false" />
+    <Property Name="KnifeDetail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="KnifeChanger_EmpID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="KnifeChanger_Reslut" Type="nvarchar" MaxLength="2000" Nullable="false" />
+    <Property Name="KnifeConfirm_EmpID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OrgKnifeDetail_Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="KnifeChangeForm_Create_DT" Type="datetime" Nullable="false" />
+    <Property Name="KnifeChangeForm_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="KnifeChangeForm_Modify_DT" Type="datetime" />
+    <Property Name="KnifeChangeForm_Modify_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="DetailID_Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KnifeDetail">
+    <Key>
+      <PropertyRef Name="KnifeDetail_ID" />
+    </Key>
+    <Property Name="KnifeDetail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="KnifeMaster_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsNewKnife" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="NewEnter_DT" Type="datetime" Nullable="false" />
+    <Property Name="KnifeDetail_Status" Type="nvarchar" MaxLength="2" Nullable="false" />
+    <Property Name="KnifeDetail_Create_DT" Type="datetime" Nullable="false" />
+    <Property Name="KnifeDetail_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="KnifeDetail_Modify_DT" Type="datetime" />
+    <Property Name="KnifeDetail_Modify_ID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="KnifeList">
+    <Key>
+      <PropertyRef Name="KnifeList_ID" />
+    </Key>
+    <Property Name="KnifeList_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="WorkStation_No" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Model_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="KnifeDetail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="HiltDetail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NailDetail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MeasureDetail_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="ExtRodDetail_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="NutDetail_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Collet1Detail_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Collet2Detail_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="KnifeList_Create_DT" Type="datetime" Nullable="false" />
+    <Property Name="KnifeList_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="KnifeList_Modify_DT" Type="datetime" />
+    <Property Name="KnifeList_Modify_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Program_No" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="D" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="R" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="L" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FL" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Way" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Time" Type="int" Nullable="false" />
+    <Property Name="Memo" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="KnifeMaster">
+    <Key>
+      <PropertyRef Name="KnifeMaster_ID" />
+    </Key>
+    <Property Name="KnifeMaster_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Knife_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Knife_Brand" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Knife_Spec" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Knife_CabinID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Knife_Quality" Type="bigint" Nullable="false" />
+    <Property Name="KnifeMaster_Create_DT" Type="datetime" Nullable="false" />
+    <Property Name="KnifeMaster_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="KnifeMaster_Modify_DT" Type="datetime" />
+    <Property Name="KnifeMaster_Modify_ID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="KnifeUseLog">
+    <Key>
+      <PropertyRef Name="KnifeUseLog_ID" />
+    </Key>
+    <Property Name="KnifeUseLog_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="KnifeDetail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Knife_Use_BeginDT" Type="datetime" Nullable="false" />
+    <Property Name="Knife_Use_EndDT" Type="datetime" Nullable="false" />
+    <Property Name="Knife_Use_Time" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="KnifeUseLog_Create_DT" Type="datetime" Nullable="false" />
+    <Property Name="KnifeUseLog_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="KnifeUseLog_Modify_DT" Type="datetime" />
+    <Property Name="KnifeUseLog_Modify_ID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="MeasureDetail">
+    <Key>
+      <PropertyRef Name="MeasureDetail_ID" />
+    </Key>
+    <Property Name="MeasureDetail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MeasureMaster_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MeasureDetail_Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MeasureDetail_Create_DT" Type="datetime" />
+    <Property Name="MeasureDetail_Create_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="MeasureDetail_Modify_DT" Type="datetime" />
+    <Property Name="MeasureDetail_Modify_ID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="MeasureMaster">
+    <Key>
+      <PropertyRef Name="MeasureMaster_ID" />
+    </Key>
+    <Property Name="MeasureMaster_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Measure_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Measure_Spec" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Measure_Brand" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Measure_CabinID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Measure_Quality" Type="bigint" Nullable="false" />
+    <Property Name="MeasureMaster_Create_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="MeasureMaster_Create_DT" Type="datetime" />
+    <Property Name="MeasureMaster_Modify_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="MeasureMaster_Modify_DT" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Model">
+    <Key>
+      <PropertyRef Name="Model_ID" />
+    </Key>
+    <Property Name="Model_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Model_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Model_Create_DT" Type="datetime" Nullable="false" />
+    <Property Name="Model_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Model_Modify_DT" Type="datetime" />
+    <Property Name="Model_Modify_ID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="NailDetail">
+    <Key>
+      <PropertyRef Name="NailDetail_ID" />
+    </Key>
+    <Property Name="NailDetail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NailMaster_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NailDetail_Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NailDetail_Create_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="NailDetail_Create_DT" Type="datetime" />
+    <Property Name="NailDetail_Modify_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="NailDetail_Modify_DT" Type="datetime" />
+  </EntityType>
+  <EntityType Name="NailMaster">
+    <Key>
+      <PropertyRef Name="NailMaster_ID" />
+    </Key>
+    <Property Name="NailMaster_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nail_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nail_Brand" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nail_Spec" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nail_CabinID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nail_Quality" Type="bigint" Nullable="false" />
+    <Property Name="NailMaster_Create_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="NailMaster_Create_DT" Type="datetime" />
+    <Property Name="NailMaster_Modify_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="NailMaster_Modify_DT" Type="datetime" />
+  </EntityType>
+  <EntityType Name="NutDetail">
+    <Key>
+      <PropertyRef Name="NutDetail_ID" />
+    </Key>
+    <Property Name="NutDetail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NutMaster_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NutDetail_Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NutDetail_Create_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="NutDetail_Create_DT" Type="datetime" />
+    <Property Name="NutDetail_Modify_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="NutDetail_Modify_DT" Type="datetime" />
+  </EntityType>
+  <EntityType Name="NutMaster">
+    <Key>
+      <PropertyRef Name="NutMaster_ID" />
+    </Key>
+    <Property Name="NutMaster_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nut_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nut_Brand" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nut_Spec" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nut_Quality" Type="bigint" Nullable="false" />
+    <Property Name="Nut_CabinID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NutMaster_Create_DT" Type="datetime" />
+    <Property Name="NutMaster_Create_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="NutMaster_Modify_DT" Type="datetime" />
+    <Property Name="NutMaster_Modify_ID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="OutFrom">
+    <Key>
+      <PropertyRef Name="OutForm_ID" />
+      <PropertyRef Name="Detail_ID" />
+      <PropertyRef Name="Out_DT" />
+    </Key>
+    <Property Name="OutForm_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Detail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Out_DT" Type="datetime" Nullable="false" />
+    <Property Name="DetailID_Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Out_EmpID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Confirm_EmpID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OutForm_Create_DT" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OutForm_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OutForm_Modify_DT" Type="nvarchar" MaxLength="50" />
+    <Property Name="OutForm_Modify_ID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ProductionPlan">
+    <Key>
+      <PropertyRef Name="CNCKnifeList_ID" />
+      <PropertyRef Name="Class_Type" />
+    </Key>
+    <Property Name="Planning_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CNCKnifeList_ID" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Class_Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Class_EmpID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Class_StandardPerson" Type="int" Nullable="false" />
+    <Property Name="Class_RealPerson" Type="int" Nullable="false" />
+    <Property Name="Planning_Create_DT" Type="datetime" Nullable="false" />
+    <Property Name="Planning_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Planning_Modify_DT" Type="datetime" />
+    <Property Name="Planning_Modify_ID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Stock">
+    <Key>
+      <PropertyRef Name="Master_ID" />
+      <PropertyRef Name="MasterID_Type" />
+    </Key>
+    <Property Name="Master_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MasterID_Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="InBound" Type="bigint" Nullable="false" />
+    <Property Name="OutBound" Type="bigint" Nullable="false" />
+    <Property Name="ScrapBound" Type="bigint" Nullable="false" />
+    <Property Name="Create_DT" Type="datetime" Nullable="false" />
+    <Property Name="Memo" Type="nvarchar" MaxLength="2000" />
+  </EntityType>
+  <EntityType Name="StockDetail">
+    <Key>
+      <PropertyRef Name="Detail_ID" />
+      <PropertyRef Name="MasterID_Type" />
+    </Key>
+    <Property Name="Sno" Type="bigint" Nullable="false" />
+    <Property Name="Master_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Detail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MasterID_Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Bound_Type" Type="bigint" Nullable="false" />
+    <Property Name="Create_DT" Type="datetime" Nullable="false" />
+    <Property Name="Memo" Type="nvarchar" MaxLength="2000" />
+  </EntityType>
+  <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'ToolManagement.dbo.vCNC_Alarm_Log' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+  <EntityType Name="vCNC_Alarm_Log">
+    <Key>
+      <PropertyRef Name="CNC_IP" />
+      <PropertyRef Name="Sno" />
+      <PropertyRef Name="Create_DT" />
+      <PropertyRef Name="CNC_ALARM_CODE" />
+      <PropertyRef Name="CNC_ALARM_DT" />
+    </Key>
+    <Property Name="CNC_IP" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Sno" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Create_DT" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNC_ALARM_CODE" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNC_ALARM_MSG" Type="nvarchar" MaxLength="250" />
+    <Property Name="CNC_ALARM_DT" Type="datetime" Nullable="false" />
+    <Property Name="CNC_OperationNo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'ToolManagement.dbo.vCNC_Monitor' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+  <EntityType Name="vCNC_Monitor">
+    <Key>
+      <PropertyRef Name="CNC_IP" />
+      <PropertyRef Name="CNC_Model" />
+      <PropertyRef Name="CNC_Ver" />
+      <PropertyRef Name="CNC_Current_ProductionAmount" />
+      <PropertyRef Name="CNC_Current_Status" />
+      <PropertyRef Name="Create_DT" />
+    </Key>
+    <Property Name="CNC_IP" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNC_Model" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNC_Ver" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNC_Current_ProductionAmount" Type="bigint" Nullable="false" />
+    <Property Name="CNC_Current_Status" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="CNC_Current_StatusDT" Type="nvarchar" MaxLength="50" />
+    <Property Name="Create_DT" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_CNC_ALARM_Log_CNCMonitor">
+    <End Role="CNCMonitor" Type="Self.CNCMonitor" Multiplicity="1" />
+    <End Role="CNC_ALARM_Log" Type="Self.CNC_ALARM_Log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CNCMonitor">
+        <PropertyRef Name="CNC_IP" />
+      </Principal>
+      <Dependent Role="CNC_ALARM_Log">
+        <PropertyRef Name="CNC_IP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CNC_ATCTL_Log_CNCMonitor">
+    <End Role="CNCMonitor" Type="Self.CNCMonitor" Multiplicity="1" />
+    <End Role="CNC_ATCTL_Log" Type="Self.CNC_ATCTL_Log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CNCMonitor">
+        <PropertyRef Name="CNC_IP" />
+      </Principal>
+      <Dependent Role="CNC_ATCTL_Log">
+        <PropertyRef Name="CNC_IP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CNC_ATCTL_Log_KnifeDetail">
+    <End Role="KnifeDetail" Type="Self.KnifeDetail" Multiplicity="0..1" />
+    <End Role="CNC_ATCTL_Log" Type="Self.CNC_ATCTL_Log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KnifeDetail">
+        <PropertyRef Name="KnifeDetail_ID" />
+      </Principal>
+      <Dependent Role="CNC_ATCTL_Log">
+        <PropertyRef Name="KnifeDetail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CNC_PRD3_Log_CNCMonitor">
+    <End Role="CNCMonitor" Type="Self.CNCMonitor" Multiplicity="1" />
+    <End Role="CNC_PRD3_Log" Type="Self.CNC_PRD3_Log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CNCMonitor">
+        <PropertyRef Name="CNC_IP" />
+      </Principal>
+      <Dependent Role="CNC_PRD3_Log">
+        <PropertyRef Name="CNC_IP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CNC_Ver_Log_CNCMonitor">
+    <End Role="CNCMonitor" Type="Self.CNCMonitor" Multiplicity="1" />
+    <End Role="CNC_Ver_Log" Type="Self.CNC_Ver_Log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CNCMonitor">
+        <PropertyRef Name="CNC_IP" />
+      </Principal>
+      <Dependent Role="CNC_Ver_Log">
+        <PropertyRef Name="CNC_IP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CNC_WKCNTR_Log_CNCMonitor">
+    <End Role="CNCMonitor" Type="Self.CNCMonitor" Multiplicity="1" />
+    <End Role="CNC_WKCNTR_Log" Type="Self.CNC_WKCNTR_Log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CNCMonitor">
+        <PropertyRef Name="CNC_IP" />
+      </Principal>
+      <Dependent Role="CNC_WKCNTR_Log">
+        <PropertyRef Name="CNC_IP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CNCDetail_CNCMaster">
+    <End Role="CNCMaster" Type="Self.CNCMaster" Multiplicity="1" />
+    <End Role="CNCDetail" Type="Self.CNCDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CNCMaster">
+        <PropertyRef Name="CNCMaster_ID" />
+      </Principal>
+      <Dependent Role="CNCDetail">
+        <PropertyRef Name="CNCMaster_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CNCKnifeList_KnifeList">
+    <End Role="KnifeList" Type="Self.KnifeList" Multiplicity="1" />
+    <End Role="CNCKnifeList" Type="Self.CNCKnifeList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KnifeList">
+        <PropertyRef Name="KnifeList_ID" />
+      </Principal>
+      <Dependent Role="CNCKnifeList">
+        <PropertyRef Name="KnifeList_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CNCList_CNCDetail">
+    <End Role="CNCDetail" Type="Self.CNCDetail" Multiplicity="1" />
+    <End Role="CNCKnifeList" Type="Self.CNCKnifeList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CNCDetail">
+        <PropertyRef Name="CNCDetail_ID" />
+      </Principal>
+      <Dependent Role="CNCKnifeList">
+        <PropertyRef Name="CNCDetail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CNCList_Good">
+    <End Role="Good" Type="Self.Good" Multiplicity="1" />
+    <End Role="CNCKnifeList" Type="Self.CNCKnifeList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Good">
+        <PropertyRef Name="Good_ID" />
+      </Principal>
+      <Dependent Role="CNCKnifeList">
+        <PropertyRef Name="Good_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Collet1Detail_Collet1Master">
+    <End Role="Collet1Master" Type="Self.Collet1Master" Multiplicity="1" />
+    <End Role="Collet1Detail" Type="Self.Collet1Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Collet1Master">
+        <PropertyRef Name="Collet1Master_ID" />
+      </Principal>
+      <Dependent Role="Collet1Detail">
+        <PropertyRef Name="Collet1Master_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Collet2Detail_Collet2Master">
+    <End Role="Collet2Master" Type="Self.Collet2Master" Multiplicity="1" />
+    <End Role="Collet2Detail" Type="Self.Collet2Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Collet2Master">
+        <PropertyRef Name="Collet2Master_ID" />
+      </Principal>
+      <Dependent Role="Collet2Detail">
+        <PropertyRef Name="Collet2Master_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExtensionRodDetail_ExtensionRodMaster1">
+    <End Role="ExtRodMaster" Type="Self.ExtRodMaster" Multiplicity="1" />
+    <End Role="ExtRodDetail" Type="Self.ExtRodDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExtRodMaster">
+        <PropertyRef Name="ExtensionRodMaster_ID" />
+      </Principal>
+      <Dependent Role="ExtRodDetail">
+        <PropertyRef Name="ExtensionRodMaster_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HiltDetail_HiltMaster1">
+    <End Role="HiltMaster" Type="Self.HiltMaster" Multiplicity="1" />
+    <End Role="HiltDetail" Type="Self.HiltDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HiltMaster">
+        <PropertyRef Name="HiltMaster_ID" />
+      </Principal>
+      <Dependent Role="HiltDetail">
+        <PropertyRef Name="HiltMaster_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inform_Employe">
+    <End Role="Employe" Type="Self.Employe" Multiplicity="0..1" />
+    <End Role="Inform" Type="Self.Inform" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employe">
+        <PropertyRef Name="Emp_ID" />
+      </Principal>
+      <Dependent Role="Inform">
+        <PropertyRef Name="In_EmpID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inform_StockDetail">
+    <End Role="StockDetail" Type="Self.StockDetail" Multiplicity="1" />
+    <End Role="Inform" Type="Self.Inform" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StockDetail">
+        <PropertyRef Name="Detail_ID" />
+        <PropertyRef Name="MasterID_Type" />
+      </Principal>
+      <Dependent Role="Inform">
+        <PropertyRef Name="Detail_ID" />
+        <PropertyRef Name="DetailID_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KnifeChangeFrom_Employe1">
+    <End Role="Employe" Type="Self.Employe" Multiplicity="1" />
+    <End Role="KnifeChangeFrom" Type="Self.KnifeChangeFrom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employe">
+        <PropertyRef Name="Emp_ID" />
+      </Principal>
+      <Dependent Role="KnifeChangeFrom">
+        <PropertyRef Name="KnifeConfirm_EmpID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KnifeChangeFrom_StockDetail">
+    <End Role="StockDetail" Type="Self.StockDetail" Multiplicity="1" />
+    <End Role="KnifeChangeFrom" Type="Self.KnifeChangeFrom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StockDetail">
+        <PropertyRef Name="Detail_ID" />
+        <PropertyRef Name="MasterID_Type" />
+      </Principal>
+      <Dependent Role="KnifeChangeFrom">
+        <PropertyRef Name="OrgKnifeDetail_ID" />
+        <PropertyRef Name="DetailID_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KnifeDetail_KnifeMaster">
+    <End Role="KnifeMaster" Type="Self.KnifeMaster" Multiplicity="1" />
+    <End Role="KnifeDetail" Type="Self.KnifeDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KnifeMaster">
+        <PropertyRef Name="KnifeMaster_ID" />
+      </Principal>
+      <Dependent Role="KnifeDetail">
+        <PropertyRef Name="KnifeMaster_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KnifeList_Collet1Detail">
+    <End Role="Collet1Detail" Type="Self.Collet1Detail" Multiplicity="0..1" />
+    <End Role="KnifeList" Type="Self.KnifeList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Collet1Detail">
+        <PropertyRef Name="Collet1Detail_ID" />
+      </Principal>
+      <Dependent Role="KnifeList">
+        <PropertyRef Name="Collet1Detail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KnifeList_Collet2Detail">
+    <End Role="Collet2Detail" Type="Self.Collet2Detail" Multiplicity="0..1" />
+    <End Role="KnifeList" Type="Self.KnifeList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Collet2Detail">
+        <PropertyRef Name="Collet2Detail_ID" />
+      </Principal>
+      <Dependent Role="KnifeList">
+        <PropertyRef Name="Collet2Detail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KnifeList_MeasureDetail">
+    <End Role="MeasureDetail" Type="Self.MeasureDetail" Multiplicity="0..1" />
+    <End Role="KnifeList" Type="Self.KnifeList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MeasureDetail">
+        <PropertyRef Name="MeasureDetail_ID" />
+      </Principal>
+      <Dependent Role="KnifeList">
+        <PropertyRef Name="MeasureDetail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KnifeList_NailDetail">
+    <End Role="NailDetail" Type="Self.NailDetail" Multiplicity="1" />
+    <End Role="KnifeList" Type="Self.KnifeList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NailDetail">
+        <PropertyRef Name="NailDetail_ID" />
+      </Principal>
+      <Dependent Role="KnifeList">
+        <PropertyRef Name="NailDetail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KnifeList_NutDetail">
+    <End Role="NutDetail" Type="Self.NutDetail" Multiplicity="0..1" />
+    <End Role="KnifeList" Type="Self.KnifeList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NutDetail">
+        <PropertyRef Name="NutDetail_ID" />
+      </Principal>
+      <Dependent Role="KnifeList">
+        <PropertyRef Name="NutDetail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KnifeUseLog_KnifeDetail">
+    <End Role="KnifeDetail" Type="Self.KnifeDetail" Multiplicity="1" />
+    <End Role="KnifeUseLog" Type="Self.KnifeUseLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KnifeDetail">
+        <PropertyRef Name="KnifeDetail_ID" />
+      </Principal>
+      <Dependent Role="KnifeUseLog">
+        <PropertyRef Name="KnifeDetail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MeasureDetail_MeasureMaster">
+    <End Role="MeasureMaster" Type="Self.MeasureMaster" Multiplicity="1" />
+    <End Role="MeasureDetail" Type="Self.MeasureDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MeasureMaster">
+        <PropertyRef Name="MeasureMaster_ID" />
+      </Principal>
+      <Dependent Role="MeasureDetail">
+        <PropertyRef Name="MeasureMaster_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NailDetail_NailMaster">
+    <End Role="NailMaster" Type="Self.NailMaster" Multiplicity="1" />
+    <End Role="NailDetail" Type="Self.NailDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NailMaster">
+        <PropertyRef Name="NailMaster_ID" />
+      </Principal>
+      <Dependent Role="NailDetail">
+        <PropertyRef Name="NailMaster_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NutDetail_NutMaster">
+    <End Role="NutMaster" Type="Self.NutMaster" Multiplicity="1" />
+    <End Role="NutDetail" Type="Self.NutDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NutMaster">
+        <PropertyRef Name="NutMaster_ID" />
+      </Principal>
+      <Dependent Role="NutDetail">
+        <PropertyRef Name="NutMaster_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OutFrom_Employe">
+    <End Role="Employe" Type="Self.Employe" Multiplicity="1" />
+    <End Role="OutFrom" Type="Self.OutFrom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employe">
+        <PropertyRef Name="Emp_ID" />
+      </Principal>
+      <Dependent Role="OutFrom">
+        <PropertyRef Name="Out_EmpID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OutFrom_StockDetail">
+    <End Role="StockDetail" Type="Self.StockDetail" Multiplicity="1" />
+    <End Role="OutFrom" Type="Self.OutFrom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StockDetail">
+        <PropertyRef Name="Detail_ID" />
+        <PropertyRef Name="MasterID_Type" />
+      </Principal>
+      <Dependent Role="OutFrom">
+        <PropertyRef Name="Detail_ID" />
+        <PropertyRef Name="DetailID_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductionPlan_CNCKnifeList">
+    <End Role="CNCKnifeList" Type="Self.CNCKnifeList" Multiplicity="1" />
+    <End Role="ProductionPlan" Type="Self.ProductionPlan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CNCKnifeList">
+        <PropertyRef Name="CNCKnifeList_ID" />
+      </Principal>
+      <Dependent Role="ProductionPlan">
+        <PropertyRef Name="CNCKnifeList_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductionPlan_Employe">
+    <End Role="Employe" Type="Self.Employe" Multiplicity="1" />
+    <End Role="ProductionPlan" Type="Self.ProductionPlan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employe">
+        <PropertyRef Name="Emp_ID" />
+      </Principal>
+      <Dependent Role="ProductionPlan">
+        <PropertyRef Name="Class_EmpID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StockDetail_Collet1Detail">
+    <End Role="Collet1Detail" Type="Self.Collet1Detail" Multiplicity="1" />
+    <End Role="StockDetail" Type="Self.StockDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Collet1Detail">
+        <PropertyRef Name="Collet1Detail_ID" />
+      </Principal>
+      <Dependent Role="StockDetail">
+        <PropertyRef Name="Detail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StockDetail_Collet2Detail">
+    <End Role="Collet2Detail" Type="Self.Collet2Detail" Multiplicity="1" />
+    <End Role="StockDetail" Type="Self.StockDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Collet2Detail">
+        <PropertyRef Name="Collet2Detail_ID" />
+      </Principal>
+      <Dependent Role="StockDetail">
+        <PropertyRef Name="Detail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StockDetail_HiltDetail">
+    <End Role="HiltDetail" Type="Self.HiltDetail" Multiplicity="1" />
+    <End Role="StockDetail" Type="Self.StockDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HiltDetail">
+        <PropertyRef Name="HiltDetail_ID" />
+      </Principal>
+      <Dependent Role="StockDetail">
+        <PropertyRef Name="Detail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StockDetail_KnifeDetail">
+    <End Role="KnifeDetail" Type="Self.KnifeDetail" Multiplicity="1" />
+    <End Role="StockDetail" Type="Self.StockDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KnifeDetail">
+        <PropertyRef Name="KnifeDetail_ID" />
+      </Principal>
+      <Dependent Role="StockDetail">
+        <PropertyRef Name="Detail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StockDetail_MeasureDetail">
+    <End Role="MeasureDetail" Type="Self.MeasureDetail" Multiplicity="1" />
+    <End Role="StockDetail" Type="Self.StockDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MeasureDetail">
+        <PropertyRef Name="MeasureDetail_ID" />
+      </Principal>
+      <Dependent Role="StockDetail">
+        <PropertyRef Name="Detail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StockDetail_NailDetail">
+    <End Role="NailDetail" Type="Self.NailDetail" Multiplicity="1" />
+    <End Role="StockDetail" Type="Self.StockDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NailDetail">
+        <PropertyRef Name="NailDetail_ID" />
+      </Principal>
+      <Dependent Role="StockDetail">
+        <PropertyRef Name="Detail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StockDetail_Stock1">
+    <End Role="Stock" Type="Self.Stock" Multiplicity="1" />
+    <End Role="StockDetail" Type="Self.StockDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stock">
+        <PropertyRef Name="Master_ID" />
+        <PropertyRef Name="MasterID_Type" />
+      </Principal>
+      <Dependent Role="StockDetail">
+        <PropertyRef Name="Master_ID" />
+        <PropertyRef Name="MasterID_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorkStationKnifeList_HiltDetail">
+    <End Role="HiltDetail" Type="Self.HiltDetail" Multiplicity="1" />
+    <End Role="KnifeList" Type="Self.KnifeList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HiltDetail">
+        <PropertyRef Name="HiltDetail_ID" />
+      </Principal>
+      <Dependent Role="KnifeList">
+        <PropertyRef Name="HiltDetail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorkStationKnifeList_KnifeDetail">
+    <End Role="KnifeDetail" Type="Self.KnifeDetail" Multiplicity="1" />
+    <End Role="KnifeList" Type="Self.KnifeList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KnifeDetail">
+        <PropertyRef Name="KnifeDetail_ID" />
+      </Principal>
+      <Dependent Role="KnifeList">
+        <PropertyRef Name="KnifeDetail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorkStationKnifeList_Model">
+    <End Role="Model" Type="Self.Model" Multiplicity="1" />
+    <End Role="KnifeList" Type="Self.KnifeList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Model">
+        <PropertyRef Name="Model_ID" />
+      </Principal>
+      <Dependent Role="KnifeList">
+        <PropertyRef Name="Model_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="ToolManagementModelStoreContainer">
+    <EntitySet Name="Cabin" EntityType="Self.Cabin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CNC_Alarm_Code_Mapping" EntityType="Self.CNC_Alarm_Code_Mapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CNC_ALARM_Log" EntityType="Self.CNC_ALARM_Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CNC_ATCTL_Log" EntityType="Self.CNC_ATCTL_Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CNC_PRD3_Log" EntityType="Self.CNC_PRD3_Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CNC_PRDC2_Log" EntityType="Self.CNC_PRDC2_Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CNC_StatusHistory" EntityType="Self.CNC_StatusHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CNC_Ver_Log" EntityType="Self.CNC_Ver_Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CNC_WKCNTR_Log" EntityType="Self.CNC_WKCNTR_Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CNCDetail" EntityType="Self.CNCDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CNCKnifeList" EntityType="Self.CNCKnifeList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CNCMaster" EntityType="Self.CNCMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CNCMonitor" EntityType="Self.CNCMonitor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Collet1Detail" EntityType="Self.Collet1Detail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Collet1Master" EntityType="Self.Collet1Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Collet2Detail" EntityType="Self.Collet2Detail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Collet2Master" EntityType="Self.Collet2Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employe" EntityType="Self.Employe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExtRodDetail" EntityType="Self.ExtRodDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExtRodMaster" EntityType="Self.ExtRodMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Good" EntityType="Self.Good" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HiltDetail" EntityType="Self.HiltDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HiltMaster" EntityType="Self.HiltMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Inform" EntityType="Self.Inform" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KnifeChangeFrom" EntityType="Self.KnifeChangeFrom" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KnifeDetail" EntityType="Self.KnifeDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KnifeList" EntityType="Self.KnifeList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KnifeMaster" EntityType="Self.KnifeMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KnifeUseLog" EntityType="Self.KnifeUseLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MeasureDetail" EntityType="Self.MeasureDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MeasureMaster" EntityType="Self.MeasureMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Model" EntityType="Self.Model" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NailDetail" EntityType="Self.NailDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NailMaster" EntityType="Self.NailMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NutDetail" EntityType="Self.NutDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NutMaster" EntityType="Self.NutMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OutFrom" EntityType="Self.OutFrom" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductionPlan" EntityType="Self.ProductionPlan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StockDetail" EntityType="Self.StockDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vCNC_Alarm_Log" EntityType="Self.vCNC_Alarm_Log" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vCNC_Alarm_Log].[CNC_IP] AS [CNC_IP], 
+    [vCNC_Alarm_Log].[Sno] AS [Sno], 
+    [vCNC_Alarm_Log].[Create_DT] AS [Create_DT], 
+    [vCNC_Alarm_Log].[CNC_ALARM_CODE] AS [CNC_ALARM_CODE], 
+    [vCNC_Alarm_Log].[CNC_ALARM_MSG] AS [CNC_ALARM_MSG], 
+    [vCNC_Alarm_Log].[CNC_ALARM_DT] AS [CNC_ALARM_DT], 
+    [vCNC_Alarm_Log].[CNC_OperationNo] AS [CNC_OperationNo]
+    FROM [dbo].[vCNC_Alarm_Log] AS [vCNC_Alarm_Log]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vCNC_Monitor" EntityType="Self.vCNC_Monitor" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vCNC_Monitor].[CNC_IP] AS [CNC_IP], 
+    [vCNC_Monitor].[CNC_Model] AS [CNC_Model], 
+    [vCNC_Monitor].[CNC_Ver] AS [CNC_Ver], 
+    [vCNC_Monitor].[CNC_Current_ProductionAmount] AS [CNC_Current_ProductionAmount], 
+    [vCNC_Monitor].[CNC_Current_Status] AS [CNC_Current_Status], 
+    [vCNC_Monitor].[CNC_Current_StatusDT] AS [CNC_Current_StatusDT], 
+    [vCNC_Monitor].[Create_DT] AS [Create_DT]
+    FROM [dbo].[vCNC_Monitor] AS [vCNC_Monitor]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_CNC_ALARM_Log_CNCMonitor" Association="Self.FK_CNC_ALARM_Log_CNCMonitor">
+      <End Role="CNCMonitor" EntitySet="CNCMonitor" />
+      <End Role="CNC_ALARM_Log" EntitySet="CNC_ALARM_Log" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CNC_ATCTL_Log_CNCMonitor" Association="Self.FK_CNC_ATCTL_Log_CNCMonitor">
+      <End Role="CNCMonitor" EntitySet="CNCMonitor" />
+      <End Role="CNC_ATCTL_Log" EntitySet="CNC_ATCTL_Log" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CNC_ATCTL_Log_KnifeDetail" Association="Self.FK_CNC_ATCTL_Log_KnifeDetail">
+      <End Role="KnifeDetail" EntitySet="KnifeDetail" />
+      <End Role="CNC_ATCTL_Log" EntitySet="CNC_ATCTL_Log" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CNC_PRD3_Log_CNCMonitor" Association="Self.FK_CNC_PRD3_Log_CNCMonitor">
+      <End Role="CNCMonitor" EntitySet="CNCMonitor" />
+      <End Role="CNC_PRD3_Log" EntitySet="CNC_PRD3_Log" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CNC_Ver_Log_CNCMonitor" Association="Self.FK_CNC_Ver_Log_CNCMonitor">
+      <End Role="CNCMonitor" EntitySet="CNCMonitor" />
+      <End Role="CNC_Ver_Log" EntitySet="CNC_Ver_Log" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CNC_WKCNTR_Log_CNCMonitor" Association="Self.FK_CNC_WKCNTR_Log_CNCMonitor">
+      <End Role="CNCMonitor" EntitySet="CNCMonitor" />
+      <End Role="CNC_WKCNTR_Log" EntitySet="CNC_WKCNTR_Log" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CNCDetail_CNCMaster" Association="Self.FK_CNCDetail_CNCMaster">
+      <End Role="CNCMaster" EntitySet="CNCMaster" />
+      <End Role="CNCDetail" EntitySet="CNCDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CNCKnifeList_KnifeList" Association="Self.FK_CNCKnifeList_KnifeList">
+      <End Role="KnifeList" EntitySet="KnifeList" />
+      <End Role="CNCKnifeList" EntitySet="CNCKnifeList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CNCList_CNCDetail" Association="Self.FK_CNCList_CNCDetail">
+      <End Role="CNCDetail" EntitySet="CNCDetail" />
+      <End Role="CNCKnifeList" EntitySet="CNCKnifeList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CNCList_Good" Association="Self.FK_CNCList_Good">
+      <End Role="Good" EntitySet="Good" />
+      <End Role="CNCKnifeList" EntitySet="CNCKnifeList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Collet1Detail_Collet1Master" Association="Self.FK_Collet1Detail_Collet1Master">
+      <End Role="Collet1Master" EntitySet="Collet1Master" />
+      <End Role="Collet1Detail" EntitySet="Collet1Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Collet2Detail_Collet2Master" Association="Self.FK_Collet2Detail_Collet2Master">
+      <End Role="Collet2Master" EntitySet="Collet2Master" />
+      <End Role="Collet2Detail" EntitySet="Collet2Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExtensionRodDetail_ExtensionRodMaster1" Association="Self.FK_ExtensionRodDetail_ExtensionRodMaster1">
+      <End Role="ExtRodMaster" EntitySet="ExtRodMaster" />
+      <End Role="ExtRodDetail" EntitySet="ExtRodDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HiltDetail_HiltMaster1" Association="Self.FK_HiltDetail_HiltMaster1">
+      <End Role="HiltMaster" EntitySet="HiltMaster" />
+      <End Role="HiltDetail" EntitySet="HiltDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inform_Employe" Association="Self.FK_Inform_Employe">
+      <End Role="Employe" EntitySet="Employe" />
+      <End Role="Inform" EntitySet="Inform" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inform_StockDetail" Association="Self.FK_Inform_StockDetail">
+      <End Role="StockDetail" EntitySet="StockDetail" />
+      <End Role="Inform" EntitySet="Inform" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KnifeChangeFrom_Employe1" Association="Self.FK_KnifeChangeFrom_Employe1">
+      <End Role="Employe" EntitySet="Employe" />
+      <End Role="KnifeChangeFrom" EntitySet="KnifeChangeFrom" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KnifeChangeFrom_StockDetail" Association="Self.FK_KnifeChangeFrom_StockDetail">
+      <End Role="StockDetail" EntitySet="StockDetail" />
+      <End Role="KnifeChangeFrom" EntitySet="KnifeChangeFrom" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KnifeDetail_KnifeMaster" Association="Self.FK_KnifeDetail_KnifeMaster">
+      <End Role="KnifeMaster" EntitySet="KnifeMaster" />
+      <End Role="KnifeDetail" EntitySet="KnifeDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KnifeList_Collet1Detail" Association="Self.FK_KnifeList_Collet1Detail">
+      <End Role="Collet1Detail" EntitySet="Collet1Detail" />
+      <End Role="KnifeList" EntitySet="KnifeList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KnifeList_Collet2Detail" Association="Self.FK_KnifeList_Collet2Detail">
+      <End Role="Collet2Detail" EntitySet="Collet2Detail" />
+      <End Role="KnifeList" EntitySet="KnifeList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KnifeList_MeasureDetail" Association="Self.FK_KnifeList_MeasureDetail">
+      <End Role="MeasureDetail" EntitySet="MeasureDetail" />
+      <End Role="KnifeList" EntitySet="KnifeList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KnifeList_NailDetail" Association="Self.FK_KnifeList_NailDetail">
+      <End Role="NailDetail" EntitySet="NailDetail" />
+      <End Role="KnifeList" EntitySet="KnifeList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KnifeList_NutDetail" Association="Self.FK_KnifeList_NutDetail">
+      <End Role="NutDetail" EntitySet="NutDetail" />
+      <End Role="KnifeList" EntitySet="KnifeList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KnifeUseLog_KnifeDetail" Association="Self.FK_KnifeUseLog_KnifeDetail">
+      <End Role="KnifeDetail" EntitySet="KnifeDetail" />
+      <End Role="KnifeUseLog" EntitySet="KnifeUseLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MeasureDetail_MeasureMaster" Association="Self.FK_MeasureDetail_MeasureMaster">
+      <End Role="MeasureMaster" EntitySet="MeasureMaster" />
+      <End Role="MeasureDetail" EntitySet="MeasureDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NailDetail_NailMaster" Association="Self.FK_NailDetail_NailMaster">
+      <End Role="NailMaster" EntitySet="NailMaster" />
+      <End Role="NailDetail" EntitySet="NailDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NutDetail_NutMaster" Association="Self.FK_NutDetail_NutMaster">
+      <End Role="NutMaster" EntitySet="NutMaster" />
+      <End Role="NutDetail" EntitySet="NutDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OutFrom_Employe" Association="Self.FK_OutFrom_Employe">
+      <End Role="Employe" EntitySet="Employe" />
+      <End Role="OutFrom" EntitySet="OutFrom" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OutFrom_StockDetail" Association="Self.FK_OutFrom_StockDetail">
+      <End Role="StockDetail" EntitySet="StockDetail" />
+      <End Role="OutFrom" EntitySet="OutFrom" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductionPlan_CNCKnifeList" Association="Self.FK_ProductionPlan_CNCKnifeList">
+      <End Role="CNCKnifeList" EntitySet="CNCKnifeList" />
+      <End Role="ProductionPlan" EntitySet="ProductionPlan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductionPlan_Employe" Association="Self.FK_ProductionPlan_Employe">
+      <End Role="Employe" EntitySet="Employe" />
+      <End Role="ProductionPlan" EntitySet="ProductionPlan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StockDetail_Collet1Detail" Association="Self.FK_StockDetail_Collet1Detail">
+      <End Role="Collet1Detail" EntitySet="Collet1Detail" />
+      <End Role="StockDetail" EntitySet="StockDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StockDetail_Collet2Detail" Association="Self.FK_StockDetail_Collet2Detail">
+      <End Role="Collet2Detail" EntitySet="Collet2Detail" />
+      <End Role="StockDetail" EntitySet="StockDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StockDetail_HiltDetail" Association="Self.FK_StockDetail_HiltDetail">
+      <End Role="HiltDetail" EntitySet="HiltDetail" />
+      <End Role="StockDetail" EntitySet="StockDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StockDetail_KnifeDetail" Association="Self.FK_StockDetail_KnifeDetail">
+      <End Role="KnifeDetail" EntitySet="KnifeDetail" />
+      <End Role="StockDetail" EntitySet="StockDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StockDetail_MeasureDetail" Association="Self.FK_StockDetail_MeasureDetail">
+      <End Role="MeasureDetail" EntitySet="MeasureDetail" />
+      <End Role="StockDetail" EntitySet="StockDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StockDetail_NailDetail" Association="Self.FK_StockDetail_NailDetail">
+      <End Role="NailDetail" EntitySet="NailDetail" />
+      <End Role="StockDetail" EntitySet="StockDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StockDetail_Stock1" Association="Self.FK_StockDetail_Stock1">
+      <End Role="Stock" EntitySet="Stock" />
+      <End Role="StockDetail" EntitySet="StockDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorkStationKnifeList_HiltDetail" Association="Self.FK_WorkStationKnifeList_HiltDetail">
+      <End Role="HiltDetail" EntitySet="HiltDetail" />
+      <End Role="KnifeList" EntitySet="KnifeList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorkStationKnifeList_KnifeDetail" Association="Self.FK_WorkStationKnifeList_KnifeDetail">
+      <End Role="KnifeDetail" EntitySet="KnifeDetail" />
+      <End Role="KnifeList" EntitySet="KnifeList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorkStationKnifeList_Model" Association="Self.FK_WorkStationKnifeList_Model">
+      <End Role="Model" EntitySet="Model" />
+      <End Role="KnifeList" EntitySet="KnifeList" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

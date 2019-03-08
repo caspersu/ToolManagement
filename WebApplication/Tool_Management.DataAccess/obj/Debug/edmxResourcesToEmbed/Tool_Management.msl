@@ -1,0 +1,668 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ToolManagementModelStoreContainer" CdmEntityContainer="ToolManagementEntities">
+    <EntitySetMapping Name="Cabins">
+      <EntityTypeMapping TypeName="ToolManagementModel.Cabin">
+        <MappingFragment StoreEntitySet="Cabin">
+          <ScalarProperty Name="Cabin_ID" ColumnName="Cabin_ID" />
+          <ScalarProperty Name="Cabin_Type" ColumnName="Cabin_Type" />
+          <ScalarProperty Name="Cabin_Location" ColumnName="Cabin_Location" />
+          <ScalarProperty Name="Cabin_Create_DT" ColumnName="Cabin_Create_DT" />
+          <ScalarProperty Name="Cabin_Create_ID" ColumnName="Cabin_Create_ID" />
+          <ScalarProperty Name="Cabin_Modify_DT" ColumnName="Cabin_Modify_DT" />
+          <ScalarProperty Name="Cabin_Modify_ID" ColumnName="Cabin_Modify_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CNC_Alarm_Code_Mapping">
+      <EntityTypeMapping TypeName="ToolManagementModel.CNC_Alarm_Code_Mapping">
+        <MappingFragment StoreEntitySet="CNC_Alarm_Code_Mapping">
+          <ScalarProperty Name="ALARM_CODE" ColumnName="ALARM_CODE" />
+          <ScalarProperty Name="ALARM_MSG" ColumnName="ALARM_MSG" />
+          <ScalarProperty Name="Create_DT" ColumnName="Create_DT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CNC_ALARM_Log">
+      <EntityTypeMapping TypeName="ToolManagementModel.CNC_ALARM_Log">
+        <MappingFragment StoreEntitySet="CNC_ALARM_Log">
+          <ScalarProperty Name="Sno" ColumnName="Sno" />
+          <ScalarProperty Name="CNC_IP" ColumnName="CNC_IP" />
+          <ScalarProperty Name="Create_DT" ColumnName="Create_DT" />
+          <ScalarProperty Name="CNC_ALARM_CODE" ColumnName="CNC_ALARM_CODE" />
+          <ScalarProperty Name="CNC_ALARM_MSG" ColumnName="CNC_ALARM_MSG" />
+          <ScalarProperty Name="CNC_Lang" ColumnName="CNC_Lang" />
+          <ScalarProperty Name="CNC_ALARM_DT" ColumnName="CNC_ALARM_DT" />
+          <ScalarProperty Name="CNC_ModeType" ColumnName="CNC_ModeType" />
+          <ScalarProperty Name="CNC_OperationNo" ColumnName="CNC_OperationNo" />
+          <ScalarProperty Name="CNC_EditNo" ColumnName="CNC_EditNo" />
+          <ScalarProperty Name="CNC_Screen" ColumnName="CNC_Screen" />
+          <ScalarProperty Name="CNC__Coordinate_X" ColumnName="CNC__Coordinate_X" />
+          <ScalarProperty Name="CNC_Distance_X" ColumnName="CNC_Distance_X" />
+          <ScalarProperty Name="CNC_Coordinate_Y" ColumnName="CNC_Coordinate_Y" />
+          <ScalarProperty Name="CNC_Distance_Y" ColumnName="CNC_Distance_Y" />
+          <ScalarProperty Name="CNC_Coordinate_Z" ColumnName="CNC_Coordinate_Z" />
+          <ScalarProperty Name="CNC_Distance_Z" ColumnName="CNC_Distance_Z" />
+          <ScalarProperty Name="CNC_KnifeCabin" ColumnName="CNC_KnifeCabin" />
+          <ScalarProperty Name="CNC_RunProgramBank" ColumnName="CNC_RunProgramBank" />
+          <ScalarProperty Name="CNC_Compensate_H" ColumnName="CNC_Compensate_H" />
+          <ScalarProperty Name="CNC_Compensate_X" ColumnName="CNC_Compensate_X" />
+          <ScalarProperty Name="CNC_Compensate_Y" ColumnName="CNC_Compensate_Y" />
+          <ScalarProperty Name="CNC_Compensate_Z" ColumnName="CNC_Compensate_Z" />
+          <ScalarProperty Name="CNC_ATCTL_ID" ColumnName="CNC_ATCTL_ID" />
+          <ScalarProperty Name="CNC_Return_Speed" ColumnName="CNC_Return_Speed" />
+          <ScalarProperty Name="CNC_Fast_Feed" ColumnName="CNC_Fast_Feed" />
+          <ScalarProperty Name="CNC_Cutting_Feed" ColumnName="CNC_Cutting_Feed" />
+          <ScalarProperty Name="CNC_Spindle_Feed" ColumnName="CNC_Spindle_Feed" />
+          <ScalarProperty Name="CNC_Feed_Type" ColumnName="CNC_Feed_Type" />
+          <ScalarProperty Name="CNC_Door_Status" ColumnName="CNC_Door_Status" />
+          <ScalarProperty Name="CNC_Door_Interlock" ColumnName="CNC_Door_Interlock" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CNC_ATCTL_Log">
+      <EntityTypeMapping TypeName="ToolManagementModel.CNC_ATCTL_Log">
+        <MappingFragment StoreEntitySet="CNC_ATCTL_Log">
+          <ScalarProperty Name="Sno" ColumnName="Sno" />
+          <ScalarProperty Name="CNC_IP" ColumnName="CNC_IP" />
+          <ScalarProperty Name="Create_DT" ColumnName="Create_DT" />
+          <ScalarProperty Name="ATCTL_ID" ColumnName="ATCTL_ID" />
+          <ScalarProperty Name="ATCTL_NAME" ColumnName="ATCTL_NAME" />
+          <ScalarProperty Name="ATCTL_DATA" ColumnName="ATCTL_DATA" />
+          <ScalarProperty Name="ATCTL_GRP" ColumnName="ATCTL_GRP" />
+          <ScalarProperty Name="ATCTL_TIME" ColumnName="ATCTL_TIME" />
+          <ScalarProperty Name="ATCTL_TYPE" ColumnName="ATCTL_TYPE" />
+          <ScalarProperty Name="ATCTL_COLOR" ColumnName="ATCTL_COLOR" />
+          <ScalarProperty Name="KnifeDetail_ID" ColumnName="KnifeDetail_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CNC_PRD3_Log">
+      <EntityTypeMapping TypeName="ToolManagementModel.CNC_PRD3_Log">
+        <MappingFragment StoreEntitySet="CNC_PRD3_Log">
+          <ScalarProperty Name="Sno" ColumnName="Sno" />
+          <ScalarProperty Name="Create_DT" ColumnName="Create_DT" />
+          <ScalarProperty Name="CNC_IP" ColumnName="CNC_IP" />
+          <ScalarProperty Name="CNC_Current_Status" ColumnName="CNC_Current_Status" />
+          <ScalarProperty Name="CNC_Current_StatusDT" ColumnName="CNC_Current_StatusDT" />
+          <ScalarProperty Name="CNC_Status" ColumnName="CNC_Status" />
+          <ScalarProperty Name="CNC_StatusDT" ColumnName="CNC_StatusDT" />
+          <ScalarProperty Name="CNC_ProgramNo" ColumnName="CNC_ProgramNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CNC_PRDC2_Log">
+      <EntityTypeMapping TypeName="ToolManagementModel.CNC_PRDC2_Log">
+        <MappingFragment StoreEntitySet="CNC_PRDC2_Log">
+          <ScalarProperty Name="Create_DT" ColumnName="Create_DT" />
+          <ScalarProperty Name="CNC_IP" ColumnName="CNC_IP" />
+          <ScalarProperty Name="CNC_ProductionTime" ColumnName="CNC_ProductionTime" />
+          <ScalarProperty Name="CNC_StayTime" ColumnName="CNC_StayTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CNC_StatusHistory">
+      <EntityTypeMapping TypeName="ToolManagementModel.CNC_StatusHistory">
+        <MappingFragment StoreEntitySet="CNC_StatusHistory">
+          <ScalarProperty Name="Sno" ColumnName="Sno" />
+          <ScalarProperty Name="CNC_IP" ColumnName="CNC_IP" />
+          <ScalarProperty Name="Create_DT" ColumnName="Create_DT" />
+          <ScalarProperty Name="CNC_RunTime" ColumnName="CNC_RunTime" />
+          <ScalarProperty Name="CNC_StayTime" ColumnName="CNC_StayTime" />
+          <ScalarProperty Name="CNC_CloseTime" ColumnName="CNC_CloseTime" />
+          <ScalarProperty Name="CNC_ErrTime" ColumnName="CNC_ErrTime" />
+          <ScalarProperty Name="CNC_StopTime" ColumnName="CNC_StopTime" />
+          <ScalarProperty Name="CNC_CalcDT" ColumnName="CNC_CalcDT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CNC_Ver_Log">
+      <EntityTypeMapping TypeName="ToolManagementModel.CNC_Ver_Log">
+        <MappingFragment StoreEntitySet="CNC_Ver_Log">
+          <ScalarProperty Name="Sno" ColumnName="Sno" />
+          <ScalarProperty Name="CNC_IP" ColumnName="CNC_IP" />
+          <ScalarProperty Name="Create_DT" ColumnName="Create_DT" />
+          <ScalarProperty Name="CNC_Model" ColumnName="CNC_Model" />
+          <ScalarProperty Name="CNC_Ver" ColumnName="CNC_Ver" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CNC_WKCNTR_Log">
+      <EntityTypeMapping TypeName="ToolManagementModel.CNC_WKCNTR_Log">
+        <MappingFragment StoreEntitySet="CNC_WKCNTR_Log">
+          <ScalarProperty Name="Sno" ColumnName="Sno" />
+          <ScalarProperty Name="Create_DT" ColumnName="Create_DT" />
+          <ScalarProperty Name="CNC_IP" ColumnName="CNC_IP" />
+          <ScalarProperty Name="CNC_Current_ProductionAmount" ColumnName="CNC_Current_ProductionAmount" />
+          <ScalarProperty Name="CNC_End_ProductionAmount" ColumnName="CNC_End_ProductionAmount" />
+          <ScalarProperty Name="CNC_Alert_ProductionAmount" ColumnName="CNC_Alert_ProductionAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CNCDetails">
+      <EntityTypeMapping TypeName="ToolManagementModel.CNCDetail">
+        <MappingFragment StoreEntitySet="CNCDetail">
+          <ScalarProperty Name="CNCDetail_ID" ColumnName="CNCDetail_ID" />
+          <ScalarProperty Name="CNCMaster_ID" ColumnName="CNCMaster_ID" />
+          <ScalarProperty Name="CNCDetail_IP" ColumnName="CNCDetail_IP" />
+          <ScalarProperty Name="CNCDetail_Version" ColumnName="CNCDetail_Version" />
+          <ScalarProperty Name="CNCDetail_Status" ColumnName="CNCDetail_Status" />
+          <ScalarProperty Name="CNCDetail_Create_DT" ColumnName="CNCDetail_Create_DT" />
+          <ScalarProperty Name="CNCDetail_Create_ID" ColumnName="CNCDetail_Create_ID" />
+          <ScalarProperty Name="CNCDetail_Modify_DT" ColumnName="CNCDetail_Modify_DT" />
+          <ScalarProperty Name="CNCDetail_Modify_ID" ColumnName="CNCDetail_Modify_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CNCKnifeLists">
+      <EntityTypeMapping TypeName="ToolManagementModel.CNCKnifeList">
+        <MappingFragment StoreEntitySet="CNCKnifeList">
+          <ScalarProperty Name="CNCKnifeList_ID" ColumnName="CNCKnifeList_ID" />
+          <ScalarProperty Name="CNCDetail_ID" ColumnName="CNCDetail_ID" />
+          <ScalarProperty Name="Car_No" ColumnName="Car_No" />
+          <ScalarProperty Name="Good_ID" ColumnName="Good_ID" />
+          <ScalarProperty Name="Line_No" ColumnName="Line_No" />
+          <ScalarProperty Name="WorkStation_No" ColumnName="WorkStation_No" />
+          <ScalarProperty Name="KnifeList_ID" ColumnName="KnifeList_ID" />
+          <ScalarProperty Name="CNCList_Create_DT" ColumnName="CNCList_Create_DT" />
+          <ScalarProperty Name="CNCList_Create_ID" ColumnName="CNCList_Create_ID" />
+          <ScalarProperty Name="CNCList_Modify_DT" ColumnName="CNCList_Modify_DT" />
+          <ScalarProperty Name="CNCList_Modify_ID" ColumnName="CNCList_Modify_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CNCMasters">
+      <EntityTypeMapping TypeName="ToolManagementModel.CNCMaster">
+        <MappingFragment StoreEntitySet="CNCMaster">
+          <ScalarProperty Name="CNCMaster_ID" ColumnName="CNCMaster_ID" />
+          <ScalarProperty Name="CNC_Name" ColumnName="CNC_Name" />
+          <ScalarProperty Name="CNC_Brand" ColumnName="CNC_Brand" />
+          <ScalarProperty Name="CNC_Quality" ColumnName="CNC_Quality" />
+          <ScalarProperty Name="CNCMaster_Create_DT" ColumnName="CNCMaster_Create_DT" />
+          <ScalarProperty Name="CNCMaster_Create_ID" ColumnName="CNCMaster_Create_ID" />
+          <ScalarProperty Name="CNCMaster_Modify_DT" ColumnName="CNCMaster_Modify_DT" />
+          <ScalarProperty Name="CNCMaster_Modify_ID" ColumnName="CNCMaster_Modify_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CNCMonitors">
+      <EntityTypeMapping TypeName="ToolManagementModel.CNCMonitor">
+        <MappingFragment StoreEntitySet="CNCMonitor">
+          <ScalarProperty Name="CNC_IP" ColumnName="CNC_IP" />
+          <ScalarProperty Name="Create_DT" ColumnName="Create_DT" />
+          <ScalarProperty Name="CNCDetail_ID" ColumnName="CNCDetail_ID" />
+          <ScalarProperty Name="CNC_Status" ColumnName="CNC_Status" />
+          <ScalarProperty Name="CNC_Current_ProductionAmount" ColumnName="CNC_Current_ProductionAmount" />
+          <ScalarProperty Name="CNC_RunTime" ColumnName="CNC_RunTime" />
+          <ScalarProperty Name="CNC_StayTime" ColumnName="CNC_StayTime" />
+          <ScalarProperty Name="CNC_CloseTime" ColumnName="CNC_CloseTime" />
+          <ScalarProperty Name="CNC_ErrTime" ColumnName="CNC_ErrTime" />
+          <ScalarProperty Name="CNC_StopTime" ColumnName="CNC_StopTime" />
+          <ScalarProperty Name="CNC_Ver" ColumnName="CNC_Ver" />
+          <ScalarProperty Name="CNC_Model" ColumnName="CNC_Model" />
+          <ScalarProperty Name="CNC_Alert_ProductionAmount" ColumnName="CNC_Alert_ProductionAmount" />
+          <ScalarProperty Name="CNC_End_ProductionAmount" ColumnName="CNC_End_ProductionAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Collet1Detail">
+      <EntityTypeMapping TypeName="ToolManagementModel.Collet1Detail">
+        <MappingFragment StoreEntitySet="Collet1Detail">
+          <ScalarProperty Name="Collet1Detail_ID" ColumnName="Collet1Detail_ID" />
+          <ScalarProperty Name="Collet1Master_ID" ColumnName="Collet1Master_ID" />
+          <ScalarProperty Name="Collet1Detail_Status" ColumnName="Collet1Detail_Status" />
+          <ScalarProperty Name="Collet1Detail_Create_ID" ColumnName="Collet1Detail_Create_ID" />
+          <ScalarProperty Name="Collet1Detail_Create_DT" ColumnName="Collet1Detail_Create_DT" />
+          <ScalarProperty Name="Collet1Detail_Modify_ID" ColumnName="Collet1Detail_Modify_ID" />
+          <ScalarProperty Name="Collet1Detail_Modify_DT" ColumnName="Collet1Detail_Modify_DT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Collet1Master">
+      <EntityTypeMapping TypeName="ToolManagementModel.Collet1Master">
+        <MappingFragment StoreEntitySet="Collet1Master">
+          <ScalarProperty Name="Collet1Master_ID" ColumnName="Collet1Master_ID" />
+          <ScalarProperty Name="Collet1_Name" ColumnName="Collet1_Name" />
+          <ScalarProperty Name="Collet1_Brand" ColumnName="Collet1_Brand" />
+          <ScalarProperty Name="Collet1_Spec" ColumnName="Collet1_Spec" />
+          <ScalarProperty Name="Collet1_CabinID" ColumnName="Collet1_CabinID" />
+          <ScalarProperty Name="Collet1_Quality" ColumnName="Collet1_Quality" />
+          <ScalarProperty Name="Collet1Master_Create_ID" ColumnName="Collet1Master_Create_ID" />
+          <ScalarProperty Name="Collet1Master_Create_DT" ColumnName="Collet1Master_Create_DT" />
+          <ScalarProperty Name="Collet1Master_Modify_ID" ColumnName="Collet1Master_Modify_ID" />
+          <ScalarProperty Name="Collet1Master_Modify_DT" ColumnName="Collet1Master_Modify_DT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Collet2Detail">
+      <EntityTypeMapping TypeName="ToolManagementModel.Collet2Detail">
+        <MappingFragment StoreEntitySet="Collet2Detail">
+          <ScalarProperty Name="Collet2Detail_ID" ColumnName="Collet2Detail_ID" />
+          <ScalarProperty Name="Collet2Master_ID" ColumnName="Collet2Master_ID" />
+          <ScalarProperty Name="Collet2Detail_Status" ColumnName="Collet2Detail_Status" />
+          <ScalarProperty Name="Collet2Detail_Create_ID" ColumnName="Collet2Detail_Create_ID" />
+          <ScalarProperty Name="Collet2Detail_Create_DT" ColumnName="Collet2Detail_Create_DT" />
+          <ScalarProperty Name="Collet2Detail_Modify_ID" ColumnName="Collet2Detail_Modify_ID" />
+          <ScalarProperty Name="Collet2Detail_Modify_DT" ColumnName="Collet2Detail_Modify_DT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Collet2Master">
+      <EntityTypeMapping TypeName="ToolManagementModel.Collet2Master">
+        <MappingFragment StoreEntitySet="Collet2Master">
+          <ScalarProperty Name="Collet2Master_ID" ColumnName="Collet2Master_ID" />
+          <ScalarProperty Name="Collet2_Name" ColumnName="Collet2_Name" />
+          <ScalarProperty Name="Collet2_Brand" ColumnName="Collet2_Brand" />
+          <ScalarProperty Name="Collet2_Spec" ColumnName="Collet2_Spec" />
+          <ScalarProperty Name="Collet2_CabinID" ColumnName="Collet2_CabinID" />
+          <ScalarProperty Name="Collet2_Quality" ColumnName="Collet2_Quality" />
+          <ScalarProperty Name="Collet2Master_Create_ID" ColumnName="Collet2Master_Create_ID" />
+          <ScalarProperty Name="Collet2Master_Create_DT" ColumnName="Collet2Master_Create_DT" />
+          <ScalarProperty Name="Collet2Master_Modify_ID" ColumnName="Collet2Master_Modify_ID" />
+          <ScalarProperty Name="Collet2Master_Modify_DT" ColumnName="Collet2Master_Modify_DT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employes">
+      <EntityTypeMapping TypeName="ToolManagementModel.Employe">
+        <MappingFragment StoreEntitySet="Employe">
+          <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+          <ScalarProperty Name="Emp_Name" ColumnName="Emp_Name" />
+          <ScalarProperty Name="Emp_Status" ColumnName="Emp_Status" />
+          <ScalarProperty Name="Emp_Create_DT" ColumnName="Emp_Create_DT" />
+          <ScalarProperty Name="Emp_Create_ID" ColumnName="Emp_Create_ID" />
+          <ScalarProperty Name="Emp_Modify_DT" ColumnName="Emp_Modify_DT" />
+          <ScalarProperty Name="Emp_Modify_ID" ColumnName="Emp_Modify_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExtRodDetails">
+      <EntityTypeMapping TypeName="ToolManagementModel.ExtRodDetail">
+        <MappingFragment StoreEntitySet="ExtRodDetail">
+          <ScalarProperty Name="ExtensionRodDetail_ID" ColumnName="ExtensionRodDetail_ID" />
+          <ScalarProperty Name="ExtensionRodMaster_ID" ColumnName="ExtensionRodMaster_ID" />
+          <ScalarProperty Name="ExtensionRodDetail_Status" ColumnName="ExtensionRodDetail_Status" />
+          <ScalarProperty Name="ExtensionRodDetail_Create_DT" ColumnName="ExtensionRodDetail_Create_DT" />
+          <ScalarProperty Name="ExtensionRodDetail_Create_ID" ColumnName="ExtensionRodDetail_Create_ID" />
+          <ScalarProperty Name="ExtensionRodDetail_Modify_DT" ColumnName="ExtensionRodDetail_Modify_DT" />
+          <ScalarProperty Name="ExtensionRodDetail_Modify_ID" ColumnName="ExtensionRodDetail_Modify_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExtRodMasters">
+      <EntityTypeMapping TypeName="ToolManagementModel.ExtRodMaster">
+        <MappingFragment StoreEntitySet="ExtRodMaster">
+          <ScalarProperty Name="ExtensionRodMaster_ID" ColumnName="ExtensionRodMaster_ID" />
+          <ScalarProperty Name="ExtensionRod_Name" ColumnName="ExtensionRod_Name" />
+          <ScalarProperty Name="ExtensionRod_Brand" ColumnName="ExtensionRod_Brand" />
+          <ScalarProperty Name="ExtensionRod_Spec" ColumnName="ExtensionRod_Spec" />
+          <ScalarProperty Name="ExtensionRod_Quality" ColumnName="ExtensionRod_Quality" />
+          <ScalarProperty Name="ExtensionRod_CabinID" ColumnName="ExtensionRod_CabinID" />
+          <ScalarProperty Name="ExtensionRodMaster_Create_ID" ColumnName="ExtensionRodMaster_Create_ID" />
+          <ScalarProperty Name="ExtensionRodMaster_Create_DT" ColumnName="ExtensionRodMaster_Create_DT" />
+          <ScalarProperty Name="ExtensionRodMaster_Modify_ID" ColumnName="ExtensionRodMaster_Modify_ID" />
+          <ScalarProperty Name="ExtensionRodMaster_Modify_DT" ColumnName="ExtensionRodMaster_Modify_DT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Goods">
+      <EntityTypeMapping TypeName="ToolManagementModel.Good">
+        <MappingFragment StoreEntitySet="Good">
+          <ScalarProperty Name="Good_ID" ColumnName="Good_ID" />
+          <ScalarProperty Name="Good_Name" ColumnName="Good_Name" />
+          <ScalarProperty Name="Good_Create_DT" ColumnName="Good_Create_DT" />
+          <ScalarProperty Name="Good_Create_ID" ColumnName="Good_Create_ID" />
+          <ScalarProperty Name="Good_Modify_DT" ColumnName="Good_Modify_DT" />
+          <ScalarProperty Name="Good_Modify_ID" ColumnName="Good_Modify_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HiltDetails">
+      <EntityTypeMapping TypeName="ToolManagementModel.HiltDetail">
+        <MappingFragment StoreEntitySet="HiltDetail">
+          <ScalarProperty Name="HiltDetail_ID" ColumnName="HiltDetail_ID" />
+          <ScalarProperty Name="HiltMaster_ID" ColumnName="HiltMaster_ID" />
+          <ScalarProperty Name="HiltDetail_Status" ColumnName="HiltDetail_Status" />
+          <ScalarProperty Name="HiltCabine_ID" ColumnName="HiltCabine_ID" />
+          <ScalarProperty Name="HiltDetail_Create_DT" ColumnName="HiltDetail_Create_DT" />
+          <ScalarProperty Name="HiltDetail_Create_ID" ColumnName="HiltDetail_Create_ID" />
+          <ScalarProperty Name="HiltDetail_Modify_DT" ColumnName="HiltDetail_Modify_DT" />
+          <ScalarProperty Name="HiltDetail_Modify_ID" ColumnName="HiltDetail_Modify_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HiltMasters">
+      <EntityTypeMapping TypeName="ToolManagementModel.HiltMaster">
+        <MappingFragment StoreEntitySet="HiltMaster">
+          <ScalarProperty Name="HiltMaster_ID" ColumnName="HiltMaster_ID" />
+          <ScalarProperty Name="Hilt_Name" ColumnName="Hilt_Name" />
+          <ScalarProperty Name="Hilt_Brand" ColumnName="Hilt_Brand" />
+          <ScalarProperty Name="Hilt_Spec" ColumnName="Hilt_Spec" />
+          <ScalarProperty Name="Hilt_CabineID" ColumnName="Hilt_CabineID" />
+          <ScalarProperty Name="Hilt_Quality" ColumnName="Hilt_Quality" />
+          <ScalarProperty Name="HiltMaster_Create_DT" ColumnName="HiltMaster_Create_DT" />
+          <ScalarProperty Name="HiltMaster_Create_ID" ColumnName="HiltMaster_Create_ID" />
+          <ScalarProperty Name="HiltMaster_Modify_DT" ColumnName="HiltMaster_Modify_DT" />
+          <ScalarProperty Name="HiltMaster_Modify_ID" ColumnName="HiltMaster_Modify_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Informs">
+      <EntityTypeMapping TypeName="ToolManagementModel.Inform">
+        <MappingFragment StoreEntitySet="Inform">
+          <ScalarProperty Name="Inform_ID" ColumnName="Inform_ID" />
+          <ScalarProperty Name="Detail_ID" ColumnName="Detail_ID" />
+          <ScalarProperty Name="Detail_Status" ColumnName="Detail_Status" />
+          <ScalarProperty Name="Inform_Create_ID" ColumnName="Inform_Create_ID" />
+          <ScalarProperty Name="Inform_Create_DT" ColumnName="Inform_Create_DT" />
+          <ScalarProperty Name="Inform_Modify_ID" ColumnName="Inform_Modify_ID" />
+          <ScalarProperty Name="Inform_Modify_DT" ColumnName="Inform_Modify_DT" />
+          <ScalarProperty Name="DetailID_Type" ColumnName="DetailID_Type" />
+          <ScalarProperty Name="In_DT" ColumnName="In_DT" />
+          <ScalarProperty Name="In_EmpID" ColumnName="In_EmpID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KnifeChangeFroms">
+      <EntityTypeMapping TypeName="ToolManagementModel.KnifeChangeFrom">
+        <MappingFragment StoreEntitySet="KnifeChangeFrom">
+          <ScalarProperty Name="KnifeChangeForm_ID" ColumnName="KnifeChangeForm_ID" />
+          <ScalarProperty Name="OrgKnifeDetail_ID" ColumnName="OrgKnifeDetail_ID" />
+          <ScalarProperty Name="KnifeChange_DT" ColumnName="KnifeChange_DT" />
+          <ScalarProperty Name="KnifeDetail_ID" ColumnName="KnifeDetail_ID" />
+          <ScalarProperty Name="KnifeChanger_EmpID" ColumnName="KnifeChanger_EmpID" />
+          <ScalarProperty Name="KnifeChanger_Reslut" ColumnName="KnifeChanger_Reslut" />
+          <ScalarProperty Name="KnifeConfirm_EmpID" ColumnName="KnifeConfirm_EmpID" />
+          <ScalarProperty Name="OrgKnifeDetail_Status" ColumnName="OrgKnifeDetail_Status" />
+          <ScalarProperty Name="KnifeChangeForm_Create_DT" ColumnName="KnifeChangeForm_Create_DT" />
+          <ScalarProperty Name="KnifeChangeForm_Create_ID" ColumnName="KnifeChangeForm_Create_ID" />
+          <ScalarProperty Name="KnifeChangeForm_Modify_DT" ColumnName="KnifeChangeForm_Modify_DT" />
+          <ScalarProperty Name="KnifeChangeForm_Modify_ID" ColumnName="KnifeChangeForm_Modify_ID" />
+          <ScalarProperty Name="DetailID_Type" ColumnName="DetailID_Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KnifeDetails">
+      <EntityTypeMapping TypeName="ToolManagementModel.KnifeDetail">
+        <MappingFragment StoreEntitySet="KnifeDetail">
+          <ScalarProperty Name="KnifeDetail_ID" ColumnName="KnifeDetail_ID" />
+          <ScalarProperty Name="KnifeMaster_ID" ColumnName="KnifeMaster_ID" />
+          <ScalarProperty Name="IsNewKnife" ColumnName="IsNewKnife" />
+          <ScalarProperty Name="NewEnter_DT" ColumnName="NewEnter_DT" />
+          <ScalarProperty Name="KnifeDetail_Status" ColumnName="KnifeDetail_Status" />
+          <ScalarProperty Name="KnifeDetail_Create_DT" ColumnName="KnifeDetail_Create_DT" />
+          <ScalarProperty Name="KnifeDetail_Create_ID" ColumnName="KnifeDetail_Create_ID" />
+          <ScalarProperty Name="KnifeDetail_Modify_DT" ColumnName="KnifeDetail_Modify_DT" />
+          <ScalarProperty Name="KnifeDetail_Modify_ID" ColumnName="KnifeDetail_Modify_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KnifeLists">
+      <EntityTypeMapping TypeName="ToolManagementModel.KnifeList">
+        <MappingFragment StoreEntitySet="KnifeList">
+          <ScalarProperty Name="KnifeList_ID" ColumnName="KnifeList_ID" />
+          <ScalarProperty Name="WorkStation_No" ColumnName="WorkStation_No" />
+          <ScalarProperty Name="Model_ID" ColumnName="Model_ID" />
+          <ScalarProperty Name="KnifeDetail_ID" ColumnName="KnifeDetail_ID" />
+          <ScalarProperty Name="HiltDetail_ID" ColumnName="HiltDetail_ID" />
+          <ScalarProperty Name="NailDetail_ID" ColumnName="NailDetail_ID" />
+          <ScalarProperty Name="MeasureDetail_ID" ColumnName="MeasureDetail_ID" />
+          <ScalarProperty Name="ExtRodDetail_ID" ColumnName="ExtRodDetail_ID" />
+          <ScalarProperty Name="NutDetail_ID" ColumnName="NutDetail_ID" />
+          <ScalarProperty Name="Collet1Detail_ID" ColumnName="Collet1Detail_ID" />
+          <ScalarProperty Name="Collet2Detail_ID" ColumnName="Collet2Detail_ID" />
+          <ScalarProperty Name="KnifeList_Create_DT" ColumnName="KnifeList_Create_DT" />
+          <ScalarProperty Name="KnifeList_Create_ID" ColumnName="KnifeList_Create_ID" />
+          <ScalarProperty Name="KnifeList_Modify_DT" ColumnName="KnifeList_Modify_DT" />
+          <ScalarProperty Name="KnifeList_Modify_ID" ColumnName="KnifeList_Modify_ID" />
+          <ScalarProperty Name="Program_No" ColumnName="Program_No" />
+          <ScalarProperty Name="D" ColumnName="D" />
+          <ScalarProperty Name="R" ColumnName="R" />
+          <ScalarProperty Name="L" ColumnName="L" />
+          <ScalarProperty Name="FL" ColumnName="FL" />
+          <ScalarProperty Name="Way" ColumnName="Way" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Memo" ColumnName="Memo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KnifeMasters">
+      <EntityTypeMapping TypeName="ToolManagementModel.KnifeMaster">
+        <MappingFragment StoreEntitySet="KnifeMaster">
+          <ScalarProperty Name="KnifeMaster_ID" ColumnName="KnifeMaster_ID" />
+          <ScalarProperty Name="Knife_Name" ColumnName="Knife_Name" />
+          <ScalarProperty Name="Knife_Brand" ColumnName="Knife_Brand" />
+          <ScalarProperty Name="Knife_Spec" ColumnName="Knife_Spec" />
+          <ScalarProperty Name="Knife_CabinID" ColumnName="Knife_CabinID" />
+          <ScalarProperty Name="Knife_Quality" ColumnName="Knife_Quality" />
+          <ScalarProperty Name="KnifeMaster_Create_DT" ColumnName="KnifeMaster_Create_DT" />
+          <ScalarProperty Name="KnifeMaster_Create_ID" ColumnName="KnifeMaster_Create_ID" />
+          <ScalarProperty Name="KnifeMaster_Modify_DT" ColumnName="KnifeMaster_Modify_DT" />
+          <ScalarProperty Name="KnifeMaster_Modify_ID" ColumnName="KnifeMaster_Modify_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KnifeUseLogs">
+      <EntityTypeMapping TypeName="ToolManagementModel.KnifeUseLog">
+        <MappingFragment StoreEntitySet="KnifeUseLog">
+          <ScalarProperty Name="KnifeUseLog_ID" ColumnName="KnifeUseLog_ID" />
+          <ScalarProperty Name="KnifeDetail_ID" ColumnName="KnifeDetail_ID" />
+          <ScalarProperty Name="Knife_Use_BeginDT" ColumnName="Knife_Use_BeginDT" />
+          <ScalarProperty Name="Knife_Use_EndDT" ColumnName="Knife_Use_EndDT" />
+          <ScalarProperty Name="Knife_Use_Time" ColumnName="Knife_Use_Time" />
+          <ScalarProperty Name="KnifeUseLog_Create_DT" ColumnName="KnifeUseLog_Create_DT" />
+          <ScalarProperty Name="KnifeUseLog_Create_ID" ColumnName="KnifeUseLog_Create_ID" />
+          <ScalarProperty Name="KnifeUseLog_Modify_DT" ColumnName="KnifeUseLog_Modify_DT" />
+          <ScalarProperty Name="KnifeUseLog_Modify_ID" ColumnName="KnifeUseLog_Modify_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MeasureDetails">
+      <EntityTypeMapping TypeName="ToolManagementModel.MeasureDetail">
+        <MappingFragment StoreEntitySet="MeasureDetail">
+          <ScalarProperty Name="MeasureDetail_ID" ColumnName="MeasureDetail_ID" />
+          <ScalarProperty Name="MeasureMaster_ID" ColumnName="MeasureMaster_ID" />
+          <ScalarProperty Name="MeasureDetail_Status" ColumnName="MeasureDetail_Status" />
+          <ScalarProperty Name="MeasureDetail_Create_DT" ColumnName="MeasureDetail_Create_DT" />
+          <ScalarProperty Name="MeasureDetail_Create_ID" ColumnName="MeasureDetail_Create_ID" />
+          <ScalarProperty Name="MeasureDetail_Modify_DT" ColumnName="MeasureDetail_Modify_DT" />
+          <ScalarProperty Name="MeasureDetail_Modify_ID" ColumnName="MeasureDetail_Modify_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MeasureMasters">
+      <EntityTypeMapping TypeName="ToolManagementModel.MeasureMaster">
+        <MappingFragment StoreEntitySet="MeasureMaster">
+          <ScalarProperty Name="MeasureMaster_ID" ColumnName="MeasureMaster_ID" />
+          <ScalarProperty Name="Measure_Name" ColumnName="Measure_Name" />
+          <ScalarProperty Name="Measure_Spec" ColumnName="Measure_Spec" />
+          <ScalarProperty Name="Measure_Brand" ColumnName="Measure_Brand" />
+          <ScalarProperty Name="Measure_CabinID" ColumnName="Measure_CabinID" />
+          <ScalarProperty Name="Measure_Quality" ColumnName="Measure_Quality" />
+          <ScalarProperty Name="MeasureMaster_Create_ID" ColumnName="MeasureMaster_Create_ID" />
+          <ScalarProperty Name="MeasureMaster_Create_DT" ColumnName="MeasureMaster_Create_DT" />
+          <ScalarProperty Name="MeasureMaster_Modify_ID" ColumnName="MeasureMaster_Modify_ID" />
+          <ScalarProperty Name="MeasureMaster_Modify_DT" ColumnName="MeasureMaster_Modify_DT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Models">
+      <EntityTypeMapping TypeName="ToolManagementModel.Model">
+        <MappingFragment StoreEntitySet="Model">
+          <ScalarProperty Name="Model_ID" ColumnName="Model_ID" />
+          <ScalarProperty Name="Model_Name" ColumnName="Model_Name" />
+          <ScalarProperty Name="Model_Create_DT" ColumnName="Model_Create_DT" />
+          <ScalarProperty Name="Model_Create_ID" ColumnName="Model_Create_ID" />
+          <ScalarProperty Name="Model_Modify_DT" ColumnName="Model_Modify_DT" />
+          <ScalarProperty Name="Model_Modify_ID" ColumnName="Model_Modify_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NailDetails">
+      <EntityTypeMapping TypeName="ToolManagementModel.NailDetail">
+        <MappingFragment StoreEntitySet="NailDetail">
+          <ScalarProperty Name="NailDetail_ID" ColumnName="NailDetail_ID" />
+          <ScalarProperty Name="NailMaster_ID" ColumnName="NailMaster_ID" />
+          <ScalarProperty Name="NailDetail_Status" ColumnName="NailDetail_Status" />
+          <ScalarProperty Name="NailDetail_Create_ID" ColumnName="NailDetail_Create_ID" />
+          <ScalarProperty Name="NailDetail_Create_DT" ColumnName="NailDetail_Create_DT" />
+          <ScalarProperty Name="NailDetail_Modify_ID" ColumnName="NailDetail_Modify_ID" />
+          <ScalarProperty Name="NailDetail_Modify_DT" ColumnName="NailDetail_Modify_DT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NailMasters">
+      <EntityTypeMapping TypeName="ToolManagementModel.NailMaster">
+        <MappingFragment StoreEntitySet="NailMaster">
+          <ScalarProperty Name="NailMaster_ID" ColumnName="NailMaster_ID" />
+          <ScalarProperty Name="Nail_Name" ColumnName="Nail_Name" />
+          <ScalarProperty Name="Nail_Brand" ColumnName="Nail_Brand" />
+          <ScalarProperty Name="Nail_Spec" ColumnName="Nail_Spec" />
+          <ScalarProperty Name="Nail_CabinID" ColumnName="Nail_CabinID" />
+          <ScalarProperty Name="Nail_Quality" ColumnName="Nail_Quality" />
+          <ScalarProperty Name="NailMaster_Create_ID" ColumnName="NailMaster_Create_ID" />
+          <ScalarProperty Name="NailMaster_Create_DT" ColumnName="NailMaster_Create_DT" />
+          <ScalarProperty Name="NailMaster_Modify_ID" ColumnName="NailMaster_Modify_ID" />
+          <ScalarProperty Name="NailMaster_Modify_DT" ColumnName="NailMaster_Modify_DT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NutDetails">
+      <EntityTypeMapping TypeName="ToolManagementModel.NutDetail">
+        <MappingFragment StoreEntitySet="NutDetail">
+          <ScalarProperty Name="NutDetail_ID" ColumnName="NutDetail_ID" />
+          <ScalarProperty Name="NutMaster_ID" ColumnName="NutMaster_ID" />
+          <ScalarProperty Name="NutDetail_Status" ColumnName="NutDetail_Status" />
+          <ScalarProperty Name="NutDetail_Create_ID" ColumnName="NutDetail_Create_ID" />
+          <ScalarProperty Name="NutDetail_Create_DT" ColumnName="NutDetail_Create_DT" />
+          <ScalarProperty Name="NutDetail_Modify_ID" ColumnName="NutDetail_Modify_ID" />
+          <ScalarProperty Name="NutDetail_Modify_DT" ColumnName="NutDetail_Modify_DT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NutMasters">
+      <EntityTypeMapping TypeName="ToolManagementModel.NutMaster">
+        <MappingFragment StoreEntitySet="NutMaster">
+          <ScalarProperty Name="NutMaster_ID" ColumnName="NutMaster_ID" />
+          <ScalarProperty Name="Nut_Name" ColumnName="Nut_Name" />
+          <ScalarProperty Name="Nut_Brand" ColumnName="Nut_Brand" />
+          <ScalarProperty Name="Nut_Spec" ColumnName="Nut_Spec" />
+          <ScalarProperty Name="Nut_Quality" ColumnName="Nut_Quality" />
+          <ScalarProperty Name="Nut_CabinID" ColumnName="Nut_CabinID" />
+          <ScalarProperty Name="NutMaster_Create_DT" ColumnName="NutMaster_Create_DT" />
+          <ScalarProperty Name="NutMaster_Create_ID" ColumnName="NutMaster_Create_ID" />
+          <ScalarProperty Name="NutMaster_Modify_DT" ColumnName="NutMaster_Modify_DT" />
+          <ScalarProperty Name="NutMaster_Modify_ID" ColumnName="NutMaster_Modify_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OutFroms">
+      <EntityTypeMapping TypeName="ToolManagementModel.OutFrom">
+        <MappingFragment StoreEntitySet="OutFrom">
+          <ScalarProperty Name="OutForm_ID" ColumnName="OutForm_ID" />
+          <ScalarProperty Name="Detail_ID" ColumnName="Detail_ID" />
+          <ScalarProperty Name="Out_DT" ColumnName="Out_DT" />
+          <ScalarProperty Name="DetailID_Type" ColumnName="DetailID_Type" />
+          <ScalarProperty Name="Out_EmpID" ColumnName="Out_EmpID" />
+          <ScalarProperty Name="Confirm_EmpID" ColumnName="Confirm_EmpID" />
+          <ScalarProperty Name="OutForm_Create_DT" ColumnName="OutForm_Create_DT" />
+          <ScalarProperty Name="OutForm_Create_ID" ColumnName="OutForm_Create_ID" />
+          <ScalarProperty Name="OutForm_Modify_DT" ColumnName="OutForm_Modify_DT" />
+          <ScalarProperty Name="OutForm_Modify_ID" ColumnName="OutForm_Modify_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductionPlans">
+      <EntityTypeMapping TypeName="ToolManagementModel.ProductionPlan">
+        <MappingFragment StoreEntitySet="ProductionPlan">
+          <ScalarProperty Name="Planning_ID" ColumnName="Planning_ID" />
+          <ScalarProperty Name="CNCKnifeList_ID" ColumnName="CNCKnifeList_ID" />
+          <ScalarProperty Name="Class_Type" ColumnName="Class_Type" />
+          <ScalarProperty Name="Class_EmpID" ColumnName="Class_EmpID" />
+          <ScalarProperty Name="Class_StandardPerson" ColumnName="Class_StandardPerson" />
+          <ScalarProperty Name="Class_RealPerson" ColumnName="Class_RealPerson" />
+          <ScalarProperty Name="Planning_Create_DT" ColumnName="Planning_Create_DT" />
+          <ScalarProperty Name="Planning_Create_ID" ColumnName="Planning_Create_ID" />
+          <ScalarProperty Name="Planning_Modify_DT" ColumnName="Planning_Modify_DT" />
+          <ScalarProperty Name="Planning_Modify_ID" ColumnName="Planning_Modify_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stocks">
+      <EntityTypeMapping TypeName="ToolManagementModel.Stock">
+        <MappingFragment StoreEntitySet="Stock">
+          <ScalarProperty Name="Master_ID" ColumnName="Master_ID" />
+          <ScalarProperty Name="MasterID_Type" ColumnName="MasterID_Type" />
+          <ScalarProperty Name="InBound" ColumnName="InBound" />
+          <ScalarProperty Name="OutBound" ColumnName="OutBound" />
+          <ScalarProperty Name="ScrapBound" ColumnName="ScrapBound" />
+          <ScalarProperty Name="Create_DT" ColumnName="Create_DT" />
+          <ScalarProperty Name="Memo" ColumnName="Memo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StockDetails">
+      <EntityTypeMapping TypeName="ToolManagementModel.StockDetail">
+        <MappingFragment StoreEntitySet="StockDetail">
+          <ScalarProperty Name="Sno" ColumnName="Sno" />
+          <ScalarProperty Name="Master_ID" ColumnName="Master_ID" />
+          <ScalarProperty Name="Detail_ID" ColumnName="Detail_ID" />
+          <ScalarProperty Name="MasterID_Type" ColumnName="MasterID_Type" />
+          <ScalarProperty Name="Bound_Type" ColumnName="Bound_Type" />
+          <ScalarProperty Name="Create_DT" ColumnName="Create_DT" />
+          <ScalarProperty Name="Memo" ColumnName="Memo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vCNC_Alarm_Log">
+      <EntityTypeMapping TypeName="ToolManagementModel.vCNC_Alarm_Log">
+        <MappingFragment StoreEntitySet="vCNC_Alarm_Log">
+          <ScalarProperty Name="CNC_IP" ColumnName="CNC_IP" />
+          <ScalarProperty Name="Sno" ColumnName="Sno" />
+          <ScalarProperty Name="Create_DT" ColumnName="Create_DT" />
+          <ScalarProperty Name="CNC_ALARM_CODE" ColumnName="CNC_ALARM_CODE" />
+          <ScalarProperty Name="CNC_ALARM_MSG" ColumnName="CNC_ALARM_MSG" />
+          <ScalarProperty Name="CNC_ALARM_DT" ColumnName="CNC_ALARM_DT" />
+          <ScalarProperty Name="CNC_OperationNo" ColumnName="CNC_OperationNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vCNC_Monitor">
+      <EntityTypeMapping TypeName="ToolManagementModel.vCNC_Monitor">
+        <MappingFragment StoreEntitySet="vCNC_Monitor">
+          <ScalarProperty Name="CNC_IP" ColumnName="CNC_IP" />
+          <ScalarProperty Name="CNC_Model" ColumnName="CNC_Model" />
+          <ScalarProperty Name="CNC_Ver" ColumnName="CNC_Ver" />
+          <ScalarProperty Name="CNC_Current_ProductionAmount" ColumnName="CNC_Current_ProductionAmount" />
+          <ScalarProperty Name="CNC_Current_Status" ColumnName="CNC_Current_Status" />
+          <ScalarProperty Name="CNC_Current_StatusDT" ColumnName="CNC_Current_StatusDT" />
+          <ScalarProperty Name="Create_DT" ColumnName="Create_DT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="ToolManagementModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="ToolManagementModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="ToolManagementModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="ToolManagementModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ToolManagementModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="ToolManagementModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ToolManagementModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="ToolManagementModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="ToolManagementModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

@@ -14,13 +14,8 @@ namespace Tool_Management.DataAccess
     
     public partial class KnifeList
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public KnifeList()
-        {
-            this.CNCKnifeLists = new HashSet<CNCKnifeList>();
-        }
-    
         public string KnifeList_ID { get; set; }
+        public string ATC_ID { get; set; }
         public string WorkStation_No { get; set; }
         public string Model_ID { get; set; }
         public string KnifeDetail_ID { get; set; }
@@ -39,15 +34,19 @@ namespace Tool_Management.DataAccess
         public string D { get; set; }
         public string R { get; set; }
         public string L { get; set; }
+        public string CL { get; set; }
         public string FL { get; set; }
+        public string SZ { get; set; }
+        public string EZ { get; set; }
+        public string Reserved { get; set; }
+        public string Deep { get; set; }
         public string Way { get; set; }
-        public int Time { get; set; }
+        public Nullable<int> Time { get; set; }
         public string Memo { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CNCKnifeList> CNCKnifeLists { get; set; }
         public virtual Collet1Detail Collet1Detail { get; set; }
         public virtual Collet2Detail Collet2Detail { get; set; }
+        public virtual ExtRodDetail ExtRodDetail { get; set; }
         public virtual HiltDetail HiltDetail { get; set; }
         public virtual KnifeDetail KnifeDetail { get; set; }
         public virtual MeasureDetail MeasureDetail { get; set; }

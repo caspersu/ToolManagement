@@ -67,6 +67,7 @@ namespace Tool_Management.DataAccess
         public virtual DbSet<ProductionPlan> ProductionPlans { get; set; }
         public virtual DbSet<Stock> Stocks { get; set; }
         public virtual DbSet<StockDetail> StockDetails { get; set; }
+        public virtual DbSet<v_Kind> v_Kind { get; set; }
         public virtual DbSet<vCNC_Alarm_Log> vCNC_Alarm_Log { get; set; }
         public virtual DbSet<vCNC_Monitor> vCNC_Monitor { get; set; }
     

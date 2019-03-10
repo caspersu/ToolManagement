@@ -20,16 +20,16 @@ namespace Tool_Management.DataAccess
             this.ExtRodDetails = new HashSet<ExtRodDetail>();
         }
     
-        public string ExtensionRodMaster_ID { get; set; }
-        public string ExtensionRod_Name { get; set; }
-        public string ExtensionRod_Brand { get; set; }
-        public string ExtensionRod_Spec { get; set; }
-        public long ExtensionRod_Quality { get; set; }
-        public string ExtensionRod_CabinID { get; set; }
-        public string ExtensionRodMaster_Create_ID { get; set; }
-        public Nullable<System.DateTime> ExtensionRodMaster_Create_DT { get; set; }
-        public string ExtensionRodMaster_Modify_ID { get; set; }
-        public Nullable<System.DateTime> ExtensionRodMaster_Modify_DT { get; set; }
+        public string ExtRodMaster_ID { get; set; }
+        public string ExtRod_Name { get; set; }
+        public string ExtRod_Brand { get; set; }
+        public string ExtRod_Spec { get; set; }
+        public long ExtRod_Quality { get; set; }
+        public string ExtRod_CabinID { get; set; }
+        public string ExtRodMaster_Create_ID { get; set; }
+        public Nullable<System.DateTime> ExtRodMaster_Create_DT { get; set; }
+        public string ExtRodMaster_Modify_ID { get; set; }
+        public Nullable<System.DateTime> ExtRodMaster_Modify_DT { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ExtRodDetail> ExtRodDetails { get; set; }

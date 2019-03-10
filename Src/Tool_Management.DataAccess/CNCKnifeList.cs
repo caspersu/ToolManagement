@@ -33,7 +33,6 @@ namespace Tool_Management.DataAccess
         public string CNCList_Modify_ID { get; set; }
     
         public virtual CNCDetail CNCDetail { get; set; }
-        public virtual KnifeList KnifeList { get; set; }
         public virtual Good Good { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductionPlan> ProductionPlans { get; set; }

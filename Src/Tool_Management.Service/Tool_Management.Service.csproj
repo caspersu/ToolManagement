@@ -30,6 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Kendo.Mvc">
       <HintPath>..\Tool_Management.Web\bin\Kendo.Mvc.dll</HintPath>
     </Reference>
@@ -44,13 +52,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\ITM_vKind.cs" />
+    <Compile Include="Interfaces\ITM_KnifeList.cs" />
     <Compile Include="Interfaces\ITM_Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\TM_vKindService.cs" />
+    <Compile Include="Services\TM_KnifeListService.cs" />
     <Compile Include="Services\TM_ModelService.cs" />
+    <Compile Include="ViewModels\vKindViewModel.cs" />
+    <Compile Include="ViewModels\KnifeListViewModel.cs" />
     <Compile Include="ViewModels\ModelViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Utils\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tool_Management.DataAccess\Tool_Management.DataAccess.csproj">
+      <Project>{a4f8313b-1921-4176-be52-00970e782459}</Project>
+      <Name>Tool_Management.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

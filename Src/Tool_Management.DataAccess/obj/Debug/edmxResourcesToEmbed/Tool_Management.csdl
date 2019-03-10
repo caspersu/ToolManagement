@@ -1,1425 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="ToolManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Cabin">
-    <Key>
-      <PropertyRef Name="Cabin_ID" />
-    </Key>
-    <Property Name="Cabin_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Cabin_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Cabin_Location" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Cabin_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Cabin_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Cabin_Modify_DT" Type="DateTime" Precision="3" />
-    <Property Name="Cabin_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-  </EntityType>
-  <EntityType Name="CNC_Alarm_Code_Mapping">
-    <Key>
-      <PropertyRef Name="ALARM_CODE" />
-    </Key>
-    <Property Name="ALARM_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ALARM_MSG" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Create_DT" Type="DateTime" Nullable="false" Precision="3" />
-  </EntityType>
-  <EntityType Name="CNC_ALARM_Log">
-    <Key>
-      <PropertyRef Name="Sno" />
-    </Key>
-    <Property Name="Sno" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CNC_IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Create_DT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CNC_ALARM_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CNC_ALARM_MSG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_Lang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_ALARM_DT" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="CNC_ModeType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_OperationNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_EditNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_Screen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC__Coordinate_X" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_Distance_X" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_Coordinate_Y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_Distance_Y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_Coordinate_Z" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_Distance_Z" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_KnifeCabin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_RunProgramBank" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_Compensate_H" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_Compensate_X" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_Compensate_Y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_Compensate_Z" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_ATCTL_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_Return_Speed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_Fast_Feed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_Cutting_Feed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_Spindle_Feed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_Feed_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_Door_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_Door_Interlock" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="CNCMonitor" Relationship="Self.FK_CNC_ALARM_Log_CNCMonitor" FromRole="CNC_ALARM_Log" ToRole="CNCMonitor" />
-  </EntityType>
-  <EntityType Name="CNC_ATCTL_Log">
-    <Key>
-      <PropertyRef Name="Sno" />
-    </Key>
-    <Property Name="Sno" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CNC_IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Create_DT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ATCTL_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ATCTL_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="ATCTL_DATA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="ATCTL_GRP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="ATCTL_TIME" Type="Int64" />
-    <Property Name="ATCTL_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ATCTL_COLOR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="KnifeDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="CNCMonitor" Relationship="Self.FK_CNC_ATCTL_Log_CNCMonitor" FromRole="CNC_ATCTL_Log" ToRole="CNCMonitor" />
-    <NavigationProperty Name="KnifeDetail" Relationship="Self.FK_CNC_ATCTL_Log_KnifeDetail" FromRole="CNC_ATCTL_Log" ToRole="KnifeDetail" />
-  </EntityType>
-  <EntityType Name="CNC_PRD3_Log">
-    <Key>
-      <PropertyRef Name="Sno" />
-    </Key>
-    <Property Name="Sno" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Create_DT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CNC_IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CNC_Current_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_Current_StatusDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_StatusDT" Type="DateTime" Precision="3" />
-    <Property Name="CNC_ProgramNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="CNCMonitor" Relationship="Self.FK_CNC_PRD3_Log_CNCMonitor" FromRole="CNC_PRD3_Log" ToRole="CNCMonitor" />
-  </EntityType>
-  <EntityType Name="CNC_PRDC2_Log">
-    <Key>
-      <PropertyRef Name="Create_DT" />
-    </Key>
-    <Property Name="Create_DT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CNC_IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_ProductionTime" Type="Int64" Nullable="false" />
-    <Property Name="CNC_StayTime" Type="Int64" Nullable="false" />
-  </EntityType>
-  <EntityType Name="CNC_StatusHistory">
-    <Key>
-      <PropertyRef Name="Sno" />
-    </Key>
-    <Property Name="Sno" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CNC_IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Create_DT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="CNC_RunTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CNC_StayTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CNC_CloseTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CNC_ErrTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CNC_StopTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CNC_CalcDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-  </EntityType>
-  <EntityType Name="CNC_Ver_Log">
-    <Key>
-      <PropertyRef Name="Sno" />
-    </Key>
-    <Property Name="Sno" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CNC_IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Create_DT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CNC_Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CNC_Ver" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="CNCMonitor" Relationship="Self.FK_CNC_Ver_Log_CNCMonitor" FromRole="CNC_Ver_Log" ToRole="CNCMonitor" />
-  </EntityType>
-  <EntityType Name="CNC_WKCNTR_Log">
-    <Key>
-      <PropertyRef Name="Sno" />
-    </Key>
-    <Property Name="Sno" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Create_DT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CNC_IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CNC_Current_ProductionAmount" Type="Int64" Nullable="false" />
-    <Property Name="CNC_End_ProductionAmount" Type="Int64" />
-    <Property Name="CNC_Alert_ProductionAmount" Type="Int64" />
-    <NavigationProperty Name="CNCMonitor" Relationship="Self.FK_CNC_WKCNTR_Log_CNCMonitor" FromRole="CNC_WKCNTR_Log" ToRole="CNCMonitor" />
-  </EntityType>
-  <EntityType Name="CNCDetail">
-    <Key>
-      <PropertyRef Name="CNCDetail_ID" />
-    </Key>
-    <Property Name="CNCDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CNCMaster_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CNCDetail_IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CNCDetail_Version" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNCDetail_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CNCDetail_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="CNCDetail_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CNCDetail_Modify_DT" Type="DateTime" Precision="3" />
-    <Property Name="CNCDetail_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="CNCMaster" Relationship="Self.FK_CNCDetail_CNCMaster" FromRole="CNCDetail" ToRole="CNCMaster" />
-    <NavigationProperty Name="CNCKnifeLists" Relationship="Self.FK_CNCList_CNCDetail" FromRole="CNCDetail" ToRole="CNCKnifeList" />
-  </EntityType>
-  <EntityType Name="CNCKnifeList">
-    <Key>
-      <PropertyRef Name="CNCKnifeList_ID" />
-    </Key>
-    <Property Name="CNCKnifeList_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CNCDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Car_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Good_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Line_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="WorkStation_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="KnifeList_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CNCList_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="CNCList_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CNCList_Modify_DT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNCList_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="CNCDetail" Relationship="Self.FK_CNCList_CNCDetail" FromRole="CNCKnifeList" ToRole="CNCDetail" />
-    <NavigationProperty Name="KnifeList" Relationship="Self.FK_CNCKnifeList_KnifeList" FromRole="CNCKnifeList" ToRole="KnifeList" />
-    <NavigationProperty Name="Good" Relationship="Self.FK_CNCList_Good" FromRole="CNCKnifeList" ToRole="Good" />
-    <NavigationProperty Name="ProductionPlans" Relationship="Self.FK_ProductionPlan_CNCKnifeList" FromRole="CNCKnifeList" ToRole="ProductionPlan" />
-  </EntityType>
-  <EntityType Name="CNCMaster">
-    <Key>
-      <PropertyRef Name="CNCMaster_ID" />
-    </Key>
-    <Property Name="CNCMaster_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CNC_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CNC_Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CNC_Quality" Type="Int64" Nullable="false" />
-    <Property Name="CNCMaster_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="CNCMaster_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CNCMaster_Modify_DT" Type="DateTime" Precision="3" />
-    <Property Name="CNCMaster_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="CNCDetails" Relationship="Self.FK_CNCDetail_CNCMaster" FromRole="CNCMaster" ToRole="CNCDetail" />
-  </EntityType>
-  <EntityType Name="CNCMonitor">
-    <Key>
-      <PropertyRef Name="CNC_IP" />
-    </Key>
-    <Property Name="CNC_IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Create_DT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="CNCDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_Current_ProductionAmount" Type="Int64" />
-    <Property Name="CNC_RunTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_StayTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_CloseTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_ErrTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_StopTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_Ver" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_Alert_ProductionAmount" Type="Int64" />
-    <Property Name="CNC_End_ProductionAmount" Type="Int64" />
-    <NavigationProperty Name="CNC_ALARM_Log" Relationship="Self.FK_CNC_ALARM_Log_CNCMonitor" FromRole="CNCMonitor" ToRole="CNC_ALARM_Log" />
-    <NavigationProperty Name="CNC_ATCTL_Log" Relationship="Self.FK_CNC_ATCTL_Log_CNCMonitor" FromRole="CNCMonitor" ToRole="CNC_ATCTL_Log" />
-    <NavigationProperty Name="CNC_PRD3_Log" Relationship="Self.FK_CNC_PRD3_Log_CNCMonitor" FromRole="CNCMonitor" ToRole="CNC_PRD3_Log" />
-    <NavigationProperty Name="CNC_Ver_Log" Relationship="Self.FK_CNC_Ver_Log_CNCMonitor" FromRole="CNCMonitor" ToRole="CNC_Ver_Log" />
-    <NavigationProperty Name="CNC_WKCNTR_Log" Relationship="Self.FK_CNC_WKCNTR_Log_CNCMonitor" FromRole="CNCMonitor" ToRole="CNC_WKCNTR_Log" />
-  </EntityType>
-  <EntityType Name="Collet1Detail">
-    <Key>
-      <PropertyRef Name="Collet1Detail_ID" />
-    </Key>
-    <Property Name="Collet1Detail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Collet1Master_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Collet1Detail_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Collet1Detail_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Collet1Detail_Create_DT" Type="DateTime" Precision="3" />
-    <Property Name="Collet1Detail_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Collet1Detail_Modify_DT" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="Collet1Master" Relationship="Self.FK_Collet1Detail_Collet1Master" FromRole="Collet1Detail" ToRole="Collet1Master" />
-    <NavigationProperty Name="KnifeLists" Relationship="Self.FK_KnifeList_Collet1Detail" FromRole="Collet1Detail" ToRole="KnifeList" />
-    <NavigationProperty Name="StockDetails" Relationship="Self.FK_StockDetail_Collet1Detail" FromRole="Collet1Detail" ToRole="StockDetail" />
-  </EntityType>
-  <EntityType Name="Collet1Master">
-    <Key>
-      <PropertyRef Name="Collet1Master_ID" />
-    </Key>
-    <Property Name="Collet1Master_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Collet1_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Collet1_Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Collet1_Spec" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Collet1_CabinID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Collet1_Quality" Type="Int64" Nullable="false" />
-    <Property Name="Collet1Master_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Collet1Master_Create_DT" Type="DateTime" Precision="3" />
-    <Property Name="Collet1Master_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Collet1Master_Modify_DT" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="Collet1Detail" Relationship="Self.FK_Collet1Detail_Collet1Master" FromRole="Collet1Master" ToRole="Collet1Detail" />
-  </EntityType>
-  <EntityType Name="Collet2Detail">
-    <Key>
-      <PropertyRef Name="Collet2Detail_ID" />
-    </Key>
-    <Property Name="Collet2Detail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Collet2Master_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Collet2Detail_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Collet2Detail_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Collet2Detail_Create_DT" Type="DateTime" Precision="3" />
-    <Property Name="Collet2Detail_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Collet2Detail_Modify_DT" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="Collet2Master" Relationship="Self.FK_Collet2Detail_Collet2Master" FromRole="Collet2Detail" ToRole="Collet2Master" />
-    <NavigationProperty Name="KnifeLists" Relationship="Self.FK_KnifeList_Collet2Detail" FromRole="Collet2Detail" ToRole="KnifeList" />
-    <NavigationProperty Name="StockDetails" Relationship="Self.FK_StockDetail_Collet2Detail" FromRole="Collet2Detail" ToRole="StockDetail" />
-  </EntityType>
-  <EntityType Name="Collet2Master">
-    <Key>
-      <PropertyRef Name="Collet2Master_ID" />
-    </Key>
-    <Property Name="Collet2Master_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Collet2_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Collet2_Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Collet2_Spec" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Collet2_CabinID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Collet2_Quality" Type="Int64" Nullable="false" />
-    <Property Name="Collet2Master_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Collet2Master_Create_DT" Type="DateTime" Precision="3" />
-    <Property Name="Collet2Master_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Collet2Master_Modify_DT" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="Collet2Detail" Relationship="Self.FK_Collet2Detail_Collet2Master" FromRole="Collet2Master" ToRole="Collet2Detail" />
-  </EntityType>
-  <EntityType Name="Employe">
-    <Key>
-      <PropertyRef Name="Emp_ID" />
-    </Key>
-    <Property Name="Emp_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Emp_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Emp_Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Emp_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Emp_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Emp_Modify_DT" Type="DateTime" Precision="3" />
-    <Property Name="Emp_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Informs" Relationship="Self.FK_Inform_Employe" FromRole="Employe" ToRole="Inform" />
-    <NavigationProperty Name="KnifeChangeFroms" Relationship="Self.FK_KnifeChangeFrom_Employe1" FromRole="Employe" ToRole="KnifeChangeFrom" />
-    <NavigationProperty Name="OutFroms" Relationship="Self.FK_OutFrom_Employe" FromRole="Employe" ToRole="OutFrom" />
-    <NavigationProperty Name="ProductionPlans" Relationship="Self.FK_ProductionPlan_Employe" FromRole="Employe" ToRole="ProductionPlan" />
-  </EntityType>
-  <EntityType Name="ExtRodDetail">
-    <Key>
-      <PropertyRef Name="ExtensionRodDetail_ID" />
-    </Key>
-    <Property Name="ExtensionRodDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ExtensionRodMaster_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ExtensionRodDetail_Status" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="ExtensionRodDetail_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="ExtensionRodDetail_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ExtensionRodDetail_Modify_DT" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="ExtensionRodDetail_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="ExtRodMaster" Relationship="Self.FK_ExtensionRodDetail_ExtensionRodMaster1" FromRole="ExtRodDetail" ToRole="ExtRodMaster" />
-  </EntityType>
-  <EntityType Name="ExtRodMaster">
-    <Key>
-      <PropertyRef Name="ExtensionRodMaster_ID" />
-    </Key>
-    <Property Name="ExtensionRodMaster_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ExtensionRod_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ExtensionRod_Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ExtensionRod_Spec" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ExtensionRod_Quality" Type="Int64" Nullable="false" />
-    <Property Name="ExtensionRod_CabinID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ExtensionRodMaster_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="ExtensionRodMaster_Create_DT" Type="DateTime" Precision="3" />
-    <Property Name="ExtensionRodMaster_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="ExtensionRodMaster_Modify_DT" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="ExtRodDetails" Relationship="Self.FK_ExtensionRodDetail_ExtensionRodMaster1" FromRole="ExtRodMaster" ToRole="ExtRodDetail" />
-  </EntityType>
-  <EntityType Name="Good">
-    <Key>
-      <PropertyRef Name="Good_ID" />
-    </Key>
-    <Property Name="Good_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Good_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Good_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Good_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Good_Modify_DT" Type="DateTime" Precision="3" />
-    <Property Name="Good_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="CNCKnifeLists" Relationship="Self.FK_CNCList_Good" FromRole="Good" ToRole="CNCKnifeList" />
-  </EntityType>
-  <EntityType Name="HiltDetail">
-    <Key>
-      <PropertyRef Name="HiltDetail_ID" />
-    </Key>
-    <Property Name="HiltDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="HiltMaster_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="HiltDetail_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="HiltCabine_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="HiltDetail_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="HiltDetail_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="HiltDetail_Modify_DT" Type="DateTime" Precision="3" />
-    <Property Name="HiltDetail_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="HiltMaster" Relationship="Self.FK_HiltDetail_HiltMaster1" FromRole="HiltDetail" ToRole="HiltMaster" />
-    <NavigationProperty Name="StockDetails" Relationship="Self.FK_StockDetail_HiltDetail" FromRole="HiltDetail" ToRole="StockDetail" />
-    <NavigationProperty Name="KnifeLists" Relationship="Self.FK_WorkStationKnifeList_HiltDetail" FromRole="HiltDetail" ToRole="KnifeList" />
-  </EntityType>
-  <EntityType Name="HiltMaster">
-    <Key>
-      <PropertyRef Name="HiltMaster_ID" />
-    </Key>
-    <Property Name="HiltMaster_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Hilt_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Hilt_Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Hilt_Spec" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Hilt_CabineID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Hilt_Quality" Type="Int64" Nullable="false" />
-    <Property Name="HiltMaster_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="HiltMaster_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="HiltMaster_Modify_DT" Type="DateTime" Precision="3" />
-    <Property Name="HiltMaster_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="HiltDetails" Relationship="Self.FK_HiltDetail_HiltMaster1" FromRole="HiltMaster" ToRole="HiltDetail" />
-  </EntityType>
-  <EntityType Name="Inform">
-    <Key>
-      <PropertyRef Name="Inform_ID" />
-      <PropertyRef Name="Detail_ID" />
-      <PropertyRef Name="In_DT" />
-    </Key>
-    <Property Name="Inform_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Detail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Detail_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Inform_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Inform_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Inform_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Inform_Modify_DT" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="DetailID_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="In_DT" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="In_EmpID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Employe" Relationship="Self.FK_Inform_Employe" FromRole="Inform" ToRole="Employe" />
-    <NavigationProperty Name="StockDetail" Relationship="Self.FK_Inform_StockDetail" FromRole="Inform" ToRole="StockDetail" />
-  </EntityType>
-  <EntityType Name="KnifeChangeFrom">
-    <Key>
-      <PropertyRef Name="KnifeChangeForm_ID" />
-    </Key>
-    <Property Name="KnifeChangeForm_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="OrgKnifeDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="KnifeChange_DT" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="KnifeDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="KnifeChanger_EmpID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="KnifeChanger_Reslut" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="KnifeConfirm_EmpID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="OrgKnifeDetail_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="KnifeChangeForm_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="KnifeChangeForm_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="KnifeChangeForm_Modify_DT" Type="DateTime" Precision="3" />
-    <Property Name="KnifeChangeForm_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="DetailID_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Employe" Relationship="Self.FK_KnifeChangeFrom_Employe1" FromRole="KnifeChangeFrom" ToRole="Employe" />
-    <NavigationProperty Name="StockDetail" Relationship="Self.FK_KnifeChangeFrom_StockDetail" FromRole="KnifeChangeFrom" ToRole="StockDetail" />
-  </EntityType>
-  <EntityType Name="KnifeDetail">
-    <Key>
-      <PropertyRef Name="KnifeDetail_ID" />
-    </Key>
-    <Property Name="KnifeDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="KnifeMaster_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="IsNewKnife" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="NewEnter_DT" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="KnifeDetail_Status" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="KnifeDetail_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="KnifeDetail_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="KnifeDetail_Modify_DT" Type="DateTime" Precision="3" />
-    <Property Name="KnifeDetail_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="CNC_ATCTL_Log" Relationship="Self.FK_CNC_ATCTL_Log_KnifeDetail" FromRole="KnifeDetail" ToRole="CNC_ATCTL_Log" />
-    <NavigationProperty Name="KnifeMaster" Relationship="Self.FK_KnifeDetail_KnifeMaster" FromRole="KnifeDetail" ToRole="KnifeMaster" />
-    <NavigationProperty Name="KnifeUseLogs" Relationship="Self.FK_KnifeUseLog_KnifeDetail" FromRole="KnifeDetail" ToRole="KnifeUseLog" />
-    <NavigationProperty Name="StockDetails" Relationship="Self.FK_StockDetail_KnifeDetail" FromRole="KnifeDetail" ToRole="StockDetail" />
-    <NavigationProperty Name="KnifeLists" Relationship="Self.FK_WorkStationKnifeList_KnifeDetail" FromRole="KnifeDetail" ToRole="KnifeList" />
-  </EntityType>
-  <EntityType Name="KnifeList">
-    <Key>
-      <PropertyRef Name="KnifeList_ID" />
-    </Key>
-    <Property Name="KnifeList_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="WorkStation_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Model_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="KnifeDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="HiltDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="NailDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="MeasureDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="ExtRodDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="NutDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Collet1Detail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Collet2Detail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="KnifeList_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="KnifeList_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="KnifeList_Modify_DT" Type="DateTime" Precision="3" />
-    <Property Name="KnifeList_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Program_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="D" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="R" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="L" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="FL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Way" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-    <Property Name="Time" Type="Int32" Nullable="false" />
-    <Property Name="Memo" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="CNCKnifeLists" Relationship="Self.FK_CNCKnifeList_KnifeList" FromRole="KnifeList" ToRole="CNCKnifeList" />
-    <NavigationProperty Name="Collet1Detail" Relationship="Self.FK_KnifeList_Collet1Detail" FromRole="KnifeList" ToRole="Collet1Detail" />
-    <NavigationProperty Name="Collet2Detail" Relationship="Self.FK_KnifeList_Collet2Detail" FromRole="KnifeList" ToRole="Collet2Detail" />
-    <NavigationProperty Name="HiltDetail" Relationship="Self.FK_WorkStationKnifeList_HiltDetail" FromRole="KnifeList" ToRole="HiltDetail" />
-    <NavigationProperty Name="KnifeDetail" Relationship="Self.FK_WorkStationKnifeList_KnifeDetail" FromRole="KnifeList" ToRole="KnifeDetail" />
-    <NavigationProperty Name="MeasureDetail" Relationship="Self.FK_KnifeList_MeasureDetail" FromRole="KnifeList" ToRole="MeasureDetail" />
-    <NavigationProperty Name="NailDetail" Relationship="Self.FK_KnifeList_NailDetail" FromRole="KnifeList" ToRole="NailDetail" />
-    <NavigationProperty Name="NutDetail" Relationship="Self.FK_KnifeList_NutDetail" FromRole="KnifeList" ToRole="NutDetail" />
-    <NavigationProperty Name="Model" Relationship="Self.FK_WorkStationKnifeList_Model" FromRole="KnifeList" ToRole="Model" />
-  </EntityType>
-  <EntityType Name="KnifeMaster">
-    <Key>
-      <PropertyRef Name="KnifeMaster_ID" />
-    </Key>
-    <Property Name="KnifeMaster_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Knife_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Knife_Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Knife_Spec" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Knife_CabinID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Knife_Quality" Type="Int64" Nullable="false" />
-    <Property Name="KnifeMaster_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="KnifeMaster_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="KnifeMaster_Modify_DT" Type="DateTime" Precision="3" />
-    <Property Name="KnifeMaster_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="KnifeDetails" Relationship="Self.FK_KnifeDetail_KnifeMaster" FromRole="KnifeMaster" ToRole="KnifeDetail" />
-  </EntityType>
-  <EntityType Name="KnifeUseLog">
-    <Key>
-      <PropertyRef Name="KnifeUseLog_ID" />
-    </Key>
-    <Property Name="KnifeUseLog_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="KnifeDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Knife_Use_BeginDT" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Knife_Use_EndDT" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Knife_Use_Time" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="KnifeUseLog_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="KnifeUseLog_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="KnifeUseLog_Modify_DT" Type="DateTime" Precision="3" />
-    <Property Name="KnifeUseLog_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="KnifeDetail" Relationship="Self.FK_KnifeUseLog_KnifeDetail" FromRole="KnifeUseLog" ToRole="KnifeDetail" />
-  </EntityType>
-  <EntityType Name="MeasureDetail">
-    <Key>
-      <PropertyRef Name="MeasureDetail_ID" />
-    </Key>
-    <Property Name="MeasureDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="MeasureMaster_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="MeasureDetail_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="MeasureDetail_Create_DT" Type="DateTime" Precision="3" />
-    <Property Name="MeasureDetail_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="MeasureDetail_Modify_DT" Type="DateTime" Precision="3" />
-    <Property Name="MeasureDetail_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="KnifeLists" Relationship="Self.FK_KnifeList_MeasureDetail" FromRole="MeasureDetail" ToRole="KnifeList" />
-    <NavigationProperty Name="MeasureMaster" Relationship="Self.FK_MeasureDetail_MeasureMaster" FromRole="MeasureDetail" ToRole="MeasureMaster" />
-    <NavigationProperty Name="StockDetails" Relationship="Self.FK_StockDetail_MeasureDetail" FromRole="MeasureDetail" ToRole="StockDetail" />
-  </EntityType>
-  <EntityType Name="MeasureMaster">
-    <Key>
-      <PropertyRef Name="MeasureMaster_ID" />
-    </Key>
-    <Property Name="MeasureMaster_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Measure_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Measure_Spec" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Measure_Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Measure_CabinID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Measure_Quality" Type="Int64" Nullable="false" />
-    <Property Name="MeasureMaster_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="MeasureMaster_Create_DT" Type="DateTime" Precision="3" />
-    <Property Name="MeasureMaster_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="MeasureMaster_Modify_DT" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="MeasureDetails" Relationship="Self.FK_MeasureDetail_MeasureMaster" FromRole="MeasureMaster" ToRole="MeasureDetail" />
-  </EntityType>
-  <EntityType Name="Model">
-    <Key>
-      <PropertyRef Name="Model_ID" />
-    </Key>
-    <Property Name="Model_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Model_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Model_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Model_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Model_Modify_DT" Type="DateTime" Precision="3" />
-    <Property Name="Model_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="KnifeLists" Relationship="Self.FK_WorkStationKnifeList_Model" FromRole="Model" ToRole="KnifeList" />
-  </EntityType>
-  <EntityType Name="NailDetail">
-    <Key>
-      <PropertyRef Name="NailDetail_ID" />
-    </Key>
-    <Property Name="NailDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="NailMaster_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="NailDetail_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="NailDetail_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="NailDetail_Create_DT" Type="DateTime" Precision="3" />
-    <Property Name="NailDetail_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="NailDetail_Modify_DT" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="KnifeLists" Relationship="Self.FK_KnifeList_NailDetail" FromRole="NailDetail" ToRole="KnifeList" />
-    <NavigationProperty Name="NailMaster" Relationship="Self.FK_NailDetail_NailMaster" FromRole="NailDetail" ToRole="NailMaster" />
-    <NavigationProperty Name="StockDetails" Relationship="Self.FK_StockDetail_NailDetail" FromRole="NailDetail" ToRole="StockDetail" />
-  </EntityType>
-  <EntityType Name="NailMaster">
-    <Key>
-      <PropertyRef Name="NailMaster_ID" />
-    </Key>
-    <Property Name="NailMaster_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Nail_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Nail_Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Nail_Spec" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Nail_CabinID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Nail_Quality" Type="Int64" Nullable="false" />
-    <Property Name="NailMaster_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="NailMaster_Create_DT" Type="DateTime" Precision="3" />
-    <Property Name="NailMaster_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="NailMaster_Modify_DT" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="NailDetails" Relationship="Self.FK_NailDetail_NailMaster" FromRole="NailMaster" ToRole="NailDetail" />
-  </EntityType>
-  <EntityType Name="NutDetail">
-    <Key>
-      <PropertyRef Name="NutDetail_ID" />
-    </Key>
-    <Property Name="NutDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="NutMaster_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="NutDetail_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="NutDetail_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="NutDetail_Create_DT" Type="DateTime" Precision="3" />
-    <Property Name="NutDetail_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="NutDetail_Modify_DT" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="KnifeLists" Relationship="Self.FK_KnifeList_NutDetail" FromRole="NutDetail" ToRole="KnifeList" />
-    <NavigationProperty Name="NutMaster" Relationship="Self.FK_NutDetail_NutMaster" FromRole="NutDetail" ToRole="NutMaster" />
-  </EntityType>
-  <EntityType Name="NutMaster">
-    <Key>
-      <PropertyRef Name="NutMaster_ID" />
-    </Key>
-    <Property Name="NutMaster_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Nut_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Nut_Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Nut_Spec" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Nut_Quality" Type="Int64" Nullable="false" />
-    <Property Name="Nut_CabinID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="NutMaster_Create_DT" Type="DateTime" Precision="3" />
-    <Property Name="NutMaster_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="NutMaster_Modify_DT" Type="DateTime" Precision="3" />
-    <Property Name="NutMaster_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="NutDetails" Relationship="Self.FK_NutDetail_NutMaster" FromRole="NutMaster" ToRole="NutDetail" />
-  </EntityType>
-  <EntityType Name="OutFrom">
-    <Key>
-      <PropertyRef Name="OutForm_ID" />
-      <PropertyRef Name="Detail_ID" />
-      <PropertyRef Name="Out_DT" />
-    </Key>
-    <Property Name="OutForm_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Detail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Out_DT" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="DetailID_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Out_EmpID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Confirm_EmpID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="OutForm_Create_DT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="OutForm_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="OutForm_Modify_DT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="OutForm_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Employe" Relationship="Self.FK_OutFrom_Employe" FromRole="OutFrom" ToRole="Employe" />
-    <NavigationProperty Name="StockDetail" Relationship="Self.FK_OutFrom_StockDetail" FromRole="OutFrom" ToRole="StockDetail" />
-  </EntityType>
-  <EntityType Name="ProductionPlan">
-    <Key>
-      <PropertyRef Name="CNCKnifeList_ID" />
-      <PropertyRef Name="Class_Type" />
-    </Key>
-    <Property Name="Planning_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CNCKnifeList_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-    <Property Name="Class_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Class_EmpID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Class_StandardPerson" Type="Int32" Nullable="false" />
-    <Property Name="Class_RealPerson" Type="Int32" Nullable="false" />
-    <Property Name="Planning_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Planning_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Planning_Modify_DT" Type="DateTime" Precision="3" />
-    <Property Name="Planning_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="CNCKnifeList" Relationship="Self.FK_ProductionPlan_CNCKnifeList" FromRole="ProductionPlan" ToRole="CNCKnifeList" />
-    <NavigationProperty Name="Employe" Relationship="Self.FK_ProductionPlan_Employe" FromRole="ProductionPlan" ToRole="Employe" />
-  </EntityType>
-  <EntityType Name="Stock">
-    <Key>
-      <PropertyRef Name="Master_ID" />
-      <PropertyRef Name="MasterID_Type" />
-    </Key>
-    <Property Name="Master_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="MasterID_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="InBound" Type="Int64" Nullable="false" />
-    <Property Name="OutBound" Type="Int64" Nullable="false" />
-    <Property Name="ScrapBound" Type="Int64" Nullable="false" />
-    <Property Name="Create_DT" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Memo" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="StockDetails" Relationship="Self.FK_StockDetail_Stock1" FromRole="Stock" ToRole="StockDetail" />
-  </EntityType>
-  <EntityType Name="StockDetail">
-    <Key>
-      <PropertyRef Name="Detail_ID" />
-      <PropertyRef Name="MasterID_Type" />
-    </Key>
-    <Property Name="Sno" Type="Int64" Nullable="false" />
-    <Property Name="Master_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Detail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="MasterID_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Bound_Type" Type="Int64" Nullable="false" />
-    <Property Name="Create_DT" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Memo" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Collet1Detail" Relationship="Self.FK_StockDetail_Collet1Detail" FromRole="StockDetail" ToRole="Collet1Detail" />
-    <NavigationProperty Name="Collet2Detail" Relationship="Self.FK_StockDetail_Collet2Detail" FromRole="StockDetail" ToRole="Collet2Detail" />
-    <NavigationProperty Name="HiltDetail" Relationship="Self.FK_StockDetail_HiltDetail" FromRole="StockDetail" ToRole="HiltDetail" />
-    <NavigationProperty Name="Informs" Relationship="Self.FK_Inform_StockDetail" FromRole="StockDetail" ToRole="Inform" />
-    <NavigationProperty Name="KnifeChangeFroms" Relationship="Self.FK_KnifeChangeFrom_StockDetail" FromRole="StockDetail" ToRole="KnifeChangeFrom" />
-    <NavigationProperty Name="KnifeDetail" Relationship="Self.FK_StockDetail_KnifeDetail" FromRole="StockDetail" ToRole="KnifeDetail" />
-    <NavigationProperty Name="MeasureDetail" Relationship="Self.FK_StockDetail_MeasureDetail" FromRole="StockDetail" ToRole="MeasureDetail" />
-    <NavigationProperty Name="NailDetail" Relationship="Self.FK_StockDetail_NailDetail" FromRole="StockDetail" ToRole="NailDetail" />
-    <NavigationProperty Name="OutFroms" Relationship="Self.FK_OutFrom_StockDetail" FromRole="StockDetail" ToRole="OutFrom" />
-    <NavigationProperty Name="Stock" Relationship="Self.FK_StockDetail_Stock1" FromRole="StockDetail" ToRole="Stock" />
-  </EntityType>
-  <EntityType Name="vCNC_Alarm_Log">
-    <Key>
-      <PropertyRef Name="CNC_IP" />
-      <PropertyRef Name="Sno" />
-      <PropertyRef Name="Create_DT" />
-      <PropertyRef Name="CNC_ALARM_CODE" />
-      <PropertyRef Name="CNC_ALARM_DT" />
-    </Key>
-    <Property Name="CNC_IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Sno" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-    <Property Name="Create_DT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CNC_ALARM_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CNC_ALARM_MSG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="CNC_ALARM_DT" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="CNC_OperationNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-  </EntityType>
-  <EntityType Name="vCNC_Monitor">
-    <Key>
-      <PropertyRef Name="CNC_IP" />
-      <PropertyRef Name="CNC_Model" />
-      <PropertyRef Name="CNC_Ver" />
-      <PropertyRef Name="CNC_Current_ProductionAmount" />
-      <PropertyRef Name="CNC_Current_Status" />
-      <PropertyRef Name="Create_DT" />
-    </Key>
-    <Property Name="CNC_IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CNC_Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CNC_Ver" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CNC_Current_ProductionAmount" Type="Int64" Nullable="false" />
-    <Property Name="CNC_Current_Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="CNC_Current_StatusDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Create_DT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-  </EntityType>
-  <Association Name="FK_CNC_ALARM_Log_CNCMonitor">
-    <End Role="CNCMonitor" Type="Self.CNCMonitor" Multiplicity="1" />
-    <End Role="CNC_ALARM_Log" Type="Self.CNC_ALARM_Log" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CNCMonitor">
-        <PropertyRef Name="CNC_IP" />
-      </Principal>
-      <Dependent Role="CNC_ALARM_Log">
-        <PropertyRef Name="CNC_IP" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CNC_ATCTL_Log_CNCMonitor">
-    <End Role="CNCMonitor" Type="Self.CNCMonitor" Multiplicity="1" />
-    <End Role="CNC_ATCTL_Log" Type="Self.CNC_ATCTL_Log" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CNCMonitor">
-        <PropertyRef Name="CNC_IP" />
-      </Principal>
-      <Dependent Role="CNC_ATCTL_Log">
-        <PropertyRef Name="CNC_IP" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CNC_ATCTL_Log_KnifeDetail">
-    <End Role="KnifeDetail" Type="Self.KnifeDetail" Multiplicity="0..1" />
-    <End Role="CNC_ATCTL_Log" Type="Self.CNC_ATCTL_Log" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="KnifeDetail">
-        <PropertyRef Name="KnifeDetail_ID" />
-      </Principal>
-      <Dependent Role="CNC_ATCTL_Log">
-        <PropertyRef Name="KnifeDetail_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CNC_PRD3_Log_CNCMonitor">
-    <End Role="CNCMonitor" Type="Self.CNCMonitor" Multiplicity="1" />
-    <End Role="CNC_PRD3_Log" Type="Self.CNC_PRD3_Log" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CNCMonitor">
-        <PropertyRef Name="CNC_IP" />
-      </Principal>
-      <Dependent Role="CNC_PRD3_Log">
-        <PropertyRef Name="CNC_IP" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CNC_Ver_Log_CNCMonitor">
-    <End Role="CNCMonitor" Type="Self.CNCMonitor" Multiplicity="1" />
-    <End Role="CNC_Ver_Log" Type="Self.CNC_Ver_Log" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CNCMonitor">
-        <PropertyRef Name="CNC_IP" />
-      </Principal>
-      <Dependent Role="CNC_Ver_Log">
-        <PropertyRef Name="CNC_IP" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CNC_WKCNTR_Log_CNCMonitor">
-    <End Role="CNCMonitor" Type="Self.CNCMonitor" Multiplicity="1" />
-    <End Role="CNC_WKCNTR_Log" Type="Self.CNC_WKCNTR_Log" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CNCMonitor">
-        <PropertyRef Name="CNC_IP" />
-      </Principal>
-      <Dependent Role="CNC_WKCNTR_Log">
-        <PropertyRef Name="CNC_IP" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CNCDetail_CNCMaster">
-    <End Role="CNCMaster" Type="Self.CNCMaster" Multiplicity="1" />
-    <End Role="CNCDetail" Type="Self.CNCDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CNCMaster">
-        <PropertyRef Name="CNCMaster_ID" />
-      </Principal>
-      <Dependent Role="CNCDetail">
-        <PropertyRef Name="CNCMaster_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CNCList_CNCDetail">
-    <End Role="CNCDetail" Type="Self.CNCDetail" Multiplicity="1" />
-    <End Role="CNCKnifeList" Type="Self.CNCKnifeList" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CNCDetail">
-        <PropertyRef Name="CNCDetail_ID" />
-      </Principal>
-      <Dependent Role="CNCKnifeList">
-        <PropertyRef Name="CNCDetail_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CNCKnifeList_KnifeList">
-    <End Role="KnifeList" Type="Self.KnifeList" Multiplicity="1" />
-    <End Role="CNCKnifeList" Type="Self.CNCKnifeList" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="KnifeList">
-        <PropertyRef Name="KnifeList_ID" />
-      </Principal>
-      <Dependent Role="CNCKnifeList">
-        <PropertyRef Name="KnifeList_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CNCList_Good">
-    <End Role="Good" Type="Self.Good" Multiplicity="1" />
-    <End Role="CNCKnifeList" Type="Self.CNCKnifeList" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Good">
-        <PropertyRef Name="Good_ID" />
-      </Principal>
-      <Dependent Role="CNCKnifeList">
-        <PropertyRef Name="Good_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ProductionPlan_CNCKnifeList">
-    <End Role="CNCKnifeList" Type="Self.CNCKnifeList" Multiplicity="1" />
-    <End Role="ProductionPlan" Type="Self.ProductionPlan" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CNCKnifeList">
-        <PropertyRef Name="CNCKnifeList_ID" />
-      </Principal>
-      <Dependent Role="ProductionPlan">
-        <PropertyRef Name="CNCKnifeList_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Collet1Detail_Collet1Master">
-    <End Role="Collet1Master" Type="Self.Collet1Master" Multiplicity="1" />
-    <End Role="Collet1Detail" Type="Self.Collet1Detail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Collet1Master">
-        <PropertyRef Name="Collet1Master_ID" />
-      </Principal>
-      <Dependent Role="Collet1Detail">
-        <PropertyRef Name="Collet1Master_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_KnifeList_Collet1Detail">
-    <End Role="Collet1Detail" Type="Self.Collet1Detail" Multiplicity="0..1" />
-    <End Role="KnifeList" Type="Self.KnifeList" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Collet1Detail">
-        <PropertyRef Name="Collet1Detail_ID" />
-      </Principal>
-      <Dependent Role="KnifeList">
-        <PropertyRef Name="Collet1Detail_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_StockDetail_Collet1Detail">
-    <End Role="Collet1Detail" Type="Self.Collet1Detail" Multiplicity="1" />
-    <End Role="StockDetail" Type="Self.StockDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Collet1Detail">
-        <PropertyRef Name="Collet1Detail_ID" />
-      </Principal>
-      <Dependent Role="StockDetail">
-        <PropertyRef Name="Detail_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Collet2Detail_Collet2Master">
-    <End Role="Collet2Master" Type="Self.Collet2Master" Multiplicity="1" />
-    <End Role="Collet2Detail" Type="Self.Collet2Detail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Collet2Master">
-        <PropertyRef Name="Collet2Master_ID" />
-      </Principal>
-      <Dependent Role="Collet2Detail">
-        <PropertyRef Name="Collet2Master_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_KnifeList_Collet2Detail">
-    <End Role="Collet2Detail" Type="Self.Collet2Detail" Multiplicity="0..1" />
-    <End Role="KnifeList" Type="Self.KnifeList" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Collet2Detail">
-        <PropertyRef Name="Collet2Detail_ID" />
-      </Principal>
-      <Dependent Role="KnifeList">
-        <PropertyRef Name="Collet2Detail_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_StockDetail_Collet2Detail">
-    <End Role="Collet2Detail" Type="Self.Collet2Detail" Multiplicity="1" />
-    <End Role="StockDetail" Type="Self.StockDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Collet2Detail">
-        <PropertyRef Name="Collet2Detail_ID" />
-      </Principal>
-      <Dependent Role="StockDetail">
-        <PropertyRef Name="Detail_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Inform_Employe">
-    <End Role="Employe" Type="Self.Employe" Multiplicity="0..1" />
-    <End Role="Inform" Type="Self.Inform" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Employe">
-        <PropertyRef Name="Emp_ID" />
-      </Principal>
-      <Dependent Role="Inform">
-        <PropertyRef Name="In_EmpID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_KnifeChangeFrom_Employe1">
-    <End Role="Employe" Type="Self.Employe" Multiplicity="1" />
-    <End Role="KnifeChangeFrom" Type="Self.KnifeChangeFrom" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Employe">
-        <PropertyRef Name="Emp_ID" />
-      </Principal>
-      <Dependent Role="KnifeChangeFrom">
-        <PropertyRef Name="KnifeConfirm_EmpID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_OutFrom_Employe">
-    <End Role="Employe" Type="Self.Employe" Multiplicity="1" />
-    <End Role="OutFrom" Type="Self.OutFrom" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Employe">
-        <PropertyRef Name="Emp_ID" />
-      </Principal>
-      <Dependent Role="OutFrom">
-        <PropertyRef Name="Out_EmpID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ProductionPlan_Employe">
-    <End Role="Employe" Type="Self.Employe" Multiplicity="1" />
-    <End Role="ProductionPlan" Type="Self.ProductionPlan" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Employe">
-        <PropertyRef Name="Emp_ID" />
-      </Principal>
-      <Dependent Role="ProductionPlan">
-        <PropertyRef Name="Class_EmpID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ExtensionRodDetail_ExtensionRodMaster1">
-    <End Role="ExtRodMaster" Type="Self.ExtRodMaster" Multiplicity="1" />
-    <End Role="ExtRodDetail" Type="Self.ExtRodDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ExtRodMaster">
-        <PropertyRef Name="ExtensionRodMaster_ID" />
-      </Principal>
-      <Dependent Role="ExtRodDetail">
-        <PropertyRef Name="ExtensionRodMaster_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_HiltDetail_HiltMaster1">
-    <End Role="HiltMaster" Type="Self.HiltMaster" Multiplicity="1" />
-    <End Role="HiltDetail" Type="Self.HiltDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="HiltMaster">
-        <PropertyRef Name="HiltMaster_ID" />
-      </Principal>
-      <Dependent Role="HiltDetail">
-        <PropertyRef Name="HiltMaster_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_StockDetail_HiltDetail">
-    <End Role="HiltDetail" Type="Self.HiltDetail" Multiplicity="1" />
-    <End Role="StockDetail" Type="Self.StockDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="HiltDetail">
-        <PropertyRef Name="HiltDetail_ID" />
-      </Principal>
-      <Dependent Role="StockDetail">
-        <PropertyRef Name="Detail_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_WorkStationKnifeList_HiltDetail">
-    <End Role="HiltDetail" Type="Self.HiltDetail" Multiplicity="1" />
-    <End Role="KnifeList" Type="Self.KnifeList" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="HiltDetail">
-        <PropertyRef Name="HiltDetail_ID" />
-      </Principal>
-      <Dependent Role="KnifeList">
-        <PropertyRef Name="HiltDetail_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Inform_StockDetail">
-    <End Role="StockDetail" Type="Self.StockDetail" Multiplicity="1" />
-    <End Role="Inform" Type="Self.Inform" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="StockDetail">
-        <PropertyRef Name="Detail_ID" />
-        <PropertyRef Name="MasterID_Type" />
-      </Principal>
-      <Dependent Role="Inform">
-        <PropertyRef Name="Detail_ID" />
-        <PropertyRef Name="DetailID_Type" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_KnifeChangeFrom_StockDetail">
-    <End Role="StockDetail" Type="Self.StockDetail" Multiplicity="1" />
-    <End Role="KnifeChangeFrom" Type="Self.KnifeChangeFrom" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="StockDetail">
-        <PropertyRef Name="Detail_ID" />
-        <PropertyRef Name="MasterID_Type" />
-      </Principal>
-      <Dependent Role="KnifeChangeFrom">
-        <PropertyRef Name="OrgKnifeDetail_ID" />
-        <PropertyRef Name="DetailID_Type" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_KnifeDetail_KnifeMaster">
-    <End Role="KnifeMaster" Type="Self.KnifeMaster" Multiplicity="1" />
-    <End Role="KnifeDetail" Type="Self.KnifeDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="KnifeMaster">
-        <PropertyRef Name="KnifeMaster_ID" />
-      </Principal>
-      <Dependent Role="KnifeDetail">
-        <PropertyRef Name="KnifeMaster_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_KnifeUseLog_KnifeDetail">
-    <End Role="KnifeDetail" Type="Self.KnifeDetail" Multiplicity="1" />
-    <End Role="KnifeUseLog" Type="Self.KnifeUseLog" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="KnifeDetail">
-        <PropertyRef Name="KnifeDetail_ID" />
-      </Principal>
-      <Dependent Role="KnifeUseLog">
-        <PropertyRef Name="KnifeDetail_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_StockDetail_KnifeDetail">
-    <End Role="KnifeDetail" Type="Self.KnifeDetail" Multiplicity="1" />
-    <End Role="StockDetail" Type="Self.StockDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="KnifeDetail">
-        <PropertyRef Name="KnifeDetail_ID" />
-      </Principal>
-      <Dependent Role="StockDetail">
-        <PropertyRef Name="Detail_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_WorkStationKnifeList_KnifeDetail">
-    <End Role="KnifeDetail" Type="Self.KnifeDetail" Multiplicity="1" />
-    <End Role="KnifeList" Type="Self.KnifeList" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="KnifeDetail">
-        <PropertyRef Name="KnifeDetail_ID" />
-      </Principal>
-      <Dependent Role="KnifeList">
-        <PropertyRef Name="KnifeDetail_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_KnifeList_MeasureDetail">
-    <End Role="MeasureDetail" Type="Self.MeasureDetail" Multiplicity="0..1" />
-    <End Role="KnifeList" Type="Self.KnifeList" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MeasureDetail">
-        <PropertyRef Name="MeasureDetail_ID" />
-      </Principal>
-      <Dependent Role="KnifeList">
-        <PropertyRef Name="MeasureDetail_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_KnifeList_NailDetail">
-    <End Role="NailDetail" Type="Self.NailDetail" Multiplicity="1" />
-    <End Role="KnifeList" Type="Self.KnifeList" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="NailDetail">
-        <PropertyRef Name="NailDetail_ID" />
-      </Principal>
-      <Dependent Role="KnifeList">
-        <PropertyRef Name="NailDetail_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_KnifeList_NutDetail">
-    <End Role="NutDetail" Type="Self.NutDetail" Multiplicity="0..1" />
-    <End Role="KnifeList" Type="Self.KnifeList" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="NutDetail">
-        <PropertyRef Name="NutDetail_ID" />
-      </Principal>
-      <Dependent Role="KnifeList">
-        <PropertyRef Name="NutDetail_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_WorkStationKnifeList_Model">
-    <End Role="Model" Type="Self.Model" Multiplicity="1" />
-    <End Role="KnifeList" Type="Self.KnifeList" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Model">
-        <PropertyRef Name="Model_ID" />
-      </Principal>
-      <Dependent Role="KnifeList">
-        <PropertyRef Name="Model_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_MeasureDetail_MeasureMaster">
-    <End Role="MeasureMaster" Type="Self.MeasureMaster" Multiplicity="1" />
-    <End Role="MeasureDetail" Type="Self.MeasureDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MeasureMaster">
-        <PropertyRef Name="MeasureMaster_ID" />
-      </Principal>
-      <Dependent Role="MeasureDetail">
-        <PropertyRef Name="MeasureMaster_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_StockDetail_MeasureDetail">
-    <End Role="MeasureDetail" Type="Self.MeasureDetail" Multiplicity="1" />
-    <End Role="StockDetail" Type="Self.StockDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MeasureDetail">
-        <PropertyRef Name="MeasureDetail_ID" />
-      </Principal>
-      <Dependent Role="StockDetail">
-        <PropertyRef Name="Detail_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_NailDetail_NailMaster">
-    <End Role="NailMaster" Type="Self.NailMaster" Multiplicity="1" />
-    <End Role="NailDetail" Type="Self.NailDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="NailMaster">
-        <PropertyRef Name="NailMaster_ID" />
-      </Principal>
-      <Dependent Role="NailDetail">
-        <PropertyRef Name="NailMaster_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_StockDetail_NailDetail">
-    <End Role="NailDetail" Type="Self.NailDetail" Multiplicity="1" />
-    <End Role="StockDetail" Type="Self.StockDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="NailDetail">
-        <PropertyRef Name="NailDetail_ID" />
-      </Principal>
-      <Dependent Role="StockDetail">
-        <PropertyRef Name="Detail_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_NutDetail_NutMaster">
-    <End Role="NutMaster" Type="Self.NutMaster" Multiplicity="1" />
-    <End Role="NutDetail" Type="Self.NutDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="NutMaster">
-        <PropertyRef Name="NutMaster_ID" />
-      </Principal>
-      <Dependent Role="NutDetail">
-        <PropertyRef Name="NutMaster_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_OutFrom_StockDetail">
-    <End Role="StockDetail" Type="Self.StockDetail" Multiplicity="1" />
-    <End Role="OutFrom" Type="Self.OutFrom" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="StockDetail">
-        <PropertyRef Name="Detail_ID" />
-        <PropertyRef Name="MasterID_Type" />
-      </Principal>
-      <Dependent Role="OutFrom">
-        <PropertyRef Name="Detail_ID" />
-        <PropertyRef Name="DetailID_Type" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_StockDetail_Stock1">
-    <End Role="Stock" Type="Self.Stock" Multiplicity="1" />
-    <End Role="StockDetail" Type="Self.StockDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Stock">
-        <PropertyRef Name="Master_ID" />
-        <PropertyRef Name="MasterID_Type" />
-      </Principal>
-      <Dependent Role="StockDetail">
-        <PropertyRef Name="Master_ID" />
-        <PropertyRef Name="MasterID_Type" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="ToolManagementEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Cabins" EntityType="Self.Cabin" />
-    <EntitySet Name="CNC_Alarm_Code_Mapping" EntityType="Self.CNC_Alarm_Code_Mapping" />
-    <EntitySet Name="CNC_ALARM_Log" EntityType="Self.CNC_ALARM_Log" />
-    <EntitySet Name="CNC_ATCTL_Log" EntityType="Self.CNC_ATCTL_Log" />
-    <EntitySet Name="CNC_PRD3_Log" EntityType="Self.CNC_PRD3_Log" />
-    <EntitySet Name="CNC_PRDC2_Log" EntityType="Self.CNC_PRDC2_Log" />
-    <EntitySet Name="CNC_StatusHistory" EntityType="Self.CNC_StatusHistory" />
-    <EntitySet Name="CNC_Ver_Log" EntityType="Self.CNC_Ver_Log" />
-    <EntitySet Name="CNC_WKCNTR_Log" EntityType="Self.CNC_WKCNTR_Log" />
-    <EntitySet Name="CNCDetails" EntityType="Self.CNCDetail" />
-    <EntitySet Name="CNCKnifeLists" EntityType="Self.CNCKnifeList" />
-    <EntitySet Name="CNCMasters" EntityType="Self.CNCMaster" />
-    <EntitySet Name="CNCMonitors" EntityType="Self.CNCMonitor" />
-    <EntitySet Name="Collet1Detail" EntityType="Self.Collet1Detail" />
-    <EntitySet Name="Collet1Master" EntityType="Self.Collet1Master" />
-    <EntitySet Name="Collet2Detail" EntityType="Self.Collet2Detail" />
-    <EntitySet Name="Collet2Master" EntityType="Self.Collet2Master" />
-    <EntitySet Name="Employes" EntityType="Self.Employe" />
-    <EntitySet Name="ExtRodDetails" EntityType="Self.ExtRodDetail" />
-    <EntitySet Name="ExtRodMasters" EntityType="Self.ExtRodMaster" />
-    <EntitySet Name="Goods" EntityType="Self.Good" />
-    <EntitySet Name="HiltDetails" EntityType="Self.HiltDetail" />
-    <EntitySet Name="HiltMasters" EntityType="Self.HiltMaster" />
-    <EntitySet Name="Informs" EntityType="Self.Inform" />
-    <EntitySet Name="KnifeChangeFroms" EntityType="Self.KnifeChangeFrom" />
-    <EntitySet Name="KnifeDetails" EntityType="Self.KnifeDetail" />
-    <EntitySet Name="KnifeLists" EntityType="Self.KnifeList" />
-    <EntitySet Name="KnifeMasters" EntityType="Self.KnifeMaster" />
-    <EntitySet Name="KnifeUseLogs" EntityType="Self.KnifeUseLog" />
-    <EntitySet Name="MeasureDetails" EntityType="Self.MeasureDetail" />
-    <EntitySet Name="MeasureMasters" EntityType="Self.MeasureMaster" />
-    <EntitySet Name="Models" EntityType="Self.Model" />
-    <EntitySet Name="NailDetails" EntityType="Self.NailDetail" />
-    <EntitySet Name="NailMasters" EntityType="Self.NailMaster" />
-    <EntitySet Name="NutDetails" EntityType="Self.NutDetail" />
-    <EntitySet Name="NutMasters" EntityType="Self.NutMaster" />
-    <EntitySet Name="OutFroms" EntityType="Self.OutFrom" />
-    <EntitySet Name="ProductionPlans" EntityType="Self.ProductionPlan" />
-    <EntitySet Name="Stocks" EntityType="Self.Stock" />
-    <EntitySet Name="StockDetails" EntityType="Self.StockDetail" />
-    <EntitySet Name="vCNC_Alarm_Log" EntityType="Self.vCNC_Alarm_Log" />
-    <EntitySet Name="vCNC_Monitor" EntityType="Self.vCNC_Monitor" />
-    <AssociationSet Name="FK_CNC_ALARM_Log_CNCMonitor" Association="Self.FK_CNC_ALARM_Log_CNCMonitor">
-      <End Role="CNCMonitor" EntitySet="CNCMonitors" />
-      <End Role="CNC_ALARM_Log" EntitySet="CNC_ALARM_Log" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CNC_ATCTL_Log_CNCMonitor" Association="Self.FK_CNC_ATCTL_Log_CNCMonitor">
-      <End Role="CNCMonitor" EntitySet="CNCMonitors" />
-      <End Role="CNC_ATCTL_Log" EntitySet="CNC_ATCTL_Log" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CNC_ATCTL_Log_KnifeDetail" Association="Self.FK_CNC_ATCTL_Log_KnifeDetail">
-      <End Role="KnifeDetail" EntitySet="KnifeDetails" />
-      <End Role="CNC_ATCTL_Log" EntitySet="CNC_ATCTL_Log" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CNC_PRD3_Log_CNCMonitor" Association="Self.FK_CNC_PRD3_Log_CNCMonitor">
-      <End Role="CNCMonitor" EntitySet="CNCMonitors" />
-      <End Role="CNC_PRD3_Log" EntitySet="CNC_PRD3_Log" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CNC_Ver_Log_CNCMonitor" Association="Self.FK_CNC_Ver_Log_CNCMonitor">
-      <End Role="CNCMonitor" EntitySet="CNCMonitors" />
-      <End Role="CNC_Ver_Log" EntitySet="CNC_Ver_Log" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CNC_WKCNTR_Log_CNCMonitor" Association="Self.FK_CNC_WKCNTR_Log_CNCMonitor">
-      <End Role="CNCMonitor" EntitySet="CNCMonitors" />
-      <End Role="CNC_WKCNTR_Log" EntitySet="CNC_WKCNTR_Log" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CNCDetail_CNCMaster" Association="Self.FK_CNCDetail_CNCMaster">
-      <End Role="CNCMaster" EntitySet="CNCMasters" />
-      <End Role="CNCDetail" EntitySet="CNCDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CNCList_CNCDetail" Association="Self.FK_CNCList_CNCDetail">
-      <End Role="CNCDetail" EntitySet="CNCDetails" />
-      <End Role="CNCKnifeList" EntitySet="CNCKnifeLists" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CNCKnifeList_KnifeList" Association="Self.FK_CNCKnifeList_KnifeList">
-      <End Role="KnifeList" EntitySet="KnifeLists" />
-      <End Role="CNCKnifeList" EntitySet="CNCKnifeLists" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CNCList_Good" Association="Self.FK_CNCList_Good">
-      <End Role="Good" EntitySet="Goods" />
-      <End Role="CNCKnifeList" EntitySet="CNCKnifeLists" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ProductionPlan_CNCKnifeList" Association="Self.FK_ProductionPlan_CNCKnifeList">
-      <End Role="CNCKnifeList" EntitySet="CNCKnifeLists" />
-      <End Role="ProductionPlan" EntitySet="ProductionPlans" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Collet1Detail_Collet1Master" Association="Self.FK_Collet1Detail_Collet1Master">
-      <End Role="Collet1Master" EntitySet="Collet1Master" />
-      <End Role="Collet1Detail" EntitySet="Collet1Detail" />
-    </AssociationSet>
-    <AssociationSet Name="FK_KnifeList_Collet1Detail" Association="Self.FK_KnifeList_Collet1Detail">
-      <End Role="Collet1Detail" EntitySet="Collet1Detail" />
-      <End Role="KnifeList" EntitySet="KnifeLists" />
-    </AssociationSet>
-    <AssociationSet Name="FK_StockDetail_Collet1Detail" Association="Self.FK_StockDetail_Collet1Detail">
-      <End Role="Collet1Detail" EntitySet="Collet1Detail" />
-      <End Role="StockDetail" EntitySet="StockDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Collet2Detail_Collet2Master" Association="Self.FK_Collet2Detail_Collet2Master">
-      <End Role="Collet2Master" EntitySet="Collet2Master" />
-      <End Role="Collet2Detail" EntitySet="Collet2Detail" />
-    </AssociationSet>
-    <AssociationSet Name="FK_KnifeList_Collet2Detail" Association="Self.FK_KnifeList_Collet2Detail">
-      <End Role="Collet2Detail" EntitySet="Collet2Detail" />
-      <End Role="KnifeList" EntitySet="KnifeLists" />
-    </AssociationSet>
-    <AssociationSet Name="FK_StockDetail_Collet2Detail" Association="Self.FK_StockDetail_Collet2Detail">
-      <End Role="Collet2Detail" EntitySet="Collet2Detail" />
-      <End Role="StockDetail" EntitySet="StockDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Inform_Employe" Association="Self.FK_Inform_Employe">
-      <End Role="Employe" EntitySet="Employes" />
-      <End Role="Inform" EntitySet="Informs" />
-    </AssociationSet>
-    <AssociationSet Name="FK_KnifeChangeFrom_Employe1" Association="Self.FK_KnifeChangeFrom_Employe1">
-      <End Role="Employe" EntitySet="Employes" />
-      <End Role="KnifeChangeFrom" EntitySet="KnifeChangeFroms" />
-    </AssociationSet>
-    <AssociationSet Name="FK_OutFrom_Employe" Association="Self.FK_OutFrom_Employe">
-      <End Role="Employe" EntitySet="Employes" />
-      <End Role="OutFrom" EntitySet="OutFroms" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ProductionPlan_Employe" Association="Self.FK_ProductionPlan_Employe">
-      <End Role="Employe" EntitySet="Employes" />
-      <End Role="ProductionPlan" EntitySet="ProductionPlans" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ExtensionRodDetail_ExtensionRodMaster1" Association="Self.FK_ExtensionRodDetail_ExtensionRodMaster1">
-      <End Role="ExtRodMaster" EntitySet="ExtRodMasters" />
-      <End Role="ExtRodDetail" EntitySet="ExtRodDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_HiltDetail_HiltMaster1" Association="Self.FK_HiltDetail_HiltMaster1">
-      <End Role="HiltMaster" EntitySet="HiltMasters" />
-      <End Role="HiltDetail" EntitySet="HiltDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_StockDetail_HiltDetail" Association="Self.FK_StockDetail_HiltDetail">
-      <End Role="HiltDetail" EntitySet="HiltDetails" />
-      <End Role="StockDetail" EntitySet="StockDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_WorkStationKnifeList_HiltDetail" Association="Self.FK_WorkStationKnifeList_HiltDetail">
-      <End Role="HiltDetail" EntitySet="HiltDetails" />
-      <End Role="KnifeList" EntitySet="KnifeLists" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Inform_StockDetail" Association="Self.FK_Inform_StockDetail">
-      <End Role="StockDetail" EntitySet="StockDetails" />
-      <End Role="Inform" EntitySet="Informs" />
-    </AssociationSet>
-    <AssociationSet Name="FK_KnifeChangeFrom_StockDetail" Association="Self.FK_KnifeChangeFrom_StockDetail">
-      <End Role="StockDetail" EntitySet="StockDetails" />
-      <End Role="KnifeChangeFrom" EntitySet="KnifeChangeFroms" />
-    </AssociationSet>
-    <AssociationSet Name="FK_KnifeDetail_KnifeMaster" Association="Self.FK_KnifeDetail_KnifeMaster">
-      <End Role="KnifeMaster" EntitySet="KnifeMasters" />
-      <End Role="KnifeDetail" EntitySet="KnifeDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_KnifeUseLog_KnifeDetail" Association="Self.FK_KnifeUseLog_KnifeDetail">
-      <End Role="KnifeDetail" EntitySet="KnifeDetails" />
-      <End Role="KnifeUseLog" EntitySet="KnifeUseLogs" />
-    </AssociationSet>
-    <AssociationSet Name="FK_StockDetail_KnifeDetail" Association="Self.FK_StockDetail_KnifeDetail">
-      <End Role="KnifeDetail" EntitySet="KnifeDetails" />
-      <End Role="StockDetail" EntitySet="StockDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_WorkStationKnifeList_KnifeDetail" Association="Self.FK_WorkStationKnifeList_KnifeDetail">
-      <End Role="KnifeDetail" EntitySet="KnifeDetails" />
-      <End Role="KnifeList" EntitySet="KnifeLists" />
-    </AssociationSet>
-    <AssociationSet Name="FK_KnifeList_MeasureDetail" Association="Self.FK_KnifeList_MeasureDetail">
-      <End Role="MeasureDetail" EntitySet="MeasureDetails" />
-      <End Role="KnifeList" EntitySet="KnifeLists" />
-    </AssociationSet>
-    <AssociationSet Name="FK_KnifeList_NailDetail" Association="Self.FK_KnifeList_NailDetail">
-      <End Role="NailDetail" EntitySet="NailDetails" />
-      <End Role="KnifeList" EntitySet="KnifeLists" />
-    </AssociationSet>
-    <AssociationSet Name="FK_KnifeList_NutDetail" Association="Self.FK_KnifeList_NutDetail">
-      <End Role="NutDetail" EntitySet="NutDetails" />
-      <End Role="KnifeList" EntitySet="KnifeLists" />
-    </AssociationSet>
-    <AssociationSet Name="FK_WorkStationKnifeList_Model" Association="Self.FK_WorkStationKnifeList_Model">
-      <End Role="Model" EntitySet="Models" />
-      <End Role="KnifeList" EntitySet="KnifeLists" />
-    </AssociationSet>
-    <AssociationSet Name="FK_MeasureDetail_MeasureMaster" Association="Self.FK_MeasureDetail_MeasureMaster">
-      <End Role="MeasureMaster" EntitySet="MeasureMasters" />
-      <End Role="MeasureDetail" EntitySet="MeasureDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_StockDetail_MeasureDetail" Association="Self.FK_StockDetail_MeasureDetail">
-      <End Role="MeasureDetail" EntitySet="MeasureDetails" />
-      <End Role="StockDetail" EntitySet="StockDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_NailDetail_NailMaster" Association="Self.FK_NailDetail_NailMaster">
-      <End Role="NailMaster" EntitySet="NailMasters" />
-      <End Role="NailDetail" EntitySet="NailDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_StockDetail_NailDetail" Association="Self.FK_StockDetail_NailDetail">
-      <End Role="NailDetail" EntitySet="NailDetails" />
-      <End Role="StockDetail" EntitySet="StockDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_NutDetail_NutMaster" Association="Self.FK_NutDetail_NutMaster">
-      <End Role="NutMaster" EntitySet="NutMasters" />
-      <End Role="NutDetail" EntitySet="NutDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_OutFrom_StockDetail" Association="Self.FK_OutFrom_StockDetail">
-      <End Role="StockDetail" EntitySet="StockDetails" />
-      <End Role="OutFrom" EntitySet="OutFroms" />
-    </AssociationSet>
-    <AssociationSet Name="FK_StockDetail_Stock1" Association="Self.FK_StockDetail_Stock1">
-      <End Role="Stock" EntitySet="Stocks" />
-      <End Role="StockDetail" EntitySet="StockDetails" />
-    </AssociationSet>
     <FunctionImport Name="sp_alterdiagram">
       <Parameter Name="diagramname" Mode="In" Type="String" />
       <Parameter Name="owner_id" Mode="In" Type="Int32" />
@@ -1450,6 +31,217 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="Cabins" EntityType="ToolManagementModel.Cabin" />
+    <EntitySet Name="CNC_Alarm_Code_Mapping" EntityType="ToolManagementModel.CNC_Alarm_Code_Mapping" />
+    <EntitySet Name="CNC_ALARM_Log" EntityType="ToolManagementModel.CNC_ALARM_Log" />
+    <EntitySet Name="CNC_ATCTL_Log" EntityType="ToolManagementModel.CNC_ATCTL_Log" />
+    <EntitySet Name="CNC_PRD3_Log" EntityType="ToolManagementModel.CNC_PRD3_Log" />
+    <EntitySet Name="CNC_PRDC2_Log" EntityType="ToolManagementModel.CNC_PRDC2_Log" />
+    <EntitySet Name="CNC_StatusHistory" EntityType="ToolManagementModel.CNC_StatusHistory" />
+    <EntitySet Name="CNC_Ver_Log" EntityType="ToolManagementModel.CNC_Ver_Log" />
+    <EntitySet Name="CNC_WKCNTR_Log" EntityType="ToolManagementModel.CNC_WKCNTR_Log" />
+    <EntitySet Name="CNCDetails" EntityType="ToolManagementModel.CNCDetail" />
+    <EntitySet Name="CNCKnifeLists" EntityType="ToolManagementModel.CNCKnifeList" />
+    <EntitySet Name="CNCMasters" EntityType="ToolManagementModel.CNCMaster" />
+    <EntitySet Name="CNCMonitors" EntityType="ToolManagementModel.CNCMonitor" />
+    <EntitySet Name="Collet1Detail" EntityType="ToolManagementModel.Collet1Detail" />
+    <EntitySet Name="Collet1Master" EntityType="ToolManagementModel.Collet1Master" />
+    <EntitySet Name="Collet2Detail" EntityType="ToolManagementModel.Collet2Detail" />
+    <EntitySet Name="Collet2Master" EntityType="ToolManagementModel.Collet2Master" />
+    <EntitySet Name="Employes" EntityType="ToolManagementModel.Employe" />
+    <EntitySet Name="ExtRodDetails" EntityType="ToolManagementModel.ExtRodDetail" />
+    <EntitySet Name="ExtRodMasters" EntityType="ToolManagementModel.ExtRodMaster" />
+    <EntitySet Name="Goods" EntityType="ToolManagementModel.Good" />
+    <EntitySet Name="HiltDetails" EntityType="ToolManagementModel.HiltDetail" />
+    <EntitySet Name="HiltMasters" EntityType="ToolManagementModel.HiltMaster" />
+    <EntitySet Name="Informs" EntityType="ToolManagementModel.Inform" />
+    <EntitySet Name="KnifeChangeFroms" EntityType="ToolManagementModel.KnifeChangeFrom" />
+    <EntitySet Name="KnifeDetails" EntityType="ToolManagementModel.KnifeDetail" />
+    <EntitySet Name="KnifeLists" EntityType="ToolManagementModel.KnifeList" />
+    <EntitySet Name="KnifeMasters" EntityType="ToolManagementModel.KnifeMaster" />
+    <EntitySet Name="KnifeUseLogs" EntityType="ToolManagementModel.KnifeUseLog" />
+    <EntitySet Name="MeasureDetails" EntityType="ToolManagementModel.MeasureDetail" />
+    <EntitySet Name="MeasureMasters" EntityType="ToolManagementModel.MeasureMaster" />
+    <EntitySet Name="Models" EntityType="ToolManagementModel.Model" />
+    <EntitySet Name="NailDetails" EntityType="ToolManagementModel.NailDetail" />
+    <EntitySet Name="NailMasters" EntityType="ToolManagementModel.NailMaster" />
+    <EntitySet Name="NutDetails" EntityType="ToolManagementModel.NutDetail" />
+    <EntitySet Name="NutMasters" EntityType="ToolManagementModel.NutMaster" />
+    <EntitySet Name="OutFroms" EntityType="ToolManagementModel.OutFrom" />
+    <EntitySet Name="ProductionPlans" EntityType="ToolManagementModel.ProductionPlan" />
+    <EntitySet Name="Stocks" EntityType="ToolManagementModel.Stock" />
+    <EntitySet Name="StockDetails" EntityType="ToolManagementModel.StockDetail" />
+    <EntitySet Name="v_Kind" EntityType="ToolManagementModel.v_Kind" />
+    <EntitySet Name="vCNC_Alarm_Log" EntityType="ToolManagementModel.vCNC_Alarm_Log" />
+    <EntitySet Name="vCNC_Monitor" EntityType="ToolManagementModel.vCNC_Monitor" />
+    <AssociationSet Name="FK_CNC_ALARM_Log_CNCMonitor" Association="ToolManagementModel.FK_CNC_ALARM_Log_CNCMonitor">
+      <End Role="CNCMonitor" EntitySet="CNCMonitors" />
+      <End Role="CNC_ALARM_Log" EntitySet="CNC_ALARM_Log" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CNC_ATCTL_Log_CNCMonitor" Association="ToolManagementModel.FK_CNC_ATCTL_Log_CNCMonitor">
+      <End Role="CNCMonitor" EntitySet="CNCMonitors" />
+      <End Role="CNC_ATCTL_Log" EntitySet="CNC_ATCTL_Log" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CNC_ATCTL_Log_KnifeDetail" Association="ToolManagementModel.FK_CNC_ATCTL_Log_KnifeDetail">
+      <End Role="KnifeDetail" EntitySet="KnifeDetails" />
+      <End Role="CNC_ATCTL_Log" EntitySet="CNC_ATCTL_Log" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CNC_PRD3_Log_CNCMonitor" Association="ToolManagementModel.FK_CNC_PRD3_Log_CNCMonitor">
+      <End Role="CNCMonitor" EntitySet="CNCMonitors" />
+      <End Role="CNC_PRD3_Log" EntitySet="CNC_PRD3_Log" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CNC_Ver_Log_CNCMonitor" Association="ToolManagementModel.FK_CNC_Ver_Log_CNCMonitor">
+      <End Role="CNCMonitor" EntitySet="CNCMonitors" />
+      <End Role="CNC_Ver_Log" EntitySet="CNC_Ver_Log" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CNC_WKCNTR_Log_CNCMonitor" Association="ToolManagementModel.FK_CNC_WKCNTR_Log_CNCMonitor">
+      <End Role="CNCMonitor" EntitySet="CNCMonitors" />
+      <End Role="CNC_WKCNTR_Log" EntitySet="CNC_WKCNTR_Log" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CNCDetail_CNCMaster" Association="ToolManagementModel.FK_CNCDetail_CNCMaster">
+      <End Role="CNCMaster" EntitySet="CNCMasters" />
+      <End Role="CNCDetail" EntitySet="CNCDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CNCList_CNCDetail" Association="ToolManagementModel.FK_CNCList_CNCDetail">
+      <End Role="CNCDetail" EntitySet="CNCDetails" />
+      <End Role="CNCKnifeList" EntitySet="CNCKnifeLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CNCList_Good" Association="ToolManagementModel.FK_CNCList_Good">
+      <End Role="Good" EntitySet="Goods" />
+      <End Role="CNCKnifeList" EntitySet="CNCKnifeLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductionPlan_CNCKnifeList" Association="ToolManagementModel.FK_ProductionPlan_CNCKnifeList">
+      <End Role="CNCKnifeList" EntitySet="CNCKnifeLists" />
+      <End Role="ProductionPlan" EntitySet="ProductionPlans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Collet1Detail_Collet1Master" Association="ToolManagementModel.FK_Collet1Detail_Collet1Master">
+      <End Role="Collet1Master" EntitySet="Collet1Master" />
+      <End Role="Collet1Detail" EntitySet="Collet1Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KnifeList_Collet1Detail" Association="ToolManagementModel.FK_KnifeList_Collet1Detail">
+      <End Role="Collet1Detail" EntitySet="Collet1Detail" />
+      <End Role="KnifeList" EntitySet="KnifeLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StockDetail_Collet1Detail" Association="ToolManagementModel.FK_StockDetail_Collet1Detail">
+      <End Role="Collet1Detail" EntitySet="Collet1Detail" />
+      <End Role="StockDetail" EntitySet="StockDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Collet2Detail_Collet2Master" Association="ToolManagementModel.FK_Collet2Detail_Collet2Master">
+      <End Role="Collet2Master" EntitySet="Collet2Master" />
+      <End Role="Collet2Detail" EntitySet="Collet2Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KnifeList_Collet2Detail" Association="ToolManagementModel.FK_KnifeList_Collet2Detail">
+      <End Role="Collet2Detail" EntitySet="Collet2Detail" />
+      <End Role="KnifeList" EntitySet="KnifeLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StockDetail_Collet2Detail" Association="ToolManagementModel.FK_StockDetail_Collet2Detail">
+      <End Role="Collet2Detail" EntitySet="Collet2Detail" />
+      <End Role="StockDetail" EntitySet="StockDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inform_Employe" Association="ToolManagementModel.FK_Inform_Employe">
+      <End Role="Employe" EntitySet="Employes" />
+      <End Role="Inform" EntitySet="Informs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KnifeChangeFrom_Employe1" Association="ToolManagementModel.FK_KnifeChangeFrom_Employe1">
+      <End Role="Employe" EntitySet="Employes" />
+      <End Role="KnifeChangeFrom" EntitySet="KnifeChangeFroms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OutFrom_Employe" Association="ToolManagementModel.FK_OutFrom_Employe">
+      <End Role="Employe" EntitySet="Employes" />
+      <End Role="OutFrom" EntitySet="OutFroms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductionPlan_Employe" Association="ToolManagementModel.FK_ProductionPlan_Employe">
+      <End Role="Employe" EntitySet="Employes" />
+      <End Role="ProductionPlan" EntitySet="ProductionPlans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExtensionRodDetail_ExtensionRodMaster1" Association="ToolManagementModel.FK_ExtensionRodDetail_ExtensionRodMaster1">
+      <End Role="ExtRodMaster" EntitySet="ExtRodMasters" />
+      <End Role="ExtRodDetail" EntitySet="ExtRodDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KnifeList_ExtRodDetail" Association="ToolManagementModel.FK_KnifeList_ExtRodDetail">
+      <End Role="ExtRodDetail" EntitySet="ExtRodDetails" />
+      <End Role="KnifeList" EntitySet="KnifeLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HiltDetail_HiltMaster1" Association="ToolManagementModel.FK_HiltDetail_HiltMaster1">
+      <End Role="HiltMaster" EntitySet="HiltMasters" />
+      <End Role="HiltDetail" EntitySet="HiltDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StockDetail_HiltDetail" Association="ToolManagementModel.FK_StockDetail_HiltDetail">
+      <End Role="HiltDetail" EntitySet="HiltDetails" />
+      <End Role="StockDetail" EntitySet="StockDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorkStationKnifeList_HiltDetail" Association="ToolManagementModel.FK_WorkStationKnifeList_HiltDetail">
+      <End Role="HiltDetail" EntitySet="HiltDetails" />
+      <End Role="KnifeList" EntitySet="KnifeLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inform_StockDetail" Association="ToolManagementModel.FK_Inform_StockDetail">
+      <End Role="StockDetail" EntitySet="StockDetails" />
+      <End Role="Inform" EntitySet="Informs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KnifeChangeFrom_StockDetail" Association="ToolManagementModel.FK_KnifeChangeFrom_StockDetail">
+      <End Role="StockDetail" EntitySet="StockDetails" />
+      <End Role="KnifeChangeFrom" EntitySet="KnifeChangeFroms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KnifeDetail_KnifeMaster" Association="ToolManagementModel.FK_KnifeDetail_KnifeMaster">
+      <End Role="KnifeMaster" EntitySet="KnifeMasters" />
+      <End Role="KnifeDetail" EntitySet="KnifeDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KnifeUseLog_KnifeDetail" Association="ToolManagementModel.FK_KnifeUseLog_KnifeDetail">
+      <End Role="KnifeDetail" EntitySet="KnifeDetails" />
+      <End Role="KnifeUseLog" EntitySet="KnifeUseLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StockDetail_KnifeDetail" Association="ToolManagementModel.FK_StockDetail_KnifeDetail">
+      <End Role="KnifeDetail" EntitySet="KnifeDetails" />
+      <End Role="StockDetail" EntitySet="StockDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorkStationKnifeList_KnifeDetail" Association="ToolManagementModel.FK_WorkStationKnifeList_KnifeDetail">
+      <End Role="KnifeDetail" EntitySet="KnifeDetails" />
+      <End Role="KnifeList" EntitySet="KnifeLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KnifeList_MeasureDetail" Association="ToolManagementModel.FK_KnifeList_MeasureDetail">
+      <End Role="MeasureDetail" EntitySet="MeasureDetails" />
+      <End Role="KnifeList" EntitySet="KnifeLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KnifeList_NailDetail" Association="ToolManagementModel.FK_KnifeList_NailDetail">
+      <End Role="NailDetail" EntitySet="NailDetails" />
+      <End Role="KnifeList" EntitySet="KnifeLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KnifeList_NutDetail" Association="ToolManagementModel.FK_KnifeList_NutDetail">
+      <End Role="NutDetail" EntitySet="NutDetails" />
+      <End Role="KnifeList" EntitySet="KnifeLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorkStationKnifeList_Model" Association="ToolManagementModel.FK_WorkStationKnifeList_Model">
+      <End Role="Model" EntitySet="Models" />
+      <End Role="KnifeList" EntitySet="KnifeLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MeasureDetail_MeasureMaster" Association="ToolManagementModel.FK_MeasureDetail_MeasureMaster">
+      <End Role="MeasureMaster" EntitySet="MeasureMasters" />
+      <End Role="MeasureDetail" EntitySet="MeasureDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StockDetail_MeasureDetail" Association="ToolManagementModel.FK_StockDetail_MeasureDetail">
+      <End Role="MeasureDetail" EntitySet="MeasureDetails" />
+      <End Role="StockDetail" EntitySet="StockDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NailDetail_NailMaster" Association="ToolManagementModel.FK_NailDetail_NailMaster">
+      <End Role="NailMaster" EntitySet="NailMasters" />
+      <End Role="NailDetail" EntitySet="NailDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StockDetail_NailDetail" Association="ToolManagementModel.FK_StockDetail_NailDetail">
+      <End Role="NailDetail" EntitySet="NailDetails" />
+      <End Role="StockDetail" EntitySet="StockDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NutDetail_NutMaster" Association="ToolManagementModel.FK_NutDetail_NutMaster">
+      <End Role="NutMaster" EntitySet="NutMasters" />
+      <End Role="NutDetail" EntitySet="NutDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OutFrom_StockDetail" Association="ToolManagementModel.FK_OutFrom_StockDetail">
+      <End Role="StockDetail" EntitySet="StockDetails" />
+      <End Role="OutFrom" EntitySet="OutFroms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StockDetail_Stock1" Association="ToolManagementModel.FK_StockDetail_Stock1">
+      <End Role="Stock" EntitySet="Stocks" />
+      <End Role="StockDetail" EntitySet="StockDetails" />
+    </AssociationSet>
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -1462,4 +254,1232 @@
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
+  <EntityType Name="Cabin">
+    <Key>
+      <PropertyRef Name="Cabin_ID" />
+    </Key>
+    <Property Name="Cabin_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cabin_Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cabin_Location" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Cabin_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Cabin_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cabin_Modify_DT" Type="DateTime" Precision="3" />
+    <Property Name="Cabin_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CNC_Alarm_Code_Mapping">
+    <Key>
+      <PropertyRef Name="ALARM_CODE" />
+    </Key>
+    <Property Name="ALARM_CODE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ALARM_MSG" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Create_DT" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="CNC_ALARM_Log">
+    <Key>
+      <PropertyRef Name="Sno" />
+    </Key>
+    <Property Name="Sno" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CNC_IP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Create_DT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_ALARM_CODE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_ALARM_MSG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Lang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_ALARM_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CNC_ModeType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_OperationNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_EditNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Screen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC__Coordinate_X" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Distance_X" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Coordinate_Y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Distance_Y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Coordinate_Z" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Distance_Z" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_KnifeCabin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_RunProgramBank" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Compensate_H" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Compensate_X" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Compensate_Y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Compensate_Z" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_ATCTL_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Return_Speed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Fast_Feed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Cutting_Feed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Spindle_Feed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Feed_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Door_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Door_Interlock" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CNCMonitor" Relationship="ToolManagementModel.FK_CNC_ALARM_Log_CNCMonitor" FromRole="CNC_ALARM_Log" ToRole="CNCMonitor" />
+  </EntityType>
+  <EntityType Name="CNC_ATCTL_Log">
+    <Key>
+      <PropertyRef Name="Sno" />
+    </Key>
+    <Property Name="Sno" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CNC_IP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Create_DT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ATCTL_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ATCTL_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ATCTL_DATA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ATCTL_GRP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ATCTL_TIME" Type="Int64" />
+    <Property Name="ATCTL_TYPE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ATCTL_COLOR" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KnifeDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CNCMonitor" Relationship="ToolManagementModel.FK_CNC_ATCTL_Log_CNCMonitor" FromRole="CNC_ATCTL_Log" ToRole="CNCMonitor" />
+    <NavigationProperty Name="KnifeDetail" Relationship="ToolManagementModel.FK_CNC_ATCTL_Log_KnifeDetail" FromRole="CNC_ATCTL_Log" ToRole="KnifeDetail" />
+  </EntityType>
+  <EntityType Name="CNC_PRD3_Log">
+    <Key>
+      <PropertyRef Name="Sno" />
+    </Key>
+    <Property Name="Sno" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Create_DT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_IP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Current_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Current_StatusDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_StatusDT" Type="DateTime" Precision="3" />
+    <Property Name="CNC_ProgramNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CNCMonitor" Relationship="ToolManagementModel.FK_CNC_PRD3_Log_CNCMonitor" FromRole="CNC_PRD3_Log" ToRole="CNCMonitor" />
+  </EntityType>
+  <EntityType Name="CNC_PRDC2_Log">
+    <Key>
+      <PropertyRef Name="Create_DT" />
+    </Key>
+    <Property Name="Create_DT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_ProductionTime" Type="Int64" Nullable="false" />
+    <Property Name="CNC_StayTime" Type="Int64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CNC_StatusHistory">
+    <Key>
+      <PropertyRef Name="Sno" />
+    </Key>
+    <Property Name="Sno" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CNC_IP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Create_DT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CNC_RunTime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_StayTime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_CloseTime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_ErrTime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_StopTime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_CalcDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CNC_Ver_Log">
+    <Key>
+      <PropertyRef Name="Sno" />
+    </Key>
+    <Property Name="Sno" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CNC_IP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Create_DT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Model" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Ver" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CNCMonitor" Relationship="ToolManagementModel.FK_CNC_Ver_Log_CNCMonitor" FromRole="CNC_Ver_Log" ToRole="CNCMonitor" />
+  </EntityType>
+  <EntityType Name="CNC_WKCNTR_Log">
+    <Key>
+      <PropertyRef Name="Sno" />
+    </Key>
+    <Property Name="Sno" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Create_DT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_IP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Current_ProductionAmount" Type="Int64" Nullable="false" />
+    <Property Name="CNC_End_ProductionAmount" Type="Int64" />
+    <Property Name="CNC_Alert_ProductionAmount" Type="Int64" />
+    <NavigationProperty Name="CNCMonitor" Relationship="ToolManagementModel.FK_CNC_WKCNTR_Log_CNCMonitor" FromRole="CNC_WKCNTR_Log" ToRole="CNCMonitor" />
+  </EntityType>
+  <EntityType Name="CNCDetail">
+    <Key>
+      <PropertyRef Name="CNCDetail_ID" />
+    </Key>
+    <Property Name="CNCDetail_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNCMaster_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNCDetail_IP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNCDetail_Version" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNCDetail_Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNCDetail_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CNCDetail_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNCDetail_Modify_DT" Type="DateTime" Precision="3" />
+    <Property Name="CNCDetail_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CNCMaster" Relationship="ToolManagementModel.FK_CNCDetail_CNCMaster" FromRole="CNCDetail" ToRole="CNCMaster" />
+    <NavigationProperty Name="CNCKnifeLists" Relationship="ToolManagementModel.FK_CNCList_CNCDetail" FromRole="CNCDetail" ToRole="CNCKnifeList" />
+  </EntityType>
+  <EntityType Name="CNCKnifeList">
+    <Key>
+      <PropertyRef Name="CNCKnifeList_ID" />
+    </Key>
+    <Property Name="CNCKnifeList_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CNCDetail_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Car_No" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Good_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Line_No" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="WorkStation_No" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KnifeList_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNCList_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CNCList_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNCList_Modify_DT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNCList_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CNCDetail" Relationship="ToolManagementModel.FK_CNCList_CNCDetail" FromRole="CNCKnifeList" ToRole="CNCDetail" />
+    <NavigationProperty Name="Good" Relationship="ToolManagementModel.FK_CNCList_Good" FromRole="CNCKnifeList" ToRole="Good" />
+    <NavigationProperty Name="ProductionPlans" Relationship="ToolManagementModel.FK_ProductionPlan_CNCKnifeList" FromRole="CNCKnifeList" ToRole="ProductionPlan" />
+  </EntityType>
+  <EntityType Name="CNCMaster">
+    <Key>
+      <PropertyRef Name="CNCMaster_ID" />
+    </Key>
+    <Property Name="CNCMaster_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Brand" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Quality" Type="Int64" Nullable="false" />
+    <Property Name="CNCMaster_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CNCMaster_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNCMaster_Modify_DT" Type="DateTime" Precision="3" />
+    <Property Name="CNCMaster_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CNCDetails" Relationship="ToolManagementModel.FK_CNCDetail_CNCMaster" FromRole="CNCMaster" ToRole="CNCDetail" />
+  </EntityType>
+  <EntityType Name="CNCMonitor">
+    <Key>
+      <PropertyRef Name="CNC_IP" />
+    </Key>
+    <Property Name="CNC_IP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Create_DT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CNCDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Current_ProductionAmount" Type="Int64" />
+    <Property Name="CNC_RunTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_StayTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_CloseTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_ErrTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_StopTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Ver" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Alert_ProductionAmount" Type="Int64" />
+    <Property Name="CNC_End_ProductionAmount" Type="Int64" />
+    <NavigationProperty Name="CNC_ALARM_Log" Relationship="ToolManagementModel.FK_CNC_ALARM_Log_CNCMonitor" FromRole="CNCMonitor" ToRole="CNC_ALARM_Log" />
+    <NavigationProperty Name="CNC_ATCTL_Log" Relationship="ToolManagementModel.FK_CNC_ATCTL_Log_CNCMonitor" FromRole="CNCMonitor" ToRole="CNC_ATCTL_Log" />
+    <NavigationProperty Name="CNC_PRD3_Log" Relationship="ToolManagementModel.FK_CNC_PRD3_Log_CNCMonitor" FromRole="CNCMonitor" ToRole="CNC_PRD3_Log" />
+    <NavigationProperty Name="CNC_Ver_Log" Relationship="ToolManagementModel.FK_CNC_Ver_Log_CNCMonitor" FromRole="CNCMonitor" ToRole="CNC_Ver_Log" />
+    <NavigationProperty Name="CNC_WKCNTR_Log" Relationship="ToolManagementModel.FK_CNC_WKCNTR_Log_CNCMonitor" FromRole="CNCMonitor" ToRole="CNC_WKCNTR_Log" />
+  </EntityType>
+  <EntityType Name="Collet1Detail">
+    <Key>
+      <PropertyRef Name="Collet1Detail_ID" />
+    </Key>
+    <Property Name="Collet1Detail_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Collet1Master_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Collet1Detail_Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Collet1Detail_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Collet1Detail_Create_DT" Type="DateTime" Precision="3" />
+    <Property Name="Collet1Detail_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Collet1Detail_Modify_DT" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Collet1Master" Relationship="ToolManagementModel.FK_Collet1Detail_Collet1Master" FromRole="Collet1Detail" ToRole="Collet1Master" />
+    <NavigationProperty Name="KnifeLists" Relationship="ToolManagementModel.FK_KnifeList_Collet1Detail" FromRole="Collet1Detail" ToRole="KnifeList" />
+    <NavigationProperty Name="StockDetails" Relationship="ToolManagementModel.FK_StockDetail_Collet1Detail" FromRole="Collet1Detail" ToRole="StockDetail" />
+  </EntityType>
+  <EntityType Name="Collet1Master">
+    <Key>
+      <PropertyRef Name="Collet1Master_ID" />
+    </Key>
+    <Property Name="Collet1Master_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Collet1_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Collet1_Brand" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Collet1_Spec" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Collet1_CabinID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Collet1_Quality" Type="Int64" Nullable="false" />
+    <Property Name="Collet1Master_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Collet1Master_Create_DT" Type="DateTime" Precision="3" />
+    <Property Name="Collet1Master_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Collet1Master_Modify_DT" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Collet1Detail" Relationship="ToolManagementModel.FK_Collet1Detail_Collet1Master" FromRole="Collet1Master" ToRole="Collet1Detail" />
+  </EntityType>
+  <EntityType Name="Collet2Detail">
+    <Key>
+      <PropertyRef Name="Collet2Detail_ID" />
+    </Key>
+    <Property Name="Collet2Detail_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Collet2Master_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Collet2Detail_Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Collet2Detail_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Collet2Detail_Create_DT" Type="DateTime" Precision="3" />
+    <Property Name="Collet2Detail_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Collet2Detail_Modify_DT" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Collet2Master" Relationship="ToolManagementModel.FK_Collet2Detail_Collet2Master" FromRole="Collet2Detail" ToRole="Collet2Master" />
+    <NavigationProperty Name="KnifeLists" Relationship="ToolManagementModel.FK_KnifeList_Collet2Detail" FromRole="Collet2Detail" ToRole="KnifeList" />
+    <NavigationProperty Name="StockDetails" Relationship="ToolManagementModel.FK_StockDetail_Collet2Detail" FromRole="Collet2Detail" ToRole="StockDetail" />
+  </EntityType>
+  <EntityType Name="Collet2Master">
+    <Key>
+      <PropertyRef Name="Collet2Master_ID" />
+    </Key>
+    <Property Name="Collet2Master_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Collet2_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Collet2_Brand" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Collet2_Spec" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Collet2_CabinID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Collet2_Quality" Type="Int64" Nullable="false" />
+    <Property Name="Collet2Master_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Collet2Master_Create_DT" Type="DateTime" Precision="3" />
+    <Property Name="Collet2Master_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Collet2Master_Modify_DT" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Collet2Detail" Relationship="ToolManagementModel.FK_Collet2Detail_Collet2Master" FromRole="Collet2Master" ToRole="Collet2Detail" />
+  </EntityType>
+  <EntityType Name="Employe">
+    <Key>
+      <PropertyRef Name="Emp_ID" />
+    </Key>
+    <Property Name="Emp_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Emp_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Emp_Status" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Emp_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Emp_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Emp_Modify_DT" Type="DateTime" Precision="3" />
+    <Property Name="Emp_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Informs" Relationship="ToolManagementModel.FK_Inform_Employe" FromRole="Employe" ToRole="Inform" />
+    <NavigationProperty Name="KnifeChangeFroms" Relationship="ToolManagementModel.FK_KnifeChangeFrom_Employe1" FromRole="Employe" ToRole="KnifeChangeFrom" />
+    <NavigationProperty Name="OutFroms" Relationship="ToolManagementModel.FK_OutFrom_Employe" FromRole="Employe" ToRole="OutFrom" />
+    <NavigationProperty Name="ProductionPlans" Relationship="ToolManagementModel.FK_ProductionPlan_Employe" FromRole="Employe" ToRole="ProductionPlan" />
+  </EntityType>
+  <EntityType Name="ExtRodDetail">
+    <Key>
+      <PropertyRef Name="ExtRodDetail_ID" />
+    </Key>
+    <Property Name="ExtRodDetail_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ExtRodMaster_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ExtRodDetail_Status" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ExtRodDetail_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ExtRodDetail_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ExtRodDetail_Modify_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ExtRodDetail_Modify_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ExtRodMaster" Relationship="ToolManagementModel.FK_ExtensionRodDetail_ExtensionRodMaster1" FromRole="ExtRodDetail" ToRole="ExtRodMaster" />
+    <NavigationProperty Name="KnifeLists" Relationship="ToolManagementModel.FK_KnifeList_ExtRodDetail" FromRole="ExtRodDetail" ToRole="KnifeList" />
+  </EntityType>
+  <EntityType Name="ExtRodMaster">
+    <Key>
+      <PropertyRef Name="ExtRodMaster_ID" />
+    </Key>
+    <Property Name="ExtRodMaster_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ExtRod_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ExtRod_Brand" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ExtRod_Spec" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ExtRod_Quality" Type="Int64" Nullable="false" />
+    <Property Name="ExtRod_CabinID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ExtRodMaster_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ExtRodMaster_Create_DT" Type="DateTime" Precision="3" />
+    <Property Name="ExtRodMaster_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ExtRodMaster_Modify_DT" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ExtRodDetails" Relationship="ToolManagementModel.FK_ExtensionRodDetail_ExtensionRodMaster1" FromRole="ExtRodMaster" ToRole="ExtRodDetail" />
+  </EntityType>
+  <EntityType Name="Good">
+    <Key>
+      <PropertyRef Name="Good_ID" />
+    </Key>
+    <Property Name="Good_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Good_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Good_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Good_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Good_Modify_DT" Type="DateTime" Precision="3" />
+    <Property Name="Good_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CNCKnifeLists" Relationship="ToolManagementModel.FK_CNCList_Good" FromRole="Good" ToRole="CNCKnifeList" />
+  </EntityType>
+  <EntityType Name="HiltDetail">
+    <Key>
+      <PropertyRef Name="HiltDetail_ID" />
+    </Key>
+    <Property Name="HiltDetail_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HiltMaster_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HiltDetail_Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HiltCabine_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HiltDetail_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="HiltDetail_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HiltDetail_Modify_DT" Type="DateTime" Precision="3" />
+    <Property Name="HiltDetail_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HiltMaster" Relationship="ToolManagementModel.FK_HiltDetail_HiltMaster1" FromRole="HiltDetail" ToRole="HiltMaster" />
+    <NavigationProperty Name="StockDetails" Relationship="ToolManagementModel.FK_StockDetail_HiltDetail" FromRole="HiltDetail" ToRole="StockDetail" />
+    <NavigationProperty Name="KnifeLists" Relationship="ToolManagementModel.FK_WorkStationKnifeList_HiltDetail" FromRole="HiltDetail" ToRole="KnifeList" />
+  </EntityType>
+  <EntityType Name="HiltMaster">
+    <Key>
+      <PropertyRef Name="HiltMaster_ID" />
+    </Key>
+    <Property Name="HiltMaster_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Hilt_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Hilt_Brand" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Hilt_Spec" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Hilt_CabineID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Hilt_Quality" Type="Int64" Nullable="false" />
+    <Property Name="HiltMaster_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="HiltMaster_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HiltMaster_Modify_DT" Type="DateTime" Precision="3" />
+    <Property Name="HiltMaster_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HiltDetails" Relationship="ToolManagementModel.FK_HiltDetail_HiltMaster1" FromRole="HiltMaster" ToRole="HiltDetail" />
+  </EntityType>
+  <EntityType Name="Inform">
+    <Key>
+      <PropertyRef Name="Inform_ID" />
+      <PropertyRef Name="Detail_ID" />
+      <PropertyRef Name="In_DT" />
+    </Key>
+    <Property Name="Inform_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Detail_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Detail_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Inform_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Inform_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Inform_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Inform_Modify_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DetailID_Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="In_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="In_EmpID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Employe" Relationship="ToolManagementModel.FK_Inform_Employe" FromRole="Inform" ToRole="Employe" />
+    <NavigationProperty Name="StockDetail" Relationship="ToolManagementModel.FK_Inform_StockDetail" FromRole="Inform" ToRole="StockDetail" />
+  </EntityType>
+  <EntityType Name="KnifeChangeFrom">
+    <Key>
+      <PropertyRef Name="KnifeChangeForm_ID" />
+    </Key>
+    <Property Name="KnifeChangeForm_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OrgKnifeDetail_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KnifeChange_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="KnifeDetail_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KnifeChanger_EmpID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KnifeChanger_Reslut" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="KnifeConfirm_EmpID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OrgKnifeDetail_Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KnifeChangeForm_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="KnifeChangeForm_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KnifeChangeForm_Modify_DT" Type="DateTime" Precision="3" />
+    <Property Name="KnifeChangeForm_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DetailID_Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Employe" Relationship="ToolManagementModel.FK_KnifeChangeFrom_Employe1" FromRole="KnifeChangeFrom" ToRole="Employe" />
+    <NavigationProperty Name="StockDetail" Relationship="ToolManagementModel.FK_KnifeChangeFrom_StockDetail" FromRole="KnifeChangeFrom" ToRole="StockDetail" />
+  </EntityType>
+  <EntityType Name="KnifeDetail">
+    <Key>
+      <PropertyRef Name="KnifeDetail_ID" />
+    </Key>
+    <Property Name="KnifeDetail_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KnifeMaster_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsNewKnife" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="NewEnter_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="KnifeDetail_Status" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="KnifeDetail_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="KnifeDetail_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KnifeDetail_Modify_DT" Type="DateTime" Precision="3" />
+    <Property Name="KnifeDetail_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CNC_ATCTL_Log" Relationship="ToolManagementModel.FK_CNC_ATCTL_Log_KnifeDetail" FromRole="KnifeDetail" ToRole="CNC_ATCTL_Log" />
+    <NavigationProperty Name="KnifeMaster" Relationship="ToolManagementModel.FK_KnifeDetail_KnifeMaster" FromRole="KnifeDetail" ToRole="KnifeMaster" />
+    <NavigationProperty Name="KnifeUseLogs" Relationship="ToolManagementModel.FK_KnifeUseLog_KnifeDetail" FromRole="KnifeDetail" ToRole="KnifeUseLog" />
+    <NavigationProperty Name="StockDetails" Relationship="ToolManagementModel.FK_StockDetail_KnifeDetail" FromRole="KnifeDetail" ToRole="StockDetail" />
+    <NavigationProperty Name="KnifeLists" Relationship="ToolManagementModel.FK_WorkStationKnifeList_KnifeDetail" FromRole="KnifeDetail" ToRole="KnifeList" />
+  </EntityType>
+  <EntityType Name="KnifeList">
+    <Key>
+      <PropertyRef Name="KnifeList_ID" />
+      <PropertyRef Name="ATC_ID" />
+    </Key>
+    <Property Name="KnifeList_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ATC_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="WorkStation_No" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Model_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KnifeDetail_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HiltDetail_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NailDetail_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MeasureDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ExtRodDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NutDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Collet1Detail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Collet2Detail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KnifeList_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="KnifeList_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KnifeList_Modify_DT" Type="DateTime" Precision="3" />
+    <Property Name="KnifeList_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Program_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="D" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="R" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="L" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SZ" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EZ" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Reserved" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Deep" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Way" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Time" Type="Int32" />
+    <Property Name="Memo" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Collet1Detail" Relationship="ToolManagementModel.FK_KnifeList_Collet1Detail" FromRole="KnifeList" ToRole="Collet1Detail" />
+    <NavigationProperty Name="Collet2Detail" Relationship="ToolManagementModel.FK_KnifeList_Collet2Detail" FromRole="KnifeList" ToRole="Collet2Detail" />
+    <NavigationProperty Name="ExtRodDetail" Relationship="ToolManagementModel.FK_KnifeList_ExtRodDetail" FromRole="KnifeList" ToRole="ExtRodDetail" />
+    <NavigationProperty Name="HiltDetail" Relationship="ToolManagementModel.FK_WorkStationKnifeList_HiltDetail" FromRole="KnifeList" ToRole="HiltDetail" />
+    <NavigationProperty Name="KnifeDetail" Relationship="ToolManagementModel.FK_WorkStationKnifeList_KnifeDetail" FromRole="KnifeList" ToRole="KnifeDetail" />
+    <NavigationProperty Name="MeasureDetail" Relationship="ToolManagementModel.FK_KnifeList_MeasureDetail" FromRole="KnifeList" ToRole="MeasureDetail" />
+    <NavigationProperty Name="NailDetail" Relationship="ToolManagementModel.FK_KnifeList_NailDetail" FromRole="KnifeList" ToRole="NailDetail" />
+    <NavigationProperty Name="NutDetail" Relationship="ToolManagementModel.FK_KnifeList_NutDetail" FromRole="KnifeList" ToRole="NutDetail" />
+    <NavigationProperty Name="Model" Relationship="ToolManagementModel.FK_WorkStationKnifeList_Model" FromRole="KnifeList" ToRole="Model" />
+  </EntityType>
+  <EntityType Name="KnifeMaster">
+    <Key>
+      <PropertyRef Name="KnifeMaster_ID" />
+    </Key>
+    <Property Name="KnifeMaster_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Knife_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Knife_Brand" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Knife_Spec" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Knife_CabinID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Knife_Quality" Type="Int64" Nullable="false" />
+    <Property Name="KnifeMaster_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="KnifeMaster_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KnifeMaster_Modify_DT" Type="DateTime" Precision="3" />
+    <Property Name="KnifeMaster_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="KnifeDetails" Relationship="ToolManagementModel.FK_KnifeDetail_KnifeMaster" FromRole="KnifeMaster" ToRole="KnifeDetail" />
+  </EntityType>
+  <EntityType Name="KnifeUseLog">
+    <Key>
+      <PropertyRef Name="KnifeUseLog_ID" />
+    </Key>
+    <Property Name="KnifeUseLog_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KnifeDetail_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Knife_Use_BeginDT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Knife_Use_EndDT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Knife_Use_Time" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="KnifeUseLog_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="KnifeUseLog_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KnifeUseLog_Modify_DT" Type="DateTime" Precision="3" />
+    <Property Name="KnifeUseLog_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="KnifeDetail" Relationship="ToolManagementModel.FK_KnifeUseLog_KnifeDetail" FromRole="KnifeUseLog" ToRole="KnifeDetail" />
+  </EntityType>
+  <EntityType Name="MeasureDetail">
+    <Key>
+      <PropertyRef Name="MeasureDetail_ID" />
+    </Key>
+    <Property Name="MeasureDetail_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MeasureMaster_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MeasureDetail_Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MeasureDetail_Create_DT" Type="DateTime" Precision="3" />
+    <Property Name="MeasureDetail_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MeasureDetail_Modify_DT" Type="DateTime" Precision="3" />
+    <Property Name="MeasureDetail_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="KnifeLists" Relationship="ToolManagementModel.FK_KnifeList_MeasureDetail" FromRole="MeasureDetail" ToRole="KnifeList" />
+    <NavigationProperty Name="MeasureMaster" Relationship="ToolManagementModel.FK_MeasureDetail_MeasureMaster" FromRole="MeasureDetail" ToRole="MeasureMaster" />
+    <NavigationProperty Name="StockDetails" Relationship="ToolManagementModel.FK_StockDetail_MeasureDetail" FromRole="MeasureDetail" ToRole="StockDetail" />
+  </EntityType>
+  <EntityType Name="MeasureMaster">
+    <Key>
+      <PropertyRef Name="MeasureMaster_ID" />
+    </Key>
+    <Property Name="MeasureMaster_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Measure_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Measure_Spec" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Measure_Brand" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Measure_CabinID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Measure_Quality" Type="Int64" Nullable="false" />
+    <Property Name="MeasureMaster_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MeasureMaster_Create_DT" Type="DateTime" Precision="3" />
+    <Property Name="MeasureMaster_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MeasureMaster_Modify_DT" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="MeasureDetails" Relationship="ToolManagementModel.FK_MeasureDetail_MeasureMaster" FromRole="MeasureMaster" ToRole="MeasureDetail" />
+  </EntityType>
+  <EntityType Name="Model">
+    <Key>
+      <PropertyRef Name="Model_ID" />
+    </Key>
+    <Property Name="Model_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Model_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Model_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Model_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Model_Modify_DT" Type="DateTime" Precision="3" />
+    <Property Name="Model_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="KnifeLists" Relationship="ToolManagementModel.FK_WorkStationKnifeList_Model" FromRole="Model" ToRole="KnifeList" />
+  </EntityType>
+  <EntityType Name="NailDetail">
+    <Key>
+      <PropertyRef Name="NailDetail_ID" />
+    </Key>
+    <Property Name="NailDetail_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NailMaster_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NailDetail_Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NailDetail_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NailDetail_Create_DT" Type="DateTime" Precision="3" />
+    <Property Name="NailDetail_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NailDetail_Modify_DT" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="KnifeLists" Relationship="ToolManagementModel.FK_KnifeList_NailDetail" FromRole="NailDetail" ToRole="KnifeList" />
+    <NavigationProperty Name="NailMaster" Relationship="ToolManagementModel.FK_NailDetail_NailMaster" FromRole="NailDetail" ToRole="NailMaster" />
+    <NavigationProperty Name="StockDetails" Relationship="ToolManagementModel.FK_StockDetail_NailDetail" FromRole="NailDetail" ToRole="StockDetail" />
+  </EntityType>
+  <EntityType Name="NailMaster">
+    <Key>
+      <PropertyRef Name="NailMaster_ID" />
+    </Key>
+    <Property Name="NailMaster_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Nail_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Nail_Brand" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Nail_Spec" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Nail_CabinID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Nail_Quality" Type="Int64" Nullable="false" />
+    <Property Name="NailMaster_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NailMaster_Create_DT" Type="DateTime" Precision="3" />
+    <Property Name="NailMaster_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NailMaster_Modify_DT" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="NailDetails" Relationship="ToolManagementModel.FK_NailDetail_NailMaster" FromRole="NailMaster" ToRole="NailDetail" />
+  </EntityType>
+  <EntityType Name="NutDetail">
+    <Key>
+      <PropertyRef Name="NutDetail_ID" />
+    </Key>
+    <Property Name="NutDetail_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NutMaster_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NutDetail_Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NutDetail_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NutDetail_Create_DT" Type="DateTime" Precision="3" />
+    <Property Name="NutDetail_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NutDetail_Modify_DT" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="KnifeLists" Relationship="ToolManagementModel.FK_KnifeList_NutDetail" FromRole="NutDetail" ToRole="KnifeList" />
+    <NavigationProperty Name="NutMaster" Relationship="ToolManagementModel.FK_NutDetail_NutMaster" FromRole="NutDetail" ToRole="NutMaster" />
+  </EntityType>
+  <EntityType Name="NutMaster">
+    <Key>
+      <PropertyRef Name="NutMaster_ID" />
+    </Key>
+    <Property Name="NutMaster_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Nut_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Nut_Brand" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Nut_Spec" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Nut_Quality" Type="Int64" Nullable="false" />
+    <Property Name="Nut_CabinID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NutMaster_Create_DT" Type="DateTime" Precision="3" />
+    <Property Name="NutMaster_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NutMaster_Modify_DT" Type="DateTime" Precision="3" />
+    <Property Name="NutMaster_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="NutDetails" Relationship="ToolManagementModel.FK_NutDetail_NutMaster" FromRole="NutMaster" ToRole="NutDetail" />
+  </EntityType>
+  <EntityType Name="OutFrom">
+    <Key>
+      <PropertyRef Name="OutForm_ID" />
+      <PropertyRef Name="Detail_ID" />
+      <PropertyRef Name="Out_DT" />
+    </Key>
+    <Property Name="OutForm_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Detail_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Out_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DetailID_Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Out_EmpID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Confirm_EmpID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OutForm_Create_DT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OutForm_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OutForm_Modify_DT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OutForm_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Employe" Relationship="ToolManagementModel.FK_OutFrom_Employe" FromRole="OutFrom" ToRole="Employe" />
+    <NavigationProperty Name="StockDetail" Relationship="ToolManagementModel.FK_OutFrom_StockDetail" FromRole="OutFrom" ToRole="StockDetail" />
+  </EntityType>
+  <EntityType Name="ProductionPlan">
+    <Key>
+      <PropertyRef Name="CNCKnifeList_ID" />
+      <PropertyRef Name="Class_Type" />
+    </Key>
+    <Property Name="Planning_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CNCKnifeList_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="Class_Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Class_EmpID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Class_StandardPerson" Type="Int32" Nullable="false" />
+    <Property Name="Class_RealPerson" Type="Int32" Nullable="false" />
+    <Property Name="Planning_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Planning_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Planning_Modify_DT" Type="DateTime" Precision="3" />
+    <Property Name="Planning_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CNCKnifeList" Relationship="ToolManagementModel.FK_ProductionPlan_CNCKnifeList" FromRole="ProductionPlan" ToRole="CNCKnifeList" />
+    <NavigationProperty Name="Employe" Relationship="ToolManagementModel.FK_ProductionPlan_Employe" FromRole="ProductionPlan" ToRole="Employe" />
+  </EntityType>
+  <EntityType Name="Stock">
+    <Key>
+      <PropertyRef Name="Master_ID" />
+      <PropertyRef Name="MasterID_Type" />
+    </Key>
+    <Property Name="Master_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MasterID_Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InBound" Type="Int64" Nullable="false" />
+    <Property Name="OutBound" Type="Int64" Nullable="false" />
+    <Property Name="ScrapBound" Type="Int64" Nullable="false" />
+    <Property Name="Create_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Memo" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="StockDetails" Relationship="ToolManagementModel.FK_StockDetail_Stock1" FromRole="Stock" ToRole="StockDetail" />
+  </EntityType>
+  <EntityType Name="StockDetail">
+    <Key>
+      <PropertyRef Name="Detail_ID" />
+      <PropertyRef Name="MasterID_Type" />
+    </Key>
+    <Property Name="Sno" Type="Int64" Nullable="false" />
+    <Property Name="Master_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Detail_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MasterID_Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Bound_Type" Type="Int64" Nullable="false" />
+    <Property Name="Create_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Memo" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Collet1Detail" Relationship="ToolManagementModel.FK_StockDetail_Collet1Detail" FromRole="StockDetail" ToRole="Collet1Detail" />
+    <NavigationProperty Name="Collet2Detail" Relationship="ToolManagementModel.FK_StockDetail_Collet2Detail" FromRole="StockDetail" ToRole="Collet2Detail" />
+    <NavigationProperty Name="HiltDetail" Relationship="ToolManagementModel.FK_StockDetail_HiltDetail" FromRole="StockDetail" ToRole="HiltDetail" />
+    <NavigationProperty Name="Informs" Relationship="ToolManagementModel.FK_Inform_StockDetail" FromRole="StockDetail" ToRole="Inform" />
+    <NavigationProperty Name="KnifeChangeFroms" Relationship="ToolManagementModel.FK_KnifeChangeFrom_StockDetail" FromRole="StockDetail" ToRole="KnifeChangeFrom" />
+    <NavigationProperty Name="KnifeDetail" Relationship="ToolManagementModel.FK_StockDetail_KnifeDetail" FromRole="StockDetail" ToRole="KnifeDetail" />
+    <NavigationProperty Name="MeasureDetail" Relationship="ToolManagementModel.FK_StockDetail_MeasureDetail" FromRole="StockDetail" ToRole="MeasureDetail" />
+    <NavigationProperty Name="NailDetail" Relationship="ToolManagementModel.FK_StockDetail_NailDetail" FromRole="StockDetail" ToRole="NailDetail" />
+    <NavigationProperty Name="OutFroms" Relationship="ToolManagementModel.FK_OutFrom_StockDetail" FromRole="StockDetail" ToRole="OutFrom" />
+    <NavigationProperty Name="Stock" Relationship="ToolManagementModel.FK_StockDetail_Stock1" FromRole="StockDetail" ToRole="Stock" />
+  </EntityType>
+  <EntityType Name="v_Kind">
+    <Key>
+      <PropertyRef Name="SNo" />
+      <PropertyRef Name="Kind" />
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="SNo" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Name="Kind" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vCNC_Alarm_Log">
+    <Key>
+      <PropertyRef Name="CNC_IP" />
+      <PropertyRef Name="Sno" />
+      <PropertyRef Name="Create_DT" />
+      <PropertyRef Name="CNC_ALARM_CODE" />
+      <PropertyRef Name="CNC_ALARM_DT" />
+    </Key>
+    <Property Name="CNC_IP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Sno" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="Create_DT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_ALARM_CODE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_ALARM_MSG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_ALARM_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CNC_OperationNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vCNC_Monitor">
+    <Key>
+      <PropertyRef Name="CNC_IP" />
+      <PropertyRef Name="CNC_Model" />
+      <PropertyRef Name="CNC_Ver" />
+      <PropertyRef Name="CNC_Current_ProductionAmount" />
+      <PropertyRef Name="CNC_Current_Status" />
+      <PropertyRef Name="Create_DT" />
+    </Key>
+    <Property Name="CNC_IP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Model" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Ver" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNC_Current_ProductionAmount" Type="Int64" Nullable="false" />
+    <Property Name="CNC_Current_Status" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CNC_Current_StatusDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Create_DT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_CNC_ALARM_Log_CNCMonitor">
+    <End Type="ToolManagementModel.CNCMonitor" Role="CNCMonitor" Multiplicity="1" />
+    <End Type="ToolManagementModel.CNC_ALARM_Log" Role="CNC_ALARM_Log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CNCMonitor">
+        <PropertyRef Name="CNC_IP" />
+      </Principal>
+      <Dependent Role="CNC_ALARM_Log">
+        <PropertyRef Name="CNC_IP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CNC_ATCTL_Log_CNCMonitor">
+    <End Type="ToolManagementModel.CNCMonitor" Role="CNCMonitor" Multiplicity="1" />
+    <End Type="ToolManagementModel.CNC_ATCTL_Log" Role="CNC_ATCTL_Log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CNCMonitor">
+        <PropertyRef Name="CNC_IP" />
+      </Principal>
+      <Dependent Role="CNC_ATCTL_Log">
+        <PropertyRef Name="CNC_IP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CNC_ATCTL_Log_KnifeDetail">
+    <End Type="ToolManagementModel.KnifeDetail" Role="KnifeDetail" Multiplicity="0..1" />
+    <End Type="ToolManagementModel.CNC_ATCTL_Log" Role="CNC_ATCTL_Log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KnifeDetail">
+        <PropertyRef Name="KnifeDetail_ID" />
+      </Principal>
+      <Dependent Role="CNC_ATCTL_Log">
+        <PropertyRef Name="KnifeDetail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CNC_PRD3_Log_CNCMonitor">
+    <End Type="ToolManagementModel.CNCMonitor" Role="CNCMonitor" Multiplicity="1" />
+    <End Type="ToolManagementModel.CNC_PRD3_Log" Role="CNC_PRD3_Log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CNCMonitor">
+        <PropertyRef Name="CNC_IP" />
+      </Principal>
+      <Dependent Role="CNC_PRD3_Log">
+        <PropertyRef Name="CNC_IP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CNC_Ver_Log_CNCMonitor">
+    <End Type="ToolManagementModel.CNCMonitor" Role="CNCMonitor" Multiplicity="1" />
+    <End Type="ToolManagementModel.CNC_Ver_Log" Role="CNC_Ver_Log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CNCMonitor">
+        <PropertyRef Name="CNC_IP" />
+      </Principal>
+      <Dependent Role="CNC_Ver_Log">
+        <PropertyRef Name="CNC_IP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CNC_WKCNTR_Log_CNCMonitor">
+    <End Type="ToolManagementModel.CNCMonitor" Role="CNCMonitor" Multiplicity="1" />
+    <End Type="ToolManagementModel.CNC_WKCNTR_Log" Role="CNC_WKCNTR_Log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CNCMonitor">
+        <PropertyRef Name="CNC_IP" />
+      </Principal>
+      <Dependent Role="CNC_WKCNTR_Log">
+        <PropertyRef Name="CNC_IP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CNCDetail_CNCMaster">
+    <End Type="ToolManagementModel.CNCMaster" Role="CNCMaster" Multiplicity="1" />
+    <End Type="ToolManagementModel.CNCDetail" Role="CNCDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CNCMaster">
+        <PropertyRef Name="CNCMaster_ID" />
+      </Principal>
+      <Dependent Role="CNCDetail">
+        <PropertyRef Name="CNCMaster_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CNCList_CNCDetail">
+    <End Type="ToolManagementModel.CNCDetail" Role="CNCDetail" Multiplicity="1" />
+    <End Type="ToolManagementModel.CNCKnifeList" Role="CNCKnifeList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CNCDetail">
+        <PropertyRef Name="CNCDetail_ID" />
+      </Principal>
+      <Dependent Role="CNCKnifeList">
+        <PropertyRef Name="CNCDetail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CNCList_Good">
+    <End Type="ToolManagementModel.Good" Role="Good" Multiplicity="1" />
+    <End Type="ToolManagementModel.CNCKnifeList" Role="CNCKnifeList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Good">
+        <PropertyRef Name="Good_ID" />
+      </Principal>
+      <Dependent Role="CNCKnifeList">
+        <PropertyRef Name="Good_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductionPlan_CNCKnifeList">
+    <End Type="ToolManagementModel.CNCKnifeList" Role="CNCKnifeList" Multiplicity="1" />
+    <End Type="ToolManagementModel.ProductionPlan" Role="ProductionPlan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CNCKnifeList">
+        <PropertyRef Name="CNCKnifeList_ID" />
+      </Principal>
+      <Dependent Role="ProductionPlan">
+        <PropertyRef Name="CNCKnifeList_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Collet1Detail_Collet1Master">
+    <End Type="ToolManagementModel.Collet1Master" Role="Collet1Master" Multiplicity="1" />
+    <End Type="ToolManagementModel.Collet1Detail" Role="Collet1Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Collet1Master">
+        <PropertyRef Name="Collet1Master_ID" />
+      </Principal>
+      <Dependent Role="Collet1Detail">
+        <PropertyRef Name="Collet1Master_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KnifeList_Collet1Detail">
+    <End Type="ToolManagementModel.Collet1Detail" Role="Collet1Detail" Multiplicity="0..1" />
+    <End Type="ToolManagementModel.KnifeList" Role="KnifeList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Collet1Detail">
+        <PropertyRef Name="Collet1Detail_ID" />
+      </Principal>
+      <Dependent Role="KnifeList">
+        <PropertyRef Name="Collet1Detail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StockDetail_Collet1Detail">
+    <End Type="ToolManagementModel.Collet1Detail" Role="Collet1Detail" Multiplicity="1" />
+    <End Type="ToolManagementModel.StockDetail" Role="StockDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Collet1Detail">
+        <PropertyRef Name="Collet1Detail_ID" />
+      </Principal>
+      <Dependent Role="StockDetail">
+        <PropertyRef Name="Detail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Collet2Detail_Collet2Master">
+    <End Type="ToolManagementModel.Collet2Master" Role="Collet2Master" Multiplicity="1" />
+    <End Type="ToolManagementModel.Collet2Detail" Role="Collet2Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Collet2Master">
+        <PropertyRef Name="Collet2Master_ID" />
+      </Principal>
+      <Dependent Role="Collet2Detail">
+        <PropertyRef Name="Collet2Master_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KnifeList_Collet2Detail">
+    <End Type="ToolManagementModel.Collet2Detail" Role="Collet2Detail" Multiplicity="0..1" />
+    <End Type="ToolManagementModel.KnifeList" Role="KnifeList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Collet2Detail">
+        <PropertyRef Name="Collet2Detail_ID" />
+      </Principal>
+      <Dependent Role="KnifeList">
+        <PropertyRef Name="Collet2Detail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StockDetail_Collet2Detail">
+    <End Type="ToolManagementModel.Collet2Detail" Role="Collet2Detail" Multiplicity="1" />
+    <End Type="ToolManagementModel.StockDetail" Role="StockDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Collet2Detail">
+        <PropertyRef Name="Collet2Detail_ID" />
+      </Principal>
+      <Dependent Role="StockDetail">
+        <PropertyRef Name="Detail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inform_Employe">
+    <End Type="ToolManagementModel.Employe" Role="Employe" Multiplicity="0..1" />
+    <End Type="ToolManagementModel.Inform" Role="Inform" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employe">
+        <PropertyRef Name="Emp_ID" />
+      </Principal>
+      <Dependent Role="Inform">
+        <PropertyRef Name="In_EmpID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KnifeChangeFrom_Employe1">
+    <End Type="ToolManagementModel.Employe" Role="Employe" Multiplicity="1" />
+    <End Type="ToolManagementModel.KnifeChangeFrom" Role="KnifeChangeFrom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employe">
+        <PropertyRef Name="Emp_ID" />
+      </Principal>
+      <Dependent Role="KnifeChangeFrom">
+        <PropertyRef Name="KnifeConfirm_EmpID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OutFrom_Employe">
+    <End Type="ToolManagementModel.Employe" Role="Employe" Multiplicity="1" />
+    <End Type="ToolManagementModel.OutFrom" Role="OutFrom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employe">
+        <PropertyRef Name="Emp_ID" />
+      </Principal>
+      <Dependent Role="OutFrom">
+        <PropertyRef Name="Out_EmpID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductionPlan_Employe">
+    <End Type="ToolManagementModel.Employe" Role="Employe" Multiplicity="1" />
+    <End Type="ToolManagementModel.ProductionPlan" Role="ProductionPlan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employe">
+        <PropertyRef Name="Emp_ID" />
+      </Principal>
+      <Dependent Role="ProductionPlan">
+        <PropertyRef Name="Class_EmpID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExtensionRodDetail_ExtensionRodMaster1">
+    <End Type="ToolManagementModel.ExtRodMaster" Role="ExtRodMaster" Multiplicity="1" />
+    <End Type="ToolManagementModel.ExtRodDetail" Role="ExtRodDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExtRodMaster">
+        <PropertyRef Name="ExtRodMaster_ID" />
+      </Principal>
+      <Dependent Role="ExtRodDetail">
+        <PropertyRef Name="ExtRodMaster_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KnifeList_ExtRodDetail">
+    <End Type="ToolManagementModel.ExtRodDetail" Role="ExtRodDetail" Multiplicity="0..1" />
+    <End Type="ToolManagementModel.KnifeList" Role="KnifeList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExtRodDetail">
+        <PropertyRef Name="ExtRodDetail_ID" />
+      </Principal>
+      <Dependent Role="KnifeList">
+        <PropertyRef Name="ExtRodDetail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HiltDetail_HiltMaster1">
+    <End Type="ToolManagementModel.HiltMaster" Role="HiltMaster" Multiplicity="1" />
+    <End Type="ToolManagementModel.HiltDetail" Role="HiltDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HiltMaster">
+        <PropertyRef Name="HiltMaster_ID" />
+      </Principal>
+      <Dependent Role="HiltDetail">
+        <PropertyRef Name="HiltMaster_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StockDetail_HiltDetail">
+    <End Type="ToolManagementModel.HiltDetail" Role="HiltDetail" Multiplicity="1" />
+    <End Type="ToolManagementModel.StockDetail" Role="StockDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HiltDetail">
+        <PropertyRef Name="HiltDetail_ID" />
+      </Principal>
+      <Dependent Role="StockDetail">
+        <PropertyRef Name="Detail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorkStationKnifeList_HiltDetail">
+    <End Type="ToolManagementModel.HiltDetail" Role="HiltDetail" Multiplicity="1" />
+    <End Type="ToolManagementModel.KnifeList" Role="KnifeList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HiltDetail">
+        <PropertyRef Name="HiltDetail_ID" />
+      </Principal>
+      <Dependent Role="KnifeList">
+        <PropertyRef Name="HiltDetail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inform_StockDetail">
+    <End Type="ToolManagementModel.StockDetail" Role="StockDetail" Multiplicity="1" />
+    <End Type="ToolManagementModel.Inform" Role="Inform" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StockDetail">
+        <PropertyRef Name="Detail_ID" />
+        <PropertyRef Name="MasterID_Type" />
+      </Principal>
+      <Dependent Role="Inform">
+        <PropertyRef Name="Detail_ID" />
+        <PropertyRef Name="DetailID_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KnifeChangeFrom_StockDetail">
+    <End Type="ToolManagementModel.StockDetail" Role="StockDetail" Multiplicity="1" />
+    <End Type="ToolManagementModel.KnifeChangeFrom" Role="KnifeChangeFrom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StockDetail">
+        <PropertyRef Name="Detail_ID" />
+        <PropertyRef Name="MasterID_Type" />
+      </Principal>
+      <Dependent Role="KnifeChangeFrom">
+        <PropertyRef Name="OrgKnifeDetail_ID" />
+        <PropertyRef Name="DetailID_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KnifeDetail_KnifeMaster">
+    <End Type="ToolManagementModel.KnifeMaster" Role="KnifeMaster" Multiplicity="1" />
+    <End Type="ToolManagementModel.KnifeDetail" Role="KnifeDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KnifeMaster">
+        <PropertyRef Name="KnifeMaster_ID" />
+      </Principal>
+      <Dependent Role="KnifeDetail">
+        <PropertyRef Name="KnifeMaster_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KnifeUseLog_KnifeDetail">
+    <End Type="ToolManagementModel.KnifeDetail" Role="KnifeDetail" Multiplicity="1" />
+    <End Type="ToolManagementModel.KnifeUseLog" Role="KnifeUseLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KnifeDetail">
+        <PropertyRef Name="KnifeDetail_ID" />
+      </Principal>
+      <Dependent Role="KnifeUseLog">
+        <PropertyRef Name="KnifeDetail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StockDetail_KnifeDetail">
+    <End Type="ToolManagementModel.KnifeDetail" Role="KnifeDetail" Multiplicity="1" />
+    <End Type="ToolManagementModel.StockDetail" Role="StockDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KnifeDetail">
+        <PropertyRef Name="KnifeDetail_ID" />
+      </Principal>
+      <Dependent Role="StockDetail">
+        <PropertyRef Name="Detail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorkStationKnifeList_KnifeDetail">
+    <End Type="ToolManagementModel.KnifeDetail" Role="KnifeDetail" Multiplicity="1" />
+    <End Type="ToolManagementModel.KnifeList" Role="KnifeList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KnifeDetail">
+        <PropertyRef Name="KnifeDetail_ID" />
+      </Principal>
+      <Dependent Role="KnifeList">
+        <PropertyRef Name="KnifeDetail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KnifeList_MeasureDetail">
+    <End Type="ToolManagementModel.MeasureDetail" Role="MeasureDetail" Multiplicity="0..1" />
+    <End Type="ToolManagementModel.KnifeList" Role="KnifeList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MeasureDetail">
+        <PropertyRef Name="MeasureDetail_ID" />
+      </Principal>
+      <Dependent Role="KnifeList">
+        <PropertyRef Name="MeasureDetail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KnifeList_NailDetail">
+    <End Type="ToolManagementModel.NailDetail" Role="NailDetail" Multiplicity="1" />
+    <End Type="ToolManagementModel.KnifeList" Role="KnifeList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NailDetail">
+        <PropertyRef Name="NailDetail_ID" />
+      </Principal>
+      <Dependent Role="KnifeList">
+        <PropertyRef Name="NailDetail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KnifeList_NutDetail">
+    <End Type="ToolManagementModel.NutDetail" Role="NutDetail" Multiplicity="0..1" />
+    <End Type="ToolManagementModel.KnifeList" Role="KnifeList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NutDetail">
+        <PropertyRef Name="NutDetail_ID" />
+      </Principal>
+      <Dependent Role="KnifeList">
+        <PropertyRef Name="NutDetail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorkStationKnifeList_Model">
+    <End Type="ToolManagementModel.Model" Role="Model" Multiplicity="1" />
+    <End Type="ToolManagementModel.KnifeList" Role="KnifeList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Model">
+        <PropertyRef Name="Model_ID" />
+      </Principal>
+      <Dependent Role="KnifeList">
+        <PropertyRef Name="Model_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MeasureDetail_MeasureMaster">
+    <End Type="ToolManagementModel.MeasureMaster" Role="MeasureMaster" Multiplicity="1" />
+    <End Type="ToolManagementModel.MeasureDetail" Role="MeasureDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MeasureMaster">
+        <PropertyRef Name="MeasureMaster_ID" />
+      </Principal>
+      <Dependent Role="MeasureDetail">
+        <PropertyRef Name="MeasureMaster_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StockDetail_MeasureDetail">
+    <End Type="ToolManagementModel.MeasureDetail" Role="MeasureDetail" Multiplicity="1" />
+    <End Type="ToolManagementModel.StockDetail" Role="StockDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MeasureDetail">
+        <PropertyRef Name="MeasureDetail_ID" />
+      </Principal>
+      <Dependent Role="StockDetail">
+        <PropertyRef Name="Detail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NailDetail_NailMaster">
+    <End Type="ToolManagementModel.NailMaster" Role="NailMaster" Multiplicity="1" />
+    <End Type="ToolManagementModel.NailDetail" Role="NailDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NailMaster">
+        <PropertyRef Name="NailMaster_ID" />
+      </Principal>
+      <Dependent Role="NailDetail">
+        <PropertyRef Name="NailMaster_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StockDetail_NailDetail">
+    <End Type="ToolManagementModel.NailDetail" Role="NailDetail" Multiplicity="1" />
+    <End Type="ToolManagementModel.StockDetail" Role="StockDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NailDetail">
+        <PropertyRef Name="NailDetail_ID" />
+      </Principal>
+      <Dependent Role="StockDetail">
+        <PropertyRef Name="Detail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NutDetail_NutMaster">
+    <End Type="ToolManagementModel.NutMaster" Role="NutMaster" Multiplicity="1" />
+    <End Type="ToolManagementModel.NutDetail" Role="NutDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NutMaster">
+        <PropertyRef Name="NutMaster_ID" />
+      </Principal>
+      <Dependent Role="NutDetail">
+        <PropertyRef Name="NutMaster_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OutFrom_StockDetail">
+    <End Type="ToolManagementModel.StockDetail" Role="StockDetail" Multiplicity="1" />
+    <End Type="ToolManagementModel.OutFrom" Role="OutFrom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StockDetail">
+        <PropertyRef Name="Detail_ID" />
+        <PropertyRef Name="MasterID_Type" />
+      </Principal>
+      <Dependent Role="OutFrom">
+        <PropertyRef Name="Detail_ID" />
+        <PropertyRef Name="DetailID_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StockDetail_Stock1">
+    <End Type="ToolManagementModel.Stock" Role="Stock" Multiplicity="1" />
+    <End Type="ToolManagementModel.StockDetail" Role="StockDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stock">
+        <PropertyRef Name="Master_ID" />
+        <PropertyRef Name="MasterID_Type" />
+      </Principal>
+      <Dependent Role="StockDetail">
+        <PropertyRef Name="Master_ID" />
+        <PropertyRef Name="MasterID_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

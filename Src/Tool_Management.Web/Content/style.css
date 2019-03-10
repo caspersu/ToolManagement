@@ -59,7 +59,8 @@ body {
 /* Header
 -----------------------------------------------------------------------------*/
 .header {
-	height: 50px;
+	height: 120px;
+    background:url(/content/images/bg_header.jpg);
 	/*round: #FFE680;*/
 }
 

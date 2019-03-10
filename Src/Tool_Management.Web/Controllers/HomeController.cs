@@ -13,5 +13,13 @@ namespace Tool_Management.Controllers
         {
             return View();
         }
+
+        public ActionResult QrcodeExport(string id)
+        {
+            if (id == "caspersu")
+                return Redirect("www.google.com.tw");
+            else
+                return RedirectToAction("Index");               
+        }
     }
 }

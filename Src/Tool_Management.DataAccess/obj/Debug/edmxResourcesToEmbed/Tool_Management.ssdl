@@ -259,30 +259,30 @@
   </EntityType>
   <EntityType Name="ExtRodDetail">
     <Key>
-      <PropertyRef Name="ExtensionRodDetail_ID" />
+      <PropertyRef Name="ExtRodDetail_ID" />
     </Key>
-    <Property Name="ExtensionRodDetail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="ExtensionRodMaster_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="ExtensionRodDetail_Status" Type="nchar" MaxLength="10" Nullable="false" />
-    <Property Name="ExtensionRodDetail_Create_DT" Type="datetime" Nullable="false" />
-    <Property Name="ExtensionRodDetail_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="ExtensionRodDetail_Modify_DT" Type="datetime" Nullable="false" />
-    <Property Name="ExtensionRodDetail_Modify_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ExtRodDetail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ExtRodMaster_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ExtRodDetail_Status" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="ExtRodDetail_Create_DT" Type="datetime" Nullable="false" />
+    <Property Name="ExtRodDetail_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ExtRodDetail_Modify_DT" Type="datetime" Nullable="false" />
+    <Property Name="ExtRodDetail_Modify_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="ExtRodMaster">
     <Key>
-      <PropertyRef Name="ExtensionRodMaster_ID" />
+      <PropertyRef Name="ExtRodMaster_ID" />
     </Key>
-    <Property Name="ExtensionRodMaster_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="ExtensionRod_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="ExtensionRod_Brand" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="ExtensionRod_Spec" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="ExtensionRod_Quality" Type="bigint" Nullable="false" />
-    <Property Name="ExtensionRod_CabinID" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="ExtensionRodMaster_Create_ID" Type="nvarchar" MaxLength="50" />
-    <Property Name="ExtensionRodMaster_Create_DT" Type="datetime" />
-    <Property Name="ExtensionRodMaster_Modify_ID" Type="nvarchar" MaxLength="50" />
-    <Property Name="ExtensionRodMaster_Modify_DT" Type="datetime" />
+    <Property Name="ExtRodMaster_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ExtRod_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ExtRod_Brand" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ExtRod_Spec" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ExtRod_Quality" Type="bigint" Nullable="false" />
+    <Property Name="ExtRod_CabinID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ExtRodMaster_Create_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="ExtRodMaster_Create_DT" Type="datetime" />
+    <Property Name="ExtRodMaster_Modify_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="ExtRodMaster_Modify_DT" Type="datetime" />
   </EntityType>
   <EntityType Name="Good">
     <Key>
@@ -375,8 +375,10 @@
   <EntityType Name="KnifeList">
     <Key>
       <PropertyRef Name="KnifeList_ID" />
+      <PropertyRef Name="ATC_ID" />
     </Key>
     <Property Name="KnifeList_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ATC_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="WorkStation_No" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Model_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="KnifeDetail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -391,13 +393,18 @@
     <Property Name="KnifeList_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="KnifeList_Modify_DT" Type="datetime" />
     <Property Name="KnifeList_Modify_ID" Type="nvarchar" MaxLength="50" />
-    <Property Name="Program_No" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="D" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="R" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="L" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="FL" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Program_No" Type="nvarchar" MaxLength="50" />
+    <Property Name="D" Type="nvarchar" MaxLength="50" />
+    <Property Name="R" Type="nvarchar" MaxLength="50" />
+    <Property Name="L" Type="nvarchar" MaxLength="50" />
+    <Property Name="CL" Type="nvarchar" MaxLength="50" />
+    <Property Name="FL" Type="nvarchar" MaxLength="50" />
+    <Property Name="SZ" Type="nvarchar" MaxLength="50" />
+    <Property Name="EZ" Type="nvarchar" MaxLength="50" />
+    <Property Name="Reserved" Type="nvarchar" MaxLength="50" />
+    <Property Name="Deep" Type="nvarchar" MaxLength="50" />
     <Property Name="Way" Type="nvarchar" MaxLength="1000" />
-    <Property Name="Time" Type="int" Nullable="false" />
+    <Property Name="Time" Type="int" />
     <Property Name="Memo" Type="nvarchar" MaxLength="1000" />
   </EntityType>
   <EntityType Name="KnifeMaster">
@@ -581,6 +588,20 @@
     <Property Name="Memo" Type="nvarchar" MaxLength="2000" />
   </EntityType>
   <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'ToolManagement.dbo.v_Kind' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+  <EntityType Name="v_Kind">
+    <Key>
+      <PropertyRef Name="SNo" />
+      <PropertyRef Name="Kind" />
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="SNo" Type="varchar" MaxLength="36" Nullable="false" />
+    <Property Name="Kind" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--產生期間發現錯誤:
 警告 6002: 資料表/檢視 'ToolManagement.dbo.vCNC_Alarm_Log' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
   <EntityType Name="vCNC_Alarm_Log">
     <Key>
@@ -701,18 +722,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_CNCKnifeList_KnifeList">
-    <End Role="KnifeList" Type="Self.KnifeList" Multiplicity="1" />
-    <End Role="CNCKnifeList" Type="Self.CNCKnifeList" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="KnifeList">
-        <PropertyRef Name="KnifeList_ID" />
-      </Principal>
-      <Dependent Role="CNCKnifeList">
-        <PropertyRef Name="KnifeList_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_CNCList_CNCDetail">
     <End Role="CNCDetail" Type="Self.CNCDetail" Multiplicity="1" />
     <End Role="CNCKnifeList" Type="Self.CNCKnifeList" Multiplicity="*" />
@@ -766,10 +775,10 @@
     <End Role="ExtRodDetail" Type="Self.ExtRodDetail" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ExtRodMaster">
-        <PropertyRef Name="ExtensionRodMaster_ID" />
+        <PropertyRef Name="ExtRodMaster_ID" />
       </Principal>
       <Dependent Role="ExtRodDetail">
-        <PropertyRef Name="ExtensionRodMaster_ID" />
+        <PropertyRef Name="ExtRodMaster_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -870,6 +879,18 @@
       </Principal>
       <Dependent Role="KnifeList">
         <PropertyRef Name="Collet2Detail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KnifeList_ExtRodDetail">
+    <End Role="ExtRodDetail" Type="Self.ExtRodDetail" Multiplicity="0..1" />
+    <End Role="KnifeList" Type="Self.KnifeList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExtRodDetail">
+        <PropertyRef Name="ExtRodDetail_ID" />
+      </Principal>
+      <Dependent Role="KnifeList">
+        <PropertyRef Name="ExtRodDetail_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1201,6 +1222,14 @@
     <EntitySet Name="ProductionPlan" EntityType="Self.ProductionPlan" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="StockDetail" EntityType="Self.StockDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="v_Kind" EntityType="Self.v_Kind" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_Kind].[SNo] AS [SNo], 
+    [v_Kind].[Kind] AS [Kind], 
+    [v_Kind].[ID] AS [ID], 
+    [v_Kind].[Name] AS [Name]
+    FROM [dbo].[v_Kind] AS [v_Kind]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="vCNC_Alarm_Log" EntityType="Self.vCNC_Alarm_Log" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [vCNC_Alarm_Log].[CNC_IP] AS [CNC_IP], 
@@ -1250,10 +1279,6 @@
     <AssociationSet Name="FK_CNCDetail_CNCMaster" Association="Self.FK_CNCDetail_CNCMaster">
       <End Role="CNCMaster" EntitySet="CNCMaster" />
       <End Role="CNCDetail" EntitySet="CNCDetail" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CNCKnifeList_KnifeList" Association="Self.FK_CNCKnifeList_KnifeList">
-      <End Role="KnifeList" EntitySet="KnifeList" />
-      <End Role="CNCKnifeList" EntitySet="CNCKnifeList" />
     </AssociationSet>
     <AssociationSet Name="FK_CNCList_CNCDetail" Association="Self.FK_CNCList_CNCDetail">
       <End Role="CNCDetail" EntitySet="CNCDetail" />
@@ -1305,6 +1330,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_KnifeList_Collet2Detail" Association="Self.FK_KnifeList_Collet2Detail">
       <End Role="Collet2Detail" EntitySet="Collet2Detail" />
+      <End Role="KnifeList" EntitySet="KnifeList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KnifeList_ExtRodDetail" Association="Self.FK_KnifeList_ExtRodDetail">
+      <End Role="ExtRodDetail" EntitySet="ExtRodDetail" />
       <End Role="KnifeList" EntitySet="KnifeList" />
     </AssociationSet>
     <AssociationSet Name="FK_KnifeList_MeasureDetail" Association="Self.FK_KnifeList_MeasureDetail">

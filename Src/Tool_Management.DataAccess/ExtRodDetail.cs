@@ -14,14 +14,22 @@ namespace Tool_Management.DataAccess
     
     public partial class ExtRodDetail
     {
-        public string ExtensionRodDetail_ID { get; set; }
-        public string ExtensionRodMaster_ID { get; set; }
-        public string ExtensionRodDetail_Status { get; set; }
-        public System.DateTime ExtensionRodDetail_Create_DT { get; set; }
-        public string ExtensionRodDetail_Create_ID { get; set; }
-        public System.DateTime ExtensionRodDetail_Modify_DT { get; set; }
-        public string ExtensionRodDetail_Modify_ID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ExtRodDetail()
+        {
+            this.KnifeLists = new HashSet<KnifeList>();
+        }
+    
+        public string ExtRodDetail_ID { get; set; }
+        public string ExtRodMaster_ID { get; set; }
+        public string ExtRodDetail_Status { get; set; }
+        public System.DateTime ExtRodDetail_Create_DT { get; set; }
+        public string ExtRodDetail_Create_ID { get; set; }
+        public System.DateTime ExtRodDetail_Modify_DT { get; set; }
+        public string ExtRodDetail_Modify_ID { get; set; }
     
         public virtual ExtRodMaster ExtRodMaster { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<KnifeList> KnifeLists { get; set; }
     }
 }

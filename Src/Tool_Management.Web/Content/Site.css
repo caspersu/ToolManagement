@@ -60,3 +60,7 @@ textarea {
     display: none;
 }
 
+@font-face {
+    font-family: 'DejaVu Sans';
+    src: url('../fonts/glyphicons-halflings-regular.ttf') format('truetype');
+}

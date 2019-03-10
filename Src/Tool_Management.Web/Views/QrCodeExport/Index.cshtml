@@ -1,0 +1,208 @@
+﻿@using Kendo.Mvc.UI;
+@model Tool_Management.Service.ViewModels.vKindViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="main">
+    <div class="block">
+        <div class="title">二維碼匯出</div>
+    </div>
+    <p>&nbsp;</p>
+    <hr>
+    <p>&nbsp;</p>
+    <div class="container-fluid">
+
+        <div class="form-horizontal" id="queryForm">
+            @Html.AntiForgeryToken()
+
+            <div class="block">
+                <div class="row">
+                    @Html.LabelFor(m => m.Kind, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-2">
+                        @(Html.Kendo().DropDownList()
+          .Name("Kind")
+          .DataTextField("Text")
+          .DataValueField("Value")
+          .BindTo(new List<SelectListItem>() {
+              new SelectListItem() {
+                  Text = "",
+                  Value = ""
+              },
+              new SelectListItem() {
+                  Text = "機種",
+                  Value = "Model"
+              },
+              new SelectListItem() {
+                  Text = "人員",
+                  Value = "Employe"
+              }
+          })
+          .Value("")
+          .HtmlAttributes(new { style = "width: 100%" })
+                        )
+                        <p class="help-block">
+                        </p>
+                    </div>
+
+                </div>            
+            </div>
+
+            <div class="container-button text-center">
+                <button class="btn btn-primary" id="btnQuery" data-loading-text="查詢">查詢</button>
+            </div>
+            <p>&nbsp;</p>
+            <hr>
+            <p>&nbsp;</p>
+            <div class="block">
+                <div class="sub_tit">
+                    查詢結果
+                </div>
+                <p>&nbsp;</p>
+
+    <style>
+        /*
+            Use the DejaVu Sans font for display and embedding in the PDF file.
+            The standard PDF fonts have no support for Unicode characters.
+        */
+
+        .k-grid {
+            font-family: "DejaVu Sans";
+        }
+
+        /* Hide the Grid header and pager during export */
+        .k-pdf-export .k-grid-toolbar,
+        .k-pdf-export .k-pager-wrap {
+            display: none;
+        }
+    </style>
+
+   
+    
+
+                <script type="x/kendo-template" id="page-template">
+                    <div class="page-template">
+                        <div class="header">
+                            <div style="float: right">Page #: pageNum # of #: totalPages #</div>
+                            Multi-page grid with automatic page breaking
+                        </div>
+                        
+                        <div class="footer">
+                            Page #: pageNum # of #: totalPages #
+                        </div>
+                    </div>
+                </script>
+
+                <section class="section-grid">
+                    @(Html.Kendo().Grid<Tool_Management.Service.ViewModels.vKindViewModel>()
+                        .Name("grid")
+                        .ToolBar(tools => tools.Pdf())
+                        .Pdf(pdf => pdf.AllPages()
+                                                     .AvoidLinks()
+                                                     .PaperSize("A4")
+                                                     .Scale(0.8)
+                                                     .Margin("2cm", "1cm", "1cm", "1cm")
+                                                     .Landscape()
+                                                    .RepeatHeaders()
+                                                    .TemplateId("page-template")
+                                                    .FileName("QrCodeExport.pdf")
+                                                    .ProxyURL(Url.Action("Pdf_Export_Save", "QrCodeExport"))
+                        )
+                        .Columns(columns =>
+                        {
+                        columns.Bound(c => c.Kind)
+                        .HtmlAttributes(new { @class = "gridCell-center" });
+                        columns.Bound(c => c.ID)
+                        .HtmlAttributes(new { @class = "gridCell-center" });
+                        columns.Bound(c => c.Name)
+                        .HtmlAttributes(new { @class = "gridCell-center" });
+                        columns.Template(@<text>                            
+                           </text> )
+                                    .Width(150)
+                                    .HtmlAttributes(new { @class = "gridCell-center" })
+                                    .ClientTemplate("<img src='http://chart.apis.google.com/chart?cht=qr&chl=" + "#: ID #" + "&chs=120x120'/>")
+                                    //.ClientTemplate("<div id=#:ID#></div><img  src='/Content/images/space.PNG'  width='0' height='0' onload=someFuntion('#:ID#')" + ">")
+                        
+
+
+                             .Title("二維碼");
+                        })
+                        .Scrollable(scrollable => scrollable.Height("auto"))
+                        .Sortable()
+                        .NoRecords("查無資料")
+                        .Pageable(
+                            pageable => pageable.Refresh(true)
+                            .PageSizes(new[] { 10 })
+                            .Messages(m =>
+                            {
+                                m.Empty("查無資料");
+                                m.ItemsPerPage("每頁筆數");
+                                m.Display("{0} - {1} 共 {2} 筆");
+                            })
+                        )
+                        .DataSource(dataSource => dataSource
+                            .Ajax()
+                            .Sort(s => { s.Add(o => o.Kind).Descending(); })
+                            //.Events(events => events.Error("error_handler"))
+                            .Model(model => { model.Id(p => p.ID); })
+                            .Read(read => read.Action("GridSearch", "QrCodeExport"))
+                        .PageSize(10)
+                        )
+)
+
+                </section>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    $(function () {
+
+        $("#btnQuery").click(function (e) {
+            e.preventDefault();
+            debugger;
+            console.log('Query it!');
+
+            var $this = $(this);
+            //_trim("updateForm");
+
+            var gridView = $("#grid").data("kendoGrid");
+            if (gridView != null) {
+                var kind = $("#Kind").val();
+
+                var filterData = [];
+
+                if (kind != "") {
+                    filterData.push({ "field": "Kind", "operator": "contains", "value": kind });
+                }
+
+                gridView.dataSource.query({
+                    filter: filterData,
+                    sort: {
+                        field: "ID",
+                        dir: "desc"
+                    },
+                    page: 1,
+                    pageSize: "10"
+                });
+            }
+        });
+    });
+
+</script>
+
+<script>
+    function someFuntion(id) {
+        //alert("Image is loaded");
+        //debugger;
+        var name = "#" + id
+        $(name).qrcode({ width: 120, height: 120, text: id });
+        // Do whatever you need here (make ajax call etc..) and return result as html string
+        
+    }
+</script>

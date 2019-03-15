@@ -27,9 +27,9 @@ namespace Tool_Management.DataAccess
         public string Collet2_CabinID { get; set; }
         public long Collet2_Quality { get; set; }
         public string Collet2Master_Create_ID { get; set; }
-        public Nullable<System.DateTime> Collet2Master_Create_DT { get; set; }
+        public System.DateTime Collet2Master_Create_DT { get; set; }
         public string Collet2Master_Modify_ID { get; set; }
-        public Nullable<System.DateTime> Collet2Master_Modify_DT { get; set; }
+        public System.DateTime Collet2Master_Modify_DT { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Collet2Detail> Collet2Detail { get; set; }

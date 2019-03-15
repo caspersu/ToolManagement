@@ -52,20 +52,63 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\ITM_InForm.cs" />
+    <Compile Include="Interfaces\ITM_OutForm.cs" />
+    <Compile Include="Interfaces\ITM_Measure.cs" />
+    <Compile Include="Interfaces\ITM_Nut.cs" />
+    <Compile Include="Interfaces\ITM_Collet2.cs" />
+    <Compile Include="Interfaces\ITM_Employe.cs" />
+    <Compile Include="Interfaces\ITM_CNCMonitor.cs" />
+    <Compile Include="Interfaces\ITM_Collet1.cs" />
+    <Compile Include="Interfaces\ITM_ExtRod.cs" />
+    <Compile Include="Interfaces\ITM_Nail.cs" />
+    <Compile Include="Interfaces\ITM_Hilt.cs" />
+    <Compile Include="Interfaces\ITM_Knife.cs" />
+    <Compile Include="Interfaces\ITM_CNC.cs" />
+    <Compile Include="Interfaces\ITM_Good.cs" />
     <Compile Include="Interfaces\ITM_vKind.cs" />
     <Compile Include="Interfaces\ITM_KnifeList.cs" />
     <Compile Include="Interfaces\ITM_Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\TM_CNCMonitorService.cs" />
+    <Compile Include="Services\TM_OutFormService.cs" />
+    <Compile Include="Services\TM_MeasureService.cs" />
+    <Compile Include="Services\TM_NutService.cs" />
+    <Compile Include="Services\TM_Collet2Service.cs" />
+    <Compile Include="Services\TM_EmployeService.cs" />
+    <Compile Include="Services\TM_Collet1Service.cs" />
+    <Compile Include="Services\TM_ExtRodService.cs" />
+    <Compile Include="Services\TM_NailService.cs" />
+    <Compile Include="Services\TM_HiltService.cs" />
+    <Compile Include="Services\TM_KnifeService.cs" />
+    <Compile Include="Services\TM_CNCService.cs" />
+    <Compile Include="Services\TM_GoodService.cs" />
     <Compile Include="Services\TM_vKindService.cs" />
     <Compile Include="Services\TM_KnifeListService.cs" />
     <Compile Include="Services\TM_ModelService.cs" />
+    <Compile Include="Utils\SysCode.cs" />
+    <Compile Include="Utils\Common.cs" />
+    <Compile Include="ViewModels\InFormViewModel.cs" />
+    <Compile Include="ViewModels\OutFormViewModel.cs" />
+    <Compile Include="ViewModels\EmployeViewModel.cs" />
+    <Compile Include="ViewModels\vCNC_MonitorViewModel.cs" />
+    <Compile Include="ViewModels\vCNCViewModel.cs" />
+    <Compile Include="ViewModels\CNCViewModel.cs" />
+    <Compile Include="ViewModels\vKnifeListViewModel.cs" />
+    <Compile Include="ViewModels\NutViewModel.cs" />
+    <Compile Include="ViewModels\Collet2ViewModel.cs" />
+    <Compile Include="ViewModels\Collet1ViewModel.cs" />
+    <Compile Include="ViewModels\ExtRodViewModel.cs" />
+    <Compile Include="ViewModels\MeasureViewModel.cs" />
+    <Compile Include="ViewModels\HiltViewModel.cs" />
+    <Compile Include="ViewModels\NailViewModel.cs" />
+    <Compile Include="ViewModels\KnifeViewModel.cs" />
+    <Compile Include="ViewModels\GoodViewModel.cs" />
     <Compile Include="ViewModels\vKindViewModel.cs" />
     <Compile Include="ViewModels\KnifeListViewModel.cs" />
     <Compile Include="ViewModels\ModelViewModel.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Utils\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Tool_Management.DataAccess\Tool_Management.DataAccess.csproj">
       <Project>{a4f8313b-1921-4176-be52-00970e782459}</Project>

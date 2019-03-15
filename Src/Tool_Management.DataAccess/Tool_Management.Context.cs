@@ -28,6 +28,7 @@ namespace Tool_Management.DataAccess
         }
     
         public virtual DbSet<Cabin> Cabins { get; set; }
+        public virtual DbSet<CNC> CNCs { get; set; }
         public virtual DbSet<CNC_Alarm_Code_Mapping> CNC_Alarm_Code_Mapping { get; set; }
         public virtual DbSet<CNC_ALARM_Log> CNC_ALARM_Log { get; set; }
         public virtual DbSet<CNC_ATCTL_Log> CNC_ATCTL_Log { get; set; }
@@ -36,10 +37,8 @@ namespace Tool_Management.DataAccess
         public virtual DbSet<CNC_StatusHistory> CNC_StatusHistory { get; set; }
         public virtual DbSet<CNC_Ver_Log> CNC_Ver_Log { get; set; }
         public virtual DbSet<CNC_WKCNTR_Log> CNC_WKCNTR_Log { get; set; }
-        public virtual DbSet<CNCDetail> CNCDetails { get; set; }
         public virtual DbSet<CNCKnifeList> CNCKnifeLists { get; set; }
-        public virtual DbSet<CNCMaster> CNCMasters { get; set; }
-        public virtual DbSet<CNCMonitor> CNCMonitors { get; set; }
+        public virtual DbSet<CNCMaster_Remove> CNCMaster_Remove { get; set; }
         public virtual DbSet<Collet1Detail> Collet1Detail { get; set; }
         public virtual DbSet<Collet1Master> Collet1Master { get; set; }
         public virtual DbSet<Collet2Detail> Collet2Detail { get; set; }
@@ -48,8 +47,6 @@ namespace Tool_Management.DataAccess
         public virtual DbSet<ExtRodDetail> ExtRodDetails { get; set; }
         public virtual DbSet<ExtRodMaster> ExtRodMasters { get; set; }
         public virtual DbSet<Good> Goods { get; set; }
-        public virtual DbSet<HiltDetail> HiltDetails { get; set; }
-        public virtual DbSet<HiltMaster> HiltMasters { get; set; }
         public virtual DbSet<Inform> Informs { get; set; }
         public virtual DbSet<KnifeChangeFrom> KnifeChangeFroms { get; set; }
         public virtual DbSet<KnifeDetail> KnifeDetails { get; set; }
@@ -67,8 +64,13 @@ namespace Tool_Management.DataAccess
         public virtual DbSet<ProductionPlan> ProductionPlans { get; set; }
         public virtual DbSet<Stock> Stocks { get; set; }
         public virtual DbSet<StockDetail> StockDetails { get; set; }
+        public virtual DbSet<BatchOutFrom> BatchOutFroms { get; set; }
         public virtual DbSet<v_Kind> v_Kind { get; set; }
+        public virtual DbSet<vCNC> vCNCs { get; set; }
         public virtual DbSet<vCNC_Alarm_Log> vCNC_Alarm_Log { get; set; }
+        public virtual DbSet<vKnifeList> vKnifeLists { get; set; }
+        public virtual DbSet<HiltDetail> HiltDetails { get; set; }
+        public virtual DbSet<HiltMaster> HiltMasters { get; set; }
         public virtual DbSet<vCNC_Monitor> vCNC_Monitor { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)

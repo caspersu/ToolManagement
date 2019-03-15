@@ -10,9 +10,12 @@ namespace Tool_Management.Service.ViewModels
 {
     public class vKindViewModel
     {
-        [DisplayName("類別")]
+        [DisplayName("類別代碼")]
         [Required]
         public string Kind { get; set; }
+        [DisplayName("類別")]
+        [Required]
+        public string KindName { get; set; }
 
         [DisplayName("料號/編號")]
         [Required]

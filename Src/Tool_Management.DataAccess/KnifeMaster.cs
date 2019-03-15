@@ -28,8 +28,10 @@ namespace Tool_Management.DataAccess
         public long Knife_Quality { get; set; }
         public System.DateTime KnifeMaster_Create_DT { get; set; }
         public string KnifeMaster_Create_ID { get; set; }
-        public Nullable<System.DateTime> KnifeMaster_Modify_DT { get; set; }
+        public System.DateTime KnifeMaster_Modify_DT { get; set; }
         public string KnifeMaster_Modify_ID { get; set; }
+        public string Knife_Kind { get; set; }
+        public string Knife_Model { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KnifeDetail> KnifeDetails { get; set; }

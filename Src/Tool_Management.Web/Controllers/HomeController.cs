@@ -8,9 +8,15 @@ namespace Tool_Management.Controllers
 {
     public class HomeController : Controller
     {
+
+        
+        
         // GET: Default
         public ActionResult Index()
         {
+            Session.Abandon();
+            Session.Add("UserAcc", "B00005150");
+
             return View();
         }
 

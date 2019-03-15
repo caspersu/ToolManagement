@@ -24,11 +24,11 @@ namespace Tool_Management.DataAccess
         public string Hilt_Name { get; set; }
         public string Hilt_Brand { get; set; }
         public string Hilt_Spec { get; set; }
-        public string Hilt_CabineID { get; set; }
+        public string Hilt_CabinID { get; set; }
         public long Hilt_Quality { get; set; }
         public System.DateTime HiltMaster_Create_DT { get; set; }
         public string HiltMaster_Create_ID { get; set; }
-        public Nullable<System.DateTime> HiltMaster_Modify_DT { get; set; }
+        public System.DateTime HiltMaster_Modify_DT { get; set; }
         public string HiltMaster_Modify_ID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -30,7 +30,7 @@ namespace Tool_Management.DataAccess
         public string KnifeDetail_Status { get; set; }
         public System.DateTime KnifeDetail_Create_DT { get; set; }
         public string KnifeDetail_Create_ID { get; set; }
-        public Nullable<System.DateTime> KnifeDetail_Modify_DT { get; set; }
+        public System.DateTime KnifeDetail_Modify_DT { get; set; }
         public string KnifeDetail_Modify_ID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -1,6 +1,6 @@
 ﻿body {
-    font-size: .85em;
-    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    font-size:larger;
+    font-family:  Verdana, Helvetica, Sans-Serif;
     color: #232323;
     background-color: #fff;
 }
@@ -58,9 +58,4 @@ textarea {
 
 .validation-summary-valid {
     display: none;
-}
-
-@font-face {
-    font-family: 'DejaVu Sans';
-    src: url('../fonts/glyphicons-halflings-regular.ttf') format('truetype');
 }

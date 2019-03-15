@@ -5,6 +5,28 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="ToolManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'ToolManagement.dbo.BatchOutFrom' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+        <EntityType Name="BatchOutFrom">
+          <Key>
+            <PropertyRef Name="BatchOutForm_ID" />
+            <PropertyRef Name="BtachOut_DT" />
+            <PropertyRef Name="KnifeDetail_ID" />
+            <PropertyRef Name="BatchOut_Emp_ID" />
+            <PropertyRef Name="BatchConfirm_EmpID" />
+            <PropertyRef Name="BatchOutForm_Create_DT" />
+            <PropertyRef Name="BatchOutForm_Create_ID" />
+          </Key>
+          <Property Name="BatchOutForm_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BtachOut_DT" Type="datetime" Nullable="false" />
+          <Property Name="KnifeDetail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BatchOut_Emp_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BatchConfirm_EmpID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BatchOutForm_Create_DT" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BatchOutForm_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BatchOutForm_Modify_DT" Type="nvarchar" MaxLength="50" />
+          <Property Name="BatchOutForm_Modify_ID" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Cabin">
           <Key>
             <PropertyRef Name="Cabin_ID" />
@@ -16,6 +38,19 @@
           <Property Name="Cabin_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Cabin_Modify_DT" Type="datetime" />
           <Property Name="Cabin_Modify_ID" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CNC">
+          <Key>
+            <PropertyRef Name="CNC_IP" />
+          </Key>
+          <Property Name="CNC_IP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CNC_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CNC_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CNC_Brand" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CNC_Create_DT" Type="datetime" Nullable="false" />
+          <Property Name="CNC_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CNC_Modify_DT" Type="datetime" Nullable="false" />
+          <Property Name="CNC_Modify_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="CNC_Alarm_Code_Mapping">
           <Key>
@@ -134,26 +169,12 @@
           <Property Name="CNC_End_ProductionAmount" Type="bigint" />
           <Property Name="CNC_Alert_ProductionAmount" Type="bigint" />
         </EntityType>
-        <EntityType Name="CNCDetail">
-          <Key>
-            <PropertyRef Name="CNCDetail_ID" />
-          </Key>
-          <Property Name="CNCDetail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="CNCMaster_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="CNCDetail_IP" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="CNCDetail_Version" Type="nvarchar" MaxLength="50" />
-          <Property Name="CNCDetail_Status" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="CNCDetail_Create_DT" Type="datetime" Nullable="false" />
-          <Property Name="CNCDetail_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="CNCDetail_Modify_DT" Type="datetime" />
-          <Property Name="CNCDetail_Modify_ID" Type="nvarchar" MaxLength="50" />
-        </EntityType>
         <EntityType Name="CNCKnifeList">
           <Key>
             <PropertyRef Name="CNCKnifeList_ID" />
           </Key>
           <Property Name="CNCKnifeList_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CNCDetail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CNC_IP" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Car_No" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Good_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Line_No" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -164,7 +185,7 @@
           <Property Name="CNCList_Modify_DT" Type="nvarchar" MaxLength="50" />
           <Property Name="CNCList_Modify_ID" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="CNCMaster">
+        <EntityType Name="CNCMaster_Remove">
           <Key>
             <PropertyRef Name="CNCMaster_ID" />
           </Key>
@@ -177,25 +198,6 @@
           <Property Name="CNCMaster_Modify_DT" Type="datetime" />
           <Property Name="CNCMaster_Modify_ID" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="CNCMonitor">
-          <Key>
-            <PropertyRef Name="CNC_IP" />
-          </Key>
-          <Property Name="CNC_IP" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Create_DT" Type="varchar" MaxLength="50" />
-          <Property Name="CNCDetail_ID" Type="nvarchar" MaxLength="50" />
-          <Property Name="CNC_Status" Type="nvarchar" MaxLength="50" />
-          <Property Name="CNC_Current_ProductionAmount" Type="bigint" />
-          <Property Name="CNC_RunTime" Type="nvarchar" MaxLength="50" />
-          <Property Name="CNC_StayTime" Type="nvarchar" MaxLength="50" />
-          <Property Name="CNC_CloseTime" Type="nvarchar" MaxLength="50" />
-          <Property Name="CNC_ErrTime" Type="nvarchar" MaxLength="50" />
-          <Property Name="CNC_StopTime" Type="nvarchar" MaxLength="50" />
-          <Property Name="CNC_Ver" Type="nvarchar" MaxLength="50" />
-          <Property Name="CNC_Model" Type="nvarchar" MaxLength="50" />
-          <Property Name="CNC_Alert_ProductionAmount" Type="bigint" />
-          <Property Name="CNC_End_ProductionAmount" Type="bigint" />
-        </EntityType>
         <EntityType Name="Collet1Detail">
           <Key>
             <PropertyRef Name="Collet1Detail_ID" />
@@ -203,10 +205,10 @@
           <Property Name="Collet1Detail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Collet1Master_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Collet1Detail_Status" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Collet1Detail_Create_ID" Type="nvarchar" MaxLength="50" />
-          <Property Name="Collet1Detail_Create_DT" Type="datetime" />
-          <Property Name="Collet1Detail_Modify_ID" Type="nvarchar" MaxLength="50" />
-          <Property Name="Collet1Detail_Modify_DT" Type="datetime" />
+          <Property Name="Collet1Detail_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Collet1Detail_Create_DT" Type="datetime" Nullable="false" />
+          <Property Name="Collet1Detail_Modify_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Collet1Detail_Modify_DT" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Collet1Master">
           <Key>
@@ -218,10 +220,10 @@
           <Property Name="Collet1_Spec" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Collet1_CabinID" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Collet1_Quality" Type="bigint" Nullable="false" />
-          <Property Name="Collet1Master_Create_ID" Type="nvarchar" MaxLength="50" />
-          <Property Name="Collet1Master_Create_DT" Type="datetime" />
-          <Property Name="Collet1Master_Modify_ID" Type="nvarchar" MaxLength="50" />
-          <Property Name="Collet1Master_Modify_DT" Type="datetime" />
+          <Property Name="Collet1Master_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Collet1Master_Create_DT" Type="datetime" Nullable="false" />
+          <Property Name="Collet1Master_Modify_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Collet1Master_Modify_DT" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Collet2Detail">
           <Key>
@@ -230,10 +232,10 @@
           <Property Name="Collet2Detail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Collet2Master_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Collet2Detail_Status" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Collet2Detail_Create_ID" Type="nvarchar" MaxLength="50" />
-          <Property Name="Collet2Detail_Create_DT" Type="datetime" />
-          <Property Name="Collet2Detail_Modify_ID" Type="nvarchar" MaxLength="50" />
-          <Property Name="Collet2Detail_Modify_DT" Type="datetime" />
+          <Property Name="Collet2Detail_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Collet2Detail_Create_DT" Type="datetime" Nullable="false" />
+          <Property Name="Collet2Detail_Modify_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Collet2Detail_Modify_DT" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Collet2Master">
           <Key>
@@ -245,10 +247,10 @@
           <Property Name="Collet2_Spec" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Collet2_CabinID" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Collet2_Quality" Type="bigint" Nullable="false" />
-          <Property Name="Collet2Master_Create_ID" Type="nvarchar" MaxLength="50" />
-          <Property Name="Collet2Master_Create_DT" Type="datetime" />
-          <Property Name="Collet2Master_Modify_ID" Type="nvarchar" MaxLength="50" />
-          <Property Name="Collet2Master_Modify_DT" Type="datetime" />
+          <Property Name="Collet2Master_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Collet2Master_Create_DT" Type="datetime" Nullable="false" />
+          <Property Name="Collet2Master_Modify_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Collet2Master_Modify_DT" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Employe">
           <Key>
@@ -259,7 +261,7 @@
           <Property Name="Emp_Status" Type="varchar" MaxLength="1" Nullable="false" />
           <Property Name="Emp_Create_DT" Type="datetime" Nullable="false" />
           <Property Name="Emp_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Emp_Modify_DT" Type="datetime" />
+          <Property Name="Emp_Modify_DT" Type="datetime" Nullable="false" />
           <Property Name="Emp_Modify_ID" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="ExtRodDetail">
@@ -284,10 +286,10 @@
           <Property Name="ExtRod_Spec" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ExtRod_Quality" Type="bigint" Nullable="false" />
           <Property Name="ExtRod_CabinID" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="ExtRodMaster_Create_ID" Type="nvarchar" MaxLength="50" />
-          <Property Name="ExtRodMaster_Create_DT" Type="datetime" />
-          <Property Name="ExtRodMaster_Modify_ID" Type="nvarchar" MaxLength="50" />
-          <Property Name="ExtRodMaster_Modify_DT" Type="datetime" />
+          <Property Name="ExtRodMaster_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ExtRodMaster_Create_DT" Type="datetime" Nullable="false" />
+          <Property Name="ExtRodMaster_Modify_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ExtRodMaster_Modify_DT" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Good">
           <Key>
@@ -297,7 +299,7 @@
           <Property Name="Good_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Good_Create_DT" Type="datetime" Nullable="false" />
           <Property Name="Good_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Good_Modify_DT" Type="datetime" />
+          <Property Name="Good_Modify_DT" Type="datetime" Nullable="false" />
           <Property Name="Good_Modify_ID" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="HiltDetail">
@@ -307,10 +309,11 @@
           <Property Name="HiltDetail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="HiltMaster_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="HiltDetail_Status" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="HiltCabine_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsNewHilt" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="NewEnter_DT" Type="datetime" Nullable="false" />
           <Property Name="HiltDetail_Create_DT" Type="datetime" Nullable="false" />
           <Property Name="HiltDetail_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="HiltDetail_Modify_DT" Type="datetime" />
+          <Property Name="HiltDetail_Modify_DT" Type="datetime" Nullable="false" />
           <Property Name="HiltDetail_Modify_ID" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="HiltMaster">
@@ -321,11 +324,11 @@
           <Property Name="Hilt_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Hilt_Brand" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Hilt_Spec" Type="nvarchar" MaxLength="1000" Nullable="false" />
-          <Property Name="Hilt_CabineID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Hilt_CabinID" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Hilt_Quality" Type="bigint" Nullable="false" />
           <Property Name="HiltMaster_Create_DT" Type="datetime" Nullable="false" />
           <Property Name="HiltMaster_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="HiltMaster_Modify_DT" Type="datetime" />
+          <Property Name="HiltMaster_Modify_DT" Type="datetime" Nullable="false" />
           <Property Name="HiltMaster_Modify_ID" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Inform">
@@ -374,7 +377,7 @@
           <Property Name="KnifeDetail_Status" Type="nvarchar" MaxLength="2" Nullable="false" />
           <Property Name="KnifeDetail_Create_DT" Type="datetime" Nullable="false" />
           <Property Name="KnifeDetail_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="KnifeDetail_Modify_DT" Type="datetime" />
+          <Property Name="KnifeDetail_Modify_DT" Type="datetime" Nullable="false" />
           <Property Name="KnifeDetail_Modify_ID" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="KnifeList">
@@ -386,9 +389,10 @@
           <Property Name="ATC_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="WorkStation_No" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Model_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="KnifeDetail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="HiltDetail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="NailDetail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Good_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="KnifeDetail_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="HiltDetail_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NailDetail_ID" Type="nvarchar" MaxLength="50" />
           <Property Name="MeasureDetail_ID" Type="nvarchar" MaxLength="50" />
           <Property Name="ExtRodDetail_ID" Type="nvarchar" MaxLength="50" />
           <Property Name="NutDetail_ID" Type="nvarchar" MaxLength="50" />
@@ -396,7 +400,7 @@
           <Property Name="Collet2Detail_ID" Type="nvarchar" MaxLength="50" />
           <Property Name="KnifeList_Create_DT" Type="datetime" Nullable="false" />
           <Property Name="KnifeList_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="KnifeList_Modify_DT" Type="datetime" />
+          <Property Name="KnifeList_Modify_DT" Type="datetime" Nullable="false" />
           <Property Name="KnifeList_Modify_ID" Type="nvarchar" MaxLength="50" />
           <Property Name="Program_No" Type="nvarchar" MaxLength="50" />
           <Property Name="D" Type="nvarchar" MaxLength="50" />
@@ -424,8 +428,10 @@
           <Property Name="Knife_Quality" Type="bigint" Nullable="false" />
           <Property Name="KnifeMaster_Create_DT" Type="datetime" Nullable="false" />
           <Property Name="KnifeMaster_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="KnifeMaster_Modify_DT" Type="datetime" />
+          <Property Name="KnifeMaster_Modify_DT" Type="datetime" Nullable="false" />
           <Property Name="KnifeMaster_Modify_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Knife_Kind" Type="nvarchar" MaxLength="50" />
+          <Property Name="Knife_Model" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="KnifeUseLog">
           <Key>
@@ -476,7 +482,7 @@
           <Property Name="Model_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Model_Create_DT" Type="datetime" Nullable="false" />
           <Property Name="Model_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Model_Modify_DT" Type="datetime" />
+          <Property Name="Model_Modify_DT" Type="datetime" Nullable="false" />
           <Property Name="Model_Modify_ID" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="NailDetail">
@@ -501,10 +507,10 @@
           <Property Name="Nail_Spec" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Nail_CabinID" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Nail_Quality" Type="bigint" Nullable="false" />
-          <Property Name="NailMaster_Create_ID" Type="nvarchar" MaxLength="50" />
-          <Property Name="NailMaster_Create_DT" Type="datetime" />
-          <Property Name="NailMaster_Modify_ID" Type="nvarchar" MaxLength="50" />
-          <Property Name="NailMaster_Modify_DT" Type="datetime" />
+          <Property Name="NailMaster_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NailMaster_Create_DT" Type="datetime" Nullable="false" />
+          <Property Name="NailMaster_Modify_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NailMaster_Modify_DT" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="NutDetail">
           <Key>
@@ -513,10 +519,10 @@
           <Property Name="NutDetail_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="NutMaster_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="NutDetail_Status" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="NutDetail_Create_ID" Type="nvarchar" MaxLength="50" />
-          <Property Name="NutDetail_Create_DT" Type="datetime" />
-          <Property Name="NutDetail_Modify_ID" Type="nvarchar" MaxLength="50" />
-          <Property Name="NutDetail_Modify_DT" Type="datetime" />
+          <Property Name="NutDetail_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NutDetail_Create_DT" Type="datetime" Nullable="false" />
+          <Property Name="NutDetail_Modify_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NutDetail_Modify_DT" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="NutMaster">
           <Key>
@@ -607,6 +613,30 @@
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'ToolManagement.dbo.vCNC' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+        <EntityType Name="vCNC">
+          <Key>
+            <PropertyRef Name="CNC_ID" />
+            <PropertyRef Name="CNC_Name" />
+            <PropertyRef Name="CNC_Brand" />
+            <PropertyRef Name="CNC_IP" />
+            <PropertyRef Name="CNC_Create_DT" />
+            <PropertyRef Name="CNC_Create_ID" />
+            <PropertyRef Name="CNC_Modify_DT" />
+          </Key>
+          <Property Name="CNC_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CNC_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CNC_Brand" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CNC_IP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CNC_Create_DT" Type="datetime" Nullable="false" />
+          <Property Name="CNC_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CNC_Modify_DT" Type="datetime" Nullable="false" />
+          <Property Name="CNC_Modify_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="CNC_Ver" Type="nvarchar" MaxLength="50" />
+          <Property Name="CNC_Model" Type="nvarchar" MaxLength="50" />
+          <Property Name="CNC_Status" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <!--產生期間發現錯誤:
 警告 6002: 資料表/檢視 'ToolManagement.dbo.vCNC_Alarm_Log' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
         <EntityType Name="vCNC_Alarm_Log">
           <Key>
@@ -628,26 +658,53 @@
 警告 6002: 資料表/檢視 'ToolManagement.dbo.vCNC_Monitor' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
         <EntityType Name="vCNC_Monitor">
           <Key>
-            <PropertyRef Name="CNC_IP" />
-            <PropertyRef Name="CNC_Model" />
-            <PropertyRef Name="CNC_Ver" />
-            <PropertyRef Name="CNC_Current_ProductionAmount" />
             <PropertyRef Name="CNC_Current_Status" />
-            <PropertyRef Name="Create_DT" />
+            <PropertyRef Name="CNC_Name" />
+            <PropertyRef Name="CNC_ID" />
+            <PropertyRef Name="CNC_Brand" />
           </Key>
-          <Property Name="CNC_IP" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="CNC_Model" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="CNC_Ver" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="CNC_Current_ProductionAmount" Type="bigint" Nullable="false" />
+          <Property Name="CNC_Model" Type="nvarchar" MaxLength="50" />
+          <Property Name="CNC_Ver" Type="nvarchar" MaxLength="50" />
+          <Property Name="CNC_Current_ProductionAmount" Type="bigint" />
           <Property Name="CNC_Current_Status" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="CNC_Current_StatusDT" Type="nvarchar" MaxLength="50" />
-          <Property Name="Create_DT" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Create_DT" Type="nvarchar" MaxLength="50" />
+          <Property Name="CNC_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CNC_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CNC_Brand" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CNC_IP" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK_CNC_ALARM_Log_CNCMonitor">
-          <End Role="CNCMonitor" Type="Self.CNCMonitor" Multiplicity="1" />
+        <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'ToolManagement.dbo.vKnifeList' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+        <EntityType Name="vKnifeList">
+          <Key>
+            <PropertyRef Name="KnifeList_ID" />
+            <PropertyRef Name="WorkStation_No" />
+            <PropertyRef Name="Model_ID" />
+            <PropertyRef Name="KnifeList_Create_DT" />
+            <PropertyRef Name="KnifeList_Create_ID" />
+            <PropertyRef Name="KnifeList_Modify_DT" />
+            <PropertyRef Name="Model_Name" />
+            <PropertyRef Name="Good_Name" />
+          </Key>
+          <Property Name="KnifeList_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="WorkStation_No" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Model_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Good_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="KnifeList_Create_DT" Type="datetime" Nullable="false" />
+          <Property Name="KnifeList_Create_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="KnifeList_Modify_DT" Type="datetime" Nullable="false" />
+          <Property Name="KnifeList_Modify_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Model_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Good_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="KnifeList_Create_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="KnifeList_Modify_Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_CNC_ALARM_Log_CNC">
+          <End Role="CNC" Type="Self.CNC" Multiplicity="1" />
           <End Role="CNC_ALARM_Log" Type="Self.CNC_ALARM_Log" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="CNCMonitor">
+            <Principal Role="CNC">
               <PropertyRef Name="CNC_IP" />
             </Principal>
             <Dependent Role="CNC_ALARM_Log">
@@ -655,11 +712,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CNC_ATCTL_Log_CNCMonitor">
-          <End Role="CNCMonitor" Type="Self.CNCMonitor" Multiplicity="1" />
+        <Association Name="FK_CNC_ATCTL_Log_CNC">
+          <End Role="CNC" Type="Self.CNC" Multiplicity="1" />
           <End Role="CNC_ATCTL_Log" Type="Self.CNC_ATCTL_Log" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="CNCMonitor">
+            <Principal Role="CNC">
               <PropertyRef Name="CNC_IP" />
             </Principal>
             <Dependent Role="CNC_ATCTL_Log">
@@ -679,11 +736,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CNC_PRD3_Log_CNCMonitor">
-          <End Role="CNCMonitor" Type="Self.CNCMonitor" Multiplicity="1" />
+        <Association Name="FK_CNC_PRD3_Log_CNC">
+          <End Role="CNC" Type="Self.CNC" Multiplicity="1" />
           <End Role="CNC_PRD3_Log" Type="Self.CNC_PRD3_Log" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="CNCMonitor">
+            <Principal Role="CNC">
               <PropertyRef Name="CNC_IP" />
             </Principal>
             <Dependent Role="CNC_PRD3_Log">
@@ -691,11 +748,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CNC_Ver_Log_CNCMonitor">
-          <End Role="CNCMonitor" Type="Self.CNCMonitor" Multiplicity="1" />
+        <Association Name="FK_CNC_Ver_Log_CNC">
+          <End Role="CNC" Type="Self.CNC" Multiplicity="1" />
           <End Role="CNC_Ver_Log" Type="Self.CNC_Ver_Log" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="CNCMonitor">
+            <Principal Role="CNC">
               <PropertyRef Name="CNC_IP" />
             </Principal>
             <Dependent Role="CNC_Ver_Log">
@@ -703,11 +760,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CNC_WKCNTR_Log_CNCMonitor">
-          <End Role="CNCMonitor" Type="Self.CNCMonitor" Multiplicity="1" />
+        <Association Name="FK_CNC_WKCNTR_Log_CNC">
+          <End Role="CNC" Type="Self.CNC" Multiplicity="1" />
           <End Role="CNC_WKCNTR_Log" Type="Self.CNC_WKCNTR_Log" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="CNCMonitor">
+            <Principal Role="CNC">
               <PropertyRef Name="CNC_IP" />
             </Principal>
             <Dependent Role="CNC_WKCNTR_Log">
@@ -715,27 +772,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CNCDetail_CNCMaster">
-          <End Role="CNCMaster" Type="Self.CNCMaster" Multiplicity="1" />
-          <End Role="CNCDetail" Type="Self.CNCDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CNCMaster">
-              <PropertyRef Name="CNCMaster_ID" />
-            </Principal>
-            <Dependent Role="CNCDetail">
-              <PropertyRef Name="CNCMaster_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CNCList_CNCDetail">
-          <End Role="CNCDetail" Type="Self.CNCDetail" Multiplicity="1" />
+        <Association Name="FK_CNCKnifeList_CNC">
+          <End Role="CNC" Type="Self.CNC" Multiplicity="1" />
           <End Role="CNCKnifeList" Type="Self.CNCKnifeList" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="CNCDetail">
-              <PropertyRef Name="CNCDetail_ID" />
+            <Principal Role="CNC">
+              <PropertyRef Name="CNC_IP" />
             </Principal>
             <Dependent Role="CNCKnifeList">
-              <PropertyRef Name="CNCDetail_ID" />
+              <PropertyRef Name="CNC_IP" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -912,7 +957,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_KnifeList_NailDetail">
-          <End Role="NailDetail" Type="Self.NailDetail" Multiplicity="1" />
+          <End Role="NailDetail" Type="Self.NailDetail" Multiplicity="0..1" />
           <End Role="KnifeList" Type="Self.KnifeList" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NailDetail">
@@ -932,6 +977,18 @@
             </Principal>
             <Dependent Role="KnifeList">
               <PropertyRef Name="NutDetail_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KnifeOutFrom_Employe">
+          <End Role="Employe" Type="Self.Employe" Multiplicity="1" />
+          <End Role="BatchOutFrom" Type="Self.BatchOutFrom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employe">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="BatchOutFrom">
+              <PropertyRef Name="BatchOut_Emp_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1120,7 +1177,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_WorkStationKnifeList_HiltDetail">
-          <End Role="HiltDetail" Type="Self.HiltDetail" Multiplicity="1" />
+          <End Role="HiltDetail" Type="Self.HiltDetail" Multiplicity="0..1" />
           <End Role="KnifeList" Type="Self.KnifeList" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="HiltDetail">
@@ -1132,7 +1189,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_WorkStationKnifeList_KnifeDetail">
-          <End Role="KnifeDetail" Type="Self.KnifeDetail" Multiplicity="1" />
+          <End Role="KnifeDetail" Type="Self.KnifeDetail" Multiplicity="0..1" />
           <End Role="KnifeList" Type="Self.KnifeList" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="KnifeDetail">
@@ -1188,6 +1245,7 @@
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="ToolManagementModelStoreContainer">
           <EntitySet Name="Cabin" EntityType="Self.Cabin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CNC" EntityType="Self.CNC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CNC_Alarm_Code_Mapping" EntityType="Self.CNC_Alarm_Code_Mapping" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CNC_ALARM_Log" EntityType="Self.CNC_ALARM_Log" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CNC_ATCTL_Log" EntityType="Self.CNC_ATCTL_Log" Schema="dbo" store:Type="Tables" />
@@ -1196,10 +1254,8 @@
           <EntitySet Name="CNC_StatusHistory" EntityType="Self.CNC_StatusHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CNC_Ver_Log" EntityType="Self.CNC_Ver_Log" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CNC_WKCNTR_Log" EntityType="Self.CNC_WKCNTR_Log" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CNCDetail" EntityType="Self.CNCDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CNCKnifeList" EntityType="Self.CNCKnifeList" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CNCMaster" EntityType="Self.CNCMaster" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CNCMonitor" EntityType="Self.CNCMonitor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CNCMaster_Remove" EntityType="Self.CNCMaster_Remove" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Collet1Detail" EntityType="Self.Collet1Detail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Collet1Master" EntityType="Self.Collet1Master" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Collet2Detail" EntityType="Self.Collet2Detail" Schema="dbo" store:Type="Tables" />
@@ -1227,6 +1283,19 @@
           <EntitySet Name="ProductionPlan" EntityType="Self.ProductionPlan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StockDetail" EntityType="Self.StockDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BatchOutFrom" EntityType="Self.BatchOutFrom" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [BatchOutFrom].[BatchOutForm_ID] AS [BatchOutForm_ID], 
+    [BatchOutFrom].[BtachOut_DT] AS [BtachOut_DT], 
+    [BatchOutFrom].[KnifeDetail_ID] AS [KnifeDetail_ID], 
+    [BatchOutFrom].[BatchOut_Emp_ID] AS [BatchOut_Emp_ID], 
+    [BatchOutFrom].[BatchConfirm_EmpID] AS [BatchConfirm_EmpID], 
+    [BatchOutFrom].[BatchOutForm_Create_DT] AS [BatchOutForm_Create_DT], 
+    [BatchOutFrom].[BatchOutForm_Create_ID] AS [BatchOutForm_Create_ID], 
+    [BatchOutFrom].[BatchOutForm_Modify_DT] AS [BatchOutForm_Modify_DT], 
+    [BatchOutFrom].[BatchOutForm_Modify_ID] AS [BatchOutForm_Modify_ID]
+    FROM [dbo].[BatchOutFrom] AS [BatchOutFrom]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_Kind" EntityType="Self.v_Kind" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_Kind].[SNo] AS [SNo], 
@@ -1234,6 +1303,21 @@
     [v_Kind].[ID] AS [ID], 
     [v_Kind].[Name] AS [Name]
     FROM [dbo].[v_Kind] AS [v_Kind]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vCNC" EntityType="Self.vCNC" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vCNC].[CNC_ID] AS [CNC_ID], 
+    [vCNC].[CNC_Name] AS [CNC_Name], 
+    [vCNC].[CNC_Brand] AS [CNC_Brand], 
+    [vCNC].[CNC_IP] AS [CNC_IP], 
+    [vCNC].[CNC_Create_DT] AS [CNC_Create_DT], 
+    [vCNC].[CNC_Create_ID] AS [CNC_Create_ID], 
+    [vCNC].[CNC_Modify_DT] AS [CNC_Modify_DT], 
+    [vCNC].[CNC_Modify_ID] AS [CNC_Modify_ID], 
+    [vCNC].[CNC_Ver] AS [CNC_Ver], 
+    [vCNC].[CNC_Model] AS [CNC_Model], 
+    [vCNC].[CNC_Status] AS [CNC_Status]
+    FROM [dbo].[vCNC] AS [vCNC]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vCNC_Alarm_Log" EntityType="Self.vCNC_Alarm_Log" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -1248,45 +1332,60 @@
           </EntitySet>
           <EntitySet Name="vCNC_Monitor" EntityType="Self.vCNC_Monitor" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [vCNC_Monitor].[CNC_IP] AS [CNC_IP], 
     [vCNC_Monitor].[CNC_Model] AS [CNC_Model], 
     [vCNC_Monitor].[CNC_Ver] AS [CNC_Ver], 
     [vCNC_Monitor].[CNC_Current_ProductionAmount] AS [CNC_Current_ProductionAmount], 
     [vCNC_Monitor].[CNC_Current_Status] AS [CNC_Current_Status], 
     [vCNC_Monitor].[CNC_Current_StatusDT] AS [CNC_Current_StatusDT], 
-    [vCNC_Monitor].[Create_DT] AS [Create_DT]
+    [vCNC_Monitor].[Create_DT] AS [Create_DT], 
+    [vCNC_Monitor].[CNC_Name] AS [CNC_Name], 
+    [vCNC_Monitor].[CNC_ID] AS [CNC_ID], 
+    [vCNC_Monitor].[CNC_Brand] AS [CNC_Brand], 
+    [vCNC_Monitor].[CNC_IP] AS [CNC_IP]
     FROM [dbo].[vCNC_Monitor] AS [vCNC_Monitor]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK_CNC_ALARM_Log_CNCMonitor" Association="Self.FK_CNC_ALARM_Log_CNCMonitor">
-            <End Role="CNCMonitor" EntitySet="CNCMonitor" />
+          <EntitySet Name="vKnifeList" EntityType="Self.vKnifeList" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vKnifeList].[KnifeList_ID] AS [KnifeList_ID], 
+    [vKnifeList].[WorkStation_No] AS [WorkStation_No], 
+    [vKnifeList].[Model_ID] AS [Model_ID], 
+    [vKnifeList].[Good_ID] AS [Good_ID], 
+    [vKnifeList].[KnifeList_Create_DT] AS [KnifeList_Create_DT], 
+    [vKnifeList].[KnifeList_Create_ID] AS [KnifeList_Create_ID], 
+    [vKnifeList].[KnifeList_Modify_DT] AS [KnifeList_Modify_DT], 
+    [vKnifeList].[KnifeList_Modify_ID] AS [KnifeList_Modify_ID], 
+    [vKnifeList].[Model_Name] AS [Model_Name], 
+    [vKnifeList].[Good_Name] AS [Good_Name], 
+    [vKnifeList].[KnifeList_Create_Name] AS [KnifeList_Create_Name], 
+    [vKnifeList].[KnifeList_Modify_Name] AS [KnifeList_Modify_Name]
+    FROM [dbo].[vKnifeList] AS [vKnifeList]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_CNC_ALARM_Log_CNC" Association="Self.FK_CNC_ALARM_Log_CNC">
+            <End Role="CNC" EntitySet="CNC" />
             <End Role="CNC_ALARM_Log" EntitySet="CNC_ALARM_Log" />
           </AssociationSet>
-          <AssociationSet Name="FK_CNC_ATCTL_Log_CNCMonitor" Association="Self.FK_CNC_ATCTL_Log_CNCMonitor">
-            <End Role="CNCMonitor" EntitySet="CNCMonitor" />
+          <AssociationSet Name="FK_CNC_ATCTL_Log_CNC" Association="Self.FK_CNC_ATCTL_Log_CNC">
+            <End Role="CNC" EntitySet="CNC" />
             <End Role="CNC_ATCTL_Log" EntitySet="CNC_ATCTL_Log" />
           </AssociationSet>
           <AssociationSet Name="FK_CNC_ATCTL_Log_KnifeDetail" Association="Self.FK_CNC_ATCTL_Log_KnifeDetail">
             <End Role="KnifeDetail" EntitySet="KnifeDetail" />
             <End Role="CNC_ATCTL_Log" EntitySet="CNC_ATCTL_Log" />
           </AssociationSet>
-          <AssociationSet Name="FK_CNC_PRD3_Log_CNCMonitor" Association="Self.FK_CNC_PRD3_Log_CNCMonitor">
-            <End Role="CNCMonitor" EntitySet="CNCMonitor" />
+          <AssociationSet Name="FK_CNC_PRD3_Log_CNC" Association="Self.FK_CNC_PRD3_Log_CNC">
+            <End Role="CNC" EntitySet="CNC" />
             <End Role="CNC_PRD3_Log" EntitySet="CNC_PRD3_Log" />
           </AssociationSet>
-          <AssociationSet Name="FK_CNC_Ver_Log_CNCMonitor" Association="Self.FK_CNC_Ver_Log_CNCMonitor">
-            <End Role="CNCMonitor" EntitySet="CNCMonitor" />
+          <AssociationSet Name="FK_CNC_Ver_Log_CNC" Association="Self.FK_CNC_Ver_Log_CNC">
+            <End Role="CNC" EntitySet="CNC" />
             <End Role="CNC_Ver_Log" EntitySet="CNC_Ver_Log" />
           </AssociationSet>
-          <AssociationSet Name="FK_CNC_WKCNTR_Log_CNCMonitor" Association="Self.FK_CNC_WKCNTR_Log_CNCMonitor">
-            <End Role="CNCMonitor" EntitySet="CNCMonitor" />
+          <AssociationSet Name="FK_CNC_WKCNTR_Log_CNC" Association="Self.FK_CNC_WKCNTR_Log_CNC">
+            <End Role="CNC" EntitySet="CNC" />
             <End Role="CNC_WKCNTR_Log" EntitySet="CNC_WKCNTR_Log" />
           </AssociationSet>
-          <AssociationSet Name="FK_CNCDetail_CNCMaster" Association="Self.FK_CNCDetail_CNCMaster">
-            <End Role="CNCMaster" EntitySet="CNCMaster" />
-            <End Role="CNCDetail" EntitySet="CNCDetail" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CNCList_CNCDetail" Association="Self.FK_CNCList_CNCDetail">
-            <End Role="CNCDetail" EntitySet="CNCDetail" />
+          <AssociationSet Name="FK_CNCKnifeList_CNC" Association="Self.FK_CNCKnifeList_CNC">
+            <End Role="CNC" EntitySet="CNC" />
             <End Role="CNCKnifeList" EntitySet="CNCKnifeList" />
           </AssociationSet>
           <AssociationSet Name="FK_CNCList_Good" Association="Self.FK_CNCList_Good">
@@ -1352,6 +1451,10 @@
           <AssociationSet Name="FK_KnifeList_NutDetail" Association="Self.FK_KnifeList_NutDetail">
             <End Role="NutDetail" EntitySet="NutDetail" />
             <End Role="KnifeList" EntitySet="KnifeList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KnifeOutFrom_Employe" Association="Self.FK_KnifeOutFrom_Employe">
+            <End Role="Employe" EntitySet="Employe" />
+            <End Role="BatchOutFrom" EntitySet="BatchOutFrom" />
           </AssociationSet>
           <AssociationSet Name="FK_KnifeUseLog_KnifeDetail" Association="Self.FK_KnifeUseLog_KnifeDetail">
             <End Role="KnifeDetail" EntitySet="KnifeDetail" />
@@ -1462,6 +1565,7 @@
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
           <EntitySet Name="Cabins" EntityType="ToolManagementModel.Cabin" />
+          <EntitySet Name="CNCs" EntityType="ToolManagementModel.CNC" />
           <EntitySet Name="CNC_Alarm_Code_Mapping" EntityType="ToolManagementModel.CNC_Alarm_Code_Mapping" />
           <EntitySet Name="CNC_ALARM_Log" EntityType="ToolManagementModel.CNC_ALARM_Log" />
           <EntitySet Name="CNC_ATCTL_Log" EntityType="ToolManagementModel.CNC_ATCTL_Log" />
@@ -1470,10 +1574,8 @@
           <EntitySet Name="CNC_StatusHistory" EntityType="ToolManagementModel.CNC_StatusHistory" />
           <EntitySet Name="CNC_Ver_Log" EntityType="ToolManagementModel.CNC_Ver_Log" />
           <EntitySet Name="CNC_WKCNTR_Log" EntityType="ToolManagementModel.CNC_WKCNTR_Log" />
-          <EntitySet Name="CNCDetails" EntityType="ToolManagementModel.CNCDetail" />
           <EntitySet Name="CNCKnifeLists" EntityType="ToolManagementModel.CNCKnifeList" />
-          <EntitySet Name="CNCMasters" EntityType="ToolManagementModel.CNCMaster" />
-          <EntitySet Name="CNCMonitors" EntityType="ToolManagementModel.CNCMonitor" />
+          <EntitySet Name="CNCMaster_Remove" EntityType="ToolManagementModel.CNCMaster_Remove" />
           <EntitySet Name="Collet1Detail" EntityType="ToolManagementModel.Collet1Detail" />
           <EntitySet Name="Collet1Master" EntityType="ToolManagementModel.Collet1Master" />
           <EntitySet Name="Collet2Detail" EntityType="ToolManagementModel.Collet2Detail" />
@@ -1482,8 +1584,6 @@
           <EntitySet Name="ExtRodDetails" EntityType="ToolManagementModel.ExtRodDetail" />
           <EntitySet Name="ExtRodMasters" EntityType="ToolManagementModel.ExtRodMaster" />
           <EntitySet Name="Goods" EntityType="ToolManagementModel.Good" />
-          <EntitySet Name="HiltDetails" EntityType="ToolManagementModel.HiltDetail" />
-          <EntitySet Name="HiltMasters" EntityType="ToolManagementModel.HiltMaster" />
           <EntitySet Name="Informs" EntityType="ToolManagementModel.Inform" />
           <EntitySet Name="KnifeChangeFroms" EntityType="ToolManagementModel.KnifeChangeFrom" />
           <EntitySet Name="KnifeDetails" EntityType="ToolManagementModel.KnifeDetail" />
@@ -1501,40 +1601,38 @@
           <EntitySet Name="ProductionPlans" EntityType="ToolManagementModel.ProductionPlan" />
           <EntitySet Name="Stocks" EntityType="ToolManagementModel.Stock" />
           <EntitySet Name="StockDetails" EntityType="ToolManagementModel.StockDetail" />
+          <EntitySet Name="BatchOutFroms" EntityType="ToolManagementModel.BatchOutFrom" />
           <EntitySet Name="v_Kind" EntityType="ToolManagementModel.v_Kind" />
+          <EntitySet Name="vCNCs" EntityType="ToolManagementModel.vCNC" />
           <EntitySet Name="vCNC_Alarm_Log" EntityType="ToolManagementModel.vCNC_Alarm_Log" />
-          <EntitySet Name="vCNC_Monitor" EntityType="ToolManagementModel.vCNC_Monitor" />
-          <AssociationSet Name="FK_CNC_ALARM_Log_CNCMonitor" Association="ToolManagementModel.FK_CNC_ALARM_Log_CNCMonitor">
-            <End Role="CNCMonitor" EntitySet="CNCMonitors" />
+          <EntitySet Name="vKnifeLists" EntityType="ToolManagementModel.vKnifeList" />
+          <AssociationSet Name="FK_CNC_ALARM_Log_CNC" Association="ToolManagementModel.FK_CNC_ALARM_Log_CNC">
+            <End Role="CNC" EntitySet="CNCs" />
             <End Role="CNC_ALARM_Log" EntitySet="CNC_ALARM_Log" />
           </AssociationSet>
-          <AssociationSet Name="FK_CNC_ATCTL_Log_CNCMonitor" Association="ToolManagementModel.FK_CNC_ATCTL_Log_CNCMonitor">
-            <End Role="CNCMonitor" EntitySet="CNCMonitors" />
+          <AssociationSet Name="FK_CNC_ATCTL_Log_CNC" Association="ToolManagementModel.FK_CNC_ATCTL_Log_CNC">
+            <End Role="CNC" EntitySet="CNCs" />
             <End Role="CNC_ATCTL_Log" EntitySet="CNC_ATCTL_Log" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CNC_PRD3_Log_CNC" Association="ToolManagementModel.FK_CNC_PRD3_Log_CNC">
+            <End Role="CNC" EntitySet="CNCs" />
+            <End Role="CNC_PRD3_Log" EntitySet="CNC_PRD3_Log" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CNC_Ver_Log_CNC" Association="ToolManagementModel.FK_CNC_Ver_Log_CNC">
+            <End Role="CNC" EntitySet="CNCs" />
+            <End Role="CNC_Ver_Log" EntitySet="CNC_Ver_Log" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CNC_WKCNTR_Log_CNC" Association="ToolManagementModel.FK_CNC_WKCNTR_Log_CNC">
+            <End Role="CNC" EntitySet="CNCs" />
+            <End Role="CNC_WKCNTR_Log" EntitySet="CNC_WKCNTR_Log" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CNCKnifeList_CNC" Association="ToolManagementModel.FK_CNCKnifeList_CNC">
+            <End Role="CNC" EntitySet="CNCs" />
+            <End Role="CNCKnifeList" EntitySet="CNCKnifeLists" />
           </AssociationSet>
           <AssociationSet Name="FK_CNC_ATCTL_Log_KnifeDetail" Association="ToolManagementModel.FK_CNC_ATCTL_Log_KnifeDetail">
             <End Role="KnifeDetail" EntitySet="KnifeDetails" />
             <End Role="CNC_ATCTL_Log" EntitySet="CNC_ATCTL_Log" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CNC_PRD3_Log_CNCMonitor" Association="ToolManagementModel.FK_CNC_PRD3_Log_CNCMonitor">
-            <End Role="CNCMonitor" EntitySet="CNCMonitors" />
-            <End Role="CNC_PRD3_Log" EntitySet="CNC_PRD3_Log" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CNC_Ver_Log_CNCMonitor" Association="ToolManagementModel.FK_CNC_Ver_Log_CNCMonitor">
-            <End Role="CNCMonitor" EntitySet="CNCMonitors" />
-            <End Role="CNC_Ver_Log" EntitySet="CNC_Ver_Log" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CNC_WKCNTR_Log_CNCMonitor" Association="ToolManagementModel.FK_CNC_WKCNTR_Log_CNCMonitor">
-            <End Role="CNCMonitor" EntitySet="CNCMonitors" />
-            <End Role="CNC_WKCNTR_Log" EntitySet="CNC_WKCNTR_Log" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CNCDetail_CNCMaster" Association="ToolManagementModel.FK_CNCDetail_CNCMaster">
-            <End Role="CNCMaster" EntitySet="CNCMasters" />
-            <End Role="CNCDetail" EntitySet="CNCDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CNCList_CNCDetail" Association="ToolManagementModel.FK_CNCList_CNCDetail">
-            <End Role="CNCDetail" EntitySet="CNCDetails" />
-            <End Role="CNCKnifeList" EntitySet="CNCKnifeLists" />
           </AssociationSet>
           <AssociationSet Name="FK_CNCList_Good" Association="ToolManagementModel.FK_CNCList_Good">
             <End Role="Good" EntitySet="Goods" />
@@ -1576,6 +1674,10 @@
             <End Role="Employe" EntitySet="Employes" />
             <End Role="KnifeChangeFrom" EntitySet="KnifeChangeFroms" />
           </AssociationSet>
+          <AssociationSet Name="FK_KnifeOutFrom_Employe" Association="ToolManagementModel.FK_KnifeOutFrom_Employe">
+            <End Role="Employe" EntitySet="Employes" />
+            <End Role="BatchOutFrom" EntitySet="BatchOutFroms" />
+          </AssociationSet>
           <AssociationSet Name="FK_OutFrom_Employe" Association="ToolManagementModel.FK_OutFrom_Employe">
             <End Role="Employe" EntitySet="Employes" />
             <End Role="OutFrom" EntitySet="OutFroms" />
@@ -1590,18 +1692,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_KnifeList_ExtRodDetail" Association="ToolManagementModel.FK_KnifeList_ExtRodDetail">
             <End Role="ExtRodDetail" EntitySet="ExtRodDetails" />
-            <End Role="KnifeList" EntitySet="KnifeLists" />
-          </AssociationSet>
-          <AssociationSet Name="FK_HiltDetail_HiltMaster1" Association="ToolManagementModel.FK_HiltDetail_HiltMaster1">
-            <End Role="HiltMaster" EntitySet="HiltMasters" />
-            <End Role="HiltDetail" EntitySet="HiltDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK_StockDetail_HiltDetail" Association="ToolManagementModel.FK_StockDetail_HiltDetail">
-            <End Role="HiltDetail" EntitySet="HiltDetails" />
-            <End Role="StockDetail" EntitySet="StockDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK_WorkStationKnifeList_HiltDetail" Association="ToolManagementModel.FK_WorkStationKnifeList_HiltDetail">
-            <End Role="HiltDetail" EntitySet="HiltDetails" />
             <End Role="KnifeList" EntitySet="KnifeLists" />
           </AssociationSet>
           <AssociationSet Name="FK_Inform_StockDetail" Association="ToolManagementModel.FK_Inform_StockDetail">
@@ -1672,7 +1762,22 @@
             <End Role="Stock" EntitySet="Stocks" />
             <End Role="StockDetail" EntitySet="StockDetails" />
           </AssociationSet>
-        </EntityContainer>
+          <EntitySet Name="HiltDetails" EntityType="ToolManagementModel.HiltDetail" />
+          <EntitySet Name="HiltMasters" EntityType="ToolManagementModel.HiltMaster" />
+          <AssociationSet Name="FK_HiltDetail_HiltMaster1" Association="ToolManagementModel.FK_HiltDetail_HiltMaster1">
+            <End Role="HiltMaster" EntitySet="HiltMasters" />
+            <End Role="HiltDetail" EntitySet="HiltDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StockDetail_HiltDetail" Association="ToolManagementModel.FK_StockDetail_HiltDetail">
+            <End Role="HiltDetail" EntitySet="HiltDetails" />
+            <End Role="StockDetail" EntitySet="StockDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkStationKnifeList_HiltDetail" Association="ToolManagementModel.FK_WorkStationKnifeList_HiltDetail">
+            <End Role="HiltDetail" EntitySet="HiltDetails" />
+            <End Role="KnifeList" EntitySet="KnifeLists" />
+          </AssociationSet>
+          <EntitySet Name="vCNC_Monitor" EntityType="ToolManagementModel.vCNC_Monitor" />
+          </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
           <Property Type="Binary" Name="definition" Nullable="true" />
@@ -1695,6 +1800,25 @@
           <Property Name="Cabin_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Cabin_Modify_DT" Type="DateTime" Precision="3" />
           <Property Name="Cabin_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CNC">
+          <Key>
+            <PropertyRef Name="CNC_IP" />
+          </Key>
+          <Property Name="CNC_IP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CNC_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CNC_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CNC_Brand" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CNC_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CNC_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CNC_Modify_DT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CNC_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CNC_ALARM_Log" Relationship="ToolManagementModel.FK_CNC_ALARM_Log_CNC" FromRole="CNC" ToRole="CNC_ALARM_Log" />
+          <NavigationProperty Name="CNC_ATCTL_Log" Relationship="ToolManagementModel.FK_CNC_ATCTL_Log_CNC" FromRole="CNC" ToRole="CNC_ATCTL_Log" />
+          <NavigationProperty Name="CNC_PRD3_Log" Relationship="ToolManagementModel.FK_CNC_PRD3_Log_CNC" FromRole="CNC" ToRole="CNC_PRD3_Log" />
+          <NavigationProperty Name="CNC_Ver_Log" Relationship="ToolManagementModel.FK_CNC_Ver_Log_CNC" FromRole="CNC" ToRole="CNC_Ver_Log" />
+          <NavigationProperty Name="CNC_WKCNTR_Log" Relationship="ToolManagementModel.FK_CNC_WKCNTR_Log_CNC" FromRole="CNC" ToRole="CNC_WKCNTR_Log" />
+          <NavigationProperty Name="CNCKnifeLists" Relationship="ToolManagementModel.FK_CNCKnifeList_CNC" FromRole="CNC" ToRole="CNCKnifeList" />
         </EntityType>
         <EntityType Name="CNC_Alarm_Code_Mapping">
           <Key>
@@ -1739,7 +1863,7 @@
           <Property Name="CNC_Feed_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CNC_Door_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CNC_Door_Interlock" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CNCMonitor" Relationship="ToolManagementModel.FK_CNC_ALARM_Log_CNCMonitor" FromRole="CNC_ALARM_Log" ToRole="CNCMonitor" />
+          <NavigationProperty Name="CNC" Relationship="ToolManagementModel.FK_CNC_ALARM_Log_CNC" FromRole="CNC_ALARM_Log" ToRole="CNC" />
         </EntityType>
         <EntityType Name="CNC_ATCTL_Log">
           <Key>
@@ -1756,7 +1880,7 @@
           <Property Name="ATCTL_TYPE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ATCTL_COLOR" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="KnifeDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CNCMonitor" Relationship="ToolManagementModel.FK_CNC_ATCTL_Log_CNCMonitor" FromRole="CNC_ATCTL_Log" ToRole="CNCMonitor" />
+          <NavigationProperty Name="CNC" Relationship="ToolManagementModel.FK_CNC_ATCTL_Log_CNC" FromRole="CNC_ATCTL_Log" ToRole="CNC" />
           <NavigationProperty Name="KnifeDetail" Relationship="ToolManagementModel.FK_CNC_ATCTL_Log_KnifeDetail" FromRole="CNC_ATCTL_Log" ToRole="KnifeDetail" />
         </EntityType>
         <EntityType Name="CNC_PRD3_Log">
@@ -1771,7 +1895,7 @@
           <Property Name="CNC_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CNC_StatusDT" Type="DateTime" Precision="3" />
           <Property Name="CNC_ProgramNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CNCMonitor" Relationship="ToolManagementModel.FK_CNC_PRD3_Log_CNCMonitor" FromRole="CNC_PRD3_Log" ToRole="CNCMonitor" />
+          <NavigationProperty Name="CNC" Relationship="ToolManagementModel.FK_CNC_PRD3_Log_CNC" FromRole="CNC_PRD3_Log" ToRole="CNC" />
         </EntityType>
         <EntityType Name="CNC_PRDC2_Log">
           <Key>
@@ -1805,7 +1929,7 @@
           <Property Name="Create_DT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CNC_Model" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CNC_Ver" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CNCMonitor" Relationship="ToolManagementModel.FK_CNC_Ver_Log_CNCMonitor" FromRole="CNC_Ver_Log" ToRole="CNCMonitor" />
+          <NavigationProperty Name="CNC" Relationship="ToolManagementModel.FK_CNC_Ver_Log_CNC" FromRole="CNC_Ver_Log" ToRole="CNC" />
         </EntityType>
         <EntityType Name="CNC_WKCNTR_Log">
           <Key>
@@ -1817,30 +1941,14 @@
           <Property Name="CNC_Current_ProductionAmount" Type="Int64" Nullable="false" />
           <Property Name="CNC_End_ProductionAmount" Type="Int64" />
           <Property Name="CNC_Alert_ProductionAmount" Type="Int64" />
-          <NavigationProperty Name="CNCMonitor" Relationship="ToolManagementModel.FK_CNC_WKCNTR_Log_CNCMonitor" FromRole="CNC_WKCNTR_Log" ToRole="CNCMonitor" />
-        </EntityType>
-        <EntityType Name="CNCDetail">
-          <Key>
-            <PropertyRef Name="CNCDetail_ID" />
-          </Key>
-          <Property Name="CNCDetail_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CNCMaster_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CNCDetail_IP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CNCDetail_Version" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CNCDetail_Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CNCDetail_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CNCDetail_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CNCDetail_Modify_DT" Type="DateTime" Precision="3" />
-          <Property Name="CNCDetail_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CNCMaster" Relationship="ToolManagementModel.FK_CNCDetail_CNCMaster" FromRole="CNCDetail" ToRole="CNCMaster" />
-          <NavigationProperty Name="CNCKnifeLists" Relationship="ToolManagementModel.FK_CNCList_CNCDetail" FromRole="CNCDetail" ToRole="CNCKnifeList" />
+          <NavigationProperty Name="CNC" Relationship="ToolManagementModel.FK_CNC_WKCNTR_Log_CNC" FromRole="CNC_WKCNTR_Log" ToRole="CNC" />
         </EntityType>
         <EntityType Name="CNCKnifeList">
           <Key>
             <PropertyRef Name="CNCKnifeList_ID" />
           </Key>
           <Property Name="CNCKnifeList_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CNCDetail_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CNC_IP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Car_No" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Good_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Line_No" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -1850,11 +1958,11 @@
           <Property Name="CNCList_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CNCList_Modify_DT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CNCList_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CNCDetail" Relationship="ToolManagementModel.FK_CNCList_CNCDetail" FromRole="CNCKnifeList" ToRole="CNCDetail" />
+          <NavigationProperty Name="CNC" Relationship="ToolManagementModel.FK_CNCKnifeList_CNC" FromRole="CNCKnifeList" ToRole="CNC" />
           <NavigationProperty Name="Good" Relationship="ToolManagementModel.FK_CNCList_Good" FromRole="CNCKnifeList" ToRole="Good" />
           <NavigationProperty Name="ProductionPlans" Relationship="ToolManagementModel.FK_ProductionPlan_CNCKnifeList" FromRole="CNCKnifeList" ToRole="ProductionPlan" />
         </EntityType>
-        <EntityType Name="CNCMaster">
+        <EntityType Name="CNCMaster_Remove">
           <Key>
             <PropertyRef Name="CNCMaster_ID" />
           </Key>
@@ -1866,31 +1974,6 @@
           <Property Name="CNCMaster_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CNCMaster_Modify_DT" Type="DateTime" Precision="3" />
           <Property Name="CNCMaster_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CNCDetails" Relationship="ToolManagementModel.FK_CNCDetail_CNCMaster" FromRole="CNCMaster" ToRole="CNCDetail" />
-        </EntityType>
-        <EntityType Name="CNCMonitor">
-          <Key>
-            <PropertyRef Name="CNC_IP" />
-          </Key>
-          <Property Name="CNC_IP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Create_DT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CNCDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CNC_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CNC_Current_ProductionAmount" Type="Int64" />
-          <Property Name="CNC_RunTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CNC_StayTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CNC_CloseTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CNC_ErrTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CNC_StopTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CNC_Ver" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CNC_Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CNC_Alert_ProductionAmount" Type="Int64" />
-          <Property Name="CNC_End_ProductionAmount" Type="Int64" />
-          <NavigationProperty Name="CNC_ALARM_Log" Relationship="ToolManagementModel.FK_CNC_ALARM_Log_CNCMonitor" FromRole="CNCMonitor" ToRole="CNC_ALARM_Log" />
-          <NavigationProperty Name="CNC_ATCTL_Log" Relationship="ToolManagementModel.FK_CNC_ATCTL_Log_CNCMonitor" FromRole="CNCMonitor" ToRole="CNC_ATCTL_Log" />
-          <NavigationProperty Name="CNC_PRD3_Log" Relationship="ToolManagementModel.FK_CNC_PRD3_Log_CNCMonitor" FromRole="CNCMonitor" ToRole="CNC_PRD3_Log" />
-          <NavigationProperty Name="CNC_Ver_Log" Relationship="ToolManagementModel.FK_CNC_Ver_Log_CNCMonitor" FromRole="CNCMonitor" ToRole="CNC_Ver_Log" />
-          <NavigationProperty Name="CNC_WKCNTR_Log" Relationship="ToolManagementModel.FK_CNC_WKCNTR_Log_CNCMonitor" FromRole="CNCMonitor" ToRole="CNC_WKCNTR_Log" />
         </EntityType>
         <EntityType Name="Collet1Detail">
           <Key>
@@ -1899,10 +1982,10 @@
           <Property Name="Collet1Detail_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Collet1Master_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Collet1Detail_Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Collet1Detail_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Collet1Detail_Create_DT" Type="DateTime" Precision="3" />
-          <Property Name="Collet1Detail_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Collet1Detail_Modify_DT" Type="DateTime" Precision="3" />
+          <Property Name="Collet1Detail_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Collet1Detail_Create_DT" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="Collet1Detail_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Collet1Detail_Modify_DT" Type="DateTime" Precision="3" Nullable="false" />
           <NavigationProperty Name="Collet1Master" Relationship="ToolManagementModel.FK_Collet1Detail_Collet1Master" FromRole="Collet1Detail" ToRole="Collet1Master" />
           <NavigationProperty Name="KnifeLists" Relationship="ToolManagementModel.FK_KnifeList_Collet1Detail" FromRole="Collet1Detail" ToRole="KnifeList" />
           <NavigationProperty Name="StockDetails" Relationship="ToolManagementModel.FK_StockDetail_Collet1Detail" FromRole="Collet1Detail" ToRole="StockDetail" />
@@ -1917,10 +2000,10 @@
           <Property Name="Collet1_Spec" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Collet1_CabinID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Collet1_Quality" Type="Int64" Nullable="false" />
-          <Property Name="Collet1Master_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Collet1Master_Create_DT" Type="DateTime" Precision="3" />
-          <Property Name="Collet1Master_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Collet1Master_Modify_DT" Type="DateTime" Precision="3" />
+          <Property Name="Collet1Master_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Collet1Master_Create_DT" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="Collet1Master_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Collet1Master_Modify_DT" Type="DateTime" Precision="3" Nullable="false" />
           <NavigationProperty Name="Collet1Detail" Relationship="ToolManagementModel.FK_Collet1Detail_Collet1Master" FromRole="Collet1Master" ToRole="Collet1Detail" />
         </EntityType>
         <EntityType Name="Collet2Detail">
@@ -1930,10 +2013,10 @@
           <Property Name="Collet2Detail_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Collet2Master_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Collet2Detail_Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Collet2Detail_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Collet2Detail_Create_DT" Type="DateTime" Precision="3" />
-          <Property Name="Collet2Detail_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Collet2Detail_Modify_DT" Type="DateTime" Precision="3" />
+          <Property Name="Collet2Detail_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Collet2Detail_Create_DT" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="Collet2Detail_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Collet2Detail_Modify_DT" Type="DateTime" Precision="3" Nullable="false" />
           <NavigationProperty Name="Collet2Master" Relationship="ToolManagementModel.FK_Collet2Detail_Collet2Master" FromRole="Collet2Detail" ToRole="Collet2Master" />
           <NavigationProperty Name="KnifeLists" Relationship="ToolManagementModel.FK_KnifeList_Collet2Detail" FromRole="Collet2Detail" ToRole="KnifeList" />
           <NavigationProperty Name="StockDetails" Relationship="ToolManagementModel.FK_StockDetail_Collet2Detail" FromRole="Collet2Detail" ToRole="StockDetail" />
@@ -1948,10 +2031,10 @@
           <Property Name="Collet2_Spec" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Collet2_CabinID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Collet2_Quality" Type="Int64" Nullable="false" />
-          <Property Name="Collet2Master_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Collet2Master_Create_DT" Type="DateTime" Precision="3" />
-          <Property Name="Collet2Master_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Collet2Master_Modify_DT" Type="DateTime" Precision="3" />
+          <Property Name="Collet2Master_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Collet2Master_Create_DT" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="Collet2Master_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Collet2Master_Modify_DT" Type="DateTime" Precision="3" Nullable="false" />
           <NavigationProperty Name="Collet2Detail" Relationship="ToolManagementModel.FK_Collet2Detail_Collet2Master" FromRole="Collet2Master" ToRole="Collet2Detail" />
         </EntityType>
         <EntityType Name="Employe">
@@ -1963,10 +2046,11 @@
           <Property Name="Emp_Status" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="Emp_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Emp_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Emp_Modify_DT" Type="DateTime" Precision="3" />
+          <Property Name="Emp_Modify_DT" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="Emp_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Informs" Relationship="ToolManagementModel.FK_Inform_Employe" FromRole="Employe" ToRole="Inform" />
           <NavigationProperty Name="KnifeChangeFroms" Relationship="ToolManagementModel.FK_KnifeChangeFrom_Employe1" FromRole="Employe" ToRole="KnifeChangeFrom" />
+          <NavigationProperty Name="BatchOutFroms" Relationship="ToolManagementModel.FK_KnifeOutFrom_Employe" FromRole="Employe" ToRole="BatchOutFrom" />
           <NavigationProperty Name="OutFroms" Relationship="ToolManagementModel.FK_OutFrom_Employe" FromRole="Employe" ToRole="OutFrom" />
           <NavigationProperty Name="ProductionPlans" Relationship="ToolManagementModel.FK_ProductionPlan_Employe" FromRole="Employe" ToRole="ProductionPlan" />
         </EntityType>
@@ -1994,10 +2078,10 @@
           <Property Name="ExtRod_Spec" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ExtRod_Quality" Type="Int64" Nullable="false" />
           <Property Name="ExtRod_CabinID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ExtRodMaster_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ExtRodMaster_Create_DT" Type="DateTime" Precision="3" />
-          <Property Name="ExtRodMaster_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ExtRodMaster_Modify_DT" Type="DateTime" Precision="3" />
+          <Property Name="ExtRodMaster_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ExtRodMaster_Create_DT" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="ExtRodMaster_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ExtRodMaster_Modify_DT" Type="DateTime" Precision="3" Nullable="false" />
           <NavigationProperty Name="ExtRodDetails" Relationship="ToolManagementModel.FK_ExtensionRodDetail_ExtensionRodMaster1" FromRole="ExtRodMaster" ToRole="ExtRodDetail" />
         </EntityType>
         <EntityType Name="Good">
@@ -2008,41 +2092,9 @@
           <Property Name="Good_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Good_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Good_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Good_Modify_DT" Type="DateTime" Precision="3" />
+          <Property Name="Good_Modify_DT" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="Good_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CNCKnifeLists" Relationship="ToolManagementModel.FK_CNCList_Good" FromRole="Good" ToRole="CNCKnifeList" />
-        </EntityType>
-        <EntityType Name="HiltDetail">
-          <Key>
-            <PropertyRef Name="HiltDetail_ID" />
-          </Key>
-          <Property Name="HiltDetail_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="HiltMaster_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="HiltDetail_Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="HiltCabine_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="HiltDetail_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="HiltDetail_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="HiltDetail_Modify_DT" Type="DateTime" Precision="3" />
-          <Property Name="HiltDetail_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="HiltMaster" Relationship="ToolManagementModel.FK_HiltDetail_HiltMaster1" FromRole="HiltDetail" ToRole="HiltMaster" />
-          <NavigationProperty Name="StockDetails" Relationship="ToolManagementModel.FK_StockDetail_HiltDetail" FromRole="HiltDetail" ToRole="StockDetail" />
-          <NavigationProperty Name="KnifeLists" Relationship="ToolManagementModel.FK_WorkStationKnifeList_HiltDetail" FromRole="HiltDetail" ToRole="KnifeList" />
-        </EntityType>
-        <EntityType Name="HiltMaster">
-          <Key>
-            <PropertyRef Name="HiltMaster_ID" />
-          </Key>
-          <Property Name="HiltMaster_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Hilt_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Hilt_Brand" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Hilt_Spec" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="Hilt_CabineID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Hilt_Quality" Type="Int64" Nullable="false" />
-          <Property Name="HiltMaster_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="HiltMaster_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="HiltMaster_Modify_DT" Type="DateTime" Precision="3" />
-          <Property Name="HiltMaster_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="HiltDetails" Relationship="ToolManagementModel.FK_HiltDetail_HiltMaster1" FromRole="HiltMaster" ToRole="HiltDetail" />
         </EntityType>
         <EntityType Name="Inform">
           <Key>
@@ -2094,7 +2146,7 @@
           <Property Name="KnifeDetail_Status" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
           <Property Name="KnifeDetail_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="KnifeDetail_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="KnifeDetail_Modify_DT" Type="DateTime" Precision="3" />
+          <Property Name="KnifeDetail_Modify_DT" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="KnifeDetail_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CNC_ATCTL_Log" Relationship="ToolManagementModel.FK_CNC_ATCTL_Log_KnifeDetail" FromRole="KnifeDetail" ToRole="CNC_ATCTL_Log" />
           <NavigationProperty Name="KnifeMaster" Relationship="ToolManagementModel.FK_KnifeDetail_KnifeMaster" FromRole="KnifeDetail" ToRole="KnifeMaster" />
@@ -2111,9 +2163,10 @@
           <Property Name="ATC_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="WorkStation_No" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Model_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="KnifeDetail_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="HiltDetail_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="NailDetail_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Good_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KnifeDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HiltDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NailDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MeasureDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ExtRodDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NutDetail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -2121,7 +2174,7 @@
           <Property Name="Collet2Detail_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="KnifeList_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="KnifeList_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="KnifeList_Modify_DT" Type="DateTime" Precision="3" />
+          <Property Name="KnifeList_Modify_DT" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="KnifeList_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Program_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="D" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -2139,12 +2192,12 @@
           <NavigationProperty Name="Collet1Detail" Relationship="ToolManagementModel.FK_KnifeList_Collet1Detail" FromRole="KnifeList" ToRole="Collet1Detail" />
           <NavigationProperty Name="Collet2Detail" Relationship="ToolManagementModel.FK_KnifeList_Collet2Detail" FromRole="KnifeList" ToRole="Collet2Detail" />
           <NavigationProperty Name="ExtRodDetail" Relationship="ToolManagementModel.FK_KnifeList_ExtRodDetail" FromRole="KnifeList" ToRole="ExtRodDetail" />
-          <NavigationProperty Name="HiltDetail" Relationship="ToolManagementModel.FK_WorkStationKnifeList_HiltDetail" FromRole="KnifeList" ToRole="HiltDetail" />
           <NavigationProperty Name="KnifeDetail" Relationship="ToolManagementModel.FK_WorkStationKnifeList_KnifeDetail" FromRole="KnifeList" ToRole="KnifeDetail" />
           <NavigationProperty Name="MeasureDetail" Relationship="ToolManagementModel.FK_KnifeList_MeasureDetail" FromRole="KnifeList" ToRole="MeasureDetail" />
           <NavigationProperty Name="NailDetail" Relationship="ToolManagementModel.FK_KnifeList_NailDetail" FromRole="KnifeList" ToRole="NailDetail" />
           <NavigationProperty Name="NutDetail" Relationship="ToolManagementModel.FK_KnifeList_NutDetail" FromRole="KnifeList" ToRole="NutDetail" />
           <NavigationProperty Name="Model" Relationship="ToolManagementModel.FK_WorkStationKnifeList_Model" FromRole="KnifeList" ToRole="Model" />
+          <NavigationProperty Name="HiltDetail" Relationship="ToolManagementModel.FK_WorkStationKnifeList_HiltDetail" FromRole="KnifeList" ToRole="HiltDetail" />
         </EntityType>
         <EntityType Name="KnifeMaster">
           <Key>
@@ -2158,9 +2211,11 @@
           <Property Name="Knife_Quality" Type="Int64" Nullable="false" />
           <Property Name="KnifeMaster_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="KnifeMaster_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="KnifeMaster_Modify_DT" Type="DateTime" Precision="3" />
+          <Property Name="KnifeMaster_Modify_DT" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="KnifeMaster_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="KnifeDetails" Relationship="ToolManagementModel.FK_KnifeDetail_KnifeMaster" FromRole="KnifeMaster" ToRole="KnifeDetail" />
+          <Property Name="Knife_Kind" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Knife_Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="KnifeUseLog">
           <Key>
@@ -2216,7 +2271,7 @@
           <Property Name="Model_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Model_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Model_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Model_Modify_DT" Type="DateTime" Precision="3" />
+          <Property Name="Model_Modify_DT" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="Model_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="KnifeLists" Relationship="ToolManagementModel.FK_WorkStationKnifeList_Model" FromRole="Model" ToRole="KnifeList" />
         </EntityType>
@@ -2245,10 +2300,10 @@
           <Property Name="Nail_Spec" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Nail_CabinID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Nail_Quality" Type="Int64" Nullable="false" />
-          <Property Name="NailMaster_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="NailMaster_Create_DT" Type="DateTime" Precision="3" />
-          <Property Name="NailMaster_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="NailMaster_Modify_DT" Type="DateTime" Precision="3" />
+          <Property Name="NailMaster_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NailMaster_Create_DT" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="NailMaster_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NailMaster_Modify_DT" Type="DateTime" Precision="3" Nullable="false" />
           <NavigationProperty Name="NailDetails" Relationship="ToolManagementModel.FK_NailDetail_NailMaster" FromRole="NailMaster" ToRole="NailDetail" />
         </EntityType>
         <EntityType Name="NutDetail">
@@ -2258,10 +2313,10 @@
           <Property Name="NutDetail_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NutMaster_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NutDetail_Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="NutDetail_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="NutDetail_Create_DT" Type="DateTime" Precision="3" />
-          <Property Name="NutDetail_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="NutDetail_Modify_DT" Type="DateTime" Precision="3" />
+          <Property Name="NutDetail_Create_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NutDetail_Create_DT" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="NutDetail_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NutDetail_Modify_DT" Type="DateTime" Precision="3" Nullable="false" />
           <NavigationProperty Name="KnifeLists" Relationship="ToolManagementModel.FK_KnifeList_NutDetail" FromRole="NutDetail" ToRole="KnifeList" />
           <NavigationProperty Name="NutMaster" Relationship="ToolManagementModel.FK_NutDetail_NutMaster" FromRole="NutDetail" ToRole="NutMaster" />
         </EntityType>
@@ -2346,7 +2401,6 @@
           <Property Name="Memo" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Collet1Detail" Relationship="ToolManagementModel.FK_StockDetail_Collet1Detail" FromRole="StockDetail" ToRole="Collet1Detail" />
           <NavigationProperty Name="Collet2Detail" Relationship="ToolManagementModel.FK_StockDetail_Collet2Detail" FromRole="StockDetail" ToRole="Collet2Detail" />
-          <NavigationProperty Name="HiltDetail" Relationship="ToolManagementModel.FK_StockDetail_HiltDetail" FromRole="StockDetail" ToRole="HiltDetail" />
           <NavigationProperty Name="Informs" Relationship="ToolManagementModel.FK_Inform_StockDetail" FromRole="StockDetail" ToRole="Inform" />
           <NavigationProperty Name="KnifeChangeFroms" Relationship="ToolManagementModel.FK_KnifeChangeFrom_StockDetail" FromRole="StockDetail" ToRole="KnifeChangeFrom" />
           <NavigationProperty Name="KnifeDetail" Relationship="ToolManagementModel.FK_StockDetail_KnifeDetail" FromRole="StockDetail" ToRole="KnifeDetail" />
@@ -2354,6 +2408,28 @@
           <NavigationProperty Name="NailDetail" Relationship="ToolManagementModel.FK_StockDetail_NailDetail" FromRole="StockDetail" ToRole="NailDetail" />
           <NavigationProperty Name="OutFroms" Relationship="ToolManagementModel.FK_OutFrom_StockDetail" FromRole="StockDetail" ToRole="OutFrom" />
           <NavigationProperty Name="Stock" Relationship="ToolManagementModel.FK_StockDetail_Stock1" FromRole="StockDetail" ToRole="Stock" />
+          <NavigationProperty Name="HiltDetail" Relationship="ToolManagementModel.FK_StockDetail_HiltDetail" FromRole="StockDetail" ToRole="HiltDetail" />
+        </EntityType>
+        <EntityType Name="BatchOutFrom">
+          <Key>
+            <PropertyRef Name="BatchOutForm_ID" />
+            <PropertyRef Name="BtachOut_DT" />
+            <PropertyRef Name="KnifeDetail_ID" />
+            <PropertyRef Name="BatchOut_Emp_ID" />
+            <PropertyRef Name="BatchConfirm_EmpID" />
+            <PropertyRef Name="BatchOutForm_Create_DT" />
+            <PropertyRef Name="BatchOutForm_Create_ID" />
+          </Key>
+          <Property Name="BatchOutForm_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BtachOut_DT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="KnifeDetail_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BatchOut_Emp_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BatchConfirm_EmpID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BatchOutForm_Create_DT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BatchOutForm_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BatchOutForm_Modify_DT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BatchOutForm_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employe" Relationship="ToolManagementModel.FK_KnifeOutFrom_Employe" FromRole="BatchOutFrom" ToRole="Employe" />
         </EntityType>
         <EntityType Name="v_Kind">
           <Key>
@@ -2366,6 +2442,28 @@
           <Property Name="Kind" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
           <Property Name="ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vCNC">
+          <Key>
+            <PropertyRef Name="CNC_ID" />
+            <PropertyRef Name="CNC_Name" />
+            <PropertyRef Name="CNC_Brand" />
+            <PropertyRef Name="CNC_IP" />
+            <PropertyRef Name="CNC_Create_DT" />
+            <PropertyRef Name="CNC_Create_ID" />
+            <PropertyRef Name="CNC_Modify_DT" />
+          </Key>
+          <Property Name="CNC_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CNC_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CNC_Brand" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CNC_IP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CNC_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CNC_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CNC_Modify_DT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CNC_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CNC_Ver" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CNC_Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CNC_Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="vCNC_Alarm_Log">
           <Key>
@@ -2383,28 +2481,35 @@
           <Property Name="CNC_ALARM_DT" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CNC_OperationNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="vCNC_Monitor">
+        <EntityType Name="vKnifeList">
           <Key>
-            <PropertyRef Name="CNC_IP" />
-            <PropertyRef Name="CNC_Model" />
-            <PropertyRef Name="CNC_Ver" />
-            <PropertyRef Name="CNC_Current_ProductionAmount" />
-            <PropertyRef Name="CNC_Current_Status" />
-            <PropertyRef Name="Create_DT" />
+            <PropertyRef Name="KnifeList_ID" />
+            <PropertyRef Name="WorkStation_No" />
+            <PropertyRef Name="Model_ID" />
+            <PropertyRef Name="KnifeList_Create_DT" />
+            <PropertyRef Name="KnifeList_Create_ID" />
+            <PropertyRef Name="KnifeList_Modify_DT" />
+            <PropertyRef Name="Model_Name" />
+            <PropertyRef Name="Good_Name" />
           </Key>
-          <Property Name="CNC_IP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CNC_Model" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CNC_Ver" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CNC_Current_ProductionAmount" Type="Int64" Nullable="false" />
-          <Property Name="CNC_Current_Status" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="CNC_Current_StatusDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Create_DT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KnifeList_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WorkStation_No" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Model_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Good_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KnifeList_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="KnifeList_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KnifeList_Modify_DT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="KnifeList_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Model_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Good_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KnifeList_Create_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KnifeList_Modify_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <Association Name="FK_CNC_ALARM_Log_CNCMonitor">
-          <End Type="ToolManagementModel.CNCMonitor" Role="CNCMonitor" Multiplicity="1" />
+        <Association Name="FK_CNC_ALARM_Log_CNC">
+          <End Type="ToolManagementModel.CNC" Role="CNC" Multiplicity="1" />
           <End Type="ToolManagementModel.CNC_ALARM_Log" Role="CNC_ALARM_Log" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="CNCMonitor">
+            <Principal Role="CNC">
               <PropertyRef Name="CNC_IP" />
             </Principal>
             <Dependent Role="CNC_ALARM_Log">
@@ -2412,14 +2517,62 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CNC_ATCTL_Log_CNCMonitor">
-          <End Type="ToolManagementModel.CNCMonitor" Role="CNCMonitor" Multiplicity="1" />
+        <Association Name="FK_CNC_ATCTL_Log_CNC">
+          <End Type="ToolManagementModel.CNC" Role="CNC" Multiplicity="1" />
           <End Type="ToolManagementModel.CNC_ATCTL_Log" Role="CNC_ATCTL_Log" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="CNCMonitor">
+            <Principal Role="CNC">
               <PropertyRef Name="CNC_IP" />
             </Principal>
             <Dependent Role="CNC_ATCTL_Log">
+              <PropertyRef Name="CNC_IP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CNC_PRD3_Log_CNC">
+          <End Type="ToolManagementModel.CNC" Role="CNC" Multiplicity="1" />
+          <End Type="ToolManagementModel.CNC_PRD3_Log" Role="CNC_PRD3_Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CNC">
+              <PropertyRef Name="CNC_IP" />
+            </Principal>
+            <Dependent Role="CNC_PRD3_Log">
+              <PropertyRef Name="CNC_IP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CNC_Ver_Log_CNC">
+          <End Type="ToolManagementModel.CNC" Role="CNC" Multiplicity="1" />
+          <End Type="ToolManagementModel.CNC_Ver_Log" Role="CNC_Ver_Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CNC">
+              <PropertyRef Name="CNC_IP" />
+            </Principal>
+            <Dependent Role="CNC_Ver_Log">
+              <PropertyRef Name="CNC_IP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CNC_WKCNTR_Log_CNC">
+          <End Type="ToolManagementModel.CNC" Role="CNC" Multiplicity="1" />
+          <End Type="ToolManagementModel.CNC_WKCNTR_Log" Role="CNC_WKCNTR_Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CNC">
+              <PropertyRef Name="CNC_IP" />
+            </Principal>
+            <Dependent Role="CNC_WKCNTR_Log">
+              <PropertyRef Name="CNC_IP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CNCKnifeList_CNC">
+          <End Type="ToolManagementModel.CNC" Role="CNC" Multiplicity="1" />
+          <End Type="ToolManagementModel.CNCKnifeList" Role="CNCKnifeList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CNC">
+              <PropertyRef Name="CNC_IP" />
+            </Principal>
+            <Dependent Role="CNCKnifeList">
               <PropertyRef Name="CNC_IP" />
             </Dependent>
           </ReferentialConstraint>
@@ -2433,66 +2586,6 @@
             </Principal>
             <Dependent Role="CNC_ATCTL_Log">
               <PropertyRef Name="KnifeDetail_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CNC_PRD3_Log_CNCMonitor">
-          <End Type="ToolManagementModel.CNCMonitor" Role="CNCMonitor" Multiplicity="1" />
-          <End Type="ToolManagementModel.CNC_PRD3_Log" Role="CNC_PRD3_Log" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CNCMonitor">
-              <PropertyRef Name="CNC_IP" />
-            </Principal>
-            <Dependent Role="CNC_PRD3_Log">
-              <PropertyRef Name="CNC_IP" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CNC_Ver_Log_CNCMonitor">
-          <End Type="ToolManagementModel.CNCMonitor" Role="CNCMonitor" Multiplicity="1" />
-          <End Type="ToolManagementModel.CNC_Ver_Log" Role="CNC_Ver_Log" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CNCMonitor">
-              <PropertyRef Name="CNC_IP" />
-            </Principal>
-            <Dependent Role="CNC_Ver_Log">
-              <PropertyRef Name="CNC_IP" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CNC_WKCNTR_Log_CNCMonitor">
-          <End Type="ToolManagementModel.CNCMonitor" Role="CNCMonitor" Multiplicity="1" />
-          <End Type="ToolManagementModel.CNC_WKCNTR_Log" Role="CNC_WKCNTR_Log" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CNCMonitor">
-              <PropertyRef Name="CNC_IP" />
-            </Principal>
-            <Dependent Role="CNC_WKCNTR_Log">
-              <PropertyRef Name="CNC_IP" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CNCDetail_CNCMaster">
-          <End Type="ToolManagementModel.CNCMaster" Role="CNCMaster" Multiplicity="1" />
-          <End Type="ToolManagementModel.CNCDetail" Role="CNCDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CNCMaster">
-              <PropertyRef Name="CNCMaster_ID" />
-            </Principal>
-            <Dependent Role="CNCDetail">
-              <PropertyRef Name="CNCMaster_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CNCList_CNCDetail">
-          <End Type="ToolManagementModel.CNCDetail" Role="CNCDetail" Multiplicity="1" />
-          <End Type="ToolManagementModel.CNCKnifeList" Role="CNCKnifeList" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CNCDetail">
-              <PropertyRef Name="CNCDetail_ID" />
-            </Principal>
-            <Dependent Role="CNCKnifeList">
-              <PropertyRef Name="CNCDetail_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2616,6 +2709,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_KnifeOutFrom_Employe">
+          <End Type="ToolManagementModel.Employe" Role="Employe" Multiplicity="1" />
+          <End Type="ToolManagementModel.BatchOutFrom" Role="BatchOutFrom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employe">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="BatchOutFrom">
+              <PropertyRef Name="BatchOut_Emp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_OutFrom_Employe">
           <End Type="ToolManagementModel.Employe" Role="Employe" Multiplicity="1" />
           <End Type="ToolManagementModel.OutFrom" Role="OutFrom" Multiplicity="*" />
@@ -2661,42 +2766,6 @@
             </Principal>
             <Dependent Role="KnifeList">
               <PropertyRef Name="ExtRodDetail_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_HiltDetail_HiltMaster1">
-          <End Type="ToolManagementModel.HiltMaster" Role="HiltMaster" Multiplicity="1" />
-          <End Type="ToolManagementModel.HiltDetail" Role="HiltDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HiltMaster">
-              <PropertyRef Name="HiltMaster_ID" />
-            </Principal>
-            <Dependent Role="HiltDetail">
-              <PropertyRef Name="HiltMaster_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_StockDetail_HiltDetail">
-          <End Type="ToolManagementModel.HiltDetail" Role="HiltDetail" Multiplicity="1" />
-          <End Type="ToolManagementModel.StockDetail" Role="StockDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HiltDetail">
-              <PropertyRef Name="HiltDetail_ID" />
-            </Principal>
-            <Dependent Role="StockDetail">
-              <PropertyRef Name="Detail_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_WorkStationKnifeList_HiltDetail">
-          <End Type="ToolManagementModel.HiltDetail" Role="HiltDetail" Multiplicity="1" />
-          <End Type="ToolManagementModel.KnifeList" Role="KnifeList" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HiltDetail">
-              <PropertyRef Name="HiltDetail_ID" />
-            </Principal>
-            <Dependent Role="KnifeList">
-              <PropertyRef Name="HiltDetail_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2765,7 +2834,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_WorkStationKnifeList_KnifeDetail">
-          <End Type="ToolManagementModel.KnifeDetail" Role="KnifeDetail" Multiplicity="1" />
+          <End Type="ToolManagementModel.KnifeDetail" Role="KnifeDetail" Multiplicity="0..1" />
           <End Type="ToolManagementModel.KnifeList" Role="KnifeList" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="KnifeDetail">
@@ -2789,7 +2858,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_KnifeList_NailDetail">
-          <End Type="ToolManagementModel.NailDetail" Role="NailDetail" Multiplicity="1" />
+          <End Type="ToolManagementModel.NailDetail" Role="NailDetail" Multiplicity="0..1" />
           <End Type="ToolManagementModel.KnifeList" Role="KnifeList" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NailDetail">
@@ -2912,7 +2981,94 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        <EntityType Name="HiltDetail">
+          <Key>
+            <PropertyRef Name="HiltDetail_ID" />
+          </Key>
+          <Property Name="HiltDetail_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HiltMaster_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HiltDetail_Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsNewHilt" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="NewEnter_DT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="HiltDetail_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="HiltDetail_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HiltDetail_Modify_DT" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="HiltDetail_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="HiltMaster" Relationship="ToolManagementModel.FK_HiltDetail_HiltMaster1" FromRole="HiltDetail" ToRole="HiltMaster" />
+          <NavigationProperty Name="StockDetails" Relationship="ToolManagementModel.FK_StockDetail_HiltDetail" FromRole="HiltDetail" ToRole="StockDetail" />
+          <NavigationProperty Name="KnifeLists" Relationship="ToolManagementModel.FK_WorkStationKnifeList_HiltDetail" FromRole="HiltDetail" ToRole="KnifeList" />
+        </EntityType>
+        <EntityType Name="HiltMaster">
+          <Key>
+            <PropertyRef Name="HiltMaster_ID" />
+          </Key>
+          <Property Name="HiltMaster_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Hilt_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Hilt_Brand" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Hilt_Spec" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Hilt_CabinID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Hilt_Quality" Type="Int64" Nullable="false" />
+          <Property Name="HiltMaster_Create_DT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="HiltMaster_Create_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HiltMaster_Modify_DT" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="HiltMaster_Modify_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="HiltDetails" Relationship="ToolManagementModel.FK_HiltDetail_HiltMaster1" FromRole="HiltMaster" ToRole="HiltDetail" />
+        </EntityType>
+        <Association Name="FK_HiltDetail_HiltMaster1">
+          <End Type="ToolManagementModel.HiltMaster" Role="HiltMaster" Multiplicity="1" />
+          <End Type="ToolManagementModel.HiltDetail" Role="HiltDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HiltMaster">
+              <PropertyRef Name="HiltMaster_ID" />
+            </Principal>
+            <Dependent Role="HiltDetail">
+              <PropertyRef Name="HiltMaster_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StockDetail_HiltDetail">
+          <End Type="ToolManagementModel.HiltDetail" Role="HiltDetail" Multiplicity="1" />
+          <End Type="ToolManagementModel.StockDetail" Role="StockDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HiltDetail">
+              <PropertyRef Name="HiltDetail_ID" />
+            </Principal>
+            <Dependent Role="StockDetail">
+              <PropertyRef Name="Detail_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkStationKnifeList_HiltDetail">
+          <End Type="ToolManagementModel.HiltDetail" Role="HiltDetail" Multiplicity="0..1" />
+          <End Type="ToolManagementModel.KnifeList" Role="KnifeList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HiltDetail">
+              <PropertyRef Name="HiltDetail_ID" />
+            </Principal>
+            <Dependent Role="KnifeList">
+              <PropertyRef Name="HiltDetail_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="vCNC_Monitor">
+          <Key>
+            <PropertyRef Name="CNC_Current_Status" />
+            <PropertyRef Name="CNC_Name" />
+            <PropertyRef Name="CNC_ID" />
+            <PropertyRef Name="CNC_Brand" />
+          </Key>
+          <Property Name="CNC_Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CNC_Ver" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CNC_Current_ProductionAmount" Type="Int64" />
+          <Property Name="CNC_Current_Status" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CNC_Current_StatusDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Create_DT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CNC_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CNC_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CNC_Brand" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CNC_IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -2952,6 +3108,20 @@
                 <ScalarProperty Name="Cabin_Location" ColumnName="Cabin_Location" />
                 <ScalarProperty Name="Cabin_Type" ColumnName="Cabin_Type" />
                 <ScalarProperty Name="Cabin_ID" ColumnName="Cabin_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CNCs">
+            <EntityTypeMapping TypeName="ToolManagementModel.CNC">
+              <MappingFragment StoreEntitySet="CNC">
+                <ScalarProperty Name="CNC_Modify_ID" ColumnName="CNC_Modify_ID" />
+                <ScalarProperty Name="CNC_Modify_DT" ColumnName="CNC_Modify_DT" />
+                <ScalarProperty Name="CNC_Create_ID" ColumnName="CNC_Create_ID" />
+                <ScalarProperty Name="CNC_Create_DT" ColumnName="CNC_Create_DT" />
+                <ScalarProperty Name="CNC_Brand" ColumnName="CNC_Brand" />
+                <ScalarProperty Name="CNC_Name" ColumnName="CNC_Name" />
+                <ScalarProperty Name="CNC_ID" ColumnName="CNC_ID" />
+                <ScalarProperty Name="CNC_IP" ColumnName="CNC_IP" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3080,21 +3250,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CNCDetails">
-            <EntityTypeMapping TypeName="ToolManagementModel.CNCDetail">
-              <MappingFragment StoreEntitySet="CNCDetail">
-                <ScalarProperty Name="CNCDetail_Modify_ID" ColumnName="CNCDetail_Modify_ID" />
-                <ScalarProperty Name="CNCDetail_Modify_DT" ColumnName="CNCDetail_Modify_DT" />
-                <ScalarProperty Name="CNCDetail_Create_ID" ColumnName="CNCDetail_Create_ID" />
-                <ScalarProperty Name="CNCDetail_Create_DT" ColumnName="CNCDetail_Create_DT" />
-                <ScalarProperty Name="CNCDetail_Status" ColumnName="CNCDetail_Status" />
-                <ScalarProperty Name="CNCDetail_Version" ColumnName="CNCDetail_Version" />
-                <ScalarProperty Name="CNCDetail_IP" ColumnName="CNCDetail_IP" />
-                <ScalarProperty Name="CNCMaster_ID" ColumnName="CNCMaster_ID" />
-                <ScalarProperty Name="CNCDetail_ID" ColumnName="CNCDetail_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="CNCKnifeLists">
             <EntityTypeMapping TypeName="ToolManagementModel.CNCKnifeList">
               <MappingFragment StoreEntitySet="CNCKnifeList">
@@ -3107,14 +3262,14 @@
                 <ScalarProperty Name="Line_No" ColumnName="Line_No" />
                 <ScalarProperty Name="Good_ID" ColumnName="Good_ID" />
                 <ScalarProperty Name="Car_No" ColumnName="Car_No" />
-                <ScalarProperty Name="CNCDetail_ID" ColumnName="CNCDetail_ID" />
+                <ScalarProperty Name="CNC_IP" ColumnName="CNC_IP" />
                 <ScalarProperty Name="CNCKnifeList_ID" ColumnName="CNCKnifeList_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CNCMasters">
-            <EntityTypeMapping TypeName="ToolManagementModel.CNCMaster">
-              <MappingFragment StoreEntitySet="CNCMaster">
+          <EntitySetMapping Name="CNCMaster_Remove">
+            <EntityTypeMapping TypeName="ToolManagementModel.CNCMaster_Remove">
+              <MappingFragment StoreEntitySet="CNCMaster_Remove">
                 <ScalarProperty Name="CNCMaster_Modify_ID" ColumnName="CNCMaster_Modify_ID" />
                 <ScalarProperty Name="CNCMaster_Modify_DT" ColumnName="CNCMaster_Modify_DT" />
                 <ScalarProperty Name="CNCMaster_Create_ID" ColumnName="CNCMaster_Create_ID" />
@@ -3123,26 +3278,6 @@
                 <ScalarProperty Name="CNC_Brand" ColumnName="CNC_Brand" />
                 <ScalarProperty Name="CNC_Name" ColumnName="CNC_Name" />
                 <ScalarProperty Name="CNCMaster_ID" ColumnName="CNCMaster_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CNCMonitors">
-            <EntityTypeMapping TypeName="ToolManagementModel.CNCMonitor">
-              <MappingFragment StoreEntitySet="CNCMonitor">
-                <ScalarProperty Name="CNC_End_ProductionAmount" ColumnName="CNC_End_ProductionAmount" />
-                <ScalarProperty Name="CNC_Alert_ProductionAmount" ColumnName="CNC_Alert_ProductionAmount" />
-                <ScalarProperty Name="CNC_Model" ColumnName="CNC_Model" />
-                <ScalarProperty Name="CNC_Ver" ColumnName="CNC_Ver" />
-                <ScalarProperty Name="CNC_StopTime" ColumnName="CNC_StopTime" />
-                <ScalarProperty Name="CNC_ErrTime" ColumnName="CNC_ErrTime" />
-                <ScalarProperty Name="CNC_CloseTime" ColumnName="CNC_CloseTime" />
-                <ScalarProperty Name="CNC_StayTime" ColumnName="CNC_StayTime" />
-                <ScalarProperty Name="CNC_RunTime" ColumnName="CNC_RunTime" />
-                <ScalarProperty Name="CNC_Current_ProductionAmount" ColumnName="CNC_Current_ProductionAmount" />
-                <ScalarProperty Name="CNC_Status" ColumnName="CNC_Status" />
-                <ScalarProperty Name="CNCDetail_ID" ColumnName="CNCDetail_ID" />
-                <ScalarProperty Name="Create_DT" ColumnName="Create_DT" />
-                <ScalarProperty Name="CNC_IP" ColumnName="CNC_IP" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3258,36 +3393,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="HiltDetails">
-            <EntityTypeMapping TypeName="ToolManagementModel.HiltDetail">
-              <MappingFragment StoreEntitySet="HiltDetail">
-                <ScalarProperty Name="HiltDetail_Modify_ID" ColumnName="HiltDetail_Modify_ID" />
-                <ScalarProperty Name="HiltDetail_Modify_DT" ColumnName="HiltDetail_Modify_DT" />
-                <ScalarProperty Name="HiltDetail_Create_ID" ColumnName="HiltDetail_Create_ID" />
-                <ScalarProperty Name="HiltDetail_Create_DT" ColumnName="HiltDetail_Create_DT" />
-                <ScalarProperty Name="HiltCabine_ID" ColumnName="HiltCabine_ID" />
-                <ScalarProperty Name="HiltDetail_Status" ColumnName="HiltDetail_Status" />
-                <ScalarProperty Name="HiltMaster_ID" ColumnName="HiltMaster_ID" />
-                <ScalarProperty Name="HiltDetail_ID" ColumnName="HiltDetail_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="HiltMasters">
-            <EntityTypeMapping TypeName="ToolManagementModel.HiltMaster">
-              <MappingFragment StoreEntitySet="HiltMaster">
-                <ScalarProperty Name="HiltMaster_Modify_ID" ColumnName="HiltMaster_Modify_ID" />
-                <ScalarProperty Name="HiltMaster_Modify_DT" ColumnName="HiltMaster_Modify_DT" />
-                <ScalarProperty Name="HiltMaster_Create_ID" ColumnName="HiltMaster_Create_ID" />
-                <ScalarProperty Name="HiltMaster_Create_DT" ColumnName="HiltMaster_Create_DT" />
-                <ScalarProperty Name="Hilt_Quality" ColumnName="Hilt_Quality" />
-                <ScalarProperty Name="Hilt_CabineID" ColumnName="Hilt_CabineID" />
-                <ScalarProperty Name="Hilt_Spec" ColumnName="Hilt_Spec" />
-                <ScalarProperty Name="Hilt_Brand" ColumnName="Hilt_Brand" />
-                <ScalarProperty Name="Hilt_Name" ColumnName="Hilt_Name" />
-                <ScalarProperty Name="HiltMaster_ID" ColumnName="HiltMaster_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Informs">
             <EntityTypeMapping TypeName="ToolManagementModel.Inform">
               <MappingFragment StoreEntitySet="Inform">
@@ -3366,6 +3471,7 @@
                 <ScalarProperty Name="NailDetail_ID" ColumnName="NailDetail_ID" />
                 <ScalarProperty Name="HiltDetail_ID" ColumnName="HiltDetail_ID" />
                 <ScalarProperty Name="KnifeDetail_ID" ColumnName="KnifeDetail_ID" />
+                <ScalarProperty Name="Good_ID" ColumnName="Good_ID" />
                 <ScalarProperty Name="Model_ID" ColumnName="Model_ID" />
                 <ScalarProperty Name="WorkStation_No" ColumnName="WorkStation_No" />
                 <ScalarProperty Name="ATC_ID" ColumnName="ATC_ID" />
@@ -3376,6 +3482,8 @@
           <EntitySetMapping Name="KnifeMasters">
             <EntityTypeMapping TypeName="ToolManagementModel.KnifeMaster">
               <MappingFragment StoreEntitySet="KnifeMaster">
+                <ScalarProperty Name="Knife_Model" ColumnName="Knife_Model" />
+                <ScalarProperty Name="Knife_Kind" ColumnName="Knife_Kind" />
                 <ScalarProperty Name="KnifeMaster_Modify_ID" ColumnName="KnifeMaster_Modify_ID" />
                 <ScalarProperty Name="KnifeMaster_Modify_DT" ColumnName="KnifeMaster_Modify_DT" />
                 <ScalarProperty Name="KnifeMaster_Create_ID" ColumnName="KnifeMaster_Create_ID" />
@@ -3561,6 +3669,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="BatchOutFroms">
+            <EntityTypeMapping TypeName="ToolManagementModel.BatchOutFrom">
+              <MappingFragment StoreEntitySet="BatchOutFrom">
+                <ScalarProperty Name="BatchOutForm_Modify_ID" ColumnName="BatchOutForm_Modify_ID" />
+                <ScalarProperty Name="BatchOutForm_Modify_DT" ColumnName="BatchOutForm_Modify_DT" />
+                <ScalarProperty Name="BatchOutForm_Create_ID" ColumnName="BatchOutForm_Create_ID" />
+                <ScalarProperty Name="BatchOutForm_Create_DT" ColumnName="BatchOutForm_Create_DT" />
+                <ScalarProperty Name="BatchConfirm_EmpID" ColumnName="BatchConfirm_EmpID" />
+                <ScalarProperty Name="BatchOut_Emp_ID" ColumnName="BatchOut_Emp_ID" />
+                <ScalarProperty Name="KnifeDetail_ID" ColumnName="KnifeDetail_ID" />
+                <ScalarProperty Name="BtachOut_DT" ColumnName="BtachOut_DT" />
+                <ScalarProperty Name="BatchOutForm_ID" ColumnName="BatchOutForm_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="v_Kind">
             <EntityTypeMapping TypeName="ToolManagementModel.v_Kind">
               <MappingFragment StoreEntitySet="v_Kind">
@@ -3568,6 +3691,23 @@
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Kind" ColumnName="Kind" />
                 <ScalarProperty Name="SNo" ColumnName="SNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vCNCs">
+            <EntityTypeMapping TypeName="ToolManagementModel.vCNC">
+              <MappingFragment StoreEntitySet="vCNC">
+                <ScalarProperty Name="CNC_Status" ColumnName="CNC_Status" />
+                <ScalarProperty Name="CNC_Model" ColumnName="CNC_Model" />
+                <ScalarProperty Name="CNC_Ver" ColumnName="CNC_Ver" />
+                <ScalarProperty Name="CNC_Modify_ID" ColumnName="CNC_Modify_ID" />
+                <ScalarProperty Name="CNC_Modify_DT" ColumnName="CNC_Modify_DT" />
+                <ScalarProperty Name="CNC_Create_ID" ColumnName="CNC_Create_ID" />
+                <ScalarProperty Name="CNC_Create_DT" ColumnName="CNC_Create_DT" />
+                <ScalarProperty Name="CNC_IP" ColumnName="CNC_IP" />
+                <ScalarProperty Name="CNC_Brand" ColumnName="CNC_Brand" />
+                <ScalarProperty Name="CNC_Name" ColumnName="CNC_Name" />
+                <ScalarProperty Name="CNC_ID" ColumnName="CNC_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3584,20 +3724,72 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="vKnifeLists">
+            <EntityTypeMapping TypeName="ToolManagementModel.vKnifeList">
+              <MappingFragment StoreEntitySet="vKnifeList">
+                <ScalarProperty Name="KnifeList_Modify_Name" ColumnName="KnifeList_Modify_Name" />
+                <ScalarProperty Name="KnifeList_Create_Name" ColumnName="KnifeList_Create_Name" />
+                <ScalarProperty Name="Good_Name" ColumnName="Good_Name" />
+                <ScalarProperty Name="Model_Name" ColumnName="Model_Name" />
+                <ScalarProperty Name="KnifeList_Modify_ID" ColumnName="KnifeList_Modify_ID" />
+                <ScalarProperty Name="KnifeList_Modify_DT" ColumnName="KnifeList_Modify_DT" />
+                <ScalarProperty Name="KnifeList_Create_ID" ColumnName="KnifeList_Create_ID" />
+                <ScalarProperty Name="KnifeList_Create_DT" ColumnName="KnifeList_Create_DT" />
+                <ScalarProperty Name="Good_ID" ColumnName="Good_ID" />
+                <ScalarProperty Name="Model_ID" ColumnName="Model_ID" />
+                <ScalarProperty Name="WorkStation_No" ColumnName="WorkStation_No" />
+                <ScalarProperty Name="KnifeList_ID" ColumnName="KnifeList_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HiltDetails">
+            <EntityTypeMapping TypeName="ToolManagementModel.HiltDetail">
+              <MappingFragment StoreEntitySet="HiltDetail">
+                <ScalarProperty Name="HiltDetail_Modify_ID" ColumnName="HiltDetail_Modify_ID" />
+                <ScalarProperty Name="HiltDetail_Modify_DT" ColumnName="HiltDetail_Modify_DT" />
+                <ScalarProperty Name="HiltDetail_Create_ID" ColumnName="HiltDetail_Create_ID" />
+                <ScalarProperty Name="HiltDetail_Create_DT" ColumnName="HiltDetail_Create_DT" />
+                <ScalarProperty Name="NewEnter_DT" ColumnName="NewEnter_DT" />
+                <ScalarProperty Name="IsNewHilt" ColumnName="IsNewHilt" />
+                <ScalarProperty Name="HiltDetail_Status" ColumnName="HiltDetail_Status" />
+                <ScalarProperty Name="HiltMaster_ID" ColumnName="HiltMaster_ID" />
+                <ScalarProperty Name="HiltDetail_ID" ColumnName="HiltDetail_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HiltMasters">
+            <EntityTypeMapping TypeName="ToolManagementModel.HiltMaster">
+              <MappingFragment StoreEntitySet="HiltMaster">
+                <ScalarProperty Name="HiltMaster_Modify_ID" ColumnName="HiltMaster_Modify_ID" />
+                <ScalarProperty Name="HiltMaster_Modify_DT" ColumnName="HiltMaster_Modify_DT" />
+                <ScalarProperty Name="HiltMaster_Create_ID" ColumnName="HiltMaster_Create_ID" />
+                <ScalarProperty Name="HiltMaster_Create_DT" ColumnName="HiltMaster_Create_DT" />
+                <ScalarProperty Name="Hilt_Quality" ColumnName="Hilt_Quality" />
+                <ScalarProperty Name="Hilt_CabinID" ColumnName="Hilt_CabinID" />
+                <ScalarProperty Name="Hilt_Spec" ColumnName="Hilt_Spec" />
+                <ScalarProperty Name="Hilt_Brand" ColumnName="Hilt_Brand" />
+                <ScalarProperty Name="Hilt_Name" ColumnName="Hilt_Name" />
+                <ScalarProperty Name="HiltMaster_ID" ColumnName="HiltMaster_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="vCNC_Monitor">
             <EntityTypeMapping TypeName="ToolManagementModel.vCNC_Monitor">
               <MappingFragment StoreEntitySet="vCNC_Monitor">
+                <ScalarProperty Name="CNC_IP" ColumnName="CNC_IP" />
+                <ScalarProperty Name="CNC_Brand" ColumnName="CNC_Brand" />
+                <ScalarProperty Name="CNC_ID" ColumnName="CNC_ID" />
+                <ScalarProperty Name="CNC_Name" ColumnName="CNC_Name" />
                 <ScalarProperty Name="Create_DT" ColumnName="Create_DT" />
                 <ScalarProperty Name="CNC_Current_StatusDT" ColumnName="CNC_Current_StatusDT" />
                 <ScalarProperty Name="CNC_Current_Status" ColumnName="CNC_Current_Status" />
                 <ScalarProperty Name="CNC_Current_ProductionAmount" ColumnName="CNC_Current_ProductionAmount" />
                 <ScalarProperty Name="CNC_Ver" ColumnName="CNC_Ver" />
                 <ScalarProperty Name="CNC_Model" ColumnName="CNC_Model" />
-                <ScalarProperty Name="CNC_IP" ColumnName="CNC_IP" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

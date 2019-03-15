@@ -52,19 +52,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BatchOutFrom.cs">
+      <DependentUpon>Tool_Management.tt</DependentUpon>
+    </Compile>
     <Compile Include="Cabin.cs">
       <DependentUpon>Tool_Management.tt</DependentUpon>
     </Compile>
-    <Compile Include="CNCDetail.cs">
+    <Compile Include="CNC.cs">
       <DependentUpon>Tool_Management.tt</DependentUpon>
     </Compile>
     <Compile Include="CNCKnifeList.cs">
       <DependentUpon>Tool_Management.tt</DependentUpon>
     </Compile>
-    <Compile Include="CNCMaster.cs">
-      <DependentUpon>Tool_Management.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CNCMonitor.cs">
+    <Compile Include="CNCMaster_Remove.cs">
       <DependentUpon>Tool_Management.tt</DependentUpon>
     </Compile>
     <Compile Include="CNC_Alarm_Code_Mapping.cs">
@@ -194,10 +194,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Tool_Management.edmx</DependentUpon>
     </Compile>
+    <Compile Include="vCNC.cs">
+      <DependentUpon>Tool_Management.tt</DependentUpon>
+    </Compile>
     <Compile Include="vCNC_Alarm_Log.cs">
       <DependentUpon>Tool_Management.tt</DependentUpon>
     </Compile>
     <Compile Include="vCNC_Monitor.cs">
+      <DependentUpon>Tool_Management.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vKnifeList.cs">
       <DependentUpon>Tool_Management.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Kind.cs">

@@ -1,11 +1,11 @@
 ﻿@using Kendo.Mvc.UI;
 @model Tool_Management.Service.ViewModels.vKindViewModel
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "其他";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
+<!-- Load Pako ZLIB library to enable PDF compression -->
+<script src="~/Scripts/pako.min.js"></script>
 
 <div class="main">
     <div class="block">
@@ -21,8 +21,8 @@
 
             <div class="block">
                 <div class="row">
-                    @Html.LabelFor(m => m.Kind, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-2">
+                    @Html.LabelFor(m => m.Kind, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-4">
                         @(Html.Kendo().DropDownList()
           .Name("Kind")
           .DataTextField("Text")
@@ -34,11 +34,47 @@
               },
               new SelectListItem() {
                   Text = "機種",
-                  Value = "Model"
+                  Value = "機種"
               },
               new SelectListItem() {
                   Text = "人員",
-                  Value = "Employe"
+                  Value = "人員"
+              },
+              new SelectListItem() {
+                  Text = "品名",
+                  Value = "品名"
+              },
+                 new SelectListItem() {
+                  Text = "刀具",
+                  Value = "刀具"
+              },
+                                  new SelectListItem() {
+                  Text = "刀把",
+                  Value = "刀把"
+              },
+                                                   new SelectListItem() {
+                  Text = "拉丁",
+                  Value = "拉丁"
+              },
+                                                                    new SelectListItem() {
+                  Text = "機上量測",
+                  Value = "機上量測"
+              },
+                 new SelectListItem() {
+                  Text = "延長桿",
+                  Value = "延長桿"
+              },
+                 new SelectListItem() {
+                  Text = "筒夾1",
+                  Value = "筒夾1"
+              },
+                                  new SelectListItem() {
+                  Text = "筒夾2",
+                  Value = "筒夾2"
+              },
+                 new SelectListItem() {
+                  Text = "螺帽/刀頭",
+                  Value = "螺帽/刀頭"
               }
           })
           .Value("")
@@ -68,9 +104,8 @@
             Use the DejaVu Sans font for display and embedding in the PDF file.
             The standard PDF fonts have no support for Unicode characters.
         */
-
         .k-grid {
-            font-family: "DejaVu Sans";
+            font-family: "kaiu";
         }
 
         /* Hide the Grid header and pager during export */
@@ -98,8 +133,8 @@
 
                 <section class="section-grid">
                     @(Html.Kendo().Grid<Tool_Management.Service.ViewModels.vKindViewModel>()
-                        .Name("grid")
-                        .ToolBar(tools => tools.Pdf())
+            .Name("grid")
+            .ToolBar(tools => tools.Pdf().Text("PDF匯出"))
                         .Pdf(pdf => pdf.AllPages()
                                                      .AvoidLinks()
                                                      .PaperSize("A4")
@@ -107,7 +142,7 @@
                                                      .Margin("2cm", "1cm", "1cm", "1cm")
                                                      .Landscape()
                                                     .RepeatHeaders()
-                                                    .TemplateId("page-template")
+                                                    //.TemplateId("page-template")
                                                     .FileName("QrCodeExport.pdf")
                                                     .ProxyURL(Url.Action("Pdf_Export_Save", "QrCodeExport"))
                         )
@@ -116,16 +151,20 @@
                         columns.Bound(c => c.Kind)
                         .HtmlAttributes(new { @class = "gridCell-center" });
                         columns.Bound(c => c.ID)
-                        .HtmlAttributes(new { @class = "gridCell-center" });
+                    .HtmlAttributes(new { @class = "gridCell-center" });
                         columns.Bound(c => c.Name)
                         .HtmlAttributes(new { @class = "gridCell-center" });
                         columns.Template(@<text>                            
                            </text> )
                                     .Width(150)
                                     .HtmlAttributes(new { @class = "gridCell-center" })
-                                    .ClientTemplate("<img src='http://chart.apis.google.com/chart?cht=qr&chl=" + "#: ID #" + "&chs=120x120'/>")
-                                    //.ClientTemplate("<div id=#:ID#></div><img  src='/Content/images/space.PNG'  width='0' height='0' onload=someFuntion('#:ID#')" + ">")
-                        
+                             //for google api
+                             .ClientTemplate("<img src='http://chart.apis.google.com/chart?cht=qr&chl=" + "#: ID #" + "&chs=120x120'/>")
+                             //for CN api
+                             //.ClientTemplate("<img src='http://qr.liantu.com/api.php?text=" + "#: ID #" + "'/>")
+                             //for jquery                         
+                             //.ClientTemplate("<div id=#:ID#></div><img  src='/Content/images/space.PNG'  width='0' height='0' onload=someFuntion('#:ID#')" + ">")
+
 
 
                              .Title("二維碼");

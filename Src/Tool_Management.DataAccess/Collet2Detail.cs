@@ -25,9 +25,9 @@ namespace Tool_Management.DataAccess
         public string Collet2Master_ID { get; set; }
         public string Collet2Detail_Status { get; set; }
         public string Collet2Detail_Create_ID { get; set; }
-        public Nullable<System.DateTime> Collet2Detail_Create_DT { get; set; }
+        public System.DateTime Collet2Detail_Create_DT { get; set; }
         public string Collet2Detail_Modify_ID { get; set; }
-        public Nullable<System.DateTime> Collet2Detail_Modify_DT { get; set; }
+        public System.DateTime Collet2Detail_Modify_DT { get; set; }
     
         public virtual Collet2Master Collet2Master { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

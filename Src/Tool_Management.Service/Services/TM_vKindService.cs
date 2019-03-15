@@ -19,10 +19,10 @@ namespace Tool_Management.Service.Services
 
         public DataSourceResult GridSearch(DataSourceRequest request)
         {
+
             var result = (from c in _db.v_Kind
                           select new vKindViewModel
                           {
-                             
                               Kind = c.Kind,
                               ID = c.ID,
                               Name = c.Name
@@ -30,6 +30,8 @@ namespace Tool_Management.Service.Services
 
             return result;
         }
+
+
 
     }
 }

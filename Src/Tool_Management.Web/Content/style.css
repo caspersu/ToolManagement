@@ -103,3 +103,8 @@ body {
 	height: 10px;
 	/*background: #BFF08E;*/
 }
+
+@font-face {
+    font-family: 'kaiu';
+    src: url('kendo/2019.1.220/fonts/DejaVu/kaiu.ttf') format('truetype');
+}

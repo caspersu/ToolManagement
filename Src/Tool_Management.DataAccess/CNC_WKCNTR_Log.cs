@@ -21,6 +21,6 @@ namespace Tool_Management.DataAccess
         public Nullable<long> CNC_End_ProductionAmount { get; set; }
         public Nullable<long> CNC_Alert_ProductionAmount { get; set; }
     
-        public virtual CNCMonitor CNCMonitor { get; set; }
+        public virtual CNC CNC { get; set; }
     }
 }

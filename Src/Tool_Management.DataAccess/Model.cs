@@ -24,7 +24,7 @@ namespace Tool_Management.DataAccess
         public string Model_Name { get; set; }
         public System.DateTime Model_Create_DT { get; set; }
         public string Model_Create_ID { get; set; }
-        public Nullable<System.DateTime> Model_Modify_DT { get; set; }
+        public System.DateTime Model_Modify_DT { get; set; }
         public string Model_Modify_ID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

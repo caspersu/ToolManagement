@@ -14,12 +14,15 @@ namespace Tool_Management.DataAccess
     
     public partial class vCNC_Monitor
     {
-        public string CNC_IP { get; set; }
         public string CNC_Model { get; set; }
         public string CNC_Ver { get; set; }
-        public long CNC_Current_ProductionAmount { get; set; }
+        public Nullable<long> CNC_Current_ProductionAmount { get; set; }
         public string CNC_Current_Status { get; set; }
         public string CNC_Current_StatusDT { get; set; }
         public string Create_DT { get; set; }
+        public string CNC_Name { get; set; }
+        public string CNC_ID { get; set; }
+        public string CNC_Brand { get; set; }
+        public string CNC_IP { get; set; }
     }
 }

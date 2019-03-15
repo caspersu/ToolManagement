@@ -24,7 +24,7 @@ namespace Tool_Management.DataAccess
         public string Good_Name { get; set; }
         public System.DateTime Good_Create_DT { get; set; }
         public string Good_Create_ID { get; set; }
-        public Nullable<System.DateTime> Good_Modify_DT { get; set; }
+        public System.DateTime Good_Modify_DT { get; set; }
         public string Good_Modify_ID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

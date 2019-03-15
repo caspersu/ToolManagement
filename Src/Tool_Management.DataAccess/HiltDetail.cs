@@ -24,10 +24,11 @@ namespace Tool_Management.DataAccess
         public string HiltDetail_ID { get; set; }
         public string HiltMaster_ID { get; set; }
         public string HiltDetail_Status { get; set; }
-        public string HiltCabine_ID { get; set; }
+        public string IsNewHilt { get; set; }
+        public System.DateTime NewEnter_DT { get; set; }
         public System.DateTime HiltDetail_Create_DT { get; set; }
         public string HiltDetail_Create_ID { get; set; }
-        public Nullable<System.DateTime> HiltDetail_Modify_DT { get; set; }
+        public System.DateTime HiltDetail_Modify_DT { get; set; }
         public string HiltDetail_Modify_ID { get; set; }
     
         public virtual HiltMaster HiltMaster { get; set; }

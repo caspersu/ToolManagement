@@ -27,9 +27,9 @@ namespace Tool_Management.DataAccess
         public string Measure_CabinID { get; set; }
         public long Measure_Quality { get; set; }
         public string MeasureMaster_Create_ID { get; set; }
-        public Nullable<System.DateTime> MeasureMaster_Create_DT { get; set; }
+        public System.DateTime MeasureMaster_Create_DT { get; set; }
         public string MeasureMaster_Modify_ID { get; set; }
-        public Nullable<System.DateTime> MeasureMaster_Modify_DT { get; set; }
+        public System.DateTime MeasureMaster_Modify_DT { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MeasureDetail> MeasureDetails { get; set; }

@@ -27,9 +27,9 @@ namespace Tool_Management.DataAccess
         public string Nail_CabinID { get; set; }
         public long Nail_Quality { get; set; }
         public string NailMaster_Create_ID { get; set; }
-        public Nullable<System.DateTime> NailMaster_Create_DT { get; set; }
+        public System.DateTime NailMaster_Create_DT { get; set; }
         public string NailMaster_Modify_ID { get; set; }
-        public Nullable<System.DateTime> NailMaster_Modify_DT { get; set; }
+        public System.DateTime NailMaster_Modify_DT { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NailDetail> NailDetails { get; set; }

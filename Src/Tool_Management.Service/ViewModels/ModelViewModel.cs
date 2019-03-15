@@ -16,12 +16,16 @@ namespace Tool_Management.Service.ViewModels
         [DisplayName("機種名稱")]
         [Required]
         public string Model_Name { get; set; }
-        [DisplayName("建立人員")]       
+        [DisplayName("建立人員ID")]       
         public string Model_Create_ID { get; set; }
+        [DisplayName("建立人員")]
+        public string Model_Create_Name { get; set; }
         [DisplayName("建立時間")]
         public DateTime Model_Create_DT { get; set; }
-        [DisplayName("修改人員")]
+        [DisplayName("修改人員ID")]
         public string Model_Modify_ID { get; set; }
+        [DisplayName("修改人員")]
+        public string Model_Modify_Name { get; set; }
         [DisplayName("修改時間")]
         public DateTime Model_Modify_DT { get; set; }
     }

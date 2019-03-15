@@ -1,0 +1,233 @@
+﻿@using Kendo.Mvc.UI;
+@model Tool_Management.Service.ViewModels.vCNC_MonitorViewModel
+@{
+    ViewBag.Title = "機台總覽";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .k-grid {
+    width: 650px;
+}
+</style>
+
+<div class="main">
+    <div class="block">
+        <div class="title">機台總覽</div>
+    </div>
+    <p>&nbsp;</p>
+    <hr>
+    <p>&nbsp;</p>
+    <div class="container-fluid">
+
+        <div class="form-horizontal" id="queryForm">
+            @Html.AntiForgeryToken()
+
+            <div class="block">
+                <div class="row">
+                    @Html.LabelFor(m => m.CNC_IP, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.CNC_IP, new { @class = "form-control", placeholder = Html.DisplayNameFor(m => m.CNC_IP) })
+                        <p class="help-block">
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    @Html.LabelFor(m => m.CNC_Current_Status, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-2">
+                        @(Html.Kendo().DropDownList()
+          .Name("CNC_Current_Status")
+          .DataTextField("Text")
+          .DataValueField("Value")
+          .BindTo(new List<SelectListItem>() {
+              new SelectListItem() {
+                  Text = "",
+                  Value = ""
+              },
+              new SelectListItem() {
+                  Text = "2-待機模式",
+                  Value = "2-待機模式"
+              },
+              new SelectListItem() {
+                  Text = "3-正在運行",
+                  Value = "3-正在運行"
+              },
+              new SelectListItem() {
+                  Text = "4-已停止",
+                  Value = "4-已停止"
+              },
+              new SelectListItem() {
+                  Text = "5-錯誤",
+                  Value = "5-錯誤"
+              },
+
+          })
+          .Value("")
+          .HtmlAttributes(new { style = "width: 100%" })
+                        )
+                        <p class="help-block">
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="container-button text-center">
+                <button class="btn btn-primary" id="btnQuery" data-loading-text="查詢">查詢</button>
+            </div>
+            <p>&nbsp;</p>
+            <hr>
+            <p>&nbsp;</p>
+            <div class="block">
+                <div class="sub_tit">
+                    查詢結果
+                </div>
+                <p>&nbsp;</p>
+
+                <section class="section-grid">
+                    @(Html.Kendo().Grid<Tool_Management.Service.ViewModels.vCNC_MonitorViewModel>()
+                        .Name("grid")
+                        .Columns(columns =>
+                        {
+                        columns.Bound(c => c.CNC_IP)
+                        .HtmlAttributes(new { @class = "gridCell-center" }).Width(120);
+                        columns.Bound(c => c.CNC_ID)
+                        .HtmlAttributes(new { @class = "gridCell-center" }).Width(150);
+                        columns.Bound(c => c.CNC_Current_Status)
+                        //.HtmlAttributes(new { @class = "gridCell-center", style = "#:CNC_Current_Status =='5-錯誤' ? 'font-color:red;' : ''#" }).Width(150);
+                        //columns.Template(@<text></text>)
+                                                     .Width(100)
+ .HtmlAttributes(new { @class = "gridCell-center" })
+  .ClientTemplate("# if (CNC_Current_Status=='5-錯誤') { #" + "<font color='red'>#:CNC_Current_Status#</font>" + "# }  else { #"+"#:CNC_Current_Status#"+"# }#" );
+                        columns.Template(@<text></text>)
+                            .Width(350)
+                            .HtmlAttributes(new { @class = "gridCell-center" })
+                            .ClientTemplate(Html.ActionLink("報警日誌", "Alarm", "CNCMonitor",
+                                new { id = "#=Create_DT#", ip = "#=CNC_IP#" }, new { @class = "btn btn-default", @target = "_blank" }).ToHtmlString() + "&nbsp;&nbsp;" +
+                                    Html.ActionLink("狀態歷史", "PRD3", "CNCMonitor",
+                                new { id = "#=Create_DT#", ip = "#=CNC_IP#" }, new { @class = "btn btn-default", @target = "_blank" }).ToHtmlString() + "&nbsp;&nbsp;" +
+                                                                   Html.ActionLink("刀具狀態", "ATC", "CNCMonitor",
+                                new { id = "#=Create_DT#", ip = "#=CNC_IP#" }, new { @class = "btn btn-default", @target = "_blank" }).ToHtmlString()
+
+                                )
+                            .Title("功能");
+                            columns.Bound(c => c.CNC_Brand)
+                        .HtmlAttributes(new { @class = "gridCell-center" }).Width(150);
+                            columns.Bound(c => c.CNC_Model)
+                            .HtmlAttributes(new { @class = "gridCell-center" }).Width(150);
+                            columns.Bound(c => c.CNC_Ver)
+                            .HtmlAttributes(new { @class = "gridCell-center" }).Width(150);
+                            columns.Bound(c => c.CNC_Current_ProductionAmount)
+                            .HtmlAttributes(new { @class = "gridCell-center" }).Width(150);
+
+                            columns.Bound(c => c.CNC_Current_StatusDT)
+                            .HtmlAttributes(new { @class = "gridCell-center" }).Width(150);
+                            columns.Bound(c => c.Create_DT).Hidden()
+                            .HtmlAttributes(new { @class = "gridCell-center" }).Width(150);
+
+                        })
+
+                        .Resizable(r => r.Columns(true))
+                        .Scrollable(scrollable => scrollable.Height("auto"))
+                        .Sortable()
+                        .NoRecords("查無資料")
+                        .Pageable(
+                            pageable => pageable.Refresh(true)
+                            .PageSizes(new[] { 10 })
+                            .Messages(m =>
+                            {
+                                m.Empty("查無資料");
+                                m.ItemsPerPage("每頁筆數");
+                                m.Display("{0} - {1} 共 {2} 筆");
+                            })
+                        )
+                        
+                        .DataSource(dataSource => dataSource
+                            .Ajax()
+                            .Sort(s => { s.Add(o => o.CNC_IP).Descending(); })
+                            //.Events(events => events.Error("error_handler"))
+                            .Model(model => { model.Id(p => p.CNC_IP); })
+                            .Read(read => read.Action("GridSearch", "CNCMonitor"))
+                        //.Create(update => update.Action("EditingPopup_Create", "CNC"))
+                        //.Update(update => update.Action("EditingPopup_Update", "CNC"))
+                        // .Destroy(update => update.Action("EditingPopup_Delete", "KnifeList"))
+                        .PageSize(10)
+                        )
+                    )
+
+                </section>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+
+    function onDeactivate(e) {
+
+
+        //不秀建立時間
+
+        $("label[for='CNC_Create_ID']").hide();
+        $("#CNC_Create_ID").hide();
+        $("label[for='CNC_Modify_ID']").hide();
+        $("#CNC_Modify_ID").hide();
+        $("label[for='CNC_Create_Name']").hide();
+        $("#CNC_Create_Name").hide();
+        $("label[for='CNC_Modify_Name']").hide();
+        $("#CNC_Modify_Name").hide();
+
+        $("label[for='CNC_Create_DT']").hide();
+        $("label[for='CNC_Modify_DT']").hide();
+        $(".k-datetimepicker").hide();
+        $(".k-select").hide();
+
+        $(".k-grid-update")[0].innerHTML = "確認";
+        $(".k-grid-cancel")[0].innerHTML = "取消";
+
+    }
+
+
+</script>
+
+<script type="text/javascript">
+    $(function () {
+
+        $("#btnQuery").click(function (e) {
+            e.preventDefault();
+            debugger;
+            console.log('Query it!');
+
+            var $this = $(this);
+            //_trim("updateForm");
+
+            var gridView = $("#grid").data("kendoGrid");
+            if (gridView != null) {
+                var cnc_ip = $("#CNC_IP").val();
+                var cnc_status = $("#CNC_Current_Status").val();
+                var filterData = [];
+
+                if (cnc_status != "") {
+                    filterData.push({ "field": "CNC_Current_Status", "operator": "contains", "value": cnc_status });
+                }
+
+                if (cnc_ip != "") {
+                    filterData.push({ "field": "CNC_IP", "operator": "contains", "value": cnc_ip });
+                }
+
+                gridView.dataSource.query({
+                    filter: filterData,
+                    sort: {
+                        field: "CNC_IP",
+                        dir: "desc"
+                    },
+                    page: 1,
+                    pageSize: "10"
+                });
+            }
+        });
+    });
+
+</script>

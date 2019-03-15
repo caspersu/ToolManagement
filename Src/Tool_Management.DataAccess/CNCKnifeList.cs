@@ -21,7 +21,7 @@ namespace Tool_Management.DataAccess
         }
     
         public decimal CNCKnifeList_ID { get; set; }
-        public string CNCDetail_ID { get; set; }
+        public string CNC_IP { get; set; }
         public string Car_No { get; set; }
         public string Good_ID { get; set; }
         public string Line_No { get; set; }
@@ -32,7 +32,7 @@ namespace Tool_Management.DataAccess
         public string CNCList_Modify_DT { get; set; }
         public string CNCList_Modify_ID { get; set; }
     
-        public virtual CNCDetail CNCDetail { get; set; }
+        public virtual CNC CNC { get; set; }
         public virtual Good Good { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductionPlan> ProductionPlans { get; set; }

@@ -18,6 +18,7 @@ namespace Tool_Management.DataAccess
         public string ATC_ID { get; set; }
         public string WorkStation_No { get; set; }
         public string Model_ID { get; set; }
+        public string Good_ID { get; set; }
         public string KnifeDetail_ID { get; set; }
         public string HiltDetail_ID { get; set; }
         public string NailDetail_ID { get; set; }
@@ -28,7 +29,7 @@ namespace Tool_Management.DataAccess
         public string Collet2Detail_ID { get; set; }
         public System.DateTime KnifeList_Create_DT { get; set; }
         public string KnifeList_Create_ID { get; set; }
-        public Nullable<System.DateTime> KnifeList_Modify_DT { get; set; }
+        public System.DateTime KnifeList_Modify_DT { get; set; }
         public string KnifeList_Modify_ID { get; set; }
         public string Program_No { get; set; }
         public string D { get; set; }
@@ -47,11 +48,11 @@ namespace Tool_Management.DataAccess
         public virtual Collet1Detail Collet1Detail { get; set; }
         public virtual Collet2Detail Collet2Detail { get; set; }
         public virtual ExtRodDetail ExtRodDetail { get; set; }
-        public virtual HiltDetail HiltDetail { get; set; }
         public virtual KnifeDetail KnifeDetail { get; set; }
         public virtual MeasureDetail MeasureDetail { get; set; }
         public virtual NailDetail NailDetail { get; set; }
         public virtual NutDetail NutDetail { get; set; }
         public virtual Model Model { get; set; }
+        public virtual HiltDetail HiltDetail { get; set; }
     }
 }

@@ -46,6 +46,6 @@ namespace Tool_Management.DataAccess
         public string CNC_Door_Status { get; set; }
         public string CNC_Door_Interlock { get; set; }
     
-        public virtual CNCMonitor CNCMonitor { get; set; }
+        public virtual CNC CNC { get; set; }
     }
 }

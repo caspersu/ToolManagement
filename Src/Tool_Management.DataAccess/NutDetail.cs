@@ -24,9 +24,9 @@ namespace Tool_Management.DataAccess
         public string NutMaster_ID { get; set; }
         public string NutDetail_Status { get; set; }
         public string NutDetail_Create_ID { get; set; }
-        public Nullable<System.DateTime> NutDetail_Create_DT { get; set; }
+        public System.DateTime NutDetail_Create_DT { get; set; }
         public string NutDetail_Modify_ID { get; set; }
-        public Nullable<System.DateTime> NutDetail_Modify_DT { get; set; }
+        public System.DateTime NutDetail_Modify_DT { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KnifeList> KnifeLists { get; set; }

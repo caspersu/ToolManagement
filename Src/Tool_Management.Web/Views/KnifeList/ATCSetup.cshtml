@@ -1,0 +1,218 @@
+﻿@using Kendo.Mvc.UI;
+@model Tool_Management.Service.ViewModels.vKnifeListViewModel
+@{
+    ViewBag.Title = "刀具配置";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main">
+    <div class="block">
+        <div class="title">刀具配置</div>
+    </div>
+    <p>&nbsp;</p>
+    <hr>
+    <p>&nbsp;</p>
+    <div class="container-fluid">
+
+        <div class="form-horizontal" id="queryForm">
+            @Html.AntiForgeryToken()
+
+            <div class="block">
+                <div class="row">
+                    @Html.LabelFor(m => m.KnifeList_ID, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(m => m.KnifeList_ID, new { @class = "form-control", @readonly = "readonly" , style = "width:200px;" } )
+                        <p class="help-block">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    @Html.LabelFor(m => m.Model_ID, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(m => m.Model_ID, new { @class = "form-control", @readonly = "readonly" })
+                        <p class="help-block">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    @Html.LabelFor(m => m.Good_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(m => m.Good_Name, new { @class = "form-control", @readonly = "readonly" })
+                        <p class="help-block">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    @Html.LabelFor(m => m.WorkStation_No, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(m => m.WorkStation_No, new { @class = "form-control", @readonly = "readonly" })
+                        <p class="help-block">
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="container-button text-center">
+                <!--<button class="btn btn-primary" id="btnQuery" data-loading-text="查詢">查詢</button>-->
+            </div>
+            <p>&nbsp;</p>
+            <hr>
+            <p>&nbsp;</p>
+            <div class="block">
+                <div class="sub_tit">
+                    刀位配置
+                </div>
+                <p>&nbsp;</p>
+
+                <section class="section-grid">
+                    @(Html.Kendo().Grid<Tool_Management.Service.ViewModels.KnifeListViewModel>()
+                        .Name("grid")
+                        .Columns(columns =>
+                        {
+                            columns.Bound(c => c.KnifeList_ID).Hidden();
+                            columns.Bound(c => c.ATC_ID)
+                            .HtmlAttributes(new { @class = "gridCell-center" }).Width(150);
+                            columns.Bound(c => c.KnifeMaster_ID)
+                            .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                            columns.Bound(c => c.HiltMaster_ID)
+                            .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                            columns.Bound(c => c.NailMaster_ID)
+                            .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                            columns.Bound(c => c.ExtRodMaster_ID)
+                            .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                            columns.Bound(c => c.Collet1Master_ID)
+                            .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                            columns.Bound(c => c.Collet2Master_ID)
+                            .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                            columns.Bound(c => c.NutMaster_ID)
+                            .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                            columns.Bound(c => c.Program_No)
+                            .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                            columns.Bound(c => c.CL)
+                            .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                            columns.Bound(c => c.D)
+                            .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                            columns.Bound(c => c.Deep)
+                            .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                            columns.Bound(c => c.L)
+                            .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                            columns.Bound(c => c.R)
+                            .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                            columns.Bound(c => c.EZ)
+                            .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                            columns.Bound(c => c.FL)
+                            .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                            columns.Bound(c => c.SZ)
+                            .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                            columns.Bound(c => c.Time)
+                            .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                            columns.Bound(c => c.Way)
+                            .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                            columns.Bound(c => c.Reserved)
+                            .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                            columns.Bound(c => c.Memo)
+                            .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+
+                            columns.Bound(c => c.KnifeList_Create_DT)
+                             .Format("{0:yyyy/MM/dd HH:mm:ss}")
+                            .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                            columns.Bound(c => c.KnifeList_Create_Name)
+                            .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                            columns.Bound(c => c.KnifeList_Modify_DT)
+                            .Format("{0:yyyy/MM/dd HH:mm:ss}")
+                            .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                            columns.Bound(c => c.KnifeList_Modify_Name)
+                            .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                            columns.Command(command =>
+                            {
+                                command.Edit().Text("修改").UpdateText("確認").CancelText("取消");
+                                command.Destroy().Text("刪除");
+                            }).Width(250);
+                        })
+                        .ToolBar(toolbar => toolbar.Create().Text("新增"))
+                        .Editable(editable => editable.Mode(GridEditMode.PopUp).TemplateName("SectionTemplate")
+                            .Window(w =>
+                            {
+                                w.Title("刀位配置");
+                                w.Events(e => { e.Activate("onDeactivate"); });
+                            })
+                          )
+                        .Resizable(r => r.Columns(true))
+                        .Scrollable(scrollable => scrollable.Height("auto"))
+                        .Sortable()
+                        .NoRecords("查無資料")
+                        .Pageable(
+                            pageable => pageable.Refresh(true)
+                            .PageSizes(new[] { 10 })
+                            .Messages(m =>
+                            {
+                                m.Empty("查無資料");
+                                m.ItemsPerPage("每頁筆數");
+                                m.Display("{0} - {1} 共 {2} 筆");
+                            })
+                        )
+                        .DataSource(dataSource => dataSource
+                            .Ajax()
+                            .Sort(s => { s.Add(o => o.ATC_ID).Descending(); })
+                            //.Events(events => events.Error("error_handler"))
+                            .Model(model => { model.Id(p => p.KnifeList_ID); })
+                            .Read(read => read.Action("GridATCSearch", "KnifeList"))
+                            .Create(update => update.Action("EditingPopup_CreateATC", "KnifeList",new { id= "#:KnifeList_ID#" } ))
+                            .Update(update => update.Action("EditingPopup_UpdateATC", "KnifeList", new { id = "#:KnifeList_ID#" }))
+                            .Destroy(update => update.Action("EditingPopup_DeleteATC", "KnifeList", new { id = "#:KnifeList_ID#" }))
+
+                        .PageSize(10)
+                        )
+                    )
+
+                </section>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript">
+
+    function onDeactivate(e) {
+
+
+        //不秀建立時間
+        $("label[for='KnifeList_ID']").hide();
+        $("#KnifeList_ID").hide();
+        alert($("#KnifeList_ID").val());
+        //$("#KnifeList_ID").attr("readonly", "readonly");
+        //$("#KnifeList_ID").val($("#KnifeList_ID").val());
+        $("label[for='KnifeList_Create_ID']").hide();
+        $("#KnifeList_Create_ID").val($("#KnifeList_ID").val()).trigger("change");
+        $("#KnifeList_Create_ID").hide();
+        $("label[for='KnifeList_Modify_ID']").hide();
+        $("#KnifeList_Modify_ID").hide();
+        $("label[for='KnifeList_Create_Name']").hide();
+        $("#KnifeList_Create_Name").hide();
+        $("label[for='KnifeList_Modify_Name']").hide();
+        $("#KnifeList_Modify_Name").hide();
+        //$("label[for='Good_Name']").hide();
+        //$("#Good_Name").hide();
+        //$("label[for='Model_Name']").hide();
+        //$("#Model_Name").hide();
+        //$("label[for='Model_ID']").hide();
+        //$("#Model_Name").hide();
+        $("label[for='KnifeList_Create_DT']").hide();
+        $("label[for='KnifeList_Modify_DT']").hide();
+        $(".k-datetimepicker").hide();
+        $(".k-select").hide();
+
+        $(".k-grid-update")[0].innerHTML = "確認";
+        $(".k-grid-cancel")[0].innerHTML = "取消";
+
+    }
+
+
+</script>
+
+

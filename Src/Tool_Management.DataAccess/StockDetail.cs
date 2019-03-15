@@ -32,7 +32,6 @@ namespace Tool_Management.DataAccess
     
         public virtual Collet1Detail Collet1Detail { get; set; }
         public virtual Collet2Detail Collet2Detail { get; set; }
-        public virtual HiltDetail HiltDetail { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Inform> Informs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -43,5 +42,6 @@ namespace Tool_Management.DataAccess
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OutFrom> OutFroms { get; set; }
         public virtual Stock Stock { get; set; }
+        public virtual HiltDetail HiltDetail { get; set; }
     }
 }

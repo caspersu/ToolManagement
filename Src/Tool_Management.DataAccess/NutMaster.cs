@@ -26,9 +26,9 @@ namespace Tool_Management.DataAccess
         public string Nut_Spec { get; set; }
         public long Nut_Quality { get; set; }
         public string Nut_CabinID { get; set; }
-        public Nullable<System.DateTime> NutMaster_Create_DT { get; set; }
+        public System.DateTime NutMaster_Create_DT { get; set; }
         public string NutMaster_Create_ID { get; set; }
-        public Nullable<System.DateTime> NutMaster_Modify_DT { get; set; }
+        public System.DateTime NutMaster_Modify_DT { get; set; }
         public string NutMaster_Modify_ID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

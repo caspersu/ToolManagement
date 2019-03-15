@@ -10,7 +10,11 @@ namespace Tool_Management.Service.Interfaces
 {
     public interface ITM_Model
     {
-        DataSourceResult GridModelData(DataSourceRequest request);
+        DataSourceResult GridSearch(DataSourceRequest request);
+
+        void Update(ModelViewModel viewModel);
+
+        void Create(ModelViewModel viewModel);
     }
 
 }

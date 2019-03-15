@@ -27,9 +27,9 @@ namespace Tool_Management.DataAccess
         public long ExtRod_Quality { get; set; }
         public string ExtRod_CabinID { get; set; }
         public string ExtRodMaster_Create_ID { get; set; }
-        public Nullable<System.DateTime> ExtRodMaster_Create_DT { get; set; }
+        public System.DateTime ExtRodMaster_Create_DT { get; set; }
         public string ExtRodMaster_Modify_ID { get; set; }
-        public Nullable<System.DateTime> ExtRodMaster_Modify_DT { get; set; }
+        public System.DateTime ExtRodMaster_Modify_DT { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ExtRodDetail> ExtRodDetails { get; set; }

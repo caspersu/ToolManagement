@@ -29,6 +29,8 @@ namespace Tool_Management.Service.Interfaces
         DataSourceResult GridATC(DataSourceRequest request,string id);
 
         KnifeListViewModel GetATC(string id, string atc_id);
+
+        IList<vKnifeListViewModel> GetKnifeList();
     }
 
 }

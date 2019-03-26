@@ -148,7 +148,7 @@ namespace Tool_Management.Service.ViewModels
 
         [DisplayName("加工時間")]
         //[Required]
-        public string Time { get; set; }
+        public  Nullable<int> Time { get; set; }
 
         [DisplayName("備註")]
         //[Required]

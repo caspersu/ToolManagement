@@ -114,6 +114,30 @@ namespace Tool_Management.Service.Services
             return result;
         }
 
+        NailMasterViewModel ITM_NailMaster.Get(string id)
+        {
+            var result = (from c in _db.NailMasters
+                          where c.NailMaster_ID == id
+                          select new NailMasterViewModel
+                          {
+                              NailMaster_ID = c.NailMaster_ID,
+                              Nail_Brand = c.Nail_Brand,
+                              Nail_CabinID = c.Nail_CabinID,
+                              Nail_Name = c.Nail_Name,
+                              Nail_Quality = c.Nail_Quality,
+                              Nail_Spec = c.Nail_Spec,
+                              NailMaster_Create_DT = c.NailMaster_Create_DT,
+                              NailMaster_Create_ID = c.NailMaster_Create_ID,
+
+                              NailMaster_Modify_DT = c.NailMaster_Modify_DT,
+                              NailMaster_Modify_ID = c.NailMaster_Modify_ID,
+
+
+                          }).FirstOrDefault();
+
+            return result;
+        }
+
     }
 
     public class TM_NailDetailService : ITM_NailDetail

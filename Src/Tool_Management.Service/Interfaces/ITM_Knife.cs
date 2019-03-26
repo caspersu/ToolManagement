@@ -15,6 +15,7 @@ namespace Tool_Management.Service.Interfaces
         void Update(KnifeMasterViewModel viewModel);
 
         void Create(KnifeMasterViewModel viewModel);
+        KnifeMasterViewModel Get(string id);
     }
 
     public interface ITM_KnifeDetail

@@ -22,10 +22,11 @@ namespace Tool_Management.DataAccess
         public string Inform_Modify_ID { get; set; }
         public System.DateTime Inform_Modify_DT { get; set; }
         public string DetailID_Type { get; set; }
-        public System.DateTime In_DT { get; set; }
+        public string In_DT { get; set; }
         public string In_EmpID { get; set; }
+        public string Confirm_EmpID { get; set; }
+        public string Master_ID { get; set; }
     
         public virtual Employe Employe { get; set; }
-        public virtual StockDetail StockDetail { get; set; }
     }
 }

@@ -18,7 +18,7 @@ namespace Tool_Management.DataAccess
         public string KnifeDetail_ID { get; set; }
         public System.DateTime Knife_Use_BeginDT { get; set; }
         public System.DateTime Knife_Use_EndDT { get; set; }
-        public string Knife_Use_Time { get; set; }
+        public long Knife_Use_Time { get; set; }
         public System.DateTime KnifeUseLog_Create_DT { get; set; }
         public string KnifeUseLog_Create_ID { get; set; }
         public Nullable<System.DateTime> KnifeUseLog_Modify_DT { get; set; }

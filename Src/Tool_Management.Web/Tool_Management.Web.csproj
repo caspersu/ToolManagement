@@ -94,6 +94,10 @@
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Mvc.Jsonp, Version=1.0.0.4, Culture=neutral, PublicKeyToken=45526fb5857849ba, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mvc.Jsonp.1.0.0.4\lib\net40\Mvc.Jsonp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -198,7 +202,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CNCController.cs" />
+    <Compile Include="Controllers\CNCKnifeListController.cs" />
     <Compile Include="Controllers\CNCMonitorController.cs" />
+    <Compile Include="Controllers\CNCStartStopController.cs" />
     <Compile Include="Controllers\NutController.cs" />
     <Compile Include="Controllers\Collet2Controller.cs" />
     <Compile Include="Controllers\EmployeController.cs" />
@@ -212,6 +218,7 @@
     <Compile Include="Controllers\ModelController.cs" />
     <Compile Include="Controllers\MeasureController.cs" />
     <Compile Include="Controllers\NailController.cs" />
+    <Compile Include="Controllers\PlanEmpController.cs" />
     <Compile Include="Controllers\QrCodeExportController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1020,6 +1027,13 @@
     <Content Include="Views\Collet1\Index.cshtml" />
     <Content Include="Views\Collet2\Index.cshtml" />
     <Content Include="Views\Nut\Index.cshtml" />
+    <Content Include="Views\Shared\_MsgWell.cshtml" />
+    <Content Include="Views\CNCKnifeList\Index.cshtml" />
+    <Content Include="Views\PlanEmp\Index.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\ModelGoodWk.cshtml" />
+    <Content Include="Views\PlanEmp\CNCSetup.cshtml" />
+    <Content Include="Views\CNCStartStop\Index.cshtml" />
+    <Content Include="Views\Knife\KnifeInform.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

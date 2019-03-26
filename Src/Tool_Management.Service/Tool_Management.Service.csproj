@@ -44,6 +44,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,6 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\ITM_Stock.cs" />
+    <Compile Include="Interfaces\ITM_vEmpCNCKnifeList.cs" />
+    <Compile Include="Interfaces\ITM_ProductionPlan.cs" />
     <Compile Include="Interfaces\ITM_InForm.cs" />
     <Compile Include="Interfaces\ITM_OutForm.cs" />
     <Compile Include="Interfaces\ITM_Measure.cs" />
@@ -66,11 +70,17 @@
     <Compile Include="Interfaces\ITM_Knife.cs" />
     <Compile Include="Interfaces\ITM_CNC.cs" />
     <Compile Include="Interfaces\ITM_Good.cs" />
+    <Compile Include="Interfaces\ITM_CNCKnifeList.cs" />
     <Compile Include="Interfaces\ITM_vKind.cs" />
     <Compile Include="Interfaces\ITM_KnifeList.cs" />
     <Compile Include="Interfaces\ITM_Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\TM_CNCMonitorService.cs" />
+    <Compile Include="Services\TM_InFormService.cs" />
+    <Compile Include="Services\TM_StockService.cs" />
+    <Compile Include="Services\TM_vEmpCNCKnifeListService.cs" />
+    <Compile Include="Services\TM_ProductionPlanService.cs" />
+    <Compile Include="Services\TM_vCNCKnifeListService.cs" />
     <Compile Include="Services\TM_OutFormService.cs" />
     <Compile Include="Services\TM_MeasureService.cs" />
     <Compile Include="Services\TM_NutService.cs" />
@@ -88,6 +98,10 @@
     <Compile Include="Services\TM_ModelService.cs" />
     <Compile Include="Utils\SysCode.cs" />
     <Compile Include="Utils\Common.cs" />
+    <Compile Include="ViewModels\StockModel.cs" />
+    <Compile Include="ViewModels\ProductionPlanViewModel.cs" />
+    <Compile Include="ViewModels\vEmpCNCKnifeListViewModel.cs" />
+    <Compile Include="ViewModels\vCNCKnifeListViewModel.cs" />
     <Compile Include="ViewModels\InFormViewModel.cs" />
     <Compile Include="ViewModels\OutFormViewModel.cs" />
     <Compile Include="ViewModels\EmployeViewModel.cs" />

@@ -17,11 +17,10 @@ namespace Tool_Management.DataAccess
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Employe()
         {
-            this.Informs = new HashSet<Inform>();
             this.KnifeChangeFroms = new HashSet<KnifeChangeFrom>();
-            this.BatchOutFroms = new HashSet<BatchOutFrom>();
-            this.OutFroms = new HashSet<OutFrom>();
             this.ProductionPlans = new HashSet<ProductionPlan>();
+            this.Informs = new HashSet<Inform>();
+            this.Outforms = new HashSet<Outform>();
         }
     
         public string Emp_ID { get; set; }
@@ -33,14 +32,12 @@ namespace Tool_Management.DataAccess
         public string Emp_Modify_ID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Inform> Informs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KnifeChangeFrom> KnifeChangeFroms { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BatchOutFrom> BatchOutFroms { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OutFrom> OutFroms { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductionPlan> ProductionPlans { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Inform> Informs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Outform> Outforms { get; set; }
     }
 }

@@ -17,7 +17,7 @@ namespace Tool_Management.DataAccess
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Good()
         {
-            this.CNCKnifeLists = new HashSet<CNCKnifeList>();
+            this.KnifeLists = new HashSet<KnifeList>();
         }
     
         public string Good_ID { get; set; }
@@ -28,6 +28,6 @@ namespace Tool_Management.DataAccess
         public string Good_Modify_ID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CNCKnifeList> CNCKnifeLists { get; set; }
+        public virtual ICollection<KnifeList> KnifeLists { get; set; }
     }
 }

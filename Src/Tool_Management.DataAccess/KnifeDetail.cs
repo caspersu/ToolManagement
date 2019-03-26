@@ -18,9 +18,9 @@ namespace Tool_Management.DataAccess
         public KnifeDetail()
         {
             this.CNC_ATCTL_Log = new HashSet<CNC_ATCTL_Log>();
+            this.KnifeLists = new HashSet<KnifeList>();
             this.KnifeUseLogs = new HashSet<KnifeUseLog>();
             this.StockDetails = new HashSet<StockDetail>();
-            this.KnifeLists = new HashSet<KnifeList>();
         }
     
         public string KnifeDetail_ID { get; set; }
@@ -37,10 +37,10 @@ namespace Tool_Management.DataAccess
         public virtual ICollection<CNC_ATCTL_Log> CNC_ATCTL_Log { get; set; }
         public virtual KnifeMaster KnifeMaster { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<KnifeList> KnifeLists { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KnifeUseLog> KnifeUseLogs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StockDetail> StockDetails { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KnifeList> KnifeLists { get; set; }
     }
 }

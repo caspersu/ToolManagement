@@ -37,7 +37,7 @@ namespace Tool_Management.Service.Services
             _db.Collet2Master.Add(entry);
             _db.SaveChanges();
 
-            //insert HiltDetail
+            //insert Collet2Detail
             int no;
             var result = _db.Collet2Detail.OrderByDescending(x => x.Collet2Detail_ID.Contains(viewModel.Collet2Master_ID)).First();
             if (result == null)
@@ -53,7 +53,7 @@ namespace Tool_Management.Service.Services
                 {
                     Collet2Detail_ID = viewModel.Collet2Master_ID + "-" + sn,
                     Collet2Detail_Status = ((int)SysCode.Status.正常入庫).ToString(),
-                    //IsNewHilt = "Y",
+                    //IsNewCollet2 = "Y",
                     //NewEnter_DT = CreateTime,
                     Collet2Master_ID = viewModel.Collet2Master_ID,
                     Collet2Detail_Create_DT = CreateTime,
@@ -114,6 +114,30 @@ namespace Tool_Management.Service.Services
             return result;
         }
 
+        Collet2MasterViewModel ITM_Collet2Master.Get(string id)
+        {
+            var result = (from c in _db.Collet2Master
+                          where c.Collet2Master_ID == id
+                          select new Collet2MasterViewModel
+                          {
+                              Collet2Master_ID = c.Collet2Master_ID,
+                              Collet2_Brand = c.Collet2_Brand,
+                              Collet2_CabinID = c.Collet2_CabinID,
+                              Collet2_Name = c.Collet2_Name,
+                              Collet2_Quality = c.Collet2_Quality,
+                              Collet2_Spec = c.Collet2_Spec,
+                              Collet2Master_Create_DT = c.Collet2Master_Create_DT,
+                              Collet2Master_Create_ID = c.Collet2Master_Create_ID,
+
+                              Collet2Master_Modify_DT = c.Collet2Master_Modify_DT,
+                              Collet2Master_Modify_ID = c.Collet2Master_Modify_ID,
+
+
+                          }).FirstOrDefault();
+
+            return result;
+        }
+
     }
 
     public class TM_Collet2DetailService : ITM_Collet2Detail
@@ -140,7 +164,7 @@ namespace Tool_Management.Service.Services
                 {
                     Collet2Detail_ID = viewModel.Collet2Master_ID + "-" + sn,
                     Collet2Detail_Status = ((int)SysCode.Status.正常入庫).ToString(),
-                    //IsNewHilt = "Y",
+                    //IsNewCollet2 = "Y",
                     //NewEnter_DT =CreateTime,
                     Collet2Master_ID = viewModel.Collet2Master_ID,
                     Collet2Detail_Create_DT = CreateTime,
@@ -163,7 +187,7 @@ namespace Tool_Management.Service.Services
             {
                 foreach (var p in q)
                 {
-                    //p.IsNewHilt = viewModel.IsNewHilt;                    
+                    //p.IsNewCollet2 = viewModel.IsNewCollet2;                    
                     p.Collet2Detail_Status = viewModel.Collet2Detail_Status;
                     p.Collet2Detail_Modify_ID = viewModel.Collet2Detail_Modify_ID;
                     p.Collet2Detail_Modify_DT = viewModel.Collet2Detail_Modify_DT;
@@ -184,7 +208,7 @@ namespace Tool_Management.Service.Services
 
                             Collet2Detail_ID = c.Collet2Detail_ID,
                             Collet2Detail_Status = c.Collet2Detail_Status,
-                            //IsNewHilt = c.IsNewHilt,
+                            //IsNewCollet2 = c.IsNewCollet2,
                             //NewEnter_DT = c.NewEnter_DT,                             
                             Collet2Detail_Create_DT = c.Collet2Detail_Create_DT,
                             Collet2Detail_Modify_DT = c.Collet2Detail_Modify_DT,

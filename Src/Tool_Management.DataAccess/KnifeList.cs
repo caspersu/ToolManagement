@@ -14,6 +14,7 @@ namespace Tool_Management.DataAccess
     
     public partial class KnifeList
     {
+        public decimal Sno { get; set; }
         public string KnifeList_ID { get; set; }
         public string ATC_ID { get; set; }
         public string WorkStation_No { get; set; }
@@ -48,11 +49,12 @@ namespace Tool_Management.DataAccess
         public virtual Collet1Detail Collet1Detail { get; set; }
         public virtual Collet2Detail Collet2Detail { get; set; }
         public virtual ExtRodDetail ExtRodDetail { get; set; }
+        public virtual Good Good { get; set; }
+        public virtual HiltDetail HiltDetail { get; set; }
         public virtual KnifeDetail KnifeDetail { get; set; }
         public virtual MeasureDetail MeasureDetail { get; set; }
         public virtual NailDetail NailDetail { get; set; }
         public virtual NutDetail NutDetail { get; set; }
         public virtual Model Model { get; set; }
-        public virtual HiltDetail HiltDetail { get; set; }
     }
 }

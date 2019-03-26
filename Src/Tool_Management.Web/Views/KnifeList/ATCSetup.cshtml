@@ -158,9 +158,9 @@
                         .DataSource(dataSource => dataSource
                             .Ajax()
                             .Sort(s => { s.Add(o => o.ATC_ID).Descending(); })
-                            //.Events(events => events.Error("error_handler"))
+                            .Events(events => events.Error("error_handler"))
                             .Model(model => { model.Id(p => p.KnifeList_ID); })
-                            .Read(read => read.Action("GridATCSearch", "KnifeList"))
+                            .Read(read => read.Action("GridATCSearch", "KnifeList",new { KnifeList_ID = ViewData["KnifeList_ID"] }))
                             .Create(update => update.Action("EditingPopup_CreateATC", "KnifeList",new { id= "#:KnifeList_ID#" } ))
                             .Update(update => update.Action("EditingPopup_UpdateATC", "KnifeList", new { id = "#:KnifeList_ID#" }))
                             .Destroy(update => update.Action("EditingPopup_DeleteATC", "KnifeList", new { id = "#:KnifeList_ID#" }))
@@ -182,9 +182,9 @@
 
 
         //不秀建立時間
-        $("label[for='KnifeList_ID']").hide();
-        $("#KnifeList_ID").hide();
-        alert($("#KnifeList_ID").val());
+        //$("label[for='KnifeList_ID']").hide();
+        //$("#KnifeList_ID").hide();
+        //alert($("#KnifeList_ID").val());
         //$("#KnifeList_ID").attr("readonly", "readonly");
         //$("#KnifeList_ID").val($("#KnifeList_ID").val());
         $("label[for='KnifeList_Create_ID']").hide();
@@ -213,6 +213,26 @@
     }
 
 
+</script>
+
+<script type="text/javascript">
+    function error_handler(e) {
+        //debugger;
+        if (e.errors) {
+        //    var message = "";
+        //    $.each(e.errors, function (key, value) {
+        //       if ('errors' in value) {
+        //            $.each(value.errors, function () {
+        //                message += this + "\n";
+        //            });
+        //        }
+        //    });
+
+            location.reload();
+            //alert(message);
+        }
+        return;
+    }
 </script>
 
 

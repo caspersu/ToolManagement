@@ -39,6 +39,7 @@
             <div class="container">
                 <main class="content">
                    @RenderBody()
+                    @Html.Partial("_MsgWell")
                 </main><!-- .content -->
             </div><!-- .container-->
             <aside class="left-sidebar">
@@ -64,7 +65,7 @@
                                     <h4>刀具管理</h4>
                                     <div class="list-item none">
                                         <p><a href="/Knife/Index" target="_self">刀具維護</a></p>
-                                        <p><a href="http://www.jq-school.com" target="_self">刀具入庫</a></p>
+                                        <p><a href="/Knife/KnifeInform" target="_self">刀具入庫</a></p>
                                         <p><a href="http://www.jq-school.com" target="_self">刀具出庫</a></p>
                                         <p><a href="http://www.jq-school.com" target="_self">換刀登記</a></p>
                                     </div>
@@ -163,9 +164,9 @@
                                     <h4>生產計畫</h4>
                                     <div class="list-item none">
                                         <p><a href="/KnifeList/Index" target="_self">刀具配置</a></p>
-                                        <p><a href="http://www.jq-school.com" target="_self">機台配置</a></p>
-                                        <p><a href="http://www.jq-school.com" target="_self">人員配置</a></p>
-                                        <p><a href="http://www.jq-school.com" target="_self">機台運作</a></p>
+                                        <p><a href="/CNCKnifeList/Index" target="_self">機台配置</a></p>
+                                        <p><a href="/PlanEmp/Index" target="_self">人員配置</a></p>
+                                        <p><a href="/CNCStartStop/Index" target="_self">機台運作</a></p>
                                     </div>
                                 </li>
                                 <li>

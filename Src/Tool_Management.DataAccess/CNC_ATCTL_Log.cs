@@ -26,7 +26,6 @@ namespace Tool_Management.DataAccess
         public string ATCTL_COLOR { get; set; }
         public string KnifeDetail_ID { get; set; }
     
-        public virtual CNC CNC { get; set; }
         public virtual KnifeDetail KnifeDetail { get; set; }
     }
 }

@@ -15,6 +15,7 @@ namespace Tool_Management.Service.Interfaces
         void Update(Collet1MasterViewModel viewModel);
 
         void Create(Collet1MasterViewModel viewModel);
+        Collet1MasterViewModel Get(string id);
     }
 
     public interface ITM_Collet1Detail

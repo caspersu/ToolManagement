@@ -29,6 +29,5 @@ namespace Tool_Management.DataAccess
         public string DetailID_Type { get; set; }
     
         public virtual Employe Employe { get; set; }
-        public virtual StockDetail StockDetail { get; set; }
     }
 }

@@ -1,0 +1,303 @@
+﻿@using Kendo.Mvc.UI;
+@model Tool_Management.Service.ViewModels.vEmpCNCKnifeListViewModel
+@{
+    ViewBag.Title = "機台運作";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main">
+    <div class="block">
+        <div class="title">機台運作</div>
+    </div>
+    <p>&nbsp;</p>
+    <hr>
+    <p>&nbsp;</p>
+    <div class="container-fluid">
+
+@using (Html.BeginForm("Save", "PlanEmp", FormMethod.Post, new { id = "editForm", @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+            @Html.AntiForgeryToken()
+
+            <div >
+                <div class="row">
+                    @Html.LabelFor(m => m.CNC_ID, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(m => m.CNC_ID, new { @class = "form-control", placeholder = Html.DisplayNameFor(m => m.CNC_ID) })
+                        <p class="help-block">
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    @Html.LabelFor(m => m.Class_EmpID, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(m => m.Class_EmpID, new { @class = "form-control", placeholder = Html.DisplayNameFor(m => m.Class_EmpID) })
+                        <p class="help-block">
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="container-button text-center">
+                <button class="btn btn-primary" id="btnQuery" data-loading-text="查詢">查詢</button>
+            </div>
+}        
+            <p>&nbsp;</p>
+            <hr>
+            <p>&nbsp;</p>
+            <div class="block" style="display:none">
+                <div class="sub_tit">
+                    查詢結果
+                </div>
+                <p>&nbsp;</p>
+                <div class="row">
+                    @Html.LabelFor(m => m.CNC_ID, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.TextBox("tCNC_ID","", new { @class = "form-control", @readonly = "readonly", style = "width:200px;" })
+                        <p class="help-block">
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    @Html.LabelFor(m => m.CNC_IP, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.CNC_IP, new { @class = "form-control", @readonly = "readonly" })
+                        <p class="help-block">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    @Html.LabelFor(m => m.CNC_Brand, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.CNC_Brand, new { @class = "form-control", @readonly = "readonly", style = "width:200px;" })
+                        <p class="help-block">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    @Html.LabelFor(m => m.CNC_Model, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.CNC_Model, new { @class = "form-control", @readonly = "readonly" })
+                        <p class="help-block">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    @Html.LabelFor(m => m.Model_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(m => m.Model_Name, new { @class = "form-control", @readonly = "readonly" })
+                        <p class="help-block"></p>
+                    </div>
+                    @Html.LabelFor(m => m.Good_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(m => m.Good_Name, new { @class = "form-control", @readonly = "readonly" })
+                        <p class="help-block">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    @Html.LabelFor(m => m.Car_No, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(m => m.Car_No, new { @class = "form-control", @readonly = "readonly" })
+                        <p class="help-block">
+                        </p>
+                    </div>
+                    @Html.LabelFor(m => m.Line_No, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(m => m.Line_No, new { @class = "form-control", @readonly = "readonly" })
+                        <p class="help-block">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    @Html.LabelFor(m => m.WorkStation_No, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(m => m.WorkStation_No, new { @class = "form-control", @readonly = "readonly" })
+                        <p class="help-block">
+                        </p>
+                    </div>
+                    @Html.LabelFor(m => m.Emp_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(m => m.Emp_Name, new { @class = "form-control", @readonly = "readonly" })
+                        <p class="help-block">
+                        </p>
+                    </div>
+                </div>
+
+                <section class="section-grid">
+                    @(Html.Kendo().Grid<Tool_Management.Service.ViewModels.KnifeListViewModel>()
+                    .Name("grid")
+                    .Columns(columns =>
+                    {
+                        columns.Bound(c => c.KnifeList_ID).Hidden();
+                        columns.Bound(c => c.ATC_ID)
+                        .HtmlAttributes(new { @class = "gridCell-center" }).Width(150);
+                        columns.Bound(c => c.KnifeMaster_ID)
+                        .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                        columns.Bound(c => c.HiltMaster_ID)
+                        .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                        columns.Bound(c => c.NailMaster_ID)
+                        .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                        columns.Bound(c => c.ExtRodMaster_ID)
+                        .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                        columns.Bound(c => c.Collet1Master_ID)
+                        .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                        columns.Bound(c => c.Collet2Master_ID)
+                        .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                        columns.Bound(c => c.NutMaster_ID)
+                        .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                        columns.Bound(c => c.Program_No)
+                        .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                        columns.Bound(c => c.CL)
+                        .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                        columns.Bound(c => c.D)
+                        .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                        columns.Bound(c => c.Deep)
+                        .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                        columns.Bound(c => c.L)
+                        .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                        columns.Bound(c => c.R)
+                        .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                        columns.Bound(c => c.EZ)
+                        .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                        columns.Bound(c => c.FL)
+                        .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                        columns.Bound(c => c.SZ)
+                        .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                        columns.Bound(c => c.Time)
+                        .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                        columns.Bound(c => c.Way)
+                        .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                        columns.Bound(c => c.Reserved)
+                        .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                        columns.Bound(c => c.Memo)
+                        .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+
+                        columns.Bound(c => c.KnifeList_Create_DT)
+                         .Format("{0:yyyy/MM/dd HH:mm:ss}")
+                        .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                        columns.Bound(c => c.KnifeList_Create_Name)
+                        .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                        columns.Bound(c => c.KnifeList_Modify_DT)
+                        .Format("{0:yyyy/MM/dd HH:mm:ss}")
+                        .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+                        columns.Bound(c => c.KnifeList_Modify_Name)
+                        .HtmlAttributes(new { @class = "gridCell-center" }).Width(100);
+
+                    })
+
+                    .Resizable(r => r.Columns(true))
+                    .Scrollable(scrollable => scrollable.Height("auto"))
+                    .Sortable()
+                    .NoRecords("查無資料")
+                    .Pageable(
+                        pageable => pageable.Refresh(true)
+                        .PageSizes(new[] { 10 })
+                        .Messages(m =>
+                        {
+                            m.Empty("查無資料");
+                            m.ItemsPerPage("每頁筆數");
+                            m.Display("{0} - {1} 共 {2} 筆");
+                        })
+                    )
+                    .DataSource(dataSource => dataSource
+                        .Ajax()
+                        .Sort(s => { s.Add(o => o.ATC_ID).Descending(); })
+                        .Model(model => { model.Id(p => p.KnifeList_ID); })
+                        .Read(read => read.Action("GridATCSearch", "CNCStartStop"))
+
+                    .PageSize(10)
+                    )
+                    )
+
+                </section>
+
+            </div>
+        </div>
+    </div>
+        
+
+<script type="text/javascript">
+    $(function () {
+
+        $("#btnQuery").click(function (e) {
+            e.preventDefault();
+            console.log('Query it!');
+
+            var $this = $(this);
+            //_trim("updateForm");
+            var postData = $("#editForm").serialize();
+
+            $.post('@(Url.Action("Query", "CNCStartStop"))', postData, function (data) {
+                debugger;
+                if (data.Result == true) {
+                    $("#tCNC_ID").val(data.CNC_ID);
+                    $("#CNC_IP").val(data.CNC_IP);
+                    $("#CNC_Brand").val(data.CNC_Brand);
+                    $("#CNC_Model").val(data.CNC_Model);
+                    $("#Model_Name").val(data.Model_Name);
+                    $("#Good_Name").val(data.Good_Name);
+                    $("#Car_No").val(data.Car_No);
+                    $("#Line_No").val(data.Line_No);
+                    $("#WorkStation_No").val(data.WorkStation_No);
+                    $("#Emp_Name").val(data.Emp_Name);
+                    $("#KnifeList_ID").val(data.KnifeList_ID).trigger("change");
+                  
+                    $(".block").show();
+                }
+                else {
+                    alert('查詢失敗:' + data.ErrMsg);
+                    location.reload();
+                }
+                //location.reload();
+            })
+            .fail(function (jqXHR, textStatus) {
+                if (jqXHR.status == 401) {
+                    alert("Unauthorized: " + jqXHR.status);
+                }
+                else {
+                    alert("Request failed: " + textStatus);
+                }
+                $this.button('reset');
+            });
+        });
+    });
+</script>
+<script type="text/javascript">
+
+    function onDeactivate(e) {
+
+
+        //不秀建立時間
+
+        $("label[for='KnifeMaster_Create_ID']").hide();
+        $("#KnifeMaster_Create_ID").hide();
+        $("label[for='KnifeMaster_Modify_ID']").hide();
+        $("#KnifeMaster_Modify_ID").hide();
+        $("label[for='KnifeMaster_Create_Name']").hide();
+        $("#KnifeMaster_Create_Name").hide();
+        $("label[for='KnifeMaster_Modify_Name']").hide();
+        $("#KnifeMaster_Modify_Name").hide();
+
+        $("label[for='KnifeMaster_Create_DT']").hide();
+        $("label[for='KnifeMaster_Modify_DT']").hide();
+        $(".k-datetimepicker").hide();
+        $(".k-select").hide();
+
+        $(".k-grid-update")[0].innerHTML = "確認";
+        $(".k-grid-cancel")[0].innerHTML = "取消";
+
+    }
+
+
+</script>
+
+
+

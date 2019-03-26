@@ -103,7 +103,7 @@
                         .DataSource(dataSource => dataSource
                             .Ajax()
                             .Sort(s => { s.Add(o => o.KnifeList_ID).Descending(); })
-                            //.Events(events => events.Error("error_handler"))
+                            .Events(events => events.Error("error_handler"))
                             .Model(model => { model.Id(p => p.KnifeList_ID); })
                             .Read(read => read.Action("GridSearch", "KnifeList"))
                             .Create(update => update.Action("EditingPopup_Create", "KnifeList"))
@@ -188,3 +188,22 @@
 
 </script>
 
+<script type="text/javascript">
+    function error_handler(e) {
+
+        if (e.errors) {
+            var message = "";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function () {
+                        message += this + "\n";
+                    });
+                }
+            });
+
+            location.reload();
+            alert(message);
+        }
+        return;
+    }
+</script>

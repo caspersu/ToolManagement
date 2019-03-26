@@ -114,6 +114,30 @@ namespace Tool_Management.Service.Services
             return result;
         }
 
+        HiltMasterViewModel ITM_HiltMaster.Get(string id)
+        {
+            var result = (from c in _db.HiltMasters
+                          where c.HiltMaster_ID == id
+                          select new HiltMasterViewModel
+                          {
+                              HiltMaster_ID = c.HiltMaster_ID,
+                              Hilt_Brand = c.Hilt_Brand,
+                              Hilt_CabinID = c.Hilt_CabinID,
+                              Hilt_Name = c.Hilt_Name,
+                              Hilt_Quality = c.Hilt_Quality,
+                              Hilt_Spec = c.Hilt_Spec,
+                              HiltMaster_Create_DT = c.HiltMaster_Create_DT,
+                              HiltMaster_Create_ID = c.HiltMaster_Create_ID,
+                              
+                              HiltMaster_Modify_DT = c.HiltMaster_Modify_DT,
+                              HiltMaster_Modify_ID = c.HiltMaster_Modify_ID,
+                             
+
+                          }).FirstOrDefault();
+
+            return result;
+        }
+
     }
 
     public class TM_HiltDetailService : ITM_HiltDetail

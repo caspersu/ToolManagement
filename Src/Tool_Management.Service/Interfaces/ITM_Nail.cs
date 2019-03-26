@@ -15,6 +15,7 @@ namespace Tool_Management.Service.Interfaces
         void Update(NailMasterViewModel viewModel);
 
         void Create(NailMasterViewModel viewModel);
+        NailMasterViewModel Get(string id);
     }
 
     public interface ITM_NailDetail

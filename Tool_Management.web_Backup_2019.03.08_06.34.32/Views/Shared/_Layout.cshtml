@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tool Management - @ViewBag.Title</title>
+        <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+        <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+        <link href="@Url.Content("~/Content/kendo/2019.1.220/kendo.common-material.min.css")" rel="stylesheet" type="text/css" />
+        <link href="@Url.Content("~/Content/kendo/2019.1.220/kendo.mobile.all.min.css")" rel="stylesheet" type="text/css" />
+        <link href="@Url.Content("~/Content/kendo/2019.1.220/kendo.material.min.css")" rel="stylesheet" type="text/css" />
+        <script src="@Url.Content("~/Scripts/kendo/2019.1.220/jquery.min.js")"></script>
+        <script src="@Url.Content("~/Scripts/kendo/2019.1.220/angular.min.js")"></script>
+        <script src="@Url.Content("~/Scripts/kendo/2019.1.220/jszip.min.js")"></script>
+        <script src="@Url.Content("~/Scripts/kendo/2019.1.220/kendo.all.min.js")"></script>
+        <link href="~/content/style.css" rel="stylesheet">
+        <link href="~/content/style/base.css" rel="stylesheet" type="text/css" />
+        <script src="~/scripts/js/common.js" type="text/javascript"></script>
+        <script src="~/scripts/Js/showList.js" type="text/javascript"></script>
+        <link href="~/content/style/menu.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <!--<strong>Tool Management</strong>-->
+        </header><!-- .header-->
+        <div class="middle">
+            <div class="container">
+                <main class="content">
+                   @RenderBody()
+                </main><!-- .content -->
+            </div><!-- .container-->
+            <aside class="left-sidebar">
+               <!--menu-->
+                <div class="float-right">
+                    <div class="left-sider">
+                        <div class="operate">
+                            <h3> Tool Management </h3>
+                            <ul id="J_navlist">
+                                <li>
+                                    <h4>機種管理</h4>
+                                    <div class="list-item none">
+                                        <p><a href="http://www.jq-school.com" target="_self">機種維護</a></p>            
+                                    </div>
+                                </li>
+                                <li>
+                                    <h4>機台管理</h4>
+                                    <div class="list-item none">
+                                        <p><a href="http://www.jq-school.com" target="_self">機台維護</a></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h4>刀具管理</h4>
+                                    <div class="list-item none">
+                                        <p><a href="http://www.jq-school.com" target="_self">刀具維護</a></p>
+                                        <p><a href="http://www.jq-school.com" target="_self">刀具入庫</a></p>
+                                        <p><a href="http://www.jq-school.com" target="_self">刀具出庫</a></p>
+                                        <p><a href="http://www.jq-school.com" target="_self">換刀登記</a></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h4>刀把管理</h4>
+                                    <div class="list-item none">
+                                        <p><a href="http://www.jq-school.com" target="_self">刀把維護</a></p>
+                                        <p><a href="http://www.jq-school.com" target="_self">刀把入庫</a></p>
+                                        <p><a href="http://www.jq-school.com" target="_self">刀把出庫</a></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h4>拉丁管理</h4>
+                                    <div class="list-item none">
+                                        <p><a href="http://www.jq-school.com" target="_self">拉丁維護</a></p>
+                                        <p><a href="http://www.jq-school.com" target="_self">拉丁入庫</a></p>
+                                        <p><a href="http://www.jq-school.com" target="_self">拉丁出庫</a></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h4>機上量測管理</h4>
+                                    <div class="list-item none">
+                                        <p><a href="http://www.jq-school.com" target="_self">機上量測維護</a></p>
+                                        <p><a href="http://www.jq-school.com" target="_self">機上量測入庫</a></p>
+                                        <p><a href="http://www.jq-school.com" target="_self">機上量測出庫</a></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h4>延長桿管理</h4>
+                                    <div class="list-item none">
+                                        <p><a href="http://www.jq-school.com" target="_self">延長桿維護</a></p>
+                                        <p><a href="http://www.jq-school.com" target="_self">延長桿入庫</a></p>
+                                        <p><a href="http://www.jq-school.com" target="_self">延長桿出庫</a></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h4>螺帽/刀頭管理</h4>
+                                    <div class="list-item none">
+                                        <p><a href="http://www.jq-school.com" target="_self">螺帽/刀頭維護</a></p>
+                                        <p><a href="http://www.jq-school.com" target="_self">螺帽/刀頭入庫</a></p>
+                                        <p><a href="http://www.jq-school.com" target="_self">螺帽/刀頭出庫</a></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h4>筒夾1管理</h4>
+                                    <div class="list-item none">
+                                        <p><a href="http://www.jq-school.com" target="_self">筒夾1維護</a></p>
+                                        <p><a href="http://www.jq-school.com" target="_self">筒夾1入庫</a></p>
+                                        <p><a href="http://www.jq-school.com" target="_self">筒夾1出庫</a></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h4>筒夾2管理</h4>
+                                    <div class="list-item none">
+                                        <p><a href="http://www.jq-school.com" target="_self">筒夾2維護</a></p>
+                                        <p><a href="http://www.jq-school.com" target="_self">筒夾2入庫</a></p>
+                                        <p><a href="http://www.jq-school.com" target="_self">筒夾2出庫</a></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h4>人員管理</h4>
+                                    <div class="list-item none">
+                                        <p><a href="http://www.jq-school.com" target="_self">人員維護</a></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h4>庫存管理</h4>
+                                    <div class="list-item none">
+                                        <p><a href="http://www.jq-school.com" target="_self">刀具庫存表</a></p>
+                                    </div>
+                                    <div class="list-item none">
+                                        <p><a href="http://www.jq-school.com" target="_self">刀把庫存表</a></p>
+                                    </div>
+                                    <div class="list-item none">
+                                        <p><a href="http://www.jq-school.com" target="_self">拉丁庫存表</a></p>
+                                    </div>
+                                    <div class="list-item none">
+                                        <p><a href="http://www.jq-school.com" target="_self">機上量測庫存表</a></p>
+                                    </div>
+                                    <div class="list-item none">
+                                        <p><a href="http://www.jq-school.com" target="_self">延長桿庫存表</a></p>
+                                    </div>
+                                    <div class="list-item none">
+                                        <p><a href="http://www.jq-school.com" target="_self">螺帽/刀頭庫存表</a></p>
+                                    </div>
+                                    <div class="list-item none">
+                                        <p><a href="http://www.jq-school.com" target="_self">筒夾1庫存表</a></p>
+                                    </div>
+                                    <div class="list-item none">
+                                        <p><a href="http://www.jq-school.com" target="_self">筒夾2庫存表</a></p>
+                                    </div>
+                                </li>
+                                                              
+                                <li>
+                                    <h4>生產計畫</h4>
+                                    <div class="list-item none">
+                                        <p><a href="http://www.jq-school.com" target="_self">刀具配置</a></p>
+                                        <p><a href="http://www.jq-school.com" target="_self">機台配置</a></p>
+                                        <p><a href="http://www.jq-school.com" target="_self">人員配置</a></p>
+                                        <p><a href="http://www.jq-school.com" target="_self">機台運作</a></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h4>生產訊息</h4>
+                                    <div class="list-item none">
+                                        <p><a href="http://www.jq-school.com" target="_self">機台總覽</a></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h4>報表作業</h4>
+                                    <div class="list-item none">
+                                        <p><a href="http://www.jq-school.com" target="_self">每月生產報表</a></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h4>其他</h4>
+                                    <div class="list-item none">
+                                        <p><a href="http://www.jq-school.com" target="_self">二維碼匯出</a></p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <script type="text/javascript" language="javascript">
+			navList(12);
+                            </script>
+                        </div>
+                    </div>
+                </div>
+               <!---->
+            </aside><!-- .left-sidebar -->
+        </div><!-- .middle-->
+        <footer class="footer">
+            <DIV style="text-align:center;"><span style="font-size:18px;">版權所有 ©  Ju Teng International Holdings Ltd.</span></DIV> 
+        </footer><!-- .footer -->
+    </div><!-- .wrapper -->
+</body>    
+</html>

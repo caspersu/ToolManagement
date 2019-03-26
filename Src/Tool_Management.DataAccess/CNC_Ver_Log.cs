@@ -19,7 +19,5 @@ namespace Tool_Management.DataAccess
         public string Create_DT { get; set; }
         public string CNC_Model { get; set; }
         public string CNC_Ver { get; set; }
-    
-        public virtual CNC CNC { get; set; }
     }
 }

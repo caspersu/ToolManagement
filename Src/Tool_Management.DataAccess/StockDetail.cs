@@ -14,34 +14,21 @@ namespace Tool_Management.DataAccess
     
     public partial class StockDetail
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public StockDetail()
-        {
-            this.Informs = new HashSet<Inform>();
-            this.KnifeChangeFroms = new HashSet<KnifeChangeFrom>();
-            this.OutFroms = new HashSet<OutFrom>();
-        }
-    
         public long Sno { get; set; }
         public string Master_ID { get; set; }
         public string Detail_ID { get; set; }
         public string MasterID_Type { get; set; }
         public long Bound_Type { get; set; }
-        public System.DateTime Create_DT { get; set; }
+        public System.DateTime StcokDetail_Create_DT { get; set; }
+        public string StockDetail_Create_ID { get; set; }
         public string Memo { get; set; }
     
         public virtual Collet1Detail Collet1Detail { get; set; }
         public virtual Collet2Detail Collet2Detail { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Inform> Informs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KnifeChangeFrom> KnifeChangeFroms { get; set; }
+        public virtual HiltDetail HiltDetail { get; set; }
         public virtual KnifeDetail KnifeDetail { get; set; }
         public virtual MeasureDetail MeasureDetail { get; set; }
         public virtual NailDetail NailDetail { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OutFrom> OutFroms { get; set; }
         public virtual Stock Stock { get; set; }
-        public virtual HiltDetail HiltDetail { get; set; }
     }
 }

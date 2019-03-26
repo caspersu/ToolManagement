@@ -22,7 +22,5 @@ namespace Tool_Management.DataAccess
         public string CNC_Status { get; set; }
         public Nullable<System.DateTime> CNC_StatusDT { get; set; }
         public string CNC_ProgramNo { get; set; }
-    
-        public virtual CNC CNC { get; set; }
     }
 }

@@ -15,6 +15,7 @@ namespace Tool_Management.Service.Interfaces
         void Update(ExtRodMasterViewModel viewModel);
 
         void Create(ExtRodMasterViewModel viewModel);
+        ExtRodMasterViewModel Get(string id);
     }
 
     public interface ITM_ExtRodDetail

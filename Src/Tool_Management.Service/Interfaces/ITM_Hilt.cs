@@ -15,6 +15,7 @@ namespace Tool_Management.Service.Interfaces
         void Update(HiltMasterViewModel viewModel);
 
         void Create(HiltMasterViewModel viewModel);
+        HiltMasterViewModel Get(string id);
     }
 
     public interface ITM_HiltDetail

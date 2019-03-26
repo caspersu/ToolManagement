@@ -17,11 +17,6 @@ namespace Tool_Management.DataAccess
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CNC()
         {
-            this.CNC_ALARM_Log = new HashSet<CNC_ALARM_Log>();
-            this.CNC_ATCTL_Log = new HashSet<CNC_ATCTL_Log>();
-            this.CNC_PRD3_Log = new HashSet<CNC_PRD3_Log>();
-            this.CNC_Ver_Log = new HashSet<CNC_Ver_Log>();
-            this.CNC_WKCNTR_Log = new HashSet<CNC_WKCNTR_Log>();
             this.CNCKnifeLists = new HashSet<CNCKnifeList>();
         }
     
@@ -34,16 +29,6 @@ namespace Tool_Management.DataAccess
         public System.DateTime CNC_Modify_DT { get; set; }
         public string CNC_Modify_ID { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CNC_ALARM_Log> CNC_ALARM_Log { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CNC_ATCTL_Log> CNC_ATCTL_Log { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CNC_PRD3_Log> CNC_PRD3_Log { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CNC_Ver_Log> CNC_Ver_Log { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CNC_WKCNTR_Log> CNC_WKCNTR_Log { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CNCKnifeList> CNCKnifeLists { get; set; }
     }

@@ -15,6 +15,7 @@ namespace Tool_Management.Service.Interfaces
         void Update(NutMasterViewModel viewModel);
 
         void Create(NutMasterViewModel viewModel);
+        NutMasterViewModel Get(string id);
     }
 
     public interface ITM_NutDetail

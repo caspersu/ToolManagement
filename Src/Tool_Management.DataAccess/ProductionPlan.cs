@@ -15,14 +15,15 @@ namespace Tool_Management.DataAccess
     public partial class ProductionPlan
     {
         public decimal Planning_ID { get; set; }
-        public decimal CNCKnifeList_ID { get; set; }
-        public string Class_Type { get; set; }
         public string Class_EmpID { get; set; }
+        public string KnifeList_ID { get; set; }
+        public Nullable<decimal> CNCKnifeList_ID { get; set; }
+        public string Class_Type { get; set; }
         public int Class_StandardPerson { get; set; }
         public int Class_RealPerson { get; set; }
         public System.DateTime Planning_Create_DT { get; set; }
         public string Planning_Create_ID { get; set; }
-        public Nullable<System.DateTime> Planning_Modify_DT { get; set; }
+        public System.DateTime Planning_Modify_DT { get; set; }
         public string Planning_Modify_ID { get; set; }
     
         public virtual CNCKnifeList CNCKnifeList { get; set; }

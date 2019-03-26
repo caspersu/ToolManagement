@@ -37,7 +37,7 @@ namespace Tool_Management.Service.Services
             _db.NutMasters.Add(entry);
             _db.SaveChanges();
 
-            //insert HiltDetail
+            //insert NutDetail
             int no;
             var result = _db.NutDetails.OrderByDescending(x => x.NutDetail_ID.Contains(viewModel.NutMaster_ID)).First();
             if (result == null)
@@ -53,7 +53,7 @@ namespace Tool_Management.Service.Services
                 {
                     NutDetail_ID = viewModel.NutMaster_ID + "-" + sn,
                     NutDetail_Status = ((int)SysCode.Status.正常入庫).ToString(),
-                    //IsNewHilt = "Y",
+                    //IsNewNut = "Y",
                     //NewEnter_DT = CreateTime,
                     NutMaster_ID = viewModel.NutMaster_ID,
                     NutDetail_Create_DT = CreateTime,
@@ -114,6 +114,30 @@ namespace Tool_Management.Service.Services
             return result;
         }
 
+        NutMasterViewModel ITM_NutMaster.Get(string id)
+        {
+            var result = (from c in _db.NutMasters
+                          where c.NutMaster_ID == id
+                          select new NutMasterViewModel
+                          {
+                              NutMaster_ID = c.NutMaster_ID,
+                              Nut_Brand = c.Nut_Brand,
+                              Nut_CabinID = c.Nut_CabinID,
+                              Nut_Name = c.Nut_Name,
+                              Nut_Quality = c.Nut_Quality,
+                              Nut_Spec = c.Nut_Spec,
+                              NutMaster_Create_DT = c.NutMaster_Create_DT,
+                              NutMaster_Create_ID = c.NutMaster_Create_ID,
+
+                              NutMaster_Modify_DT = c.NutMaster_Modify_DT,
+                              NutMaster_Modify_ID = c.NutMaster_Modify_ID,
+
+
+                          }).FirstOrDefault();
+
+            return result;
+        }
+
     }
 
     public class TM_NutDetailService : ITM_NutDetail
@@ -140,7 +164,7 @@ namespace Tool_Management.Service.Services
                 {
                     NutDetail_ID = viewModel.NutMaster_ID + "-" + sn,
                     NutDetail_Status = ((int)SysCode.Status.正常入庫).ToString(),
-                    //IsNewHilt = "Y",
+                    //IsNewNut = "Y",
                     //NewEnter_DT =CreateTime,
                     NutMaster_ID = viewModel.NutMaster_ID,
                     NutDetail_Create_DT = CreateTime,
@@ -163,7 +187,7 @@ namespace Tool_Management.Service.Services
             {
                 foreach (var p in q)
                 {
-                    //p.IsNewHilt = viewModel.IsNewHilt;                    
+                    //p.IsNewNut = viewModel.IsNewNut;                    
                     p.NutDetail_Status = viewModel.NutDetail_Status;
                     p.NutDetail_Modify_ID = viewModel.NutDetail_Modify_ID;
                     p.NutDetail_Modify_DT = viewModel.NutDetail_Modify_DT;
@@ -184,7 +208,7 @@ namespace Tool_Management.Service.Services
 
                             NutDetail_ID = c.NutDetail_ID,
                             NutDetail_Status = c.NutDetail_Status,
-                            //IsNewHilt = c.IsNewHilt,
+                            //IsNewNut = c.IsNewNut,
                             //NewEnter_DT = c.NewEnter_DT,                             
                             NutDetail_Create_DT = c.NutDetail_Create_DT,
                             NutDetail_Modify_DT = c.NutDetail_Modify_DT,

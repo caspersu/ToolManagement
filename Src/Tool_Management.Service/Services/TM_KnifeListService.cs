@@ -11,6 +11,7 @@ using Tool_Management.Service.Interfaces;
 using Tool_Management.Service.Utils;
 using Tool_Management.Service.ViewModels;
 using Tool_Management.DataAccess;
+using System.Web.Util;
 
 namespace Tool_Management.Service.Services
 {
@@ -21,18 +22,11 @@ namespace Tool_Management.Service.Services
         public void CreateATC(KnifeListViewModel viewModel)
         {
             DateTime CreateTime = System.DateTime.Now;
-
-            var entry = new KnifeList
+           
+             var entry = new KnifeList
             {
                 KnifeList_ID = viewModel.KnifeList_ID,
                 ATC_ID = viewModel.ATC_ID,
-                KnifeDetail_ID = new Common().GetKnifeDetailID(viewModel.KnifeMaster_ID),
-                HiltDetail_ID = new Common().GetHiltDetailID(viewModel.HiltMaster_ID),
-                NailDetail_ID = new Common().GetNailDetailID(viewModel.NailDetail_ID),
-                ExtRodDetail_ID = string.IsNullOrEmpty(viewModel.ExtRodMaster_ID) ? "" : new Common().GetExtRodDetailID(viewModel.ExtRodMaster_ID),
-                Collet1Detail_ID = string.IsNullOrEmpty(viewModel.Collet1Master_ID) ? "" : new Common().GetCollet1DetailID(viewModel.Collet1Master_ID),
-                Collet2Detail_ID = string.IsNullOrEmpty(viewModel.Collet2Master_ID) ? "" : new Common().GetCollet2DetailID(viewModel.Collet2Master_ID),
-                NutDetail_ID = string.IsNullOrEmpty(viewModel.NutMaster_ID) ? "" : new Common().GetNutDetailID(viewModel.NutMaster_ID, viewModel.KnifeMaster_ID),
                 D = viewModel.D,
                 CL = viewModel.CL,
                 FL = viewModel.FL,
@@ -44,16 +38,39 @@ namespace Tool_Management.Service.Services
                 Program_No = viewModel.Program_No,
                 Reserved = viewModel.Reserved,
                 Way = viewModel.Way,
-                Time = int.Parse(viewModel.Time),
+                Time = viewModel.Time,
                 Memo = viewModel.Memo,
-                //KnifeList_Create_DT = CreateTime,
+                KnifeList_Create_DT = CreateTime,
                 KnifeList_Modify_DT = CreateTime,
-                //KnifeList_Create_ID = viewModel.KnifeList_Create_ID,
+                KnifeList_Create_ID = viewModel.KnifeList_Create_ID,
                 KnifeList_Modify_ID = viewModel.KnifeList_Modify_ID,
         };
             _db.KnifeLists.Add(entry);
             _db.SaveChanges();
-           
+
+            //var delentry = new KnifeList { KnifeList_ID = viewModel.KnifeList_ID };
+            //using (var transaction = _db.Database.BeginTransaction())
+            //{      
+            //    _db.KnifeLists.Attach(delentry);
+            //    _db.KnifeLists.Remove(delentry);
+            //    _db.KnifeLists.Add(entry);
+            //    try
+            //    {
+            //        var result = _db.SaveChanges();
+            //        if (result == 0)
+            //        {
+            //            throw new Exception();
+            //        }
+            //        transaction.Commit();
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        transaction.Rollback();
+            //    }
+
+            //}
+
+
         }
 
         public void Create(vKnifeListViewModel viewModel)
@@ -95,7 +112,7 @@ namespace Tool_Management.Service.Services
         public DataSourceResult GridSearch(DataSourceRequest request)
         {
 
-            var result = (from c in _db.vKnifeLists
+            var result = (from c in _db.vKnifeLists 
                         select new vKnifeListViewModel
                         {
                             KnifeList_ID = c.KnifeList_ID,
@@ -117,42 +134,75 @@ namespace Tool_Management.Service.Services
 
         public DataSourceResult GridATC(DataSourceRequest request,string id)
         {
-            var result = (from c in _db.KnifeLists where c.KnifeList_ID == id
+            
+            if (string.IsNullOrEmpty(id) == false)
+            {
+               var result = (from c in _db.KnifeLists
+                          where c.KnifeList_ID == id && c.ATC_ID != null
                           select new KnifeListViewModel
                           {
-                              //KnifeList_ID = c.KnifeList_ID,
-                              //Model_ID = c.Model_ID,
-                              //Good_ID = c.Good_ID,
-                              //WorkStation_No = c.WorkStation_No,
+                              KnifeList_ID = c.KnifeList_ID,
                               ATC_ID = c.ATC_ID,
-                              //KnifeMaster_ID = c.KnifeDetail_ID.Substring(0, c.KnifeDetail_ID.Length-6),
                               KnifeDetail_ID = c.KnifeDetail_ID,
-                              //HiltMaster_ID = c.HiltDetail_ID.Split('-')[0],
                               HiltDetail_ID = c.HiltDetail_ID,
-                              //NailMaster_ID = c.NailDetail_ID.Split('-')[0],
                               NailDetail_ID = c.NailDetail_ID,
-                              //ExtRodMaster_ID = string.IsNullOrEmpty(c.ExtRodDetail_ID) ? "" : c.ExtRodDetail_ID.Split('-')[0],
                               ExtRodDetail_ID = string.IsNullOrEmpty(c.ExtRodDetail_ID) ? "" : c.ExtRodDetail_ID,
-                              //Collet1Master_ID = string.IsNullOrEmpty(c.Collet1Detail_ID) ? "" : c.Collet1Detail_ID.Split('-')[0],
                               Collet1Detail_ID = string.IsNullOrEmpty(c.Collet1Detail_ID) ? "" : c.Collet1Detail_ID,
-                              //Collet2Master_ID = string.IsNullOrEmpty(c.Collet2Detail_ID) ? "": c.Collet2Detail_ID.Split('-')[0],
-                              Collet2Detail_ID = string.IsNullOrEmpty(c.Collet2Detail_ID) ? "": c.Collet2Detail_ID,
+                              Collet2Detail_ID = string.IsNullOrEmpty(c.Collet2Detail_ID) ? "" : c.Collet2Detail_ID,
                               D = c.D,
                               L = c.L,
                               CL = c.CL,
                               FL = c.FL,
-                               R = c.R,
-                               SZ = c.SZ,
-                               EZ = c.EZ,
-                                Deep = c.Deep,
-                                 Memo = c.Memo,
+                              R = c.R,
+                              SZ = c.SZ,
+                              EZ = c.EZ,
+                              Deep = c.Deep,
+                              Memo = c.Memo,
+                              Reserved = c.Reserved,
+                              Program_No = c.Program_No,
+                              Time = c.Time,
+                              Way = c.Way
+                          });
+                if (result.Count() > 0)
+                    return result.OrderBy(x => x.ATC_ID).ToDataSourceResult(request);
+                else
+                    return result.ToDataSourceResult(request);
+            }
+            else
+            {
+               
+                var result = (from c in _db.KnifeLists
+                              where c.ATC_ID != null
+                              select new KnifeListViewModel
+                              {
+                                  KnifeList_ID = c.KnifeList_ID,
+                                  ATC_ID = c.ATC_ID,
+                                  KnifeDetail_ID = c.KnifeDetail_ID,
+                                  HiltDetail_ID = c.HiltDetail_ID,
+                                  NailDetail_ID = c.NailDetail_ID,
+                                  ExtRodDetail_ID = string.IsNullOrEmpty(c.ExtRodDetail_ID) ? "" : c.ExtRodDetail_ID,
+                                  Collet1Detail_ID = string.IsNullOrEmpty(c.Collet1Detail_ID) ? "" : c.Collet1Detail_ID,
+                                  Collet2Detail_ID = string.IsNullOrEmpty(c.Collet2Detail_ID) ? "" : c.Collet2Detail_ID,
+                                  D = c.D,
+                                  L = c.L,
+                                  CL = c.CL,
+                                  FL = c.FL,
+                                  R = c.R,
+                                  SZ = c.SZ,
+                                  EZ = c.EZ,
+                                  Deep = c.Deep,
+                                  Memo = c.Memo,
                                   Reserved = c.Reserved,
-                                   Program_No = c.Program_No,
-                                      Time = c.Time.ToString(),
-                                       Way= c.Way
-                          }).OrderBy(x=>x.ATC_ID).ToDataSourceResult(request);
-
-            return result;
+                                  Program_No = c.Program_No,
+                                  Time = c.Time,
+                                  Way = c.Way
+                              });
+                if (result.Count()>0)
+                    return result.OrderBy(x => x.ATC_ID).ToDataSourceResult(request);
+                else
+                    return result.ToDataSourceResult(request);
+            }
+            
         }
 
         public void UpdateKnifeList(vKnifeListViewModel viewModel)
@@ -202,7 +252,7 @@ namespace Tool_Management.Service.Services
                     p.Program_No = viewModel.Program_No;
                     p.Reserved = viewModel.Reserved;
                     p.Way = viewModel.Way;
-                    p.Time = int.Parse(viewModel.Time);
+                    p.Time = viewModel.Time;
                     p.Memo = viewModel.Memo;
                     p.KnifeList_Modify_DT = System.DateTime.Now;
                     p.KnifeList_Modify_ID = viewModel.KnifeList_Modify_ID;
@@ -276,10 +326,24 @@ namespace Tool_Management.Service.Services
                                       R = c.R,
                                        Reserved = c.Reserved,
                                         SZ = c.SZ,
-                                         Time = c.Time.ToString(),
+                                         Time = c.Time,
                                           Way = c.Way  
 
                           }).FirstOrDefault();
+
+            return result;
+        }
+
+        public IList<vKnifeListViewModel> GetKnifeList()
+        {
+            var result = _db.vKnifeLists.Select(s => new vKnifeListViewModel()
+            {
+                 Good_Name = s.Good_Name,
+                 Model_ID = s.Model_ID,
+                 Model_Name = s.Model_Name,
+                 WorkStation_No = s.WorkStation_No,
+                 KnifeList_ID = s.KnifeList_ID
+            }).ToList();
 
             return result;
         }

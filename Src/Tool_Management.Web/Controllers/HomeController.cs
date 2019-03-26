@@ -13,10 +13,8 @@ namespace Tool_Management.Controllers
         
         // GET: Default
         public ActionResult Index()
-        {
-            Session.Abandon();
-            Session.Add("UserAcc", "B00005150");
-
+        {           
+            Session["UserAcc"] = "B00005150";
             return View();
         }
 

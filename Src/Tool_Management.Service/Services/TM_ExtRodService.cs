@@ -114,6 +114,28 @@ namespace Tool_Management.Service.Services
             return result;
         }
 
+        ExtRodMasterViewModel ITM_ExtRodMaster.Get(string id)
+        {
+            var result = (from c in _db.ExtRodMasters
+                          where c.ExtRodMaster_ID == id
+                          select new ExtRodMasterViewModel
+                          {
+                              ExtRodMaster_ID = c.ExtRodMaster_ID,
+                              ExtRod_Brand = c.ExtRod_Brand,
+                              ExtRod_CabinID = c.ExtRod_CabinID,
+                              ExtRod_Name = c.ExtRod_Name,
+                              ExtRod_Quality = c.ExtRod_Quality,
+                              ExtRod_Spec = c.ExtRod_Spec,
+                              ExtRodMaster_Create_DT = c.ExtRodMaster_Create_DT,
+                              ExtRodMaster_Create_ID = c.ExtRodMaster_Create_ID,
+                              ExtRodMaster_Modify_DT = c.ExtRodMaster_Modify_DT,
+                              ExtRodMaster_Modify_ID = c.ExtRodMaster_Modify_ID,
+
+                          }).FirstOrDefault();
+
+            return result;
+        }
+
     }
 
     public class TM_ExtRodDetailService : ITM_ExtRodDetail

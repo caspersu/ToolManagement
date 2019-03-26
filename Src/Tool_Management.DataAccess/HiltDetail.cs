@@ -17,8 +17,8 @@ namespace Tool_Management.DataAccess
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public HiltDetail()
         {
-            this.StockDetails = new HashSet<StockDetail>();
             this.KnifeLists = new HashSet<KnifeList>();
+            this.StockDetails = new HashSet<StockDetail>();
         }
     
         public string HiltDetail_ID { get; set; }
@@ -33,8 +33,8 @@ namespace Tool_Management.DataAccess
     
         public virtual HiltMaster HiltMaster { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<StockDetail> StockDetails { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KnifeList> KnifeLists { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<StockDetail> StockDetails { get; set; }
     }
 }

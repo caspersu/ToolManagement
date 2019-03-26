@@ -52,9 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BatchOutFrom.cs">
-      <DependentUpon>Tool_Management.tt</DependentUpon>
-    </Compile>
     <Compile Include="Cabin.cs">
       <DependentUpon>Tool_Management.tt</DependentUpon>
     </Compile>
@@ -64,7 +61,7 @@
     <Compile Include="CNCKnifeList.cs">
       <DependentUpon>Tool_Management.tt</DependentUpon>
     </Compile>
-    <Compile Include="CNCMaster_Remove.cs">
+    <Compile Include="CNCMonitor.cs">
       <DependentUpon>Tool_Management.tt</DependentUpon>
     </Compile>
     <Compile Include="CNC_Alarm_Code_Mapping.cs">
@@ -160,7 +157,7 @@
     <Compile Include="NutMaster.cs">
       <DependentUpon>Tool_Management.tt</DependentUpon>
     </Compile>
-    <Compile Include="OutFrom.cs">
+    <Compile Include="Outform.cs">
       <DependentUpon>Tool_Management.tt</DependentUpon>
     </Compile>
     <Compile Include="ProductionPlan.cs">
@@ -197,13 +194,25 @@
     <Compile Include="vCNC.cs">
       <DependentUpon>Tool_Management.tt</DependentUpon>
     </Compile>
+    <Compile Include="vCNCKnifeList.cs">
+      <DependentUpon>Tool_Management.tt</DependentUpon>
+    </Compile>
     <Compile Include="vCNC_Alarm_Log.cs">
       <DependentUpon>Tool_Management.tt</DependentUpon>
     </Compile>
     <Compile Include="vCNC_Monitor.cs">
       <DependentUpon>Tool_Management.tt</DependentUpon>
     </Compile>
+    <Compile Include="vEmpCNCKnifeList.cs">
+      <DependentUpon>Tool_Management.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vKnifeInForm.cs">
+      <DependentUpon>Tool_Management.tt</DependentUpon>
+    </Compile>
     <Compile Include="vKnifeList.cs">
+      <DependentUpon>Tool_Management.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vProductionPlan.cs">
       <DependentUpon>Tool_Management.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Kind.cs">

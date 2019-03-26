@@ -28,6 +28,8 @@ namespace Tool_Management.Service.Services
                 Knife_CabinID = viewModel.Knife_CabinID,
                 Knife_Spec = viewModel.Knife_Spec,
                 Knife_Quality = viewModel.Knife_Quality,
+                Knife_Kind = viewModel.Knife_Kind,
+                Knife_Model = viewModel.Knife_Model,
                 KnifeMaster_Create_DT = CreateTime,
                 KnifeMaster_Modify_DT = CreateTime,
                 KnifeMaster_Create_ID = viewModel.KnifeMaster_Create_ID,
@@ -39,7 +41,7 @@ namespace Tool_Management.Service.Services
 
             //insert KnifeDetail
             int no;
-            var result = _db.KnifeDetails.OrderByDescending(x => x.KnifeDetail_ID.Contains(viewModel.KnifeMaster_ID)).First();
+            var result = _db.KnifeDetails.OrderByDescending(x => x.KnifeDetail_ID.Contains(viewModel.KnifeMaster_ID)).FirstOrDefault();
             if (result == null)
                 no = 1;
             else
@@ -110,6 +112,34 @@ namespace Tool_Management.Service.Services
                             KnifeMaster_Modify_ID = c.KnifeMaster_Modify_ID
                         }).ToDataSourceResult(request);
 
+
+            return result;
+        }
+
+        KnifeMasterViewModel ITM_KnifeMaster.Get(string id)
+        {
+            var result = (from c in _db.KnifeMasters
+                          join e1 in _db.Employes on c.KnifeMaster_Create_ID equals e1.Emp_ID
+                          join e2 in _db.Employes on c.KnifeMaster_Modify_ID equals e2.Emp_ID
+                          where c.KnifeMaster_ID == id
+                          select new KnifeMasterViewModel
+                          {
+                              KnifeMaster_ID = c.KnifeMaster_ID,
+                              Knife_Brand = c.Knife_Brand,
+                              Knife_CabinID = c.Knife_CabinID,
+                              Knife_Kind = c.Knife_Kind,
+                              Knife_Model = c.Knife_Model,
+                              Knife_Name = c.Knife_Name,
+                              Knife_Quality = c.Knife_Quality,
+                              Knife_Spec = c.Knife_Spec,
+                              KnifeMaster_Create_DT = c.KnifeMaster_Create_DT,
+                              KnifeMaster_Create_ID = c.KnifeMaster_Create_ID,
+                              KnifeMaster_Create_Name =e1.Emp_Name,
+                              KnifeMaster_Modify_DT = c.KnifeMaster_Modify_DT,
+                              KnifeMaster_Modify_ID = c.KnifeMaster_Modify_ID,
+                              KnifeMaster_Modify_Name = e2.Emp_Name
+
+                          }).FirstOrDefault();
 
             return result;
         }
